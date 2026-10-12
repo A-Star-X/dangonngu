@@ -143,4 +143,22 @@ test.describe('Đợt 2: các màn còn lại', () => {
     await expect(page.getByText('Câu 1/8')).toBeVisible();
     await context.setOffline(false);
   });
+
+  // @ac T3-AC08
+  // @ac APP-AC09
+  for (const width of [900, 1000, 1100, 1280]) {
+    test(`T3 hai cột không cuộn ngang và cột chi tiết đủ rộng (${width})`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 800 });
+      await seed(page, { 'vitasr2.settings': settings() });
+      await go(page, './#/thu-vien');
+      await expect(page.locator('.t3__detail-col')).toBeVisible();
+      const m = await page.evaluate(() => ({
+        scroll: document.documentElement.scrollWidth,
+        client: document.documentElement.clientWidth,
+        detail: document.querySelector('.t3__detail-col')!.getBoundingClientRect().width,
+      }));
+      expect(m.scroll).toBeLessThanOrEqual(m.client);
+      expect(m.detail).toBeGreaterThanOrEqual(240);
+    });
+  }
 });
