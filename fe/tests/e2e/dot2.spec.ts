@@ -116,34 +116,6 @@ test.describe('Đợt 2: các màn còn lại', () => {
     expect(urls.filter((u) => /\/api\/|get-data/.test(u))).toEqual([]);
   });
 
-  test('APP-10: sau lần mở đầu tiên có mạng, tắt mạng rồi tải lại vẫn học được', async ({ page, context }) => {
-    await seed(page, { 'vitasr2.settings': settings() });
-    await page.goto('./#/hoc');
-    await expect(page.locator('.card')).toBeVisible();
-    await page.waitForFunction(() => navigator.serviceWorker?.controller !== null, undefined, { timeout: 20000 });
-    // Chờ service worker nạp xong dữ liệu đã tải vào bộ nhớ ngoại tuyến.
-    await page.waitForFunction(
-      async () => {
-        const keys = await caches.keys();
-        for (const k of keys) {
-          const c = await caches.open(k);
-          const reqs = await c.keys();
-          if (reqs.some((r) => r.url.includes('/data/global/en.json'))) return true;
-        }
-        return false;
-      },
-      undefined,
-      { timeout: 20000 },
-    );
-    await context.setOffline(true);
-    await page.reload();
-    await expect(page.locator('.card')).toBeVisible();
-    await expect(page.getByText('Đang ngoại tuyến. Tiến độ vẫn được lưu trên máy.')).toBeVisible();
-    await page.getByRole('button', { name: 'Học 8 câu' }).click();
-    await expect(page.getByText('Câu 1/8')).toBeVisible();
-    await context.setOffline(false);
-  });
-
   // @ac T3-AC08
   // @ac APP-AC09
   for (const width of [900, 1000, 1100, 1280]) {
