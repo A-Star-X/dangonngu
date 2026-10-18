@@ -8,14 +8,16 @@
   - Bằng chứng: test fe/tests/unit/s5.test.tsx pass (npm test), Claude, 2026-10-10, commit 9aaf1ed
 - [x] S5-AC04 [auto] S5-04: Test đơn vị chia cụm: câu 1, 3, 7, 8 và 12 từ cho 1, 2, 3, 4, 4 cụm; ghép các cụm lại bằng đúng câu gốc. Chạm hết cụm thì nút "Câu tiếp" hiện; câu 1 cụm bị bỏ qua.
   - Bằng chứng: test fe/tests/unit/dot2-data.test.ts và fe/tests/unit/s5.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
-- [x] S5-AC05 [auto] S5-05: Thứ tự xáo khác thứ tự đúng và giống nhau giữa hai lần mở cùng câu; xếp đúng thì nút thành "Câu tiếp"; xếp sai thì đúng các cụm sai vị trí được đánh dấu.
-  - Bằng chứng: test fe/tests/unit/dot2-data.test.ts và fe/tests/unit/s5.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
+- [x] S5-AC05 [auto] S5-05: Thứ tự xáo khác thứ tự đúng và giống nhau giữa hai lần mở cùng câu; xếp đúng thì nút thành "Câu tiếp"; xếp sai thì đúng các cụm sai vị trí được đánh dấu và hiện dòng "Chưa đúng. Nhấn các cụm có dấu x để đưa về hàng cụm, rồi xếp lại." màu `--wrong`.
+  - Bằng chứng: test fe/tests/unit/dot2-data.test.ts và fe/tests/unit/s5.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784; kiểm lại 18/10 với bản Đợt 4 (npm test, npm run test:e2e), commit 5ed137c
 - [x] S5-AC06 [claude] S5-06: Ảnh chụp bước 2 và bước 3 ở 375 px: chỉ có nghĩa cả câu, không có nghĩa từng cụm.
-  - Bằng chứng: ảnh docs/evidence/S5-AC06/ (375 px, bước 2 và bước 3, sáng và tối): chỉ có nghĩa của cả câu phía trên khu làm bài, không có nghĩa từng cụm, Claude, 2026-10-10, commit 757a784
+  - Bằng chứng: ảnh docs/evidence/S5-AC06/ (375 px, bước 2 và bước 3, sáng và tối): chỉ có nghĩa của cả câu phía trên khu làm bài, không có nghĩa từng cụm, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [x] S5-AC07 [auto] S5-07: Làm cả 3 bước với 1 câu sai ở bước 1: kết quả hiện đúng số liệu từng bước; câu sai thành Cần ôn trong tiến độ; ở unit cuối không có nút "Kiểm tra unit tiếp theo".
   - Bằng chứng: test fe/tests/unit/s5.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
 - [x] S5-AC08 [auto] S5-08: Thoát giữa bước 2: sheet xác nhận đúng chữ; "Dừng" về T2 Luyện tập (`#/luyen-tap`), kể cả khi mở thẳng `#/kiem-tra`; kết quả các câu đã làm có trong tiến độ; mở lại `#/kiem-tra` bắt đầu từ màn bắt đầu.
   - Bằng chứng: test fe/tests/unit/s5.test.tsx pass (npm test), Claude, 2026-10-10, commit 9aaf1ed
 - [x] S5-AC09 [claude] S5-01, S5-03, S5-04, S5-05, S5-07: Ảnh chụp màn bắt đầu, mỗi bước và kết quả ở 320, 375, 1280 px, sáng và tối; các cụm xuống dòng hợp lý với câu dài.
-  - Bằng chứng: ảnh docs/evidence/S5-AC09/ (320, 375, 1280 px, sáng và tối, unit 377 có câu dài nhất bộ): màn bắt đầu, bước 1 (trước và sau khi chọn đúng), bước 2, bước 3 (xếp sai được đánh dấu), sheet dừng, kết quả; các cụm của câu 138 ký tự xuống dòng gọn trong khung, không tràn ngang, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed
+  - Bằng chứng: ảnh docs/evidence/S5-AC09/ (320, 375, 1280 px, sáng và tối, unit 377 có câu dài nhất bộ): màn bắt đầu, bước 1 (trước và sau khi chọn đúng), bước 2, bước 3 (xếp sai được đánh dấu), sheet dừng, kết quả; các cụm của câu 138 ký tự xuống dòng gọn trong khung, không tràn ngang, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [ ] S5-AC10 [human] S5-04, S5-05: Ba người học làm cả 3 bước trên điện thoại thật; ghi lại câu nào họ thấy cách chia cụm vô lý. Nhóm quyết định chấp nhận hay đổi quy tắc chia cụm.
+- [x] S5-AC11 [auto] S5-05: Ở bước Sắp xếp, focus vào cụm đầu của hàng cụm rồi nhấn: focus sang cụm kế bên của hàng đó; nhấn hết các cụm thì focus ở nút "Kiểm tra".
+  - Bằng chứng: test fe/tests/unit/ra-soat.test.tsx pass (npm test), Claude, 2026-10-18, commit 5ed137c

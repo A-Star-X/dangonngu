@@ -3,7 +3,7 @@
 - [x] T1-AC01 [auto] T1-01: Với tiến độ trống, thẻ hiện câu đầu của unit 1 trong fixture ở trạng thái hiện đầy đủ, có "Unit 1", title và translation của unit; dải có ô đầu ở trạng thái Đang học.
   - Bằng chứng: test fe/tests/unit/app.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
 - [x] T1-AC02 [claude] T1-01: Ảnh chụp T1 ở 320, 375, 768, 1280 px, sáng và tối, với câu ngắn và câu dài trên 120 ký tự: không tràn, cỡ chữ đúng FND-06.
-  - Bằng chứng: ảnh docs/evidence/T1-AC02/ (câu ngắn và câu 138 ký tự), Claude, 2026-10-08, commit 97e85fa; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed
+  - Bằng chứng: ảnh docs/evidence/T1-AC02/ (câu ngắn và câu 138 ký tự), Claude, 2026-10-08, commit 97e85fa; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [x] T1-AC03 [auto] T1-02: Không có phiên dở: nút ghi "Học 8 câu" (unit 5 câu: "Học 5 câu") và mở `#/phien-hoc?nguon=lo-trinh`. Có phiên dở 3/8: nút ghi "Tiếp tục: 5 câu còn lại" và mở lại phiên ở câu thứ 4.
   - Bằng chứng: test fe/tests/unit/app.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
 - [x] T1-AC04 [auto] T1-03: Với 3 phiên hoàn tất trong 7 ngày và mục tiêu 5: hiện "Tuần này: 3/5 phiên"; với 5 phiên: hiện "Tuần này: đã đạt mục tiêu 5/5 phiên". Phiên hoàn tất 8 ngày trước không được tính.
@@ -13,7 +13,7 @@
 - [x] T1-AC06 [auto] T1-05: Với tiến độ đã học hết fixture: không có thẻ, hiện đoạn thông báo đúng mẫu và nút "Mở Luyện tập" dẫn tới `#/luyen-tap`.
   - Bằng chứng: test fe/tests/unit/app.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
 - [x] T1-AC07 [claude] T1-06: Ảnh chụp 1280 px: hai cột, thẻ bên trái rộng không quá 560 px, mục tiêu tuần và câu cần ôn bên phải.
-  - Bằng chứng: ảnh docs/evidence/T1-AC07/, Claude, 2026-10-08, commit 97e85fa; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed
+  - Bằng chứng: ảnh docs/evidence/T1-AC07/, Claude, 2026-10-08, commit 97e85fa; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [x] T1-AC08 [auto] T1-07: Vuốt trái/phải trên thẻ và nhấn phím mũi tên không đổi câu.
   - Bằng chứng: test fe/tests/unit/app.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
 - [ ] T1-AC09 [human] T1-02, T1-04: Trên điện thoại thật, người học hiểu được khi nào nên bấm nút chính và khi nào nên chạm dòng câu cần ôn (hỏi lại sau khi họ thao tác).

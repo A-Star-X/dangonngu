@@ -1,6 +1,6 @@
 # Checklist chức năng VITASR Đa ngôn ngữ
 
-Cập nhật 10/10/2026 tối, sau Đợt 3 (main sau PR #8 cộng đợt chốt câu hỏi mở và sửa theo) · repo `nguyendinhdat2207/dangonngu`
+Cập nhật 18/10/2026, sau Đợt 4 (sửa theo phản hồi người dùng và lỗi tìm thấy khi rà soát code) · repo `nguyendinhdat2207/dangonngu`
 
 File này liệt kê từng chức năng của mini app theo từng màn, kèm mô tả, chi tiết cần lưu ý, câu hỏi (nay đã trả lời hết), phản hồi của dev và trạng thái. Nguồn: `spec.md` và `acceptance.md` của 20 khu vực trong repo, `docs/generated/acceptance-report.md`, lịch sử commit và báo cáo tổng hợp ngày 10/10.
 
@@ -24,7 +24,7 @@ File này liệt kê từng chức năng của mini app theo từng màn, kèm m
 | Mức | Dùng cho |
 |---|---|
 | Cao | Luồng học chính (chọn ngôn ngữ, học, phiên học), dữ liệu, khung app, hoặc câu hỏi có thể đổi phạm vi hay đang chặn nghiệm thu |
-| Trung bình | Các màn phụ (Luyện tập, Thư viện, Tiến bộ, Kiểm tra nhanh, Cài đặt) và thành phần dùng chung |
+| Trung bình | Các màn phụ (Luyện tập, Thư viện, Tiến độ, Kiểm tra nhanh, Cài đặt) và thành phần dùng chung |
 | Thấp | Chi tiết hiển thị, chữ, trường hợp biên |
 
 Cột **Tên chức năng** có ô `[x]` khi chức năng đã hoàn thành. Cột **Phản hồi Dev** ghi đợt code, các mục nghiệm thu đã đạt, mục còn mở và cách code đang làm với các câu hỏi treo.
@@ -33,29 +33,31 @@ Cột **Tên chức năng** có ô `[x]` khi chức năng đã hoàn thành. C�
 
 Toàn bộ 135 chức năng trong spec đã có code. Mọi câu hỏi mở đã được trả lời ngày 10/10/2026 (Claude quyết định theo ủy quyền của nhóm; xem bảng "Đã trả lời" cuối từng `spec.md`), nên không còn dòng nào ở trạng thái Chờ xác nhận, Cần trao đổi hay Đã quyết định. 151/173 mục nghiệm thu đạt; 22 mục còn lại đều là `[human]`, cách thử từng mục ở `docs/thu-that/README.md`. Sau Đợt 3: 156 test đơn vị và 16 test trình duyệt đạt, `spec:check` không lỗi.
 
+**Đợt 4 (18/10/2026).** Sửa theo phản hồi người dùng: câu trả lời sai đổi sang đỏ (token `--wrong`, nền `--wrong-soft`, thêm chữ "Chưa đúng"; trạng thái Cần ôn vẫn màu cam), rà lại toàn bộ câu chữ (khu "Tiến bộ" đổi tên thành "Tiến độ", hướng dẫn dùng "nhấn", tên ngôn ngữ giữa câu viết thường, xem bảng ở `docs/evidence/FND-AC12/chuoi-giao-dien.md`), giọng đọc mặc định là "Tự động" ưu tiên giọng Google. Cùng đợt sửa 12 lỗi tìm thấy khi rà soát code (mở hai tab ghi đè tiến độ của nhau, nút Nghe lặp chồng lượt, giữ phím chấm nhầm câu, tiến độ hỏng làm trắng màn, giờ mùa hè, tìm kiếm chữ không Latinh, tệp nhập sai giá trị, gợi ý mất khi tải lại, sheet nằm lại khi đổi màn, focus bàn phím, bước 1 hướng dẫn). Nghiệm thu 161/184: 10 mục tự động mới đều đạt; mục mới S8-AC12 (người thử nghe giọng Google) cần người.
+
 | Khu vực | Route | Chức năng | Hoàn thành | Chờ thử thật | Chờ xác nhận | Cần trao đổi | Đã quyết định | Chưa làm | Nghiệm thu đạt |
 |---|---|---|---|---|---|---|---|---|---|
 | S1 Chọn ngôn ngữ | `#/chon-ngon-ngu` | 7 | 5 | 2 | 0 | 0 | 0 | 0 | 7/8 |
 | T1 Học | `#/hoc` | 7 | 5 | 2 | 0 | 0 | 0 | 0 | 9/10 |
-| S3 Phiên học | `#/phien-hoc` | 9 | 7 | 2 | 0 | 0 | 0 | 0 | 10/11 |
+| S3 Phiên học | `#/phien-hoc` | 9 | 7 | 2 | 0 | 0 | 0 | 0 | 12/13 |
 | T2 Luyện tập | `#/luyen-tap` | 5 | 5 | 0 | 0 | 0 | 0 | 0 | 7/7 |
-| S5 Kiểm tra nhanh | `#/kiem-tra` | 8 | 6 | 2 | 0 | 0 | 0 | 0 | 9/10 |
+| S5 Kiểm tra nhanh | `#/kiem-tra` | 8 | 6 | 2 | 0 | 0 | 0 | 0 | 10/11 |
 | T3 Thư viện | `#/thu-vien` | 7 | 7 | 0 | 0 | 0 | 0 | 0 | 10/10 |
-| T4 Tiến bộ | `#/tien-bo` | 8 | 6 | 2 | 0 | 0 | 0 | 0 | 9/10 |
-| S8 Cài đặt | `#/cai-dat` | 6 | 4 | 2 | 0 | 0 | 0 | 0 | 8/10 |
+| T4 Tiến độ | `#/tien-bo` | 8 | 6 | 2 | 0 | 0 | 0 | 0 | 9/10 |
+| S8 Cài đặt | `#/cai-dat` | 6 | 4 | 2 | 0 | 0 | 0 | 0 | 10/13 |
 | S9 Hướng dẫn lần đầu | (lớp phủ trên T1) | 5 | 4 | 1 | 0 | 0 | 0 | 0 | 5/6 |
 | APP Khung app |  | 12 | 8 | 4 | 0 | 0 | 0 | 0 | 17/20 |
-| C1 Thẻ câu |  | 8 | 7 | 1 | 0 | 0 | 0 | 0 | 7/8 |
+| C1 Thẻ câu |  | 8 | 7 | 1 | 0 | 0 | 0 | 0 | 9/10 |
 | C2 Dải 8 ô |  | 3 | 3 | 0 | 0 | 0 | 0 | 0 | 3/3 |
 | C3 Nút |  | 4 | 3 | 1 | 0 | 0 | 0 | 0 | 3/4 |
 | C4 Lựa chọn trắc nghiệm |  | 3 | 3 | 0 | 0 | 0 | 0 | 0 | 3/3 |
 | C5 Thanh tab |  | 4 | 4 | 0 | 0 | 0 | 0 | 0 | 4/4 |
-| C6 Sheet |  | 4 | 3 | 1 | 0 | 0 | 0 | 0 | 4/5 |
+| C6 Sheet |  | 4 | 3 | 1 | 0 | 0 | 0 | 0 | 5/6 |
 | C7 Thông báo ngắn |  | 3 | 3 | 0 | 0 | 0 | 0 | 0 | 3/3 |
 | FND Nền tảng thiết kế |  | 14 | 11 | 3 | 0 | 0 | 0 | 0 | 14/17 |
-| DATA Dữ liệu và tiến độ |  | 13 | 12 | 1 | 0 | 0 | 0 | 0 | 18/19 |
+| DATA Dữ liệu và tiến độ |  | 13 | 12 | 1 | 0 | 0 | 0 | 0 | 20/21 |
 | G Mục tiêu sản phẩm |  | 5 | 1 | 4 | 0 | 0 | 0 | 0 | 1/5 |
-| **Tổng** | | **135** | **107** | **28** | **0** | **0** | **0** | **0** | **151/173** |
+| **Tổng** | | **135** | **107** | **28** | **0** | **0** | **0** | **0** | **161/184** |
 
 ## Các màn của app
 
@@ -99,21 +101,21 @@ Màn toàn trang học 8 câu: ghi nhớ, kiểm tra, tổng kết. Nghiệm thu
 | 4 | [ ] **S3-04** Bước kiểm tra | Bước kiểm tra: chọn nghĩa đúng trong 4 lựa chọn. | Chọn đúng mới hiện nút "Câu tiếp" (câu cuối: "Xem tổng kết"). |  | Code Đợt 1 (`97e85fa`). Đạt: S3-AC04, S3-AC07. Còn mở: S3-AC11 [human]. | Chờ thử thật | Cao |
 | 5 | [x] **S3-05** Gợi ý | Nút "Xem gợi ý" ở bước kiểm tra. | Gợi ý chữ đầu và số từ của nghĩa; mỗi câu dùng một lần; câu dùng gợi ý bị tính là Cần ôn. |  | Code Đợt 1 (`97e85fa`). Đạt: S3-AC05. | Hoàn thành | Trung bình |
 | 6 | [x] **S3-06** Tổng kết phiên | Màn tổng kết phiên. | Số câu nhớ được không cần gợi ý (x/N), danh sách câu Cần ôn. Nút "Học tiếp N câu" hoặc "Nhóm tiếp" (phiên từ khóa), kèm "Xem tiến bộ" và "Xong". |  | Code Đợt 1 (`97e85fa`). Đạt: S3-AC06, S3-AC07. | Hoàn thành | Cao |
-| 7 | [x] **S3-07** Thoát giữa phiên | Thoát giữa phiên phải hỏi xác nhận. | Bấm Thoát, Esc hoặc Back trình duyệt đều mở sheet "Dừng phiên? Tiến độ n/N câu được giữ lại." |  | Code Đợt 1 (`97e85fa`). Đạt: S3-AC08. | Hoàn thành | Cao |
+| 7 | [x] **S3-07** Thoát giữa phiên | Thoát giữa phiên phải hỏi xác nhận. | Bấm Thoát, Esc hoặc Back trình duyệt đều mở sheet "Dừng phiên học?" với dòng "Bạn đã học n/N câu. Kết quả các câu này vẫn được lưu." |  | Code Đợt 1 (`97e85fa`). Đạt: S3-AC08. | Hoàn thành | Cao |
 | 8 | [x] **S3-08** Phiên dở | Lưu phiên dở để học tiếp đúng câu, đúng bước. | Mỗi ngôn ngữ tối đa một phiên dở; bắt đầu phiên mới thì phiên dở cũ kết thúc. |  | Code Đợt 1 (`97e85fa`). Đạt: S3-AC09. | Hoàn thành | Cao |
 | 9 | [x] **S3-09** Điều khiển | Phím tắt khi học bằng máy tính. | Space hiện câu gốc; 1 = Cần ôn lại, 2 = Tôi nhớ; 1 đến 4 chọn đáp án; Enter là nút chính. Không dùng vuốt. |  | Code Đợt 1 (`97e85fa`). Đạt: S3-AC10. | Hoàn thành | Trung bình |
 
 ### T2 Luyện tập  `#/luyen-tap`
 
-Ôn câu cần ôn, học theo từ khóa, mở kiểm tra nhanh. Nghiệm thu: **7/7** mục đạt. Chức năng hoàn thành: 5/5.
+Ôn tập hôm nay, học theo từ khóa, mở kiểm tra nhanh. Nghiệm thu: **7/7** mục đạt. Chức năng hoàn thành: 5/5.
 
 | STT | Tên chức năng | Mô tả mong muốn | Chi tiết cần lưu ý | Câu hỏi cần trao đổi | Phản hồi Dev | Trạng thái | Ưu tiên |
 |---|---|---|---|---|---|---|---|
-| 1 | [x] **T2-01** Danh sách cách luyện | Màn Luyện tập có 3 cách luyện xếp dọc. | Ôn câu cần ôn, Học theo từ khóa, Kiểm tra nhanh. Ngăn bằng đường kẻ, không dùng thẻ; màn không có nút chính. |  | Code Đợt 2 (`757a784`). Đạt: T2-AC01. Sửa Đợt 3: dòng mô tả Ôn câu cần ôn đổi thành "Các câu đến hạn ôn hôm nay, kể cả câu bạn chưa nhớ hoặc làm chưa đúng." (bỏ chữ "sai", FND-12; đúng với DATA-07). | Hoàn thành | Trung bình |
-| 2 | [x] **T2-02** Ôn câu cần ôn | Ôn các câu đến hạn hôm nay. | Hiện số câu cần ôn; bằng 0 thì khóa mục và đổi mô tả thành "Không có câu cần ôn hôm nay." |  | Code Đợt 2 (`757a784`). Đạt: T2-AC02. | Hoàn thành | Trung bình |
+| 1 | [x] **T2-01** Danh sách cách luyện | Màn Luyện tập có 3 cách luyện xếp dọc. | Ôn tập hôm nay, Học theo từ khóa, Kiểm tra nhanh. Ngăn bằng đường kẻ, không dùng thẻ; màn không có nút chính. |  | Code Đợt 2 (`757a784`). Đạt: T2-AC01. Sửa Đợt 3: dòng mô tả Ôn câu cần ôn đổi thành "Các câu đến hạn ôn hôm nay, kể cả câu bạn chưa nhớ hoặc làm chưa đúng." (bỏ chữ "sai", FND-12; đúng với DATA-07). | Hoàn thành | Trung bình |
+| 2 | [x] **T2-02** Ôn tập hôm nay | Ôn các câu đến hạn hôm nay. | Hiện số câu cần ôn; bằng 0 thì khóa mục và đổi mô tả thành "Hôm nay không có câu nào cần ôn." |  | Code Đợt 2 (`757a784`). Đạt: T2-AC02. | Hoàn thành | Trung bình |
 | 3 | [x] **T2-03** Học theo từ khóa | Học theo từ khóa: tìm câu theo chủ đề rồi học 8 câu đầu. | Sheet có ô tìm, chip gợi ý (6 chủ đề nhiều câu nhất, hoặc 4 chip cố định), xem trước 5 câu. Cập nhật sau 250 ms ngừng gõ. |  | Code Đợt 2 (`757a784`). Đạt: T2-AC03, T2-AC06, T2-AC07. Đã chốt 10/10: nút là "Học N câu" khi tìm thấy 1 đến 7 câu (sửa Đợt 3); giữ tìm theo chuỗi con. | Hoàn thành | Trung bình |
 | 4 | [x] **T2-04** Kiểm tra nhanh | Mở Kiểm tra nhanh với unit đang học. | Mở `#/kiem-tra`. |  | Code Đợt 2 (`757a784`). Đạt: T2-AC04. | Hoàn thành | Trung bình |
-| 5 | [x] **T2-05** Không có kết quả | Báo khi không tìm thấy câu nào theo từ khóa. | "Không có câu nào chứa ... Thử từ khác hoặc từ tiếng Anh." và khóa nút học. |  | Code Đợt 2 (`757a784`). Đạt: T2-AC05, T2-AC06. | Hoàn thành | Thấp |
+| 5 | [x] **T2-05** Không có kết quả | Báo khi không tìm thấy câu nào theo từ khóa. | "Không có câu nào chứa ... Thử từ khác, bằng tiếng Việt hoặc [ngôn ngữ đang học]." và khóa nút học. |  | Code Đợt 2 (`757a784`). Đạt: T2-AC05, T2-AC06. | Hoàn thành | Thấp |
 
 ### S5 Kiểm tra nhanh  `#/kiem-tra`
 
@@ -144,7 +146,7 @@ Tra cứu toàn bộ câu, tìm và lọc, học một câu bất kỳ. Nghiệm
 | 6 | [x] **T3-06** Không có kết quả | Báo khi không có câu nào khớp. | Có nút phụ "Xóa tìm kiếm và bộ lọc". |  | Code Đợt 2 (`757a784`). Đạt: T3-AC07. | Hoàn thành | Thấp |
 | 7 | [x] **T3-07** Bố cục máy tính | Bố cục hai cột trên máy tính. | Từ 900 px: danh sách bên trái (tối đa 480 px), chi tiết câu ở cột phải thay cho sheet. |  | Code Đợt 2 (`757a784`). Đạt: T3-AC08. | Hoàn thành | Trung bình |
 
-### T4 Tiến bộ  `#/tien-bo`
+### T4 Tiến độ  `#/tien-bo`
 
 Số liệu học tập, biểu đồ, lịch ôn, các phiên. Nghiệm thu: **9/10** mục đạt. Chức năng hoàn thành: 6/8.
 
@@ -154,7 +156,7 @@ Số liệu học tập, biểu đồ, lịch ôn, các phiên. Nghiệm thu: **
 | 2 | [ ] **T4-02** Ba chỉ số | Ba chỉ số: số phiên, số câu đã học, số câu cần ôn hôm nay. | Câu cần ôn không phụ thuộc khoảng thời gian. |  | Code Đợt 2 (`757a784`). Đạt: T4-AC02. Còn mở: T4-AC10 [human]. | Chờ thử thật | Cao |
 | 3 | [x] **T4-03** Mục tiêu tuần | Mục tiêu tuần có thanh tiến độ. | Luôn tính 7 ngày gần nhất; đạt mục tiêu thì thanh đổi sang màu xanh. |  | Code Đợt 2 (`757a784`). Đạt: T4-AC03. | Hoàn thành | Trung bình |
 | 4 | [x] **T4-04** Biểu đồ theo ngày | Biểu đồ cột số câu đã học mỗi ngày. | Có bảng số liệu ẩn cho trình đọc màn hình; khoảng 1 ngày thì không có biểu đồ. |  | Code Đợt 2 (`757a784`). Đạt: T4-AC04, T4-AC05. Đã chốt 10/10: giữ cột hôm nay màu `--brand` (ngoại lệ FND-02); cột 30 ngày hẹp vẫn chạm được, danh sách Các phiên là đường thay thế (ngoại lệ FND-14). | Hoàn thành | Trung bình |
-| 5 | [ ] **T4-05** Lịch ôn | Lịch ôn: Hôm nay, Ngày mai, 7 ngày tới. | Câu quá hạn trước hôm nay tính vào "Hôm nay". |  | Code Đợt 2 (`757a784`). Đạt: T4-AC06. Còn mở: T4-AC10 [human]. Đã chốt 10/10: "7 ngày tới" gồm cả số của "Ngày mai" (như code). | Chờ thử thật | Trung bình |
+| 5 | [ ] **T4-05** Lịch ôn tập | Lịch ôn tập: Hôm nay, Ngày mai, 7 ngày tới. | Câu quá hạn trước hôm nay tính vào "Hôm nay". |  | Code Đợt 2 (`757a784`). Đạt: T4-AC06. Còn mở: T4-AC10 [human]. Đã chốt 10/10: "7 ngày tới" gồm cả số của "Ngày mai" (như code). | Chờ thử thật | Trung bình |
 | 6 | [x] **T4-06** Các phiên | Danh sách các phiên đã học. | Mới nhất trước; có giờ, nguồn, dải ô kết quả; 20 phiên mỗi lần, có "Xem thêm". |  | Code Đợt 2 (`757a784`). Đạt: T4-AC07. | Hoàn thành | Thấp |
 | 7 | [x] **T4-07** Chi tiết ngày | Chạm một cột để xem chi tiết ngày. | Sheet gồm các phiên và các câu đã học trong ngày. |  | Code Đợt 2 (`757a784`). Đạt: T4-AC08. | Hoàn thành | Thấp |
 | 8 | [x] **T4-08** Chưa có dữ liệu | Trạng thái chưa có dữ liệu. | "Chưa có phiên nào. Học 8 câu đầu tiên..." và nút "Học 8 câu". |  | Code Đợt 2 (`757a784`). Đạt: T4-AC09. Đã chốt 10/10: "Chưa có phiên nào" là chưa từng hoàn tất phiên nào (như code). | Hoàn thành | Thấp |
@@ -192,7 +194,7 @@ Hướng dẫn 3 bước, chỉ hiện một lần. Nghiệm thu: **5/6** mục 
 
 | STT | Tên chức năng | Mô tả mong muốn | Chi tiết cần lưu ý | Câu hỏi cần trao đổi | Phản hồi Dev | Trạng thái | Ưu tiên |
 |---|---|---|---|---|---|---|---|
-| 1 | [x] **APP-01** Bốn khu chính | 4 khu chính: Học, Luyện tập, Thư viện, Tiến bộ. | Dưới 900 px dùng thanh tab dưới đáy; từ 900 px dùng thanh dọc bên trái 220 px. |  | Code Đợt 1 (`97e85fa`). Đạt: APP-AC01, APP-AC02. | Hoàn thành | Cao |
+| 1 | [x] **APP-01** Bốn khu chính | 4 khu chính: Học, Luyện tập, Thư viện, Tiến độ. | Dưới 900 px dùng thanh tab dưới đáy; từ 900 px dùng thanh dọc bên trái 220 px. |  | Code Đợt 1 (`97e85fa`). Đạt: APP-AC01, APP-AC02. | Hoàn thành | Cao |
 | 2 | [x] **APP-02** Thanh trên cùng | Thanh trên cùng: tên ngôn ngữ (chạm để đổi) và nút Cài đặt. | Cao 56 px; tiếng Anh hiện thêm tên bộ ở dòng nhỏ. |  | Code Đợt 1 (`97e85fa`). Đạt: APP-AC03, APP-AC17. | Hoàn thành | Cao |
 | 3 | [x] **APP-03** Màn toàn trang | 3 màn toàn trang: Chọn ngôn ngữ, Phiên học, Kiểm tra nhanh. | Ẩn thanh tab và thanh trên cùng; S3, S5 có nút Thoát. |  | Code Đợt 1 (`97e85fa`). Đạt: APP-AC04. | Hoàn thành | Trung bình |
 | 4 | [x] **APP-04** Bảng route | Bảng route bằng hash (`#/hoc`, `#/thu-vien`...). | Là nguồn chân lý cho điều hướng; không cần cấu hình server. |  | Code Đợt 1 (`97e85fa`). Đạt: APP-AC02, APP-AC05. | Hoàn thành | Cao |
@@ -333,7 +335,7 @@ Kiểm bằng buổi thử với người học thật, sau khi các khu vực k
 | STT | Tên chức năng | Mô tả mong muốn | Chi tiết cần lưu ý | Câu hỏi cần trao đổi | Phản hồi Dev | Trạng thái | Ưu tiên |
 |---|---|---|---|---|---|---|---|
 | 1 | [ ] **G-01** Giao diện dễ hiểu dễ nhìn để sử dụng | Người mới tự dùng được, không cần hướng dẫn. | Thử với 5 người học: không quá 2 lần chạm từ chọn ngôn ngữ tới câu đầu tiên. |  | Còn mở: G-AC01 [human]. | Chờ thử thật | Cao |
-| 2 | [ ] **G-02** Hiểu được tiến bộ của mình | Người học hiểu được tiến bộ của mình. | 4/5 người tự tìm được màn Tiến bộ và giải thích đúng "câu cần ôn". |  | Còn mở: G-AC02 [human]. | Chờ thử thật | Cao |
+| 2 | [ ] **G-02** Hiểu được tiến bộ của mình | Người học hiểu được tiến bộ của mình. | 4/5 người tự tìm được màn Tiến độ và giải thích đúng "câu cần ôn". |  | Còn mở: G-AC02 [human]. | Chờ thử thật | Cao |
 | 3 | [ ] **G-03** Không nhầm thao tác đánh giá | Không bấm nhầm "Tôi nhớ" và "Cần ôn lại". | Quan sát trong cả buổi thử. |  | Còn mở: G-AC03 [human]. | Chờ thử thật | Cao |
 | 4 | [x] **G-04** Gọn hơn bản cũ | Gọn hơn bản cũ. | Chỉ 4 khu chính, Cài đặt và 3 màn toàn trang; không có hộp thoại chồng hộp thoại. |  | Đạt: G-AC04. | Hoàn thành | Trung bình |
 | 5 | [ ] **G-05** Không mang dấu hiệu giao diện do AI dựng mặc định | Không mang dấu hiệu giao diện do AI dựng. | Hai người ngoài nhóm xem ảnh 5 màn chính và không chỉ ra được dấu hiệu nào trong FND-13. |  | Còn mở: G-AC05 [human]. Đã chốt 10/10: nhóm duyệt nội bộ qua ảnh bằng chứng và bản chạy thử; khách duyệt một lần khi bàn giao. | Chờ thử thật | Cao |
@@ -368,10 +370,10 @@ Phần code và câu hỏi mở đã xong. Việc còn lại là của nhóm và
 | **2** | **Chốt câu hỏi mở** | | | | | | |
 | 2.1 | [x] Câu hỏi cho khách | Chia sẻ, chọn trình độ bắt đầu, chế độ đảo chiều, ai duyệt thiết kế, mục pháp lý 1.9.45, cách mở app | Claude quyết định 10/10 theo ủy quyền của nhóm; khách muốn khác thì sửa ở đợt sau | Claude | | Hoàn thành | Cao |
 | 2.2 | [x] Các mục "Cần trao đổi" và "Chờ xác nhận" | Ghi quyết định vào bảng "Đã trả lời" cuối từng `spec.md` | Như trên | Claude | | Hoàn thành | Cao |
-| **3** | **Thử thật để đóng 22 mục `[human]`** (kịch bản: `docs/thu-that/README.md`) | | | | | | |
+| **3** | **Thử thật để đóng 23 mục `[human]`** (kịch bản: `docs/thu-that/README.md`) | | | | | | |
 | 3.0 | [ ] Bật bản chạy thử trên HTTPS | Workflow `.github/workflows/pages.yml` đã có; chủ repo vào Settings > Pages chọn Source là "GitHub Actions" và thêm biến repo `PAGES_ENABLED` = `true` | Địa chỉ: `https://nguyendinhdat2207.github.io/dangonngu/`; service worker chỉ chạy trên HTTPS hoặc localhost | Chủ repo | | Chưa làm | Cao |
 | 3.1 | [ ] Thử trên thiết bị thật (9 mục) | C1-AC05, C3-AC03, C6-AC03, APP-AC13, APP-AC14, FND-AC11, FND-AC17, S8-AC03, S8-AC07 | Buổi 1 trong kịch bản | Nhóm | | Chưa làm | Cao |
-| 3.2 | [ ] Thử với người học thật (9 mục) | G-AC01, G-AC02, G-AC03, S1-AC06, S3-AC11, S5-AC10, S9-AC06, T1-AC09, T4-AC10 | Buổi 2 trong kịch bản, có phiếu ghi | Nhóm | | Chưa làm | Cao |
+| 3.2 | [ ] Thử với người học thật (10 mục) | G-AC01, G-AC02, G-AC03, S1-AC06, S3-AC11, S5-AC10, S9-AC06, T1-AC09, T4-AC10, S8-AC12 | Buổi 2 trong kịch bản, có phiếu ghi | Nhóm | | Chưa làm | Cao |
 | 3.3 | [ ] Người ngoài nhóm đọc và xem (2 mục) | FND-AC13, G-AC05 | Buổi 3; danh sách chuỗi ở `docs/evidence/FND-AC12/chuoi-giao-dien.md` | Nhóm | | Chưa làm | Trung bình |
 | 3.4 | [ ] Khách xác nhận dữ liệu (1 mục) | DATA-AC12 | Dùng tin nhắn ở việc 1.3 | Người liên hệ khách | | Chưa làm | Cao |
 | 3.5 | [ ] Thử trên trang học chính thật (1 mục) | APP-AC20 | Cần tài khoản đăng nhập được và đường dẫn tới bản chạy thử | Nhóm | | Chưa làm | Cao |
@@ -382,11 +384,13 @@ Phần code và câu hỏi mở đã xong. Việc còn lại là của nhóm và
 | 4.4 | [x] Mục pháp lý bản cũ 1.9.45 | Không đưa vào bản này | | Claude | | Hoàn thành | Thấp |
 | 4.5 | [x] Sửa dòng bằng chứng | Mọi dòng "chưa commit" đã thay bằng mã commit | | Claude | | Hoàn thành | Thấp |
 | 4.6 | [x] Code nút về trang học chính (APP-12) | Liên kết ở thanh trên cùng T1 đến T4 và S1 bước 1 | Xong ở PR #7, sửa đường kẻ thừa ở PR #8 | Claude + Mạnh | | Hoàn thành | Cao |
+| 4.7 | [x] Sửa theo phản hồi người dùng (Đợt 4) | Câu sai màu đỏ; rà câu chữ, "Tiến bộ" thành "Tiến độ"; giọng mặc định ưu tiên giọng Google | Đợt 4, 18/10 | Claude + người commit | | Hoàn thành | Cao |
+| 4.8 | [x] Rà soát code (Đợt 4) | 12 lỗi đã sửa, mỗi lỗi có test hỏng trên code cũ; chưa sửa: bộ nhớ trình duyệt đầy bị báo như bị chặn (rất hiếm), dữ liệu ngoại tuyến không có hạn chờ khi mạng chậm (cần đánh phiên bản cho file dữ liệu) | Đợt 4, 18/10 | Claude | | Hoàn thành | Trung bình |
 | **5** | **Bàn giao** | | | | | | |
 | 5.1 | [ ] Thống nhất nơi đặt bản build | Và đường dẫn để trang học chính mở mini app mới | | Nhóm + khách | | Chưa làm | Cao |
-| 5.2 | [ ] Kiểm trên trang học chính thật | Chọn ngôn ngữ, học một phiên, xem tiến bộ, rồi bấm Quay lại trang học | Dùng chung buổi 4 của kịch bản | Nhóm | | Chưa làm | Cao |
-| 5.3 | [ ] Bàn giao | Mã nguồn, bản build, hướng dẫn cập nhật dữ liệu (theo DATA-01 đến DATA-04), báo cáo nghiệm thu 173/173 | Khách duyệt thiết kế một lần ở mốc này | Nhóm | | Chưa làm | Cao |
+| 5.2 | [ ] Kiểm trên trang học chính thật | Chọn ngôn ngữ, học một phiên, xem tiến độ, rồi bấm Quay lại trang học | Dùng chung buổi 4 của kịch bản | Nhóm | | Chưa làm | Cao |
+| 5.3 | [ ] Bàn giao | Mã nguồn, bản build, hướng dẫn cập nhật dữ liệu (theo DATA-01 đến DATA-04), báo cáo nghiệm thu 184/184 | Khách duyệt thiết kế một lần ở mốc này | Nhóm | | Chưa làm | Cao |
 
 ## Cập nhật file này
 
-Trạng thái trong file lấy từ dấu `[x]` của các `acceptance.md` sau Đợt 3. Sau mỗi đợt, chạy `npm run spec:acceptance` để sinh lại `docs/generated/acceptance-report.md` rồi đối chiếu số liệu ở mục Tổng quan tiến độ.
+Trạng thái trong file lấy từ dấu `[x]` của các `acceptance.md` sau Đợt 4. Sau mỗi đợt, chạy `npm run spec:acceptance` để sinh lại `docs/generated/acceptance-report.md` rồi đối chiếu số liệu ở mục Tổng quan tiến độ.

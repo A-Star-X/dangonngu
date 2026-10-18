@@ -3,7 +3,7 @@
 - [x] T3-AC01 [auto] T3-01: Trang 1 có tối đa 32 dòng; mỗi dòng có id 4 chữ số, câu gốc, nghĩa và biểu tượng trạng thái đúng với tiến độ fixture cho cả 3 trạng thái.
   - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
 - [x] T3-AC02 [claude] T3-01: Ảnh chụp ở 320, 375, 1280 px, sáng và tối, với câu dài: câu gốc cắt ở 2 dòng, nghĩa cắt ở 1 dòng, không tràn ngang; biểu tượng trạng thái phân biệt được khi chuyển ảnh sang thang xám.
-  - Bằng chứng: ảnh docs/evidence/T3-AC02/ (320, 375, 1280 px, sáng và tối, unit 377 có câu dài nhất bộ): câu gốc cắt ở 2 dòng, nghĩa cắt ở 1 dòng; số đo không có cuộn ngang; bản thang xám (*-thang-xam.jpg) vẫn phân biệt được vòng rỗng, dấu tích và mũi tên vòng nhờ hình dạng, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed
+  - Bằng chứng: ảnh docs/evidence/T3-AC02/ (320, 375, 1280 px, sáng và tối, unit 377 có câu dài nhất bộ): câu gốc cắt ở 2 dòng, nghĩa cắt ở 1 dòng; số đo không có cuộn ngang; bản thang xám (*-thang-xam.jpg) vẫn phân biệt được vòng rỗng, dấu tích và mũi tên vòng nhờ hình dạng, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [x] T3-AC03 [auto] T3-02: Gõ "BOOK" hiện các câu chứa "book"; route có `?q=BOOK`; tải lại trang giữ từ khóa; nút xóa làm trống ô và hiện lại toàn bộ.
   - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
 - [x] T3-AC04 [auto] T3-03: Lọc Unit 2 và Trạng thái "Chưa học" chỉ hiện câu thuộc unit 2 chưa học; kết hợp thêm từ khóa thì thu hẹp tiếp; nhãn bộ lọc hiện giá trị đang chọn.
@@ -15,7 +15,7 @@
 - [x] T3-AC07 [auto] T3-06: Tìm "xyzxyz": hiện đúng câu thông báo; "Xóa tìm kiếm và bộ lọc" đưa về danh sách đầy đủ.
   - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
 - [x] T3-AC08 [claude] T3-07: Ảnh chụp 1280 px: danh sách trái rộng không quá 480 px, chi tiết câu ở cột phải, chạm dòng khác thì cột phải đổi, không mở sheet.
-  - Bằng chứng: ảnh và số đo docs/evidence/T3-AC08/: ở 1280 px danh sách rộng 480 px, cột phải hiện Câu 0001; chạm dòng thứ 5 thì cột phải đổi thành Câu 0005 và không có dialog nào mở, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed
+  - Bằng chứng: ảnh và số đo docs/evidence/T3-AC08/: ở 1280 px danh sách rộng 480 px, cột phải hiện Câu 0001; chạm dòng thứ 5 thì cột phải đổi thành Câu 0005 và không có dialog nào mở, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [x] T3-AC09 [auto] T3-03: Với fixture Global English có bộ lọc Chủ đề, chọn "Trường học" chỉ còn các câu có `topic` đó; với fixture English Fluency không có bộ lọc Chủ đề.
   - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
 - [x] T3-AC10 [auto] T3-03: Với fixture Global English, bộ lọc Trình độ có A1 và B2 (các trình độ có trong dữ liệu); chọn B2 chỉ còn 8 câu của unit B2-89; danh sách Chủ đề có ô tìm và số câu mỗi chủ đề.

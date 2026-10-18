@@ -9,15 +9,19 @@
 - [x] S3-AC04 [auto] S3-04: Ở S3b chọn đúng thì nút "Câu tiếp" hiện (câu cuối: "Xem tổng kết"); chọn sai trước rồi mới đúng thì câu được ghi sai (DATA-07).
   - Bằng chứng: test fe/tests/unit/s3.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
 - [x] S3-AC05 [auto] S3-05: Bấm "Xem gợi ý" với nghĩa "Tôi muốn đặt một bàn cho hai người." hiện "Nghĩa bắt đầu bằng "T…", gồm 8 từ."; nút gợi ý biến mất; câu ghi `hinted: true`.
-  - Bằng chứng: test fe/tests/unit/s3.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
+  - Bằng chứng: test fe/tests/unit/s3.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa; kiểm lại 18/10 với bản Đợt 4 (npm test, npm run test:e2e), commit 5ed137c
 - [x] S3-AC06 [auto] S3-06: Phiên 8 câu có 2 câu dùng gợi ý và 1 câu chọn sai: tổng kết hiện "5/8" và danh sách Cần ôn có đúng 3 câu (cộng các câu chọn "Cần ôn lại" nếu có). Khi đã học hết lộ trình, không có nút "Học tiếp". Phiên `tu-khoa` nhóm 1 với 20 kết quả có nút chính "Nhóm tiếp" mở `nhom=2`; nhóm 3 (cuối) không có nút này.
-  - Bằng chứng: test fe/tests/unit/s3.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
+  - Bằng chứng: test fe/tests/unit/s3.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa; kiểm lại 18/10 với bản Đợt 4 (npm test, npm run test:e2e), commit 5ed137c
 - [x] S3-AC07 [claude] S3-02, S3-03, S3-04, S3-06: Ảnh chụp S3a (trước và sau khi hiện), S3b (trước chọn, sau chọn sai, sau chọn đúng), S3c ở 320, 375, 1280 px, sáng và tối.
-  - Bằng chứng: ảnh docs/evidence/S3-AC07/, Claude, 2026-10-08, commit 97e85fa; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed
+  - Bằng chứng: ảnh docs/evidence/S3-AC07/, Claude, 2026-10-08, commit 97e85fa; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [x] S3-AC08 [auto] S3-07: Bấm Thoát ở câu 4: sheet xác nhận hiện đúng chữ; "Học tiếp" giữ nguyên câu 4; "Dừng" về màn trước; nút Back của trình duyệt cũng mở sheet xác nhận.
-  - Bằng chứng: test fe/tests/unit/s3.test.tsx, fe/tests/e2e/app.spec.ts pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
+  - Bằng chứng: test fe/tests/unit/s3.test.tsx, fe/tests/e2e/app.spec.ts pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa; kiểm lại 18/10 với bản Đợt 4 (npm test, npm run test:e2e), commit 5ed137c
 - [x] S3-AC09 [auto] S3-08: Dừng ở bước S3b của câu 4, tải lại trang, bấm nút tiếp tục ở T1: vào đúng S3b của câu 4. Bắt đầu phiên lộ trình mới thì phiên dở cũ không còn.
   - Bằng chứng: test fe/tests/unit/s3.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
 - [x] S3-AC10 [auto] S3-09: Đi hết một phiên chỉ bằng bàn phím với các phím đã quy định; vuốt trên thẻ không đổi câu.
-  - Bằng chứng: test fe/tests/unit/s3.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
+  - Bằng chứng: test fe/tests/unit/s3.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa; kiểm lại 18/10 với bản Đợt 4 (npm test, npm run test:e2e), commit 5ed137c
 - [ ] S3-AC11 [human] S3-03, S3-04: Ba người học làm một phiên trên điện thoại thật; không ai thấy bước kiểm tra lặp lại vô nghĩa hay gây khó chịu (hỏi sau phiên). Ghi lại thời gian mỗi phiên.
+- [x] S3-AC12 [auto] S3-05: Mở gợi ý ở S3b rồi tải lại trang: gợi ý vẫn hiện, nút "Xem gợi ý" không còn, trả lời đúng ghi lượt có `hinted` là true.
+  - Bằng chứng: test fe/tests/unit/ra-soat.test.tsx pass (npm test), Claude, 2026-10-18, commit 5ed137c
+- [x] S3-AC13 [auto] S3-09: Ở S3a nhấn 2 rồi giữ phím (sự kiện lặp 2 và 1): chỉ ghi lượt ghi nhớ, không có lựa chọn nào ở S3b bị chọn.
+  - Bằng chứng: test fe/tests/unit/ra-soat.test.tsx pass (npm test), Claude, 2026-10-18, commit 5ed137c

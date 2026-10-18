@@ -2,12 +2,12 @@
 
 Khổ kiểm mặc định và quy tắc đánh dấu: `docs/QUY-TRINH.md` mục 5 và 7.
 
-- [x] APP-AC01 [claude] APP-01: Ảnh chụp ở 375 px có thanh tab dưới đáy với 4 mục đúng thứ tự Học, Luyện tập, Thư viện, Tiến bộ; ở 1280 px có thanh dọc trái rộng 220 px với cùng 4 mục.
-  - Bằng chứng: ảnh docs/evidence/APP-AC01/ (375 và 1280, sáng và tối), Claude, 2026-10-08, commit 97e85fa; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed
+- [x] APP-AC01 [claude] APP-01: Ảnh chụp ở 375 px có thanh tab dưới đáy với 4 mục đúng thứ tự Học, Luyện tập, Thư viện, Tiến độ; ở 1280 px có thanh dọc trái rộng 220 px với cùng 4 mục.
+  - Bằng chứng: ảnh docs/evidence/APP-AC01/ (375 và 1280, sáng và tối), Claude, 2026-10-08, commit 97e85fa; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [x] APP-AC02 [auto] APP-01, APP-04: Test điều hướng: bấm lần lượt 4 mục thì hash đổi thành `#/hoc`, `#/luyen-tap`, `#/thu-vien`, `#/tien-bo` và đúng màn hiện ra.
-  - Bằng chứng: test fe/tests/e2e/app.spec.ts pass (npm run test:e2e), Claude, 2026-10-10, commit 757a784
+  - Bằng chứng: test fe/tests/e2e/app.spec.ts pass (npm run test:e2e), Claude, 2026-10-10, commit 757a784; kiểm lại 18/10 với bản Đợt 4 (npm test, npm run test:e2e), commit 5ed137c
 - [x] APP-AC03 [claude] APP-02: Ảnh chụp T1 đến T4 ở 375 px và 1280 px có tên ngôn ngữ bên trái, nút Cài đặt bên phải.
-  - Bằng chứng: ảnh docs/evidence/APP-AC03/ chụp lại sau khi thêm nút về trang học (T1, T2, T3, T4 ở 375 và 1280 px, sáng và tối): nút về trang học ngoài cùng bên trái, tiếp theo là tên ngôn ngữ và tên bộ, nút Cài đặt bên phải (chụp lại sau PR #7 cùng bản build mới), Claude, 2026-10-10, commit 4e21a6e; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed
+  - Bằng chứng: ảnh docs/evidence/APP-AC03/ chụp lại sau khi thêm nút về trang học (T1, T2, T3, T4 ở 375 và 1280 px, sáng và tối): nút về trang học ngoài cùng bên trái, tiếp theo là tên ngôn ngữ và tên bộ, nút Cài đặt bên phải (chụp lại sau PR #7 cùng bản build mới), Claude, 2026-10-10, commit 4e21a6e; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [x] APP-AC04 [auto] APP-03: Ở `#/phien-hoc`, `#/kiem-tra`, `#/chon-ngon-ngu` không có thanh tab và thanh trên cùng trong DOM hiển thị; S3 và S5 có nút "Thoát".
   - Bằng chứng: test fe/tests/unit/app.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
 - [x] APP-AC05 [auto] APP-04: Mở route không hợp lệ thì chuyển về `#/hoc` (đã chọn ngôn ngữ) hoặc `#/chon-ngon-ngu` (chưa chọn). Nút Back của trình duyệt sau chuỗi T1 → T3 → T4 quay về T3 rồi T1.
@@ -15,21 +15,21 @@ Khổ kiểm mặc định và quy tắc đánh dấu: `docs/QUY-TRINH.md` mục
 - [x] APP-AC06 [auto] APP-05: Với localStorage trống, app mở vào S1; sau khi chọn ngôn ngữ và tải lại trang, app mở thẳng vào T1.
   - Bằng chứng: test fe/tests/unit/app.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
 - [x] APP-AC07 [claude] APP-05, APP-08: Giả lập mạng chậm (Slow 3G): ảnh chụp trong lúc tải là khung xương đúng hình, không phải màn trắng hay vòng xoay.
-  - Bằng chứng: ảnh docs/evidence/APP-AC07/ (dữ liệu trả chậm 2,5 giây): T1 hiện khung xương hình thẻ, T3 hiện khung xương hình danh sách, không màn trắng, không vòng xoay, Claude, 2026-10-10, commit 757a784
+  - Bằng chứng: ảnh docs/evidence/APP-AC07/ (dữ liệu trả chậm 2,5 giây): T1 hiện khung xương hình thẻ, T3 hiện khung xương hình danh sách, không màn trắng, không vòng xoay, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [x] APP-AC08 [auto] APP-06: Mở sheet Đổi ngôn ngữ, chọn ngôn ngữ khác: sheet đóng, về `#/hoc`, tên ngôn ngữ trên thanh trên cùng đổi; quay lại ngôn ngữ cũ thì tiến độ cũ còn nguyên.
   - Bằng chứng: test fe/tests/unit/app.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
 - [x] APP-AC09 [claude] APP-07: Ảnh chụp T1, T3, S3 ở 1440, 1280, 768, 375, 320 px: ở 1440 px vùng nội dung không rộng quá 1120 px, S3 không rộng quá 720 px; không có cuộn ngang, lề đúng 16 / 24 px, khối nội dung ở 768 px rộng tối đa 560 px.
-  - Bằng chứng: ảnh và số đo docs/evidence/APP-AC09/do-dac.json: 1440 px khối nội dung 1120 px, S3 rộng 720 px; 768 px khối 560 px, lề 24 px; 375 và 320 px lề 16 px; không có cuộn ngang ở cả 15 ảnh, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed
-- [x] APP-AC10 [auto] APP-08: Cho DataSource trả lỗi: màn hiện đúng câu "Không tải được danh sách câu. Kiểm tra kết nối rồi bấm Thử lại." và nút "Thử lại"; bấm Thử lại khi nguồn đã ổn thì hiện dữ liệu.
-  - Bằng chứng: test fe/tests/unit/app.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
+  - Bằng chứng: ảnh và số đo docs/evidence/APP-AC09/do-dac.json: 1440 px khối nội dung 1120 px, S3 rộng 720 px; 768 px khối 560 px, lề 24 px; 375 và 320 px lề 16 px; không có cuộn ngang ở cả 15 ảnh, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
+- [x] APP-AC10 [auto] APP-08: Cho DataSource trả lỗi: màn hiện đúng câu "Không tải được danh sách câu. Kiểm tra kết nối rồi nhấn Thử lại." và nút "Thử lại"; bấm Thử lại khi nguồn đã ổn thì hiện dữ liệu.
+  - Bằng chứng: test fe/tests/unit/app.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa; kiểm lại 18/10 với bản Đợt 4 (npm test, npm run test:e2e), commit 5ed137c
 - [x] APP-AC11 [auto] APP-08: Giả lập `navigator.onLine = false` và sự kiện `offline`: dải ngoại tuyến hiện; sự kiện `online` thì dải ẩn. Giả lập localStorage ném lỗi: dải cảnh báo bộ nhớ hiện.
-  - Bằng chứng: test fe/tests/unit/app.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
+  - Bằng chứng: test fe/tests/unit/app.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa; kiểm lại 18/10 với bản Đợt 4 (npm test, npm run test:e2e), commit 5ed137c
 - [x] APP-AC12 [claude] APP-09: Nhúng bản build vào một trang thử có iframe 400 x 700 và 1100 x 700: app chạy đủ luồng T1 → S3 → tổng kết; tìm trong mã nguồn không có `window.top`, `window.parent`, `postMessage`.
-  - Bằng chứng: kiểm lại sau khi APP-09 đổi (10/10): chạy lại với bản build mới, ảnh docs/evidence/APP-AC12/ (iframe 400x700 và 1100x700 đi hết T1 → S3 → tổng kết); tìm trong fe/src không có window.top, window.parent, postMessage, Claude, 2026-10-10, commit 4e21a6e; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed
-- [ ] APP-AC13 [human] APP-07, APP-09: Mở app trên trình duyệt máy tính (Chrome, Edge, Safari) và trên điện thoại (iPhone, Android), mỗi nơi đi hết luồng chọn ngôn ngữ, học một phiên, xem tiến bộ: hiển thị đủ, không có điều khiển bị che hay tràn.
+  - Bằng chứng: kiểm lại sau khi APP-09 đổi (10/10): chạy lại với bản build mới, ảnh docs/evidence/APP-AC12/ (iframe 400x700 và 1100x700 đi hết T1 → S3 → tổng kết); tìm trong fe/src không có window.top, window.parent, postMessage, Claude, 2026-10-10, commit 4e21a6e; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
+- [ ] APP-AC13 [human] APP-07, APP-09: Mở app trên trình duyệt máy tính (Chrome, Edge, Safari) và trên điện thoại (iPhone, Android), mỗi nơi đi hết luồng chọn ngôn ngữ, học một phiên, xem tiến độ: hiển thị đủ, không có điều khiển bị che hay tràn.
 - [ ] APP-AC14 [human] APP-10: Trên điện thoại thật: mở app có mạng, tắt mạng, đóng và mở lại app: vẫn học được ngôn ngữ đã tải.
 - [x] APP-AC15 [auto] APP-10: Giả lập service worker có bản mới: thông báo "Có bản cập nhật" hiện ở T1 nhưng không hiện khi đang ở S3; trang không tự tải lại.
-  - Bằng chứng: test fe/tests/unit/s8.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
+  - Bằng chứng: test fe/tests/unit/s8.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784; kiểm lại 18/10 với bản Đợt 4 (npm test, npm run test:e2e), commit 5ed137c
 - [x] APP-AC16 [auto] APP-11: Mở sheet Chi tiết câu rồi kích hoạt mở sheet Đổi ngôn ngữ: tại mọi thời điểm chỉ có một phần tử sheet/hộp thoại đang mở.
   - Bằng chứng: test fe/tests/unit/s8.test.tsx và fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
 - [x] APP-AC17 [auto] APP-02, APP-06: Đang học Global English: thanh trên cùng có "Tiếng Anh" và dòng nhỏ "Global English"; đang học Tiếng Nhật thì không có dòng tên bộ. Sheet Đổi ngôn ngữ có hai dòng cho Tiếng Anh; chọn dòng English Fluency thì về `#/hoc` với dữ liệu Fluency.
@@ -37,5 +37,5 @@ Khổ kiểm mặc định và quy tắc đánh dấu: `docs/QUY-TRINH.md` mục
 - [x] APP-AC18 [auto] APP-12: Ở T1, T2, T3, T4 và S1 bước 1 có một liên kết nhãn trợ năng "Quay lại trang học" với `href` bằng `VITE_HOST_URL` (mặc định `https://language.pomaskhoahocnaobo.com/`); ở S1 bước 2, S3, S5 và S8 không có liên kết này. Bấm liên kết khi đang có phiên dở không mở sheet xác nhận nào.
   - Bằng chứng: test fe/tests/unit/app.test.tsx pass (npm test), Claude, 2026-10-10, commit 0201054
 - [x] APP-AC19 [claude] APP-02, APP-12: Ảnh chụp thanh trên cùng của T1 ở 320, 375 và 1280 px, sáng và tối: nút về trang học nằm ngoài cùng bên trái, vùng chạm từ 44 x 44 px; từ 600 px có chữ "Trang học"; tên ngôn ngữ, tên bộ và nút Cài đặt không bị che hay cắt.
-  - Bằng chứng: ảnh và số đo docs/evidence/APP-AC19/ (320, 375, 600, 1280 px, sáng và tối; do-dac-light.json, do-dac-dark.json): nút 44 x 44 px ở 320 và 375 px, 130 x 44 px có chữ "Trang học" từ 600 px; nút, tên ngôn ngữ, nút Cài đặt không chồng nhau; không cuộn ngang; ảnh S1 bước 1 ở 320 và 1280 px (chụp lại sau PR #7: bỏ đường kẻ ngăn thừa bên phải nút ở S1 từ 600 px), Claude, 2026-10-10, commit 4e21a6e
+  - Bằng chứng: ảnh và số đo docs/evidence/APP-AC19/ (320, 375, 600, 1280 px, sáng và tối; do-dac-light.json, do-dac-dark.json): nút 44 x 44 px ở 320 và 375 px, 130 x 44 px có chữ "Trang học" từ 600 px; nút, tên ngôn ngữ, nút Cài đặt không chồng nhau; không cuộn ngang; ảnh S1 bước 1 ở 320 và 1280 px (chụp lại sau PR #7: bỏ đường kẻ ngăn thừa bên phải nút ở S1 từ 600 px), Claude, 2026-10-10, commit 4e21a6e; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [ ] APP-AC20 [human] APP-09, APP-12: Trên trang học chính thật, đăng nhập, mở Đa ngôn ngữ: app mở ở trang mới. Bấm "Quay lại trang học": về đúng trang học chính và vẫn đăng nhập.
