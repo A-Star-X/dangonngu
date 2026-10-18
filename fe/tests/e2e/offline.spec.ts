@@ -26,7 +26,7 @@ test('APP-10: sau lần mở đầu tiên có mạng, tắt mạng rồi tải l
   await context.setOffline(true);
   await page.reload();
   await expect(page.locator('.card')).toBeVisible();
-  await expect(page.getByText('Đang ngoại tuyến. Tiến độ vẫn được lưu trên máy.')).toBeVisible();
+  await expect(page.getByText('Bạn đang ngoại tuyến. Tiến độ vẫn được lưu trên máy.')).toBeVisible();
   await page.getByRole('button', { name: 'Học 8 câu' }).click();
   await expect(page.getByText('Câu 1/8')).toBeVisible();
   await context.setOffline(false);

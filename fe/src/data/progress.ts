@@ -22,6 +22,8 @@ export interface Session {
   abandonedAt?: number;
   /** Tham số route của phiên (q, nhom, id) để mở lại đúng. */
   params?: Record<string, string>;
+  /** Câu ở `position` đã mở gợi ý (S3-05), để tải lại trang vẫn tính là dùng gợi ý. */
+  hintedItemId?: number;
 }
 
 export interface Attempt {
@@ -83,6 +85,52 @@ export function isProgress(v: unknown): v is Progress {
   return isObj(v) && v.schema === 1 && Array.isArray(v.sessions) && Array.isArray(v.attempts) && isObj(v.items);
 }
 
+const isNum = (v: unknown): v is number => typeof v === 'number' && Number.isFinite(v);
+const isInt = (v: unknown): v is number => Number.isInteger(v);
+const isStr = (v: unknown): v is string => typeof v === 'string';
+const oneOf = (v: unknown, list: readonly string[]) => isStr(v) && list.includes(v);
+const NGUON = ['lo-trinh', 'on-tap', 'tu-khoa', 'cau', 'kiem-tra'] as const;
+const KIND = ['ghi-nho', 'trac-nghiem', 'nghe-chon', 'sap-xep'] as const;
+const OUTCOME = ['nho', 'can-on', 'dung', 'sai'] as const;
+const STEP = ['ghi-nho', 'kiem-tra'] as const;
+
+/** Một phiên đúng cấu trúc DATA-06: vị trí là số nguyên trong khoảng 0 đến số câu, bước hợp lệ. */
+export function validSession(s: unknown): s is Session {
+  return (
+    isObj(s) &&
+    isStr(s.id) &&
+    oneOf(s.nguon, NGUON) &&
+    Array.isArray(s.itemIds) &&
+    s.itemIds.every(isInt) &&
+    isNum(s.startedAt) &&
+    (s.completedAt === undefined || isNum(s.completedAt)) &&
+    (s.abandonedAt === undefined || isNum(s.abandonedAt)) &&
+    isInt(s.position) &&
+    s.position >= 0 &&
+    s.position <= s.itemIds.length &&
+    oneOf(s.step, STEP) &&
+    (s.params === undefined || (isObj(s.params) && Object.values(s.params).every(isStr))) &&
+    (s.hintedItemId === undefined || isInt(s.hintedItemId))
+  );
+}
+
+export function validAttempt(a: unknown): a is Attempt {
+  return isObj(a) && isStr(a.sessionId) && isInt(a.itemId) && isNum(a.at) && oneOf(a.kind, KIND) && oneOf(a.outcome, OUTCOME) && typeof a.hinted === 'boolean';
+}
+
+/** Trạng thái câu: streak là số nguyên không âm, due và lastAt là mốc thời gian. */
+export function validItem(id: string, s: unknown): s is ItemState {
+  return /^\d+$/.test(id) && isObj(s) && oneOf(s.status, ['da-hoc', 'kiem-tra']) && isInt(s.streak) && s.streak >= 0 && isNum(s.due) && isNum(s.lastAt);
+}
+
+/** Tiến độ đọc từ máy: bỏ các phần tử hỏng thay vì để một dòng lỗi làm hỏng cả app. */
+export function sanitizeProgress(v: unknown): Progress | null {
+  if (!isProgress(v)) return null;
+  const items: Record<string, ItemState> = {};
+  for (const [id, s] of Object.entries(v.items)) if (validItem(id, s)) items[id] = s;
+  return { schema: 1, sessions: v.sessions.filter(validSession), attempts: v.attempts.filter(validAttempt), items };
+}
+
 export function loadSettings(store: SafeStorage): Settings {
   const raw = store.getJSON<Partial<Settings>>(SETTINGS_KEY);
   const base = defaultSettings();
@@ -106,7 +154,7 @@ export function saveSettings(store: SafeStorage, s: Settings) {
 
 export function loadProgress(store: SafeStorage, pack: PackId, lang: string): Progress {
   const raw = store.getJSON<unknown>(progressKey(pack, lang));
-  return isProgress(raw) ? raw : emptyProgress();
+  return sanitizeProgress(raw) ?? emptyProgress();
 }
 
 export function saveProgress(store: SafeStorage, pack: PackId, lang: string, p: Progress) {

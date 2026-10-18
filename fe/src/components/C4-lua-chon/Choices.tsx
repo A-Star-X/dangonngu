@@ -46,7 +46,8 @@ export function Choices({ options, onWrong, onCorrect, keyboard = true, labelled
   useEffect(() => {
     if (!keyboard) return;
     const on = (e: KeyboardEvent) => {
-      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      // Bỏ qua sự kiện lặp khi giữ phím: phím giữ từ bước trước không được tự chọn đáp án.
+      if (e.repeat || e.ctrlKey || e.metaKey || e.altKey) return;
       const n = Number(e.key);
       if (n >= 1 && n <= 4) {
         e.preventDefault();
@@ -79,8 +80,18 @@ export function Choices({ options, onWrong, onCorrect, keyboard = true, labelled
                 <span className="choice__text vi t-body" lang="vi">
                   {o.text}
                 </span>
-                {isRight && <Check className="choice__icon" size={24} aria-label="Đúng" data-icon="dung" />}
-                {isWrong && <X className="choice__icon" size={24} aria-label="Chưa đúng" data-icon="sai" />}
+                {isRight && (
+                  <span className="choice__mark t-sm">
+                    Đúng
+                    <Check size={24} aria-hidden data-icon="dung" />
+                  </span>
+                )}
+                {isWrong && (
+                  <span className="choice__mark t-sm">
+                    Chưa đúng
+                    <X size={24} aria-hidden data-icon="sai" />
+                  </span>
+                )}
               </button>
             </li>
           );

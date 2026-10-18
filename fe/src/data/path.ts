@@ -1,6 +1,6 @@
 // @spec DATA-11, S3-01, T1-03
 // Lộ trình học và cách chọn nhóm câu cho phiên.
-import { dueItemIds, startOfDay, DAY } from './review';
+import { dueItemIds, startOfDay } from './review';
 import { searchItems } from './search';
 import type { Nguon, Progress } from './progress';
 import type { LanguageData } from './types';
@@ -55,7 +55,9 @@ export function sessionGroup(nguon: Nguon, params: Record<string, string>, data:
 
 /** Số phiên hoàn tất trong 7 ngày gần nhất, tính cả hôm nay. */
 export function sessionsInLast7Days(p: Progress, now: number): number {
-  const from = startOfDay(now) - 6 * DAY;
+  const d = new Date(startOfDay(now));
+  d.setDate(d.getDate() - 6);
+  const from = d.getTime();
   return p.sessions.filter((s) => s.completedAt !== undefined && s.completedAt >= from && s.completedAt <= now).length;
 }
 

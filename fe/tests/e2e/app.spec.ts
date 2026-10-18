@@ -15,9 +15,9 @@ test.describe('khung và luồng chính', () => {
       await page.getByRole('button', { name: 'Câu tiếp' }).click();
     }
     await page.goBack();
-    const dialog = page.getByRole('dialog', { name: 'Dừng phiên?' });
+    const dialog = page.getByRole('dialog', { name: 'Dừng phiên học?' });
     await expect(dialog).toBeVisible();
-    await expect(dialog).toContainText('Tiến độ 3/8 câu được giữ lại.');
+    await expect(dialog).toContainText('Bạn đã học 3/8 câu. Kết quả các câu này vẫn được lưu.');
     await expect(page).toHaveURL(/phien-hoc/);
     await dialog.getByRole('button', { name: 'Học tiếp' }).click();
     await expect(page.getByText('Câu 4/8')).toBeVisible();
@@ -95,7 +95,7 @@ test.describe('khung và luồng chính', () => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await seed(page, { 'vitasr2.settings': settings() });
     await page.goto('./#/phien-hoc?nguon=lo-trinh');
-    await page.getByRole('button', { name: 'Chạm để hiện câu gốc' }).click();
+    await page.getByRole('button', { name: 'Nhấn để hiện câu gốc' }).click();
     await page.getByRole('button', { name: 'Thoát' }).click();
     const bad = await page.evaluate(() =>
       [...document.querySelectorAll('*')]
@@ -112,10 +112,10 @@ test.describe('khung và luồng chính', () => {
     for (const [label, h] of [
       ['Luyện tập', '#/luyen-tap'],
       ['Thư viện', '#/thu-vien'],
-      ['Tiến bộ', '#/tien-bo'],
+      ['Tiến độ', '#/tien-bo'],
       ['Học', '#/hoc'],
     ]) {
-      await page.getByRole('navigation', { name: 'Khu chính' }).getByRole('link', { name: label, exact: true }).click();
+      await page.getByRole('navigation', { name: 'Điều hướng chính' }).getByRole('link', { name: label, exact: true }).click();
       await expect(page).toHaveURL(new RegExp(h.replace('/', '\\/') + '$'));
       await expect(page.getByRole('link', { name: label, exact: true })).toHaveAttribute('aria-current', 'page');
     }
@@ -126,7 +126,7 @@ test.describe('khung và luồng chính', () => {
     await seed(page, { 'vitasr2.settings': settings() });
     await page.goto('./#/hoc');
     await page.getByRole('link', { name: 'Thư viện', exact: true }).click();
-    await page.getByRole('link', { name: 'Tiến bộ', exact: true }).click();
+    await page.getByRole('link', { name: 'Tiến độ', exact: true }).click();
     await page.goBack();
     await expect(page).toHaveURL(/#\/thu-vien$/);
     await page.goBack();
@@ -146,7 +146,7 @@ test.describe('khung và luồng chính', () => {
       await page.getByRole('button', { name: /Câu tiếp|Xem tổng kết/ }).click();
     }
     await page.getByRole('link', { name: 'Xong' }).click();
-    for (const l of ['Thư viện', 'Tiến bộ']) await page.getByRole('link', { name: l, exact: true }).click();
+    for (const l of ['Thư viện', 'Tiến độ']) await page.getByRole('link', { name: l, exact: true }).click();
     await page.getByRole('link', { name: 'Cài đặt' }).click();
     const origin = new URL(baseURL!).origin;
     expect(urls.filter((u) => !u.startsWith(origin))).toEqual([]);

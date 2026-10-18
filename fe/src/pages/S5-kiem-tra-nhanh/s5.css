@@ -57,8 +57,12 @@
 }
 .chunk--covered { border: 1px dashed var(--muted); background: transparent; }
 .chunk--open { border: 1px solid var(--line); background: var(--surface); }
-.chunk--wrong { border: 2px dashed var(--review); }
-.chunk__mark { color: var(--review); flex: none; }
+/* FND-02: cụm sai vị trí viền đỏ --wrong, nền nhạt --wrong-soft, kèm icon x. */
+.chunk--wrong { border: 2px solid var(--wrong); background: var(--wrong-soft); }
+.chunk__mark { color: var(--wrong); flex: none; }
+.s5__feedback { min-height: var(--lh-body); margin-top: var(--s-3); font-weight: 600; }
+.s5__feedback--wrong { color: var(--wrong); }
+.s5__feedback--right { color: var(--known); }
 .s5__answer {
   display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2);
   min-height: 72px; padding: var(--s-3);

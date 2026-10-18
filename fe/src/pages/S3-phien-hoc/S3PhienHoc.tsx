@@ -12,6 +12,7 @@ import { useToast } from '../../components/C7-thong-bao/ToastHost';
 import {
   buildChoices,
   completeSession,
+  markHinted,
   moveTo,
   nextUnitIndex,
   recordCheck,
@@ -101,19 +102,19 @@ function SessionView({ data: d, session, origin }: { data: LanguageData; session
   const items = useMemo(() => session.itemIds.map((id) => d.byId.get(id)).filter((x): x is Item => !!x), [session.itemIds, d]);
   const N = items.length;
   const finished = session.completedAt !== undefined;
-  const pos = Math.min(session.position, N - 1);
+  const pos = Math.max(0, Math.min(session.position, N - 1));
   const step = session.step;
   const item = items[pos];
 
   const [revealed, setRevealed] = useState(false);
   const [answered, setAnswered] = useState(false);
-  const [hinted, setHinted] = useState(false);
+  // S3-05: gợi ý đã mở được lưu trong phiên, nên mở lại phiên vẫn biết câu này đã dùng gợi ý.
+  const hinted = step === 'kiem-tra' && item !== undefined && session.hintedItemId === item.id;
   const leaving = useRef(false);
 
   useEffect(() => {
     setRevealed(false);
     setAnswered(false);
-    setHinted(false);
   }, [pos, step]);
 
   const results = sessionResults(progress, session);
@@ -144,9 +145,9 @@ function SessionView({ data: d, session, origin }: { data: LanguageData; session
     if (sheet.isOpen) return;
     const doneCount = Math.min(session.position, N);
     sheet.open({
-      title: 'Dừng phiên?',
+      title: 'Dừng phiên học?',
       kind: 'confirm',
-      body: () => <p className="t-body">Tiến độ {doneCount}/{N} câu được giữ lại.</p>,
+      body: () => <p className="t-body">{doneCount > 0 ? `Bạn đã học ${doneCount}/${N} câu. Kết quả các câu này vẫn được lưu.` : 'Bạn chưa học xong câu nào.'}</p>,
       footer: (close) => (
         <>
           <Button variant="secondary" onClick={() => { close(); exitTo(); }}>
@@ -175,7 +176,8 @@ function SessionView({ data: d, session, origin }: { data: LanguageData; session
   // S3-09: phím tắt.
   useEffect(() => {
     const on = (e: KeyboardEvent) => {
-      if (sheet.isOpen || e.ctrlKey || e.metaKey || e.altKey) return;
+      // Giữ phím thì trình duyệt lặp sự kiện: bỏ qua lần lặp để một lần nhấn chỉ chấm một câu.
+      if (sheet.isOpen || e.repeat || e.ctrlKey || e.metaKey || e.altKey) return;
       if (e.key === 'Escape' && !finished) {
         e.preventDefault();
         confirmExit();
@@ -240,7 +242,7 @@ function SessionView({ data: d, session, origin }: { data: LanguageData; session
             hinted={hinted}
             answered={answered}
             keyboard={!sheet.isOpen}
-            onHint={() => setHinted(true)}
+            onHint={() => updateProgress((p) => markHinted(p, session.id, item.id))}
             onWrong={() => updateProgress((p) => recordCheck(p, session.id, item.id, false, hinted, now()))}
             onCorrect={() => {
               updateProgress((p) => recordCheck(p, session.id, item.id, true, hinted, now()));
@@ -352,7 +354,7 @@ function Summary({
   return (
     <div className="s3 s3--summary">
       <div className="s3__body">
-        <h1 className="t-lg s3__done-title">Xong phiên</h1>
+        <h1 className="t-lg s3__done-title">Xong phiên học</h1>
         <Strip cells={cells} />
         <p className="s3__score">
           <span className="t-3xl num">
@@ -380,7 +382,7 @@ function Summary({
           )}
           <div className="s3__summary-links">
             <a className="btn btn--text" href={href('tien-bo')}>
-              Xem tiến bộ
+              Xem tiến độ
             </a>
             <a className="btn btn--text" href={href('hoc')}>
               Xong

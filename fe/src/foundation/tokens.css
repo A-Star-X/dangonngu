@@ -12,6 +12,9 @@
   --on-brand: #FFFFFF;
   --known: #1E7A4C;
   --review: #A35F00;
+  /* Trả lời chưa đúng (FND-02): đỏ thuần, khác --brand đỏ cam; nền nhạt cho lựa chọn hoặc cụm sai. */
+  --wrong: #C8102E;
+  --wrong-soft: #FBECEE;
   /* Chữ trên nút Tôi nhớ (C3-03): --surface ở chế độ sáng. */
   --on-known: var(--surface);
   /* Lớp nền phía sau sheet và hướng dẫn (C6-01, S9-02): --ink độ mờ 40% ở giao diện sáng, đen độ mờ 60% ở giao diện tối. */
@@ -58,6 +61,8 @@
   --on-brand: #0D1424;
   --known: #5CCB8F;
   --review: #F0B54A;
+  --wrong: #FF8A8A;
+  --wrong-soft: #3A1E27;
   --on-known: var(--paper);
   --scrim: rgb(0 0 0 / 0.6);
   --shadow-sheet: 0 -4px 24px rgb(0 0 0 / 0.5);
@@ -76,6 +81,8 @@
     --on-brand: #0D1424;
     --known: #5CCB8F;
     --review: #F0B54A;
+    --wrong: #FF8A8A;
+    --wrong-soft: #3A1E27;
     --on-known: var(--paper);
     --scrim: rgb(0 0 0 / 0.6);
     --shadow-sheet: 0 -4px 24px rgb(0 0 0 / 0.5);

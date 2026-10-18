@@ -192,6 +192,9 @@ describe('S5 Kiểm tra nhanh', () => {
     const marked = [...document.querySelectorAll('[data-testid="s5-answer"] .chunk')].map((b) => b.getAttribute('data-wrong') === 'true');
     expect(marked).toEqual([true, true]);
     expect(screen.queryByRole('button', { name: 'Câu tiếp' })).toBeNull();
+    // Xếp sai: dòng báo nhìn thấy được, màu --wrong (FND-02).
+    expect(screen.getByTestId('s5-feedback')).toHaveTextContent('Chưa đúng. Nhấn các cụm có dấu x để đưa về hàng cụm, rồi xếp lại.');
+    expect(screen.getByTestId('s5-feedback')).toHaveClass('s5__feedback--wrong');
     // Câu 3 có 5 từ (3 cụm): đổi chỗ hai cụm cuối thì chỉ hai cụm đó bị đánh dấu.
     for (const b of [...document.querySelectorAll<HTMLElement>('[data-testid="s5-answer"] .chunk')]) fireEvent.click(b);
     for (const l of c2) fireEvent.click(pool().find((b) => b.textContent === l)!);

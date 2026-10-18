@@ -10,7 +10,10 @@ export type DisplayStatus = 'chua-hoc' | 'da-nho' | 'can-on';
 
 export function dueAfter(streak: number, at: number): number {
   if (streak <= 0) return at;
-  return at + INTERVAL_DAYS[Math.min(streak, INTERVAL_DAYS.length) - 1] * DAY;
+  // Cộng theo ngày lịch (giữ giờ trên đồng hồ), để máy ở nơi có giờ mùa hè không lệch một giờ thành đến hạn sớm.
+  const d = new Date(at);
+  d.setDate(d.getDate() + INTERVAL_DAYS[Math.min(streak, INTERVAL_DAYS.length) - 1]);
+  return d.getTime();
 }
 
 /** Sau bước ghi nhớ: "Tôi nhớ" tăng streak, "Cần ôn lại" về 0. */

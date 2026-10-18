@@ -1,7 +1,7 @@
 // @spec C1-01, C1-02, C1-03, C1-04, C1-05, C1-06, C1-07, C1-08
 import { useEffect, useRef, type KeyboardEvent, type ReactNode } from 'react';
 import { Repeat, SpeakerHigh, Stop } from '@phosphor-icons/react';
-import type { Item } from '../../data';
+import { lowerFirst, type Item } from '../../data';
 import { sentenceSize } from '../../foundation/typography';
 import { useSpeaker } from './useSpeaker';
 import { Strip, type CellState } from '../C2-dai-8-o/Strip';
@@ -59,8 +59,19 @@ export function SentenceCard({ item, lang, locale, langName, covered = false, on
   }, [autoFocus, covered, item.id]);
   const speaker = useSpeaker(item.en, lang, locale);
   const size = sentenceSize(item.en);
+  // C1-02: khối che và tabIndex của thẻ biến mất khi hiện câu gốc; nếu focus đang ở thẻ thì chuyển sang câu vừa hiện,
+  // để bàn phím không rơi về đầu trang và trình đọc màn hình đọc được câu gốc.
+  const revealedRef = useRef<HTMLDivElement>(null);
+  const focusAfterReveal = useRef(false);
+  useEffect(() => {
+    if (covered || !focusAfterReveal.current) return;
+    focusAfterReveal.current = false;
+    revealedRef.current?.focus({ preventScroll: true });
+  }, [covered]);
   const reveal = () => {
-    if (covered) onReveal?.();
+    if (!covered) return;
+    focusAfterReveal.current = !!ref.current && ref.current.contains(document.activeElement);
+    onReveal?.();
   };
   const onKey = (e: KeyboardEvent) => {
     if (!covered || e.target !== e.currentTarget) return;
@@ -99,10 +110,10 @@ export function SentenceCard({ item, lang, locale, langName, covered = false, on
             reveal();
           }}
         >
-          Chạm để hiện câu gốc
+          Nhấn để hiện câu gốc
         </button>
       ) : (
-        <div className="card__revealed" data-testid="card-source">
+        <div className="card__revealed" data-testid="card-source" ref={revealedRef} tabIndex={-1}>
           <Source item={item} lang={lang} size={size} />
           {item.reading && !item.furigana && (
             <p className="card__reading t-sm muted" lang={lang}>
@@ -153,13 +164,13 @@ export function NoVoice({ langName, onOpenVoices, pending = false }: { langName:
   if (pending) {
     return (
       <p className="card__novoice card__novoice--pending t-sm muted" aria-hidden="true">
-        Thiết bị chưa có giọng {langName}. Mở <span className="card__link">Cài đặt &gt; Giọng đọc</span>.
+        Thiết bị chưa có giọng {lowerFirst(langName)}. Mở <span className="card__link">Cài đặt &gt; Giọng đọc</span>.
       </p>
     );
   }
   return (
     <p className="card__novoice t-sm muted">
-      Thiết bị chưa có giọng {langName}. Mở{' '}
+      Thiết bị chưa có giọng {lowerFirst(langName)}. Mở{' '}
       <button
         type="button"
         className="card__link"

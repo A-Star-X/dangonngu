@@ -67,7 +67,7 @@ export function T4TienBo({ params }: { params: Record<string, string> }) {
 
   const head = (
     <div className="t4__head">
-      <h1 className="t-lg t4__title">Tiến bộ</h1>
+      <h1 className="t-lg t4__title">Tiến độ</h1>
       {picker}
     </div>
   );
@@ -78,7 +78,7 @@ export function T4TienBo({ params }: { params: Record<string, string> }) {
       <section className="t4">
         {head}
         <div className="t4__empty">
-          <p className="t-body">Chưa có phiên nào. Học 8 câu đầu tiên để bắt đầu theo dõi tiến bộ.</p>
+          <p className="t-body">Bạn chưa hoàn thành phiên học nào. Học 8 câu đầu tiên để bắt đầu theo dõi tiến độ.</p>
           <Button variant="primary" onClick={() => navigate('phien-hoc', { nguon: 'lo-trinh' })}>
             Học 8 câu
           </Button>
@@ -104,7 +104,7 @@ export function T4TienBo({ params }: { params: Record<string, string> }) {
       {head}
       <dl className="t4__stats">
         <div className="t4__stat">
-          <dt className="t-sm muted">phiên</dt>
+          <dt className="t-sm muted">phiên học</dt>
           <dd className="t-xl num" data-testid="t4-sessions">
             {formatCount(stats.sessions)}
           </dd>
@@ -116,7 +116,7 @@ export function T4TienBo({ params }: { params: Record<string, string> }) {
           </dd>
         </div>
         <div className="t4__stat">
-          <dt className="t-sm muted">cần ôn hôm nay</dt>
+          <dt className="t-sm muted">câu cần ôn hôm nay</dt>
           <dd className="t-xl num" data-testid="t4-due">
             {formatCount(stats.dueToday)}
           </dd>
@@ -125,7 +125,7 @@ export function T4TienBo({ params }: { params: Record<string, string> }) {
 
       <div className="t4__goal">
         <p className="t-body t4__goal-text">
-          <span>Mục tiêu tuần</span>
+          <span>Mục tiêu mỗi tuần</span>
           <span className="num" data-testid="t4-goal">
             {done}/{goal} phiên
           </span>
@@ -133,7 +133,7 @@ export function T4TienBo({ params }: { params: Record<string, string> }) {
         <div
           className={`t4__bar ${reached ? 't4__bar--reached' : ''}`}
           role="progressbar"
-          aria-label="Mục tiêu tuần"
+          aria-label="Mục tiêu mỗi tuần"
           aria-valuemin={0}
           aria-valuemax={goal}
           aria-valuenow={Math.min(done, goal)}
@@ -147,7 +147,7 @@ export function T4TienBo({ params }: { params: Record<string, string> }) {
 
       <section className="t4__block" aria-labelledby="t4-schedule">
         <h2 id="t4-schedule" className="t-body t4__h2">
-          Lịch ôn
+          Lịch ôn tập
         </h2>
         <dl className="t4__schedule">
           <div>
@@ -174,7 +174,7 @@ export function T4TienBo({ params }: { params: Record<string, string> }) {
       {sessions.length > 0 && (
         <section className="t4__block" aria-labelledby="t4-sessions">
           <h2 id="t4-sessions" className="t-body t4__h2">
-            Các phiên
+            Các phiên học
           </h2>
           <SessionList sessions={sessions.slice(0, limit)} progress={progress} now={now} />
           {sessions.length > limit && (
@@ -282,7 +282,7 @@ function DayDetail({ d, day }: { d: LanguageData; day: number }) {
   const ids = itemsLearned(progress, from, to, (id) => d.byId.has(id));
   return (
     <div className="t4__day">
-      <h3 className="t-body t4__h2">Các phiên</h3>
+      <h3 className="t-body t4__h2">Các phiên học</h3>
       <SessionList sessions={sessions} progress={progress} now={now} />
       <h3 className="t-body t4__h2">Câu đã học ({formatCount(ids.length)})</h3>
       <ul className="t4__day-items" data-testid="t4-day-items">

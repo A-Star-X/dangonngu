@@ -20,7 +20,7 @@ function SwitchBody({ close }: { close: () => void }) {
       navigate('hoc');
     } catch {
       setBusy(null);
-      toast.show({ text: 'Không tải được danh sách câu. Kiểm tra kết nối rồi bấm Thử lại.', kind: 'alert', action: { label: 'Thử lại', onClick: () => pick(lang, p) } });
+      toast.show({ text: 'Không tải được danh sách câu. Kiểm tra kết nối rồi nhấn Thử lại.', kind: 'alert', action: { label: 'Thử lại', onClick: () => pick(lang, p) } });
     }
   };
   return <SwitchList languages={catalog.value.languages} current={language ? { lang: language.id, pack } : undefined} busy={busy} onPick={pick} />;

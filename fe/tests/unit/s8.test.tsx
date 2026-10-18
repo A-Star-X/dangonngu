@@ -64,11 +64,12 @@ describe('S8 Cài đặt', () => {
     ]);
     await renderApp('#/cai-dat', { seed: settingsSeed() });
     const dialog = await openVoices();
-    const names = () => within(dialog).getAllByRole('radio', { name: /Giọng|Mặc định/ }).map((r) => r.closest('label')!.textContent);
-    expect(names()).toEqual(['Mặc định của thiết bị', 'Giọng USen-US', 'Giọng GBen-GB', 'Giọng AUen-AU']);
+    const names = () => within(dialog).getAllByRole('radio', { name: /Giọng|Tự động/ }).map((r) => r.closest('label')!.textContent);
+    // Đang học bộ English Fluency (en-US): Tự động chọn giọng en-US như thẻ câu khi không có giọng Google (S8-02).
+    expect(names()).toEqual(['Tự độngĐang dùng Giọng US', 'Giọng USen-US', 'Giọng GBen-GB', 'Giọng AUen-AU']);
     fireEvent.click(within(dialog).getByRole('radio', { name: 'Tiếng Việt' }));
     await settle();
-    expect(names()).toEqual(['Mặc định của thiết bị', 'Giọng VIvi-VN']);
+    expect(names()).toEqual(['Tự độngĐang dùng Giọng VI', 'Giọng VIvi-VN']);
     fireEvent.click(within(dialog).getByRole('radio', { name: 'Tiếng Anh' }));
     await settle();
     fireEvent.click(within(dialog).getByRole('radio', { name: /Giọng GB/ }));
@@ -93,7 +94,7 @@ describe('S8 Cài đặt', () => {
     fakeSpeech([{ lang: 'vi-VN', voiceURI: 'vi', name: 'Giọng VI' }]);
     await renderApp('#/cai-dat?giong=1', { seed: settingsSeed() });
     const dialog = screen.getByRole('dialog', { name: 'Giọng đọc' });
-    expect(dialog).toHaveTextContent('Thiết bị chưa có giọng Tiếng Anh. Thêm giọng trong cài đặt hệ thống của thiết bị rồi mở lại app.');
+    expect(dialog).toHaveTextContent('Thiết bị chưa có giọng tiếng Anh. Thêm giọng trong cài đặt hệ thống của thiết bị rồi mở lại app.');
     fireEvent.click(within(dialog).getByRole('button', { name: 'Xong' }));
     await settle();
     expect(hash()).toBe('#/cai-dat');
@@ -133,9 +134,9 @@ describe('S8 Cài đặt', () => {
     expect(JSON.parse(exported.text).settings.lang).toBe('en');
 
     // Xóa: nút khóa tới khi gõ đúng tên ngôn ngữ.
-    fireEvent.click(screen.getByRole('button', { name: 'Xóa tiến độ Tiếng Anh' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Xóa tiến độ tiếng Anh' }));
     await settle();
-    let dialog = screen.getByRole('dialog', { name: 'Xóa tiến độ Tiếng Anh' });
+    let dialog = screen.getByRole('dialog', { name: 'Xóa tiến độ tiếng Anh' });
     const del = within(dialog).getByRole('button', { name: 'Xóa' });
     expect(del).toHaveAttribute('aria-disabled', 'true');
     fireEvent.change(within(dialog).getByRole('textbox', { name: 'Tên ngôn ngữ' }), { target: { value: 'Tiếng Nhật' } });
@@ -159,7 +160,7 @@ describe('S8 Cài đặt', () => {
     fireEvent.change(input(), { target: { files: [new File([exported.text], 'tien-do.json', { type: 'application/json' })] } });
     await settle(50);
     dialog = screen.getByRole('dialog', { name: 'Nhập tiến độ' });
-    expect(dialog).toHaveTextContent('Thay tiến độ Tiếng Anh (English Fluency) hiện tại bằng tệp này?');
+    expect(dialog).toHaveTextContent('Thay tiến độ tiếng Anh (English Fluency) hiện tại bằng tệp này?');
     fireEvent.click(within(dialog).getByRole('button', { name: 'Nhập tiến độ' }));
     await settle();
     expect(screen.getByText('Đã nhập tiến độ')).toBeInTheDocument();
@@ -173,7 +174,7 @@ describe('S8 Cài đặt', () => {
       fireEvent.change(input(), { target: { files: [new File([text], 'x.json', { type: 'application/json' })] } });
       await settle(50);
       expect(screen.getByRole('alert')).toHaveTextContent(
-        'Tệp này không phải tiến độ VITASR của Tiếng Anh (English Fluency). Chọn tệp đã xuất bằng Xuất tiến độ khi đang học Tiếng Anh (English Fluency).',
+        'Tệp này không phải tệp tiến độ học tiếng Anh (English Fluency) của VITASR. Chọn tệp đã xuất bằng Xuất tiến độ khi đang học tiếng Anh (English Fluency).',
       );
       expect(screen.queryByRole('dialog')).toBeNull();
       expect(r.mem.get(progressKey)).toBe(after);
@@ -216,7 +217,7 @@ describe('S8 Cài đặt', () => {
     await settle(30);
     expect(document.querySelector('.topbar__lang')).toBeNull();
     expect(screen.getByRole('button', { name: 'Quay lại' })).toBeInTheDocument();
-    const nav = screen.getByRole('navigation', { name: 'Khu chính' });
+    const nav = screen.getByRole('navigation', { name: 'Điều hướng chính' });
     expect(nav.querySelector('[aria-current="page"]')).toBeNull();
     fireEvent.click(screen.getByRole('button', { name: 'Quay lại' }));
     await settle();

@@ -218,6 +218,19 @@ for (const theme of THEMES) {
 
   test(`S8 ${theme}`, async ({ page }) => {
     await page.emulateMedia({ colorScheme: theme });
+    // Danh sách giọng giống Chrome trên Windows, để thấy "Tự động" chọn giọng Google (S8-02).
+    await page.addInitScript(() => {
+      const mk = (name: string, lang: string, localService: boolean, isDefault = false) => ({ name, lang, voiceURI: name, localService, default: isDefault });
+      const list = [
+        mk('Microsoft David - English (United States)', 'en-US', true, true),
+        mk('Microsoft Hazel - English (United Kingdom)', 'en-GB', true),
+        mk('Google US English', 'en-US', false),
+        mk('Google UK English Female', 'en-GB', false),
+        mk('Google UK English Male', 'en-GB', false),
+        mk('Microsoft An - Vietnamese (Vietnam)', 'vi-VN', true),
+      ];
+      Object.defineProperty(window.speechSynthesis, 'getVoices', { value: () => list });
+    });
     await seed(page, { 'vitasr2.settings': global() });
     for (const w of [375, 1280]) {
       await page.setViewportSize({ width: w, height: w === 1280 ? 800 : 812 });
@@ -227,7 +240,7 @@ for (const theme of THEMES) {
       await page.getByRole('button', { name: /Giọng đọc/ }).click();
       await shot(page, 'S8-AC09', `${w}-${theme}-sheet-giong-doc`);
       await page.keyboard.press('Escape');
-      await page.getByRole('button', { name: 'Xóa tiến độ Tiếng Anh' }).click();
+      await page.getByRole('button', { name: 'Xóa tiến độ tiếng Anh' }).click();
       await page.getByRole('textbox', { name: 'Tên ngôn ngữ' }).fill('Tiếng Anh');
       await shot(page, 'S8-AC09', `${w}-${theme}-sheet-xoa`);
       await page.keyboard.press('Escape');
@@ -385,16 +398,19 @@ test('FND-AC16 chỉ dùng bàn phím: T1 → S3 → tổng kết → T4', async
     await page.keyboard.press(' ');
     if (i === 0) await shot(page, 'FND-AC16', '04-S3a-sau-khi-hien');
     await page.keyboard.press('2');
+    // Chờ bước kiểm tra hiện hẳn rồi mới bấm phím, để phím không rơi vào lúc màn đang đổi (chạy song song dễ chậm).
+    await expect(page.getByText('Câu này nghĩa là gì?')).toBeVisible();
     const right = await page.locator('.choice').evaluateAll((els) => els.findIndex((e) => e.getAttribute('data-correct') === 'true'));
     await page.keyboard.press(String(right + 1));
+    await expect(page.locator('.choice--right')).toBeVisible();
     if (i === 0) await shot(page, 'FND-AC16', '05-S3b-focus-cau-tiep');
     await page.keyboard.press('Enter');
   }
-  await expect(page.getByText('Xong phiên')).toBeVisible();
-  await focusTo('Xem tiến bộ');
-  await shot(page, 'FND-AC16', '06-S3c-focus-xem-tien-bo');
+  await expect(page.getByText('Xong phiên học')).toBeVisible();
+  await focusTo('Xem tiến độ');
+  await shot(page, 'FND-AC16', '06-S3c-focus-xem-tien-do');
   await page.keyboard.press('Enter');
-  await expect(page.getByRole('heading', { name: 'Tiến bộ' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Tiến độ' })).toBeVisible();
   await focusTo('30 ngày');
   await shot(page, 'FND-AC16', '07-T4-focus-khoang');
   await page.keyboard.press('Enter');

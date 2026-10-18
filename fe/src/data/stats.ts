@@ -1,5 +1,5 @@
 // @spec T4-01, T4-02, T4-03, T4-04, T4-05, T4-06, T4-07, T3-05, DATA-07
-// Số liệu tiến bộ tính từ tiến độ đã lưu. Ngày là ngày lịch theo giờ của máy.
+// Số liệu tiến độ tính từ tiến độ đã lưu. Ngày là ngày lịch theo giờ của máy.
 import { dueItemIds, endOfDay, startOfDay } from './review';
 import type { Nguon, Progress, Session } from './progress';
 
@@ -98,11 +98,11 @@ export const hasCompletedSession = (p: Progress) => p.sessions.some((s) => s.com
 
 /** T4-06: nhãn nguồn của phiên. */
 export const NGUON_LABEL: Record<Nguon, string> = {
-  'lo-trinh': 'Lộ trình',
+  'lo-trinh': 'Học theo lộ trình',
   'on-tap': 'Ôn tập',
-  'tu-khoa': 'Từ khóa',
-  cau: 'Một câu',
-  'kiem-tra': 'Kiểm tra',
+  'tu-khoa': 'Học theo từ khóa',
+  cau: 'Học một câu',
+  'kiem-tra': 'Kiểm tra nhanh',
 };
 
 const WEEKDAY_LONG = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];

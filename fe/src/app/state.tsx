@@ -7,7 +7,9 @@ import {
   loadLanguageData,
   loadProgress,
   loadSettings,
+  progressKey,
   saveProgress,
+  SETTINGS_KEY,
   saveSettings,
   SafeStorage,
   emptyProgress,
@@ -152,25 +154,66 @@ export function AppProvider({ deps: given, children }: { deps?: AppDeps; childre
 
   // Tiến độ của cặp (bộ, ngôn ngữ) đang học
   const key = language && pack ? `${pack}.${language.id}` : null;
-  const progressRef = useRef<{ key: string | null; p: Progress }>({ key: null, p: emptyProgress() });
+  // `raw`: chuỗi đang nằm trong bộ nhớ máy ứng với `p`, để biết tab khác đã ghi đè hay chưa mà không phải đọc lại JSON mỗi lần.
+  const progressRef = useRef<{ key: string | null; p: Progress; raw: string | null }>({ key: null, p: emptyProgress(), raw: null });
+  const readProgress = useCallback(
+    (k: string) => {
+      const [pk, lg] = k.split('.') as [PackId, string];
+      return { key: k, p: loadProgress(deps.storage, pk, lg), raw: deps.storage.get(progressKey(pk, lg)) };
+    },
+    [deps.storage],
+  );
   if (progressRef.current.key !== key) {
-    progressRef.current = { key, p: language && pack ? loadProgress(deps.storage, pack, language.id) : emptyProgress() };
+    progressRef.current = key ? readProgress(key) : { key, p: emptyProgress(), raw: null };
   }
   const [, force] = useState(0);
   const updateProgress = useCallback(
     (fn: (p: Progress) => Progress) => {
-      const cur = progressRef.current;
+      let cur = progressRef.current;
+      if (cur.key) {
+        const [pk, lg] = cur.key.split('.') as [PackId, string];
+        // DATA-06: tab khác của app có thể vừa ghi tiến độ; đọc lại trước khi sửa để không ghi đè mất phần của tab đó.
+        // Chỉ nạp lại khi đọc được bản khác hẳn; đọc lỗi (trả về null) hay bộ nhớ bị chặn thì giữ bản đang có.
+        const fresh = deps.storage.get(progressKey(pk, lg));
+        if (fresh !== null && fresh !== cur.raw && !deps.storage.isBlocked()) cur = readProgress(cur.key);
+      }
       const next = fn(cur.p);
-      progressRef.current = { key: cur.key, p: next };
+      let raw: string | null = null;
       if (cur.key) {
         const [pk, lg] = cur.key.split('.') as [PackId, string];
         saveProgress(deps.storage, pk, lg, next);
+        raw = deps.storage.get(progressKey(pk, lg));
       }
+      progressRef.current = { key: cur.key, p: next, raw };
       force((n) => n + 1);
       return next;
     },
-    [deps.storage],
+    [deps.storage, readProgress],
   );
+
+  // DATA-06: app mở ở nhiều tab (trang học chính mở app bằng tab mới). Tab khác ghi tiến độ hay cài đặt thì nạp lại,
+  // để tab này không ghi đè mất. Riêng ngôn ngữ và bộ đang học giữ theo tab này để màn đang mở không bị đổi ngang.
+  useEffect(() => {
+    const on = (e: StorageEvent) => {
+      if (e.key === null || e.key === SETTINGS_KEY) {
+        const cur = settingsRef.current;
+        const loaded = loadSettings(deps.storage);
+        const next: Settings = { ...loaded, lang: cur.lang, packByLang: { ...loaded.packByLang, ...(cur.lang && cur.packByLang[cur.lang] ? { [cur.lang]: cur.packByLang[cur.lang] } : {}) } };
+        settingsRef.current = next;
+        setSettings(next);
+      }
+      const k = progressRef.current.key;
+      if (k) {
+        const [pk, lg] = k.split('.') as [PackId, string];
+        if ((e.key === null || e.key === progressKey(pk, lg)) && deps.storage.get(progressKey(pk, lg)) !== progressRef.current.raw) {
+          progressRef.current = readProgress(k);
+          force((n) => n + 1);
+        }
+      }
+    };
+    window.addEventListener('storage', on);
+    return () => window.removeEventListener('storage', on);
+  }, [deps.storage, readProgress]);
 
   const chooseLanguage = useCallback(
     async (lang: string, p: PackId) => {

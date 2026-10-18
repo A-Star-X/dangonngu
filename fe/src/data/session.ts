@@ -18,7 +18,12 @@ const patchSession = (p: Progress, id: string, patch: Partial<Session>): Progres
 });
 
 export function moveTo(p: Progress, sessionId: string, position: number, step: SessionStep): Progress {
-  return patchSession(p, sessionId, { position, step });
+  return patchSession(p, sessionId, { position, step, hintedItemId: undefined });
+}
+
+/** S3-05: ghi ngay khi mở gợi ý, để thoát hay tải lại trang rồi làm tiếp vẫn tính là đã dùng gợi ý. */
+export function markHinted(p: Progress, sessionId: string, itemId: number): Progress {
+  return patchSession(p, sessionId, { hintedItemId: itemId });
 }
 
 export function recordMemorize(p: Progress, sessionId: string, itemId: number, outcome: 'nho' | 'can-on', now: number): Progress {

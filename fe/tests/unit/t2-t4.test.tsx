@@ -25,7 +25,7 @@ describe('T2 Luyện tập', () => {
   it('12 câu cần ôn: mục hiện 12, chạm mở ôn tập; 0 câu: khóa và đổi mô tả', async () => {
     const r = await renderApp('#/luyen-tap', { seed: { ...settingsSeed(), ...progressSeed(due([...U1, ...U2.slice(0, 4)])) } });
     const row = screen.getByTestId('t2-on-tap');
-    expect(row).toHaveTextContent('Ôn câu cần ôn');
+    expect(row).toHaveTextContent('Ôn tập hôm nay');
     expect(within(row).getByText('12')).toBeInTheDocument();
     expect(row).not.toHaveAttribute('aria-disabled');
     fireEvent.click(row);
@@ -34,7 +34,7 @@ describe('T2 Luyện tập', () => {
     await renderApp('#/luyen-tap', { seed: settingsSeed() });
     const empty = screen.getByTestId('t2-on-tap');
     expect(empty).toHaveAttribute('aria-disabled', 'true');
-    expect(empty).toHaveTextContent('Không có câu cần ôn hôm nay.');
+    expect(empty).toHaveTextContent('Hôm nay không có câu nào cần ôn.');
     fireEvent.click(empty);
     expect(hash()).toBe('#/luyen-tap');
   });
@@ -48,7 +48,7 @@ describe('T2 Luyện tập', () => {
     await renderApp('#/luyen-tap', { seed: settingsSeed(GLOBAL), source });
     const dialog = await openKeyword();
     const input = within(dialog).getByRole('searchbox', { name: 'Từ khóa' });
-    expect(input).toHaveAttribute('placeholder', 'Ví dụ: đặt phòng, airport');
+    expect(input).toHaveAttribute('placeholder', 'Ví dụ: đặt phòng, sân bay');
     fireEvent.change(input, { target: { value: 'dat phong' } });
     await settle(120);
     expect(within(dialog).queryByText(/^Tìm thấy/)).toBeNull();
@@ -107,7 +107,7 @@ describe('T2 Luyện tập', () => {
     const dialog = await openKeyword();
     fireEvent.change(within(dialog).getByRole('searchbox', { name: 'Từ khóa' }), { target: { value: 'xyzxyz' } });
     await settle(320);
-    expect(within(dialog).getByText('Không có câu nào chứa "xyzxyz". Thử từ khác hoặc từ tiếng Anh.')).toBeInTheDocument();
+    expect(within(dialog).getByText('Không có câu nào chứa "xyzxyz". Thử từ khác bằng tiếng Việt hoặc tiếng Anh.')).toBeInTheDocument();
     expect(within(dialog).getByRole('button', { name: 'Học 8 câu đầu' })).toHaveAttribute('aria-disabled', 'true');
   });
 
@@ -131,7 +131,7 @@ describe('T2 Luyện tập', () => {
 
 const stat = (id: string) => screen.getByTestId(id).textContent;
 
-describe('T4 Tiến bộ với tiến độ mẫu 30 ngày', () => {
+describe('T4 Tiến độ với tiến độ mẫu 30 ngày', () => {
   const seed = { ...settingsSeed(), ...progressSeed() };
 
   // @ac T4-AC01
@@ -251,10 +251,10 @@ describe('T4 Tiến bộ với tiến độ mẫu 30 ngày', () => {
   it('tiến độ trống: chỉ có bộ chọn khoảng, đoạn thông báo và nút Học 8 câu', async () => {
     await renderApp('#/tien-bo', { seed: settingsSeed() });
     expect(screen.getByRole('group', { name: 'Khoảng thời gian' })).toBeInTheDocument();
-    expect(screen.getByText('Chưa có phiên nào. Học 8 câu đầu tiên để bắt đầu theo dõi tiến bộ.')).toBeInTheDocument();
+    expect(screen.getByText('Bạn chưa hoàn thành phiên học nào. Học 8 câu đầu tiên để bắt đầu theo dõi tiến độ.')).toBeInTheDocument();
     expect(screen.queryByTestId('t4-sessions')).toBeNull();
-    expect(screen.queryByText('Lịch ôn')).toBeNull();
-    expect(screen.queryByText(/Mục tiêu tuần/)).toBeNull();
+    expect(screen.queryByText('Lịch ôn tập')).toBeNull();
+    expect(screen.queryByText(/Mục tiêu mỗi tuần/)).toBeNull();
     fireEvent.click(screen.getByRole('button', { name: 'Học 8 câu' }));
     expect(hash()).toBe('#/phien-hoc?nguon=lo-trinh');
   });

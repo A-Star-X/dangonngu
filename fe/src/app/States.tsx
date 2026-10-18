@@ -4,7 +4,7 @@ import { Button } from '../components/C3-nut/Button';
 export function LoadError({ onRetry }: { onRetry: () => void }) {
   return (
     <div className="load-error" role="alert">
-      <p className="t-body">Không tải được danh sách câu. Kiểm tra kết nối rồi bấm Thử lại.</p>
+      <p className="t-body">Không tải được danh sách câu. Kiểm tra kết nối rồi nhấn Thử lại.</p>
       <Button variant="secondary" onClick={onRetry}>
         Thử lại
       </Button>

@@ -13,10 +13,11 @@
 .choice__num { display: none; width: 16px; flex: none; }
 @media (min-width: 900px) { .choice__num { display: inline; } }
 .choice__text { flex: 1; overflow-wrap: anywhere; }
-.choice__icon { flex: none; }
+.choice__mark { flex: none; display: inline-flex; align-items: center; gap: var(--s-1); font-weight: 600; }
 .choice--right { border: 2px solid var(--known); }
-.choice--right .choice__icon { color: var(--known); }
-.choice--wrong { border: 2px solid var(--review); }
-.choice--wrong .choice__icon { color: var(--review); }
+.choice--right .choice__mark { color: var(--known); }
+/* FND-02: trả lời chưa đúng dùng đỏ --wrong, nền nhạt --wrong-soft, kèm chữ và icon x. */
+.choice--wrong { border: 2px solid var(--wrong); background: var(--wrong-soft); }
+.choice--wrong .choice__mark { color: var(--wrong); }
 .choice[aria-disabled='true']:not(.choice--right):not(.choice--wrong) { opacity: 0.4; }
 @media (hover: hover) { .choice:not([aria-disabled='true']):hover { border-color: var(--muted); } }
