@@ -20,9 +20,11 @@ Nhóm "Học tập" gồm: "Mục tiêu mỗi tuần" với bộ tăng giảm t�
 
 ### S8-02 Giọng đọc
 
-Nhóm "Âm thanh", mục "Giọng đọc" hiện tên giọng đang dùng; chạm mở sheet (C6) "Giọng đọc" gồm:
-- Chọn "Giọng cho": ngôn ngữ đang học hoặc Tiếng Việt.
-- Danh sách giọng có trên thiết bị khớp ngôn ngữ đó (theo `lang` của giọng), mỗi dòng có nút "Nghe thử" đọc một câu mẫu của ngôn ngữ đó. Mục đầu là "Mặc định của thiết bị".
+Nhóm "Âm thanh", mục "Giọng đọc" hiện tên giọng đang dùng ("Tự động ([tên giọng])" khi người học chưa chọn); chạm mở sheet (C6) "Giọng đọc" gồm:
+- Chọn "Chọn giọng cho": ngôn ngữ đang học hoặc Tiếng Việt.
+- Danh sách giọng có trên thiết bị khớp ngôn ngữ đó (theo `lang` của giọng), mỗi dòng có nút "Nghe thử" đọc một câu mẫu của ngôn ngữ đó. Mục đầu là "Tự động", kèm dòng phụ "Đang dùng [tên giọng]" cho biết giọng sẽ được dùng.
+
+Giọng "Tự động" (mặc định khi người học chưa chọn giọng nào), chọn trong các giọng khớp ngôn ngữ theo thứ tự (vùng lấy theo bộ nội dung đang học, giống thẻ câu: Global English `en-GB`, English Fluency `en-US`): giọng Google đúng vùng (ví dụ "Google US English" cho `en-US`, "Google UK English Female" cho `en-GB`); giọng Google khác cùng ngôn ngữ; giọng có tên chứa Natural, Neural, Online, Enhanced hoặc Premium (đúng vùng trước); giọng đúng vùng; giọng mặc định của thiết bị; giọng đầu tiên. Giọng Google trên Chrome cần mạng: khi đang ngoại tuyến, "Tự động" bỏ qua các giọng cần mạng; khi một giọng cần mạng báo lỗi trước lúc đọc, app đọc lại câu đó một lần bằng giọng có sẵn trên máy theo cùng thứ tự.
 - "Tốc độ đọc": 0,75x, 1x, 1,25x (mặc định 1x).
 - Nút chính "Xong".
 Khi không có giọng nào: "Thiết bị chưa có giọng [tên ngôn ngữ]. Thêm giọng trong cài đặt hệ thống của thiết bị rồi mở lại app." Lựa chọn lưu theo từng ngôn ngữ (DATA-06). Bản này chưa có chỗ nào đọc nghĩa tiếng Việt thành tiếng; giọng Tiếng Việt chọn được để dùng khi có tính năng đó.
@@ -39,7 +41,7 @@ Nhóm "Giao diện" gồm ba lựa chọn loại radio: "Theo thiết bị", "S�
 
 Nhóm "Tiến độ" gồm:
 - "Xuất tiến độ": tải file `vitasr-tien-do-[mã ngôn ngữ]-[yyyy-mm-dd].json` chứa tiến độ của ngôn ngữ đang học và cài đặt.
-- "Nhập tiến độ": chọn tệp JSON; kiểm tra đúng cấu trúc DATA-06, đúng ngôn ngữ và đúng bộ nội dung đang học (tiếng Anh có hai bộ dùng chung dải id câu); sheet xác nhận "Thay tiến độ [tên] hiện tại bằng tệp này?" với nút "Hủy" và "Nhập tiến độ"; xong thì thông báo ngắn "Đã nhập tiến độ". Tệp sai: thông báo lỗi "Tệp này không phải tiến độ VITASR của [tên]. Chọn tệp đã xuất bằng Xuất tiến độ khi đang học [tên]." và không thay đổi gì. [tên] là tên ngôn ngữ, kèm tên bộ trong ngoặc khi ngôn ngữ có nhiều bộ, ví dụ "Tiếng Anh (Global English)".
+- "Nhập tiến độ": chọn tệp JSON; kiểm tra đúng cấu trúc DATA-06 (kể cả giá trị: `streak` là số nguyên không âm, `position` trong khoảng 0 đến số câu, `step` hợp lệ), đúng ngôn ngữ và đúng bộ nội dung đang học (tiếng Anh có hai bộ dùng chung dải id câu); tệp lớn hơn 8 MB coi là tệp sai, không đọc; sheet xác nhận "Thay tiến độ [tên] hiện tại bằng tệp này?" với nút "Hủy" và "Nhập tiến độ"; xong thì thông báo ngắn "Đã nhập tiến độ". Tệp sai: thông báo lỗi "Tệp này không phải tệp tiến độ học [tên] của VITASR. Chọn tệp đã xuất bằng Xuất tiến độ khi đang học [tên]." và không thay đổi gì. [tên] là tên ngôn ngữ viết thường chữ đầu (FND-12), kèm tên bộ trong ngoặc khi ngôn ngữ có nhiều bộ, ví dụ "tiếng Anh (Global English)". Nhãn mục xóa là "Xóa tiến độ [tên ngôn ngữ]" với tên viết thường chữ đầu, ví dụ "Xóa tiến độ tiếng Anh"; trong câu "Gõ "[tên ngôn ngữ]" để xác nhận" giữ đúng tên như danh sách ngôn ngữ.
 - "Xóa tiến độ [tên ngôn ngữ]": sheet xác nhận có dòng "Gõ "[tên ngôn ngữ]" để xác nhận. Tiến độ đã xóa không lấy lại được.", ô gõ, nút "Hủy" và "Xóa"; "Xóa" chỉ mở khi gõ đúng tên ngôn ngữ (không phân biệt hoa thường nhưng phải đủ dấu); xong thì thông báo ngắn "Đã xóa tiến độ" và về T1.
 
 ### S8-06 Trợ giúp
@@ -68,3 +70,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.1 (07/10/2026): bản đầu.
 - 0.2 (08/10/2026): hỗ trợ hai bộ nội dung tiếng Anh (English Fluency và Global English).
 - 0.3 (10/10/2026): chốt các câu hỏi mở (Claude quyết định theo ủy quyền của nhóm): nhóm "Dữ liệu" đổi tên thành "Tiến độ"; câu báo lỗi nhập tệp có hướng xử lý; ghi tên nút sheet xác nhận; không có nghe nghĩa ở bản này.
+- 0.4 (18/10/2026): S8-02 thay "Mặc định của thiết bị" bằng "Tự động", ưu tiên giọng Google rồi giọng chất lượng cao, đọc lại bằng giọng trên máy khi giọng cần mạng lỗi; "Giọng cho" thành "Chọn giọng cho"; S8-05 viết tên ngôn ngữ theo FND-12 (theo phản hồi người dùng do nhóm chuyển); S8-05 kiểm cả giá trị trong tệp nhập và giới hạn 8 MB (sửa lỗi tìm thấy khi rà soát code); giọng Tự động lấy vùng theo bộ đang học; câu báo tệp sai viết lại.

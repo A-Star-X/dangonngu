@@ -86,10 +86,10 @@ Tiến độ và cài đặt lưu localStorage qua một interface `ProgressStor
 - `vitasr2.progress.{bộ}.{lang}` (ví dụ `vitasr2.progress.global.en`): tiến độ giữ riêng cho từng cặp bộ nội dung và ngôn ngữ, `{ schema: 1, sessions: [], attempts: [], items: { [id]: { status, streak, due, lastAt } } }`.
   - Session: `id`, `nguon` (lo-trinh, on-tap, tu-khoa, cau, kiem-tra), `itemIds`, `startedAt`, `completedAt`, `position`.
   - Attempt: `sessionId`, `itemId`, `at`, `kind` (ghi-nho, trac-nghiem, nghe-chon, sap-xep), `outcome` (nho, can-on, dung, sai), `hinted`. Bước Nghe theo cụm của S5 không ghi lượt.
-  - Session lưu thêm `step` (bước đang làm, `ghi-nho` hoặc `kiem-tra`, để mở lại đúng chỗ, S3-08), `abandonedAt` (phiên dở bị thay bằng phiên mới, S3-08) và `params` (`q`, `nhom`, `id` để mở lại đúng phiên).
+  - Session lưu thêm `step` (bước đang làm, `ghi-nho` hoặc `kiem-tra`, để mở lại đúng chỗ, S3-08), `abandonedAt` (phiên dở bị thay bằng phiên mới, S3-08) và `params` (`q`, `nhom`, `id` để mở lại đúng phiên), `hintedItemId` (câu ở `position` đã mở gợi ý, S3-05).
   - Trạng thái lưu của câu (`status`): `da-hoc` khi câu đã qua bước ghi nhớ, `kiem-tra` khi câu mới chỉ gặp ở bài kiểm tra. Mốc thời gian lưu dạng số mili giây.
 
-Mọi ghi đều bọc xử lý lỗi; khi localStorage không dùng được, app vẫn chạy với bộ nhớ tạm trong phiên và hiện cảnh báo (APP-08). Không đọc tiến độ của bản cũ (đã chốt 08/10/2026).
+Khi đọc tiến độ đã lưu, phần tử hỏng (câu có `streak` không phải số nguyên không âm, phiên có `position` ngoài 0 đến số câu hoặc thiếu `step`, lượt sai cấu trúc) bị bỏ, phần còn lại giữ nguyên, để một dòng hỏng không làm app không mở được. App có thể mở ở nhiều tab cùng lúc: tab khác ghi tiến độ hay cài đặt thì tab này nạp lại (riêng ngôn ngữ và bộ đang học giữ theo tab đang xem), và mỗi lần ghi tiến độ đều đọc lại bản đang lưu trước, để tab này không ghi đè mất phần của tab kia. Mọi ghi đều bọc xử lý lỗi; khi localStorage không dùng được, app vẫn chạy với bộ nhớ tạm trong phiên và hiện cảnh báo (APP-08). Không đọc tiến độ của bản cũ (đã chốt 08/10/2026).
 
 ### DATA-07 Quy tắc câu cần ôn
 
@@ -97,7 +97,7 @@ Mỗi câu có một trong ba trạng thái hiển thị: **Chưa học**, **Đ�
 
 - Sau bước ghi nhớ: chọn "Tôi nhớ" thì `streak` tăng 1; chọn "Cần ôn lại" thì `streak` về 0.
 - Sau bước trắc nghiệm hoặc kiểm tra: trả lời sai hoặc dùng gợi ý thì `streak` về 0; trả lời đúng mà không dùng gợi ý thì giữ nguyên `streak` và `due`.
-- Ngày ôn tiếp (`due`): `streak` 0 thì đến hạn ngay; `streak` 1, 2, 3, 4, từ 5 trở lên thì sau 1, 3, 7, 14, 30 ngày tính từ lần làm cuối (khoảng ôn đã chốt).
+- Ngày ôn tiếp (`due`): `streak` 0 thì đến hạn ngay; `streak` 1, 2, 3, 4, từ 5 trở lên thì sau 1, 3, 7, 14, 30 ngày tính từ lần làm cuối (khoảng ôn đã chốt), cộng theo ngày lịch và giữ giờ trên đồng hồ, để máy ở nơi có giờ mùa hè không lệch thành đến hạn sớm một giờ.
 - Câu **Cần ôn** trong ngày D là câu đã học có `due` không muộn hơn cuối ngày D (giờ máy). Câu đã học còn lại là **Đã nhớ**.
 
 Chỉ có một khái niệm "cần ôn" trong toàn app; T1, T2, T3, T4 cùng dùng quy tắc này.
@@ -125,7 +125,7 @@ Lộ trình là thứ tự unit trong file unit của bộ nội dung đang dùn
 
 ### DATA-12 Tìm kiếm
 
-Tìm trên câu gốc, nghĩa, và `noteVi`, `topic`, `situation` khi bộ nội dung có các trường này; không phân biệt hoa thường; bỏ dấu tiếng Việt khi so khớp ("dat phong" khớp "đặt phòng"); khớp theo chuỗi con. Kết quả giữ thứ tự theo `id`.
+Tìm trên câu gốc, nghĩa, và `noteVi`, `topic`, `situation` khi bộ nội dung có các trường này; không phân biệt hoa thường; bỏ dấu tiếng Việt khi so khớp ("dat phong" khớp "đặt phòng"), chỉ bỏ dấu trên chữ Latinh (dấu của chữ Nhật, Hindi, Thái, Kirin là một phần của chữ nên giữ nguyên, "が" không khớp "か"); khớp theo chuỗi con. Kết quả giữ thứ tự theo `id`.
 
 ### DATA-13 Bộ nội dung
 
@@ -157,3 +157,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.2 (08/10/2026): hỗ trợ hai bộ nội dung tiếng Anh (English Fluency và Global English).
 - 0.3 (08/10/2026): cập nhật theo bộ dữ liệu khách gửi và câu trả lời của nhóm (ưu tiên web, responsive; đủ 15 ngôn ngữ; không đọc tiến độ bản cũ).
 - 0.4 (10/10/2026): chốt các câu hỏi mở (Claude quyết định theo ủy quyền của nhóm): khoảng ôn, không chọn trình độ bắt đầu, trả lời đúng không gợi ý giữ nguyên lịch, ghi các trường lưu thêm vào DATA-06.
+- 0.5 (18/10/2026): DATA-06 thêm `hintedItemId`, bỏ phần tử hỏng khi đọc tiến độ, đồng bộ giữa các tab; DATA-07 cộng ngày theo lịch; DATA-12 chỉ bỏ dấu chữ Latinh (sửa lỗi tìm thấy khi rà soát code).

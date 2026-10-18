@@ -28,7 +28,7 @@ flowchart LR
     T1["T1 Học"]
     T2["T2 Luyện tập"]
     T3["T3 Thư viện"]
-    T4["T4 Tiến bộ"]
+    T4["T4 Tiến độ"]
   end
 
   MAIN <--> FULL["Màn toàn trang<br/>S3 Phiên học, S5 Kiểm tra nhanh"]
@@ -112,7 +112,7 @@ flowchart TD
     H["T1 Học"]
     P["T2 Luyện tập"]
     B["T3 Thư viện"]
-    G["T4 Tiến bộ"]
+    G["T4 Tiến độ"]
   end
 
   TABS -->|"tên ngôn ngữ"| LS["Sheet Đổi ngôn ngữ<br/>hoặc bộ nội dung"]
@@ -124,7 +124,7 @@ flowchart TD
   %% @spec T1-02, T1-04
   H -->|"Mở Luyện tập, khi học hết lộ trình"| P
   %% @spec T1-05
-  P -->|"Ôn câu cần ôn"| S
+  P -->|"Ôn tập hôm nay"| S
   %% @spec T2-02
   P -->|"Học theo từ khóa"| C["Sheet Học theo từ khóa"]
   %% @spec T2-03
@@ -157,7 +157,7 @@ flowchart TD
 | S3 Phiên học | Thoát, xác nhận Dừng | Màn đã mở phiên (T1, T2, T3 hoặc T4) | S3-07 |
 | S3 Phiên học | Nhóm câu rỗng (ví dụ không còn câu cần ôn) | Màn đã mở phiên, kèm thông báo ngắn | S3-01 |
 | S3c Tổng kết phiên | Học tiếp N câu / Nhóm tiếp | S3 Phiên học, nhóm câu mới | S3-06 |
-| S3c Tổng kết phiên | Xem tiến bộ | T4 Tiến bộ | S3-06 |
+| S3c Tổng kết phiên | Xem tiến độ | T4 Tiến độ | S3-06 |
 | S3c Tổng kết phiên | Xong | T1 Học | S3-06 |
 | S5 Kiểm tra nhanh | Thoát, xác nhận Dừng | T2 Luyện tập | S5-08 |
 | S5 màn bắt đầu | Thoát | T2 Luyện tập | S5-08 |
@@ -246,7 +246,7 @@ flowchart TB
     t1_due["«hyperlink»<br/>N câu cần ôn hôm nay"]
     t1_tab2["«tab»<br/>Luyện tập"]
     t1_tab3["«tab»<br/>Thư viện"]
-    t1_tab4["«tab»<br/>Tiến bộ"]
+    t1_tab4["«tab»<br/>Tiến độ"]
     t1_done["«button»<br/>Mở Luyện tập, khi học hết"]
     t1_voice["«hyperlink»<br/>Cài đặt > Giọng đọc, khi thiếu giọng"]
   end
@@ -265,7 +265,7 @@ flowchart TB
   subgraph W_T3["«window» T3 Thư viện"]
     W_T3_x[" "]
   end
-  subgraph W_T4["«window» T4 Tiến bộ"]
+  subgraph W_T4["«window» T4 Tiến độ"]
     W_T4_x[" "]
   end
   subgraph W_VOICE["«sheet» Giọng đọc"]
@@ -325,17 +325,17 @@ flowchart TB
     b_exit["«button»<br/>Thoát"]
     b_sum["«button»<br/>Xem tổng kết, ở câu cuối"]
   end
-  subgraph W_STOP["«sheet» Dừng phiên?"]
+  subgraph W_STOP["«sheet» Dừng phiên học?"]
     stop_stop["«button»<br/>Dừng"]
   end
   subgraph W_S3c["«window» S3c Tổng kết phiên"]
-    c_prog["«hyperlink»<br/>Xem tiến bộ"]
+    c_prog["«hyperlink»<br/>Xem tiến độ"]
     c_done["«hyperlink»<br/>Xong"]
   end
   subgraph W_ORIG["«window» Màn đã mở phiên"]
     W_ORIG_x[" "]
   end
-  subgraph W_T4["«window» T4 Tiến bộ"]
+  subgraph W_T4["«window» T4 Tiến độ"]
     W_T4_x[" "]
   end
   subgraph W_T1["«window» T1 Học"]
@@ -376,7 +376,7 @@ flowchart TB
   classDef win fill:#fff,stroke:#333,color:#000
 
   subgraph W_T2["«window» T2 Luyện tập"]
-    t2_review["«list item»<br/>Ôn câu cần ôn"]
+    t2_review["«list item»<br/>Ôn tập hôm nay"]
     t2_kw["«list item»<br/>Học theo từ khóa"]
     t2_test["«list item»<br/>Kiểm tra nhanh"]
   end
@@ -462,14 +462,14 @@ flowchart TB
 
 Từ 900 px, chi tiết câu hiện ở cột phải của T3 thay cho sheet (T3-07).
 
-### 4.6 T4 Tiến bộ
+### 4.6 T4 Tiến độ
 
 ```mermaid
 flowchart TB
   classDef el fill:#d9d9d9,stroke:#333,color:#000
   classDef win fill:#fff,stroke:#333,color:#000
 
-  subgraph W_T4["«window» T4 Tiến bộ"]
+  subgraph W_T4["«window» T4 Tiến độ"]
     t4_bar["«chart bar»<br/>Cột ngày"]
     t4_empty["«button»<br/>Học 8 câu, khi chưa có phiên"]
   end

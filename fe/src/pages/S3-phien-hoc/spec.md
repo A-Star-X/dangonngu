@@ -25,7 +25,7 @@ S3a Ghi nhớ:
 │ cho hai người.            │
 │                           │
 │ ┌───────────────────────┐ │
-│ │ Chạm để hiện câu gốc  │ │
+│ │ Nhấn để hiện câu gốc  │ │
 │ └───────────────────────┘ │
 │                           │
 │ [Cần ôn lại]   [Tôi nhớ]  │  khóa tới khi hiện câu gốc
@@ -54,7 +54,7 @@ S3c Tổng kết:
 
 ```
 ┌───────────────────────────┐
-│ Xong phiên                │
+│ Xong phiên học            │
 │ ■■■■■■■■                  │
 │ 6/8                       │  --t-3xl
 │ câu nhớ được không cần    │
@@ -63,7 +63,7 @@ S3c Tổng kết:
 │  I'd like to book...      │
 │  Could you tell me...     │
 │ [   Học tiếp 8 câu    ]   │
-│  Xem tiến bộ     Xong     │
+│  Xem tiến độ     Xong     │
 └───────────────────────────┘
 ```
 
@@ -110,15 +110,15 @@ Hiện câu gốc (font và cỡ như C1, có nút Nghe) với câu hỏi "Câu 
 
 ### S3-05 Gợi ý
 
-Ở S3b có nút dạng chữ "Xem gợi ý". Bấm thì hiện dưới câu gốc: "Nghĩa bắt đầu bằng "[chữ đầu tiên của nghĩa đúng]…", gồm [số từ] từ." Câu đó được ghi là đã dùng gợi ý (`hinted`), tính theo DATA-07. Gợi ý chỉ dùng được một lần mỗi câu.
+Ở S3b có nút dạng chữ "Xem gợi ý". Bấm thì hiện dưới câu gốc: "Nghĩa bắt đầu bằng "[chữ đầu tiên của nghĩa đúng]…", gồm [số từ] từ." Câu đó được ghi là đã dùng gợi ý (`hinted`), tính theo DATA-07; việc mở gợi ý được lưu ngay vào phiên (DATA-06), nên thoát hay tải lại trang rồi làm tiếp vẫn hiện gợi ý và vẫn tính là đã dùng gợi ý. Gợi ý chỉ dùng được một lần mỗi câu.
 
 ### S3-06 Tổng kết phiên
 
-S3c hiện: dải ô cuối cùng; số câu đúng ở S3b lần đầu và không dùng gợi ý, dạng "x/N" cỡ `--t-3xl` kèm dòng "câu nhớ được không cần gợi ý"; danh sách câu gốc của các câu thành Cần ôn trong phiên (nếu có). Nút chính "Học tiếp N câu" (bắt đầu phiên lộ trình tiếp theo; ẩn khi đã học hết lộ trình); riêng phiên có `nguon=tu-khoa` và còn nhóm sau, nút chính là "Nhóm tiếp" (mở nhóm k+1 của cùng từ khóa); nút dạng chữ "Xem tiến bộ" (tới `#/tien-bo`) và "Xong" (tới `#/hoc`).
+S3c hiện: tiêu đề "Xong phiên học"; dải ô cuối cùng; số câu đúng ở S3b lần đầu và không dùng gợi ý, dạng "x/N" cỡ `--t-3xl` kèm dòng "câu nhớ được không cần gợi ý"; danh sách câu gốc của các câu thành Cần ôn trong phiên (nếu có). Nút chính "Học tiếp N câu" (bắt đầu phiên lộ trình tiếp theo; ẩn khi đã học hết lộ trình); riêng phiên có `nguon=tu-khoa` và còn nhóm sau, nút chính là "Nhóm tiếp" (mở nhóm k+1 của cùng từ khóa); nút dạng chữ "Xem tiến độ" (tới `#/tien-bo`) và "Xong" (tới `#/hoc`).
 
 ### S3-07 Thoát giữa phiên
 
-Bấm "Thoát" (hoặc Esc, hoặc Back của trình duyệt) khi phiên chưa xong: mở sheet xác nhận (C6) "Dừng phiên? Tiến độ n/N câu được giữ lại." với nút "Học tiếp" (đóng sheet) và "Dừng" (về màn đã mở phiên). Kết quả các câu đã làm được giữ.
+Bấm "Thoát" (hoặc Esc, hoặc Back của trình duyệt) khi phiên chưa xong: mở sheet xác nhận (C6) "Dừng phiên học?" với dòng "Bạn đã học n/N câu. Kết quả các câu này vẫn được lưu." (khi chưa xong câu nào: "Bạn chưa học xong câu nào.") với nút "Học tiếp" (đóng sheet) và "Dừng" (về màn đã mở phiên). Kết quả các câu đã làm được giữ.
 
 ### S3-08 Phiên dở
 
@@ -126,8 +126,9 @@ Phiên đã dừng được lưu kèm vị trí (`position`) và bước hiện 
 
 ### S3-09 Điều khiển
 
-Không dùng vuốt để chuyển câu. Trên bàn phím: Space hiện câu gốc; phím 1 là "Cần ôn lại", phím 2 là "Tôi nhớ" (ở S3a); phím 1 đến 4 chọn đáp án (ở S3b); Enter là nút chính đang hiện.
+Không dùng vuốt để chuyển câu. Trên bàn phím: Space hiện câu gốc; phím 1 là "Cần ôn lại", phím 2 là "Tôi nhớ" (ở S3a); phím 1 đến 4 chọn đáp án (ở S3b); Enter là nút chính đang hiện. Giữ phím thì chỉ tính một lần nhấn (bỏ qua sự kiện lặp của bàn phím), để phím 1 hay 2 giữ lâu ở S3a không tự chọn đáp án ở S3b.
 
 ## Lịch sử thay đổi
 
 - 0.1 (07/10/2026): bản đầu.
+- 0.2 (18/10/2026): đổi chữ: "Nhấn để hiện câu gốc", "Xong phiên học", "Xem tiến độ", sheet "Dừng phiên học?" (theo phản hồi người dùng do nhóm chuyển); S3-05 lưu việc mở gợi ý vào phiên; S3-09 bỏ qua phím lặp khi giữ phím (sửa lỗi tìm thấy khi rà soát code); sheet dừng có câu riêng khi chưa xong câu nào.

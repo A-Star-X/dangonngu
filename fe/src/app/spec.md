@@ -15,7 +15,7 @@ Khung bao quanh mọi trang: điều hướng, route, thanh trên cùng, bố c�
 
 ### APP-01 Bốn khu chính
 
-App có đúng 4 khu chính, theo thứ tự: T1 Học, T2 Luyện tập, T3 Thư viện, T4 Tiến bộ. Dưới 900 px chuyển khu bằng thanh tab dưới đáy (C5). Từ 900 px trở lên dùng thanh điều hướng dọc bên trái rộng 220 px, cùng 4 mục và cùng thứ tự.
+App có đúng 4 khu chính, theo thứ tự: T1 Học, T2 Luyện tập, T3 Thư viện, T4 Tiến độ. Dưới 900 px chuyển khu bằng thanh tab dưới đáy (C5). Từ 900 px trở lên dùng thanh điều hướng dọc bên trái rộng 220 px, cùng 4 mục và cùng thứ tự.
 
 ### APP-02 Thanh trên cùng
 
@@ -68,8 +68,8 @@ Không có thanh cuộn ngang ở bất kỳ khổ nào từ 320 px.
 | Trạng thái | Hiển thị |
 |---|---|
 | Đang tải dữ liệu | Khung xương đúng hình khối sẽ hiện (thẻ câu, danh sách); không dùng vòng xoay giữa màn |
-| Lỗi tải dữ liệu | "Không tải được danh sách câu. Kiểm tra kết nối rồi bấm Thử lại." và nút "Thử lại" |
-| Ngoại tuyến | Dải mỏng ngay dưới thanh trên cùng: "Đang ngoại tuyến. Tiến độ vẫn được lưu trên máy." Tự ẩn khi có mạng lại |
+| Lỗi tải dữ liệu | "Không tải được danh sách câu. Kiểm tra kết nối rồi nhấn Thử lại." và nút "Thử lại" |
+| Ngoại tuyến | Dải mỏng ngay dưới thanh trên cùng: "Bạn đang ngoại tuyến. Tiến độ vẫn được lưu trên máy." Tự ẩn khi có mạng lại |
 | Bộ nhớ trình duyệt bị chặn | Dải cảnh báo: "Trình duyệt đang chặn lưu tiến độ, tiến độ sẽ mất khi đóng app. Cho phép trang này lưu trên máy trong cài đặt trình duyệt rồi mở lại app." |
 
 ### APP-09 Cách trang chính mở app
@@ -116,3 +116,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.3 (08/10/2026): cập nhật theo bộ dữ liệu khách gửi và câu trả lời của nhóm (ưu tiên web, responsive; đủ 15 ngôn ngữ; không đọc tiến độ bản cũ).
 - 0.4 (10/10/2026): chốt cách trang chính mở app là trang mới, không nhúng iframe (APP-09, đổi tên từ "Chạy trong iframe"); thêm nút về trang học chính (APP-12); APP-02 có thêm nút này ở bên trái.
 - 0.5 (10/10/2026): chốt các câu hỏi mở (Claude quyết định theo ủy quyền của nhóm): APP-10 ghi rõ cách kích hoạt bản mới và lưu ngoại tuyến; APP-12 chốt địa chỉ mặc định và trường hợp trang chính mở tab mới; APP-08 đổi câu cảnh báo bộ nhớ bị chặn cho có hướng xử lý (FND-12).
+- 0.6 (18/10/2026): T4 đổi tên thành "Tiến độ"; câu lỗi tải dùng "nhấn"; câu ngoại tuyến gọi người học là "bạn" (theo phản hồi người dùng do nhóm chuyển).

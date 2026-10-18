@@ -35,7 +35,7 @@ Thẻ gồm, từ trên xuống: dải 8 ô và nhãn "Câu n/N" (chỉ khi đư
 
 ### C1-02 Trạng thái che câu gốc
 
-Khi thẻ ở chế độ che: vùng câu gốc là một khối nền `--line` cao bằng một dòng câu, có chữ "Chạm để hiện câu gốc"; nút Nghe và Nghe lặp bị khóa. Chạm vào khối, chạm vào thẻ, hoặc nhấn Space / Enter khi thẻ có focus thì hiện câu gốc (chuyển động 180 ms, FND-11) và phát sự kiện "đã hiện".
+Khi thẻ ở chế độ che: vùng câu gốc là một khối nền `--line` cao bằng một dòng câu, có chữ "Nhấn để hiện câu gốc"; nút Nghe và Nghe lặp bị khóa. Chạm vào khối, chạm vào thẻ, hoặc nhấn Space / Enter khi thẻ có focus thì hiện câu gốc (chuyển động 180 ms, FND-11) và phát sự kiện "đã hiện". Nếu focus đang ở thẻ thì chuyển sang câu gốc vừa hiện (không có viền focus vì không phải điều khiển), để bàn phím không rơi về đầu trang và trình đọc màn hình đọc được câu.
 
 ### C1-03 Trạng thái hiện đầy đủ
 
@@ -43,11 +43,11 @@ Câu gốc hiện đầy đủ, nút Nghe và Nghe lặp dùng được. Không 
 
 ### C1-04 Phát âm
 
-"Nghe" đọc câu gốc một lần bằng giọng đã chọn cho ngôn ngữ đó (S8-02) và tốc độ đã chọn. Khi đang đọc, nút đổi thành "Dừng". "Nghe lặp" đọc lặp lại câu cách nhau 1,5 giây cho tới khi bấm "Dừng" hoặc rời khỏi thẻ. Rời thẻ (đổi câu, đổi màn) thì dừng đọc ngay.
+"Nghe" đọc câu gốc một lần bằng giọng đã chọn cho ngôn ngữ đó, hoặc giọng tự động khi chưa chọn (S8-02), và tốc độ đã chọn. Khi đang đọc, nút đổi thành "Dừng". "Nghe lặp" đọc lặp lại câu cách nhau 1,5 giây cho tới khi bấm "Dừng" hoặc rời khỏi thẻ. Rời thẻ (đổi câu, đổi màn) thì dừng đọc ngay và nút trở về "Nghe", "Nghe lặp". Bấm nút kia khi đang đọc thì chỉ còn lượt mới: không có hai vòng lặp chồng nhau, nút không tự đổi chữ vì lượt cũ.
 
 ### C1-05 Không có giọng đọc
 
-Khi thiết bị không có giọng nào cho ngôn ngữ đích: nút Nghe và Nghe lặp bị khóa, dưới hàng nút hiện "Thiết bị chưa có giọng [tên ngôn ngữ]. Mở Cài đặt > Giọng đọc." Phần "Cài đặt > Giọng đọc" là liên kết mở sheet Giọng đọc (S8-02). Liên kết này nằm trong dòng chữ nên được miễn vùng chạm 44 px của FND-14. Khi chưa biết thiết bị có giọng hay không (đang nạp danh sách giọng), dòng này được giữ chỗ nhưng ẩn, để lúc hiện ra không đẩy các nút bên dưới.
+Khi thiết bị không có giọng nào cho ngôn ngữ đích: nút Nghe và Nghe lặp bị khóa, dưới hàng nút hiện "Thiết bị chưa có giọng [tên ngôn ngữ]. Mở Cài đặt > Giọng đọc." ([tên ngôn ngữ] viết thường chữ đầu theo FND-12, ví dụ "tiếng Anh") Phần "Cài đặt > Giọng đọc" là liên kết mở sheet Giọng đọc (S8-02). Liên kết này nằm trong dòng chữ nên được miễn vùng chạm 44 px của FND-14. Khi chưa biết thiết bị có giọng hay không (đang nạp danh sách giọng), dòng này được giữ chỗ nhưng ẩn, để lúc hiện ra không đẩy các nút bên dưới.
 
 ### C1-06 Dòng Cách dùng
 
@@ -77,3 +77,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 
 - 0.1 (07/10/2026): bản đầu.
 - 0.2 (10/10/2026): chốt câu hỏi về liên kết trong câu báo thiếu giọng; ghi việc giữ chỗ cho câu báo khi đang nạp giọng (Claude quyết định theo ủy quyền của nhóm).
+- 0.3 (18/10/2026): C1-02 đổi chữ thành "Nhấn để hiện câu gốc"; C1-04 dùng giọng tự động khi chưa chọn giọng; C1-05 ghi cách viết tên ngôn ngữ (theo phản hồi người dùng do nhóm chuyển); C1-02 chuyển focus sang câu gốc vừa hiện; C1-04 đổi Nghe và Nghe lặp khi đang đọc, đổi câu thì nút về trạng thái đầu (sửa lỗi tìm thấy khi rà soát code).

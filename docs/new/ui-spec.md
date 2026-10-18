@@ -25,7 +25,7 @@ Người mới dùng có thể dễ dàng nhìn hiểu cách sử dụng.
 
 ### G-02 Hiểu được tiến bộ của mình
 
-Người học tìm được màn Tiến bộ và giải thích đúng "câu cần ôn" nghĩa là gì.
+Người học tìm được màn Tiến độ và giải thích đúng "câu cần ôn" nghĩa là gì.
 
 ### G-03 Không nhầm thao tác đánh giá
 
@@ -69,7 +69,7 @@ Ngoài phạm vi: trang học chính, đăng ký, đăng nhập, thanh toán; l�
 | T2 | Luyện tập | `fe/src/pages/T2-luyen-tap/spec.md` | C3, C6 |
 | S5 | Kiểm tra nhanh | `fe/src/pages/S5-kiem-tra-nhanh/spec.md` | C3, C4 |
 | T3 | Thư viện | `fe/src/pages/T3-thu-vien/spec.md` | C1, C6 |
-| T4 | Tiến bộ | `fe/src/pages/T4-tien-bo/spec.md` | C2 |
+| T4 | Tiến độ | `fe/src/pages/T4-tien-bo/spec.md` | C2 |
 | S8 | Cài đặt | `fe/src/pages/S8-cai-dat/spec.md` | C3, C6, C7 |
 | S9 | Hướng dẫn lần đầu | `fe/src/pages/S9-huong-dan/spec.md` | C3 |
 

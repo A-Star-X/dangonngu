@@ -27,14 +27,16 @@ Tên hướng: **Thẻ câu**. Mọi thứ trên màn hình phục vụ câu đa
 | `--brand` | `#C9301A` | `#FF6A4D` | Nút chính, ô đang học trong dải 8 ô |
 | `--on-brand` | `#FFFFFF` | `#0D1424` | Chữ trên nút chính |
 | `--known` | `#1E7A4C` | `#5CCB8F` | "Đã nhớ", trả lời đúng |
-| `--review` | `#A35F00` | `#F0B54A` | "Cần ôn", trả lời chưa đúng |
+| `--review` | `#A35F00` | `#F0B54A` | "Cần ôn" |
+| `--wrong` | `#C8102E` | `#FF8A8A` | Trả lời chưa đúng: viền, icon và chữ báo (C4-02, S5-05) |
+| `--wrong-soft` | `#FBECEE` | `#3A1E27` | Nền của lựa chọn hoặc cụm trả lời chưa đúng |
 | `--scrim` | `--ink` độ mờ 40% | đen độ mờ 60% | Lớp nền sau sheet và hướng dẫn (C6-01, S9-02) |
 
 Code thành phần và trang chỉ dùng các token này. Không có gradient.
 
 ### FND-02 Quy tắc dùng màu
 
-`--brand` chỉ dùng cho tối đa một nút chính trên mỗi màn và cho ô đang học của dải 8 ô; không dùng làm nền khối lớn. Ngoại lệ: cột hôm nay của biểu đồ T4-04. Trả lời sai dùng `--review`, không dùng đỏ (đỏ là màu thương hiệu và nút chính). Mọi cặp chữ/nền đạt tương phản tối thiểu 4.5:1, chữ lớn từ 24 px tối thiểu 3:1.
+`--brand` chỉ dùng cho tối đa một nút chính trên mỗi màn và cho ô đang học của dải 8 ô; không dùng làm nền khối lớn. Ngoại lệ: cột hôm nay của biểu đồ T4-04. Trả lời sai dùng đỏ `--wrong` (viền, icon dấu x, chữ "Chưa đúng") trên nền nhạt `--wrong-soft` để người học thấy ngay; `--wrong` là đỏ thuần, khác `--brand` đỏ cam, và chỉ dùng cho trả lời chưa đúng. Trạng thái "Cần ôn" vẫn dùng `--review`. Mọi cặp chữ/nền đạt tương phản tối thiểu 4.5:1, chữ lớn từ 24 px tối thiểu 3:1.
 
 ### FND-03 Sáng và tối
 
@@ -89,7 +91,7 @@ Chuyển động chỉ để phản hồi thao tác: hiện câu gốc 180 ms, �
 
 ### FND-12 Giọng văn và từ ngữ
 
-Tiếng Việt, câu ngắn, viết hoa chữ đầu câu, gọi người học là "bạn". Nút nói đúng việc sẽ xảy ra và giữ cùng tên trong cả luồng. Lỗi nói rõ chuyện gì xảy ra và cần làm gì, không xin lỗi, không mơ hồ. Dùng thống nhất:
+Tiếng Việt, câu ngắn, viết hoa chữ đầu câu, gọi người học là "bạn". Nút nói đúng việc sẽ xảy ra và giữ cùng tên trong cả luồng. Lỗi nói rõ chuyện gì xảy ra và cần làm gì, không xin lỗi, không mơ hồ. Tên ngôn ngữ đứng giữa câu viết thường chữ đầu ("Thiết bị chưa có giọng tiếng Anh"); đứng một mình như nhãn, tiêu đề, lựa chọn thì giữ "Tiếng Anh". Hướng dẫn thao tác dùng "nhấn" (đúng cho cả chuột lẫn màn cảm ứng), không dùng "chạm" hay "bấm". Dùng thống nhất:
 
 | Dùng | Không dùng |
 |---|---|
@@ -99,6 +101,7 @@ Tiếng Việt, câu ngắn, viết hoa chữ đầu câu, gọi người học 
 | Cách dùng | Note, ghi chú 2 |
 | Cần ôn lại | Sai, chưa thuộc |
 | Phiên học | Session, lesson |
+| Tiến độ (tên khu T4) | Tiến bộ |
 | Kiểm tra nhanh | TEST NOW, Test3 |
 
 ### FND-13 Quy tắc tránh giao diện kiểu AI
@@ -114,3 +117,4 @@ Mọi thao tác làm được bằng bàn phím; viền focus 2 px `--brand`, c�
 - 0.1 (07/10/2026): bản đầu.
 - 0.3 (08/10/2026): cập nhật theo bộ dữ liệu khách gửi và câu trả lời của nhóm (ưu tiên web, responsive; đủ 15 ngôn ngữ; không đọc tiến độ bản cũ).
 - 0.4 (10/10/2026): FND-01 thêm token `--scrim`; FND-02 ghi ngoại lệ cột hôm nay của T4; FND-03 dùng "Theo thiết bị" như S8-04; FND-14 ghi hai ngoại lệ vùng chạm (Claude quyết định theo ủy quyền của nhóm).
+- 0.5 (18/10/2026): FND-01 thêm token `--wrong`, `--wrong-soft`; FND-02 đổi màu trả lời sai sang đỏ; FND-12 thêm quy tắc viết tên ngôn ngữ giữa câu, dùng "nhấn", tên khu T4 là "Tiến độ" (theo phản hồi người dùng do nhóm chuyển).
