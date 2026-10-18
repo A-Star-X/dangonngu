@@ -3,7 +3,7 @@ import { CaretRight } from '@phosphor-icons/react';
 import { SentenceCard } from '../../components/C1-the-cau/SentenceCard';
 import type { CellState } from '../../components/C2-dai-8-o/Strip';
 import { Button } from '../../components/C3-nut/Button';
-import { displayStatus, dueItemIds, levelOf, nextItemId, nextUnitIndex, openSession, sessionsInLast7Days, formatCount, GROUP_SIZE } from '../../data';
+import { displayStatus, dueItemIds, levelOf, nextItemId, nextUnitIndex, openSession, sessionsInLast7Days, formatCount, GROUP_SIZE, lowerFirst } from '../../data';
 import { href, navigate, useRoute } from '../../app/router';
 import { useApp } from '../../app/state';
 import { S9HuongDan } from '../S9-huong-dan/S9HuongDan';
@@ -54,7 +54,7 @@ export function T1Hoc() {
         <div className="t1__goal-area">{goalLine}</div>
         <div className="t1__main">
           <p className="t-body">
-            Bạn đã học hết {formatCount(total)} câu {language.name.charAt(0).toLocaleLowerCase('vi') + language.name.slice(1)}. Vào Luyện tập để ôn lại.
+            Bạn đã học hết {formatCount(total)} câu {lowerFirst(language.name)}. Vào Luyện tập để ôn lại.
           </p>
           <Button variant="primary" onClick={() => navigate('luyen-tap')}>
             Mở Luyện tập

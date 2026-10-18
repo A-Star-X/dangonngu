@@ -30,8 +30,9 @@ Số ô bằng số câu trong nhóm (tối đa 8). Mỗi ô vuông 10 x 10 px, 
 
 ### C2-03 Trợ năng
 
-Cả dải có nhãn "Tiến độ nhóm câu: x trên N đã học". Mỗi ô có nhãn riêng, ví dụ "Câu 3, đã nhớ". Ô không nhận focus.
+Cả dải có nhãn "Tiến độ nhóm câu: đã học x trên N câu". Mỗi ô có nhãn riêng, ví dụ "Câu 3, đã nhớ". Ô không nhận focus.
 
 ## Lịch sử thay đổi
 
 - 0.1 (07/10/2026): bản đầu.
+- 0.2 (18/10/2026): nhãn trợ năng của dải đổi thành "Tiến độ nhóm câu: đã học x trên N câu" (theo phản hồi người dùng do nhóm chuyển).

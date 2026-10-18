@@ -86,7 +86,7 @@ for (const theme of THEMES) {
       await expect(page.getByText('Câu 1/8')).toBeVisible();
       await shot(page, 'S3-AC07', `${w}-${theme}-1-S3a-truoc`, { full: true });
       if (w !== 1280) await shot(page, 'C3-AC02', `${w}-${theme}-khoa`, { el: '.rate-pair' });
-      await page.getByRole('button', { name: 'Chạm để hiện câu gốc' }).click();
+      await page.getByRole('button', { name: 'Nhấn để hiện câu gốc' }).click();
       await shot(page, 'S3-AC07', `${w}-${theme}-2-S3a-sau`, { full: true });
       if (w !== 1280) {
         await shot(page, 'C3-AC02', `${w}-${theme}-mo`, { el: '.rate-pair' });
@@ -104,13 +104,13 @@ for (const theme of THEMES) {
       await page.getByRole('button', { name: 'Câu tiếp' }).click();
       for (let i = 1; i < 8; i++) {
         if (i === 3) {
-          await page.getByRole('button', { name: 'Chạm để hiện câu gốc' }).click();
+          await page.getByRole('button', { name: 'Nhấn để hiện câu gốc' }).click();
           await page.getByRole('button', { name: /Cần ôn lại/ }).click();
         } else await revealAndKnow(page);
         await answerCorrect(page);
         await page.getByRole('button', { name: /Câu tiếp|Xem tổng kết/ }).click();
       }
-      await expect(page.getByText('Xong phiên')).toBeVisible();
+      await expect(page.getByText('Xong phiên học')).toBeVisible();
       await shot(page, 'S3-AC07', `${w}-${theme}-6-S3c`, { full: true });
     }
   });
@@ -170,12 +170,12 @@ test('iframe', async ({ browser, baseURL }) => {
     await f.getByRole('button', { name: 'Bỏ qua' }).click();
     await f.getByRole('button', { name: 'Học 8 câu' }).click();
     for (let i = 0; i < 8; i++) {
-      await f.getByRole('button', { name: 'Chạm để hiện câu gốc' }).click();
+      await f.getByRole('button', { name: 'Nhấn để hiện câu gốc' }).click();
       await f.getByRole('button', { name: /Tôi nhớ/ }).click();
       await f.locator('.choice[data-correct="true"]').click();
       await f.getByRole('button', { name: /Câu tiếp|Xem tổng kết/ }).click();
     }
-    await expect(f.getByText('Xong phiên')).toBeVisible();
+    await expect(f.getByText('Xong phiên học')).toBeVisible();
     await shot(page, 'APP-AC12', `iframe-${w}x${h}`);
     await ctx.close();
   }

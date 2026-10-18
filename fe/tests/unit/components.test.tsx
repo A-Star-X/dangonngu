@@ -29,7 +29,7 @@ describe('C1 Thẻ câu', () => {
       await settle();
       expect(screen.getByRole('button', { name: /Nghe$/ })).toHaveAttribute('aria-disabled', 'true');
       const card = container.querySelector('article')!;
-      if (how === 'click') fireEvent.click(screen.getByRole('button', { name: 'Chạm để hiện câu gốc' }));
+      if (how === 'click') fireEvent.click(screen.getByRole('button', { name: 'Nhấn để hiện câu gốc' }));
       else fireEvent.keyDown(card, { key: how === 'space' ? ' ' : 'Enter' });
       expect(onReveal).toHaveBeenCalledTimes(1);
       unmount();
@@ -42,7 +42,7 @@ describe('C1 Thẻ câu', () => {
     await settle();
     for (const b of screen.getAllByRole('button')) fireEvent.click(b);
     expect(screen.getByText('I want to...')).toBeInTheDocument();
-    expect(screen.queryByText('Chạm để hiện câu gốc')).toBeNull();
+    expect(screen.queryByText('Nhấn để hiện câu gốc')).toBeNull();
   });
 
   // @ac C1-AC04
@@ -75,7 +75,7 @@ describe('C1 Thẻ câu', () => {
     await settle();
     expect(screen.getByRole('button', { name: /^Nghe$/ })).toHaveAttribute('aria-disabled', 'true');
     expect(screen.getByRole('button', { name: /Nghe lặp/ })).toHaveAttribute('aria-disabled', 'true');
-    expect(screen.getByText(/Thiết bị chưa có giọng Tiếng Anh\. Mở/)).toBeInTheDocument();
+    expect(screen.getByText(/Thiết bị chưa có giọng tiếng Anh\. Mở/)).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'Cài đặt > Giọng đọc' }));
     expect(open).toHaveBeenCalled();
   });
@@ -86,7 +86,7 @@ describe('C1 Thẻ câu', () => {
     fakeSpeech([]);
     const a = withProviders(<SentenceCard item={plain} lang="en" langName="Tiếng Anh" />);
     await act(async () => {});
-    const text = 'Thiết bị chưa có giọng Tiếng Anh. Mở Cài đặt > Giọng đọc.';
+    const text = 'Thiết bị chưa có giọng tiếng Anh. Mở Cài đặt > Giọng đọc.';
     const pending = a.container.querySelector('.card__novoice');
     expect(pending).toHaveClass('card__novoice--pending');
     expect(pending).toHaveAttribute('aria-hidden', 'true');
@@ -158,7 +158,7 @@ describe('C2 Dải 8 ô', () => {
   // @ac C2-AC03
   it('nhãn trợ năng của dải và từng ô; không ô nào nhận focus', () => {
     render(<Strip cells={['nho', 'can-on', 'dang', 'chua']} />);
-    expect(screen.getByRole('list', { name: 'Tiến độ nhóm câu: 2 trên 4 đã học' })).toBeInTheDocument();
+    expect(screen.getByRole('list', { name: 'Tiến độ nhóm câu: đã học 2 trên 4 câu' })).toBeInTheDocument();
     expect(screen.getByLabelText('Câu 1, đã nhớ')).toBeInTheDocument();
     expect(screen.getByLabelText('Câu 2, cần ôn')).toBeInTheDocument();
     expect(screen.getByLabelText('Câu 3, đang học')).toBeInTheDocument();
@@ -213,6 +213,21 @@ describe('C4 Lựa chọn', () => {
     expect(screen.getByTestId('choices-live')).toHaveTextContent('Đúng');
     expect(container.querySelector('[data-icon="sai"]')).not.toBeNull();
     expect(container.querySelector('[data-icon="dung"]')).not.toBeNull();
+  });
+
+  // @ac C4-AC02
+  // @ac C4-AC03
+  it('lựa chọn sai có lớp màu đỏ và chữ "Chưa đúng" nhìn thấy được; lựa chọn đúng có chữ "Đúng"', () => {
+    render(<Choices options={options} />);
+    fireEvent.click(screen.getByText('A'));
+    const wrong = screen.getByText('A').closest('button')!;
+    expect(wrong).toHaveClass('choice--wrong');
+    expect(wrong).toHaveTextContent('Chưa đúng');
+    fireEvent.click(screen.getByText('B'));
+    const right = screen.getByText('B').closest('button')!;
+    expect(right).toHaveClass('choice--right');
+    expect(right).toHaveTextContent('Đúng');
+    expect(screen.getByText('C').closest('button')).not.toHaveTextContent('Đúng');
   });
 });
 

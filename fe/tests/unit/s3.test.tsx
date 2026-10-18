@@ -44,9 +44,9 @@ describe('S3 Phiên học', () => {
       const known = screen.getByRole('button', { name: /Tôi nhớ/ });
       expect(known).toHaveAttribute('aria-disabled', 'true');
       fireEvent.click(known);
-      expect(screen.getByRole('button', { name: 'Chạm để hiện câu gốc' })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Nhấn để hiện câu gốc' })).toBeInTheDocument();
       steps.push('a');
-      fireEvent.click(screen.getByRole('button', { name: 'Chạm để hiện câu gốc' }));
+      fireEvent.click(screen.getByRole('button', { name: 'Nhấn để hiện câu gốc' }));
       expect(screen.getByRole('button', { name: /Tôi nhớ/ })).not.toHaveAttribute('aria-disabled');
       fireEvent.click(screen.getByRole('button', { name: i === 0 ? /Cần ôn lại/ : /Tôi nhớ/ }));
       await settle();
@@ -59,7 +59,7 @@ describe('S3 Phiên học', () => {
       await settle();
       if (i < 7) expect(container.querySelectorAll('.strip__cell')[i]).toHaveClass(i === 0 ? 'strip__cell--can-on' : 'strip__cell--nho');
     }
-    expect(screen.getByText('Xong phiên')).toBeInTheDocument();
+    expect(screen.getByText('Xong phiên học')).toBeInTheDocument();
     expect(steps.join('')).toBe('ab'.repeat(8));
     const p = JSON.parse(mem.get(progressKey)!);
     expect(p.attempts.find((x: { itemId: number; kind: string }) => x.itemId === 1 && x.kind === 'ghi-nho').outcome).toBe('can-on');
@@ -70,7 +70,7 @@ describe('S3 Phiên học', () => {
   // @ac S3-AC04
   it('chọn đúng thì có nút Câu tiếp; chọn sai trước thì câu bị ghi sai', async () => {
     const { container, mem } = await renderApp('#/phien-hoc?nguon=lo-trinh', { seed: settingsSeed() });
-    fireEvent.click(screen.getByRole('button', { name: 'Chạm để hiện câu gốc' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Nhấn để hiện câu gốc' }));
     fireEvent.click(screen.getByRole('button', { name: /Tôi nhớ/ }));
     await settle();
     expect(screen.queryByRole('button', { name: 'Câu tiếp' })).toBeNull();
@@ -89,7 +89,7 @@ describe('S3 Phiên học', () => {
   it('gợi ý: chữ đầu và số từ; nút biến mất; ghi hinted', async () => {
     expect(hintText('Tôi muốn đặt một bàn cho hai người.')).toBe('Nghĩa bắt đầu bằng "T…", gồm 8 từ.');
     const { container, mem } = await renderApp('#/phien-hoc?nguon=lo-trinh', { seed: settingsSeed() });
-    fireEvent.click(screen.getByRole('button', { name: 'Chạm để hiện câu gốc' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Nhấn để hiện câu gốc' }));
     fireEvent.click(screen.getByRole('button', { name: /Tôi nhớ/ }));
     await settle();
     fireEvent.click(screen.getByRole('button', { name: 'Xem gợi ý' }));
@@ -134,19 +134,19 @@ describe('S3 Phiên học', () => {
   it('dừng ở S3b câu 4, tải lại, tiếp tục từ T1 vào đúng S3b câu 4; phiên mới thay phiên dở', async () => {
     const a = await renderApp('#/phien-hoc?nguon=lo-trinh', { seed: settingsSeed() });
     for (let i = 0; i < 3; i++) {
-      fireEvent.click(screen.getByRole('button', { name: 'Chạm để hiện câu gốc' }));
+      fireEvent.click(screen.getByRole('button', { name: 'Nhấn để hiện câu gốc' }));
       fireEvent.click(screen.getByRole('button', { name: /Tôi nhớ/ }));
       await settle();
       fireEvent.click(document.querySelector<HTMLElement>('.choice[data-correct="true"]')!);
       fireEvent.click(screen.getByRole('button', { name: 'Câu tiếp' }));
       await settle();
     }
-    fireEvent.click(screen.getByRole('button', { name: 'Chạm để hiện câu gốc' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Nhấn để hiện câu gốc' }));
     fireEvent.click(screen.getByRole('button', { name: /Tôi nhớ/ }));
     await settle();
     expect(screen.getByText('Câu này nghĩa là gì?')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'Thoát' }));
-    expect(screen.getByText('Tiến độ 3/8 câu được giữ lại.')).toBeInTheDocument();
+    expect(screen.getByText('Bạn đã học 3/8 câu. Kết quả các câu này vẫn được lưu.')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'Dừng' }));
     await settle();
     const saved = { 'vitasr2.settings': a.mem.get('vitasr2.settings')!, [progressKey]: a.mem.get(progressKey)! };
@@ -172,7 +172,7 @@ describe('S3 Phiên học', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Học 8 câu' }));
     await settle(30);
     for (let i = 0; i < 3; i++) {
-      fireEvent.click(screen.getByRole('button', { name: 'Chạm để hiện câu gốc' }));
+      fireEvent.click(screen.getByRole('button', { name: 'Nhấn để hiện câu gốc' }));
       fireEvent.click(screen.getByRole('button', { name: /Tôi nhớ/ }));
       await settle();
       fireEvent.click(document.querySelector<HTMLElement>('.choice[data-correct="true"]')!);
@@ -180,8 +180,8 @@ describe('S3 Phiên học', () => {
       await settle();
     }
     fireEvent.click(screen.getByRole('button', { name: 'Thoát' }));
-    const dialog = screen.getByRole('dialog', { name: 'Dừng phiên?' });
-    expect(within(dialog).getByText('Tiến độ 3/8 câu được giữ lại.')).toBeInTheDocument();
+    const dialog = screen.getByRole('dialog', { name: 'Dừng phiên học?' });
+    expect(within(dialog).getByText('Bạn đã học 3/8 câu. Kết quả các câu này vẫn được lưu.')).toBeInTheDocument();
     fireEvent.click(within(dialog).getByRole('button', { name: 'Học tiếp' }));
     expect(label()).toBe('Câu 4/8');
     fireEvent.keyDown(window, { key: 'Escape' });
@@ -206,7 +206,7 @@ describe('S3 Phiên học', () => {
       fireEvent.keyDown(document.body, { key: 'Enter' });
       await settle();
     }
-    expect(screen.getByText('Xong phiên')).toBeInTheDocument();
+    expect(screen.getByText('Xong phiên học')).toBeInTheDocument();
     expect(screen.getByText('8/8')).toBeInTheDocument();
   });
 });

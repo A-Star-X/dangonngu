@@ -24,9 +24,9 @@ Mỗi bước làm nổi một phần tử của T1 (phần còn lại phủ l�
 
 | Bước | Phần tử | Chữ |
 |---|---|---|
-| 1/3 | Thẻ câu | "Đây là câu bạn sẽ học. Chạm Nghe để nghe phát âm." |
-| 2/3 | Nút chính | "Mỗi phiên có 8 câu, khoảng 5 phút." |
-| 3/3 | Thanh tab | "Ôn lại và kiểm tra nằm ở Luyện tập. Kết quả nằm ở Tiến bộ." |
+| 1/3 | Thẻ câu | "Đây là câu bạn sẽ học. Nút Nghe sẽ đọc to câu này cho bạn." |
+| 2/3 | Nút chính | "Mỗi phiên học có 8 câu, mất khoảng 5 phút." |
+| 3/3 | Thanh tab | "Ôn tập và kiểm tra nằm ở mục Luyện tập. Kết quả học nằm ở mục Tiến độ." |
 
 ### S9-03 Điều khiển
 
@@ -44,3 +44,4 @@ Mở lại được từ S8-06; khi đó bắt đầu từ bước 1 và "Bắt 
 
 - 0.1 (07/10/2026): bản đầu.
 - 0.2 (10/10/2026): lớp phủ dùng chung token `--scrim` với sheet (C6-01).
+- 0.3 (18/10/2026): viết lại chữ ba bước theo FND-12, khu T4 tên "Tiến độ" (theo phản hồi người dùng do nhóm chuyển); bước 1 không còn bảo bấm nút Nghe vì lớp hướng dẫn che nút đó (sửa lỗi tìm thấy khi rà soát code).

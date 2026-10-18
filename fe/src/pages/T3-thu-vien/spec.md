@@ -40,7 +40,7 @@ Khổ máy tính (1280 px):
 │  Học         │ Chủ đề ▾ Trình độ ▾          │ classroom                     │
 │  Luyện tập   │ 4.608 câu                    │ ┌───────────────────────────┐ │
 │ ▌Thư viện    │ 0001 Where is room twelve? ○ │ │ Phòng số mười hai ở đâu?  │ │
-│  Tiến bộ     │      Phòng số mười hai ở đâu?│ │ Where is room twelve?     │ │
+│  Tiến độ     │      Phòng số mười hai ở đâu?│ │ Where is room twelve?     │ │
 │              │ 0002 It is on the first..  ✓ │ │ Cách dùng: ...            │ │
 │              │      Phòng đó ở tầng ...     │ │ (◉ Nghe)                  │ │
 │              │ ...                          │ └───────────────────────────┘ │
@@ -99,3 +99,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.2 (08/10/2026): hỗ trợ hai bộ nội dung tiếng Anh (English Fluency và Global English).
 - 0.3 (08/10/2026): cập nhật theo bộ dữ liệu khách gửi và câu trả lời của nhóm (ưu tiên web, responsive; đủ 15 ngôn ngữ; không đọc tiến độ bản cũ).
 - 0.4 (10/10/2026): chốt các câu hỏi về bộ lọc (Claude quyết định theo ủy quyền của nhóm).
+- 0.5 (18/10/2026): sơ đồ ghi tên khu T4 là "Tiến độ" (theo phản hồi người dùng do nhóm chuyển).

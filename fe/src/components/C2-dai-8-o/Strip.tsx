@@ -9,7 +9,7 @@ export function Strip({ cells, className }: { cells: CellState[]; className?: st
   const shown = cells.slice(0, 8);
   const learned = shown.filter((c) => c === 'nho' || c === 'can-on').length;
   return (
-    <ol className={`strip ${className ?? ''}`} aria-label={`Tiến độ nhóm câu: ${learned} trên ${shown.length} đã học`}>
+    <ol className={`strip ${className ?? ''}`} aria-label={`Tiến độ nhóm câu: đã học ${learned} trên ${shown.length} câu`}>
       {shown.map((c, i) => (
         <li key={i} className={`strip__cell strip__cell--${c}`} aria-label={`Câu ${i + 1}, ${LABEL[c]}`} />
       ))}

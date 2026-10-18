@@ -1,6 +1,6 @@
-// @spec APP-01, APP-03, APP-04, APP-05, APP-07, APP-08, APP-09, APP-10
-import { useEffect, useState, type ReactNode } from 'react';
-import { SheetProvider } from '../components/C6-sheet/SheetHost';
+// @spec APP-01, APP-03, APP-04, APP-05, APP-07, APP-08, APP-09, APP-10, C6-02
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+import { SheetProvider, useSheet } from '../components/C6-sheet/SheetHost';
 import { ToastProvider } from '../components/C7-thong-bao/ToastHost';
 import { TabBar } from '../components/C5-thanh-tab/TabBar';
 import { dueItemIds } from '../data';
@@ -53,7 +53,7 @@ function Banners() {
     <>
       {!online && (
         <p className="banner t-sm" role="status">
-          Đang ngoại tuyến. Tiến độ vẫn được lưu trên máy.
+          Bạn đang ngoại tuyến. Tiến độ vẫn được lưu trên máy.
         </p>
       )}
       {storageBlocked && (
@@ -69,6 +69,16 @@ function Shell() {
   const route = useRoute();
   const app = useApp();
   useUpdateNotice(route.name);
+
+  // C6-02: đổi màn (kể cả nút Back của trình duyệt hay điện thoại) thì đóng sheet đang mở, để sheet không nằm đè lên màn khác.
+  // Chạy trước effect của trang mới, để trang mới vẫn tự mở được sheet của nó (ví dụ Cài đặt > Giọng đọc).
+  const sheet = useSheet();
+  const shownRoute = useRef(route.name);
+  useLayoutEffect(() => {
+    if (shownRoute.current === route.name) return;
+    shownRoute.current = route.name;
+    sheet.close();
+  }, [route.name, sheet.close]); // eslint-disable-line react-hooks/exhaustive-deps
   const { catalog, language, pack, settings, data, progress, deps } = app;
   const ready = catalog.status === 'ready';
   const hasLanguage = Boolean(language && pack);

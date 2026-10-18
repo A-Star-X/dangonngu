@@ -96,7 +96,7 @@ describe('S1 Chọn ngôn ngữ', () => {
     const bad = new ControlledSource();
     bad.fail = true;
     await renderApp('#/chon-ngon-ngu', { source: bad });
-    expect(screen.getByText('Không tải được danh sách câu. Kiểm tra kết nối rồi bấm Thử lại.')).toBeInTheDocument();
+    expect(screen.getByText('Không tải được danh sách câu. Kiểm tra kết nối rồi nhấn Thử lại.')).toBeInTheDocument();
   });
 
   // @ac S1-AC07
@@ -123,17 +123,17 @@ describe('APP Khung app', () => {
   // @ac APP-AC04
   it('màn toàn trang không có thanh tab và thanh trên cùng; S3 có nút Thoát', async () => {
     const a = await renderApp('#/chon-ngon-ngu');
-    expect(screen.queryByRole('navigation', { name: 'Khu chính' })).toBeNull();
+    expect(screen.queryByRole('navigation', { name: 'Điều hướng chính' })).toBeNull();
     expect(a.container.querySelector('.topbar')).toBeNull();
     a.unmount();
     const b = await renderApp('#/phien-hoc?nguon=lo-trinh', { seed: settingsSeed() });
     await settle();
-    expect(screen.queryByRole('navigation', { name: 'Khu chính' })).toBeNull();
+    expect(screen.queryByRole('navigation', { name: 'Điều hướng chính' })).toBeNull();
     expect(b.container.querySelector('.topbar')).toBeNull();
     expect(screen.getByRole('button', { name: 'Thoát' })).toBeInTheDocument();
     b.unmount();
     const c = await renderApp('#/kiem-tra', { seed: settingsSeed() });
-    expect(screen.queryByRole('navigation', { name: 'Khu chính' })).toBeNull();
+    expect(screen.queryByRole('navigation', { name: 'Điều hướng chính' })).toBeNull();
     expect(c.container.querySelector('.topbar')).toBeNull();
   });
 
@@ -201,12 +201,13 @@ describe('APP Khung app', () => {
     await settle();
     expect(screen.getByRole('button', { name: /Tiếng Anh/ })).toHaveTextContent('Global English');
     mem.set('vitasr2.progress.global.en', JSON.stringify({ schema: 1, sessions: [], attempts: [], items: { 1: { status: 'da-hoc', streak: 2, due: NOW + 3 * DAY, lastAt: NOW } } }));
+    // Mở sheet từ một khu khác T1 để kiểm chọn bộ thì về #/hoc.
+    window.location.hash = '#/thu-vien';
+    await settle();
     fireEvent.click(screen.getByRole('button', { name: /Tiếng Anh/ }));
     const dialog = screen.getByRole('dialog', { name: 'Đổi ngôn ngữ hoặc bộ nội dung' });
     expect(within(dialog).getByText('Tiếng Anh, Global English')).toBeInTheDocument();
     expect(within(dialog).getByText('Tiếng Anh, English Fluency')).toBeInTheDocument();
-    window.location.hash = '#/thu-vien';
-    await settle();
     fireEvent.click(within(dialog).getByText('Tiếng Anh, English Fluency'));
     await waitFor(() => expect(screen.queryByRole('dialog')).toBeNull());
     expect(hash()).toBe('#/hoc');
@@ -224,7 +225,7 @@ describe('APP Khung app', () => {
     const src = new ControlledSource();
     src.fail = true;
     await renderApp('#/hoc', { source: src, seed: settingsSeed() });
-    expect(screen.getByText('Không tải được danh sách câu. Kiểm tra kết nối rồi bấm Thử lại.')).toBeInTheDocument();
+    expect(screen.getByText('Không tải được danh sách câu. Kiểm tra kết nối rồi nhấn Thử lại.')).toBeInTheDocument();
     src.fail = false;
     fireEvent.click(screen.getByRole('button', { name: 'Thử lại' }));
     await waitFor(() => expect(screen.getByText('I want to...', { selector: '.card__source' })).toBeInTheDocument());
@@ -234,9 +235,9 @@ describe('APP Khung app', () => {
   it('dải ngoại tuyến hiện khi mất mạng và ẩn khi có mạng lại', async () => {
     await renderApp('#/hoc', { seed: settingsSeed() });
     act(() => void window.dispatchEvent(new Event('offline')));
-    expect(screen.getByText('Đang ngoại tuyến. Tiến độ vẫn được lưu trên máy.')).toBeInTheDocument();
+    expect(screen.getByText('Bạn đang ngoại tuyến. Tiến độ vẫn được lưu trên máy.')).toBeInTheDocument();
     act(() => void window.dispatchEvent(new Event('online')));
-    expect(screen.queryByText('Đang ngoại tuyến. Tiến độ vẫn được lưu trên máy.')).toBeNull();
+    expect(screen.queryByText('Bạn đang ngoại tuyến. Tiến độ vẫn được lưu trên máy.')).toBeNull();
   });
 
   // @ac APP-AC11, DATA-AC07
@@ -257,7 +258,7 @@ describe('APP Khung app', () => {
     fireEvent.click(screen.getByRole('button', { name: /^Học \d câu$/ }));
     await settle();
     await finishSession();
-    expect(screen.getByText('Xong phiên')).toBeInTheDocument();
+    expect(screen.getByText('Xong phiên học')).toBeInTheDocument();
   });
 
   // @ac DATA-AC02
@@ -270,7 +271,7 @@ describe('APP Khung app', () => {
       }
     }
     await renderApp('#/hoc', { source: new BadSource(), seed: settingsSeed() });
-    expect(screen.getByText('Không tải được danh sách câu. Kiểm tra kết nối rồi bấm Thử lại.')).toBeInTheDocument();
+    expect(screen.getByText('Không tải được danh sách câu. Kiểm tra kết nối rồi nhấn Thử lại.')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Thử lại' })).toBeInTheDocument();
   });
 
@@ -294,8 +295,8 @@ describe('APP Khung app', () => {
 /** Đi hết phiên hiện tại: hiện câu, Tôi nhớ, chọn đúng ngay. */
 export async function finishSession(opts: { review?: number[]; wrong?: number[]; hint?: number[] } = {}) {
   for (let i = 0; i < 80; i++) {
-    if (screen.queryByText('Xong phiên')) return;
-    const cover = screen.queryByRole('button', { name: 'Chạm để hiện câu gốc' });
+    if (screen.queryByText('Xong phiên học')) return;
+    const cover = screen.queryByRole('button', { name: 'Nhấn để hiện câu gốc' });
     const pos = Number(screen.queryByText(/^Câu \d+\/\d+$/)?.textContent?.match(/Câu (\d+)/)?.[1] ?? 0);
     if (cover) {
       fireEvent.click(cover);
@@ -328,7 +329,7 @@ describe('T1 Học', () => {
     expect(screen.getAllByText('Tôi muốn...').length).toBeGreaterThan(0);
     const cells = container.querySelectorAll('.strip__cell');
     expect(cells[0]).toHaveClass('strip__cell--dang');
-    expect(screen.queryByText('Chạm để hiện câu gốc')).toBeNull();
+    expect(screen.queryByText('Nhấn để hiện câu gốc')).toBeNull();
   });
 
   // @ac T1-AC03
@@ -422,7 +423,7 @@ describe('S9 Hướng dẫn', () => {
     await renderApp('#/chon-ngon-ngu');
     fireEvent.click(screen.getByText('Tiếng Nhật'));
     await waitFor(() => expect(screen.getByText('Bước 1/3')).toBeInTheDocument());
-    expect(screen.getByText('Đây là câu bạn sẽ học. Chạm Nghe để nghe phát âm.')).toBeInTheDocument();
+    expect(screen.getByText('Đây là câu bạn sẽ học. Nút Nghe sẽ đọc to câu này cho bạn.')).toBeInTheDocument();
   });
 
   // @ac S9-AC03
@@ -440,7 +441,7 @@ describe('S9 Hướng dẫn', () => {
     await renderApp('#/hoc', { seed: settingsSeed({ guideSeen: false }) });
     fireEvent.click(screen.getByRole('button', { name: 'Tiếp' }));
     fireEvent.click(screen.getByRole('button', { name: 'Tiếp' }));
-    expect(screen.getByText('Ôn lại và kiểm tra nằm ở Luyện tập. Kết quả nằm ở Tiến bộ.')).toBeInTheDocument();
+    expect(screen.getByText('Ôn tập và kiểm tra nằm ở mục Luyện tập. Kết quả học nằm ở mục Tiến độ.')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'Bắt đầu học' }));
     await settle();
     expect(hash()).toMatch(/^#\/phien-hoc\?nguon=lo-trinh/);

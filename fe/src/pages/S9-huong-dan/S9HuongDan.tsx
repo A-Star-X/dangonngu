@@ -7,9 +7,9 @@ import { useApp } from '../../app/state';
 import './s9.css';
 
 const STEPS = [
-  { target: 'card', text: 'Đây là câu bạn sẽ học. Chạm Nghe để nghe phát âm.' },
-  { target: 'start', text: 'Mỗi phiên có 8 câu, khoảng 5 phút.' },
-  { target: 'tabbar', text: 'Ôn lại và kiểm tra nằm ở Luyện tập. Kết quả nằm ở Tiến bộ.' },
+  { target: 'card', text: 'Đây là câu bạn sẽ học. Nút Nghe sẽ đọc to câu này cho bạn.' },
+  { target: 'start', text: 'Mỗi phiên học có 8 câu, mất khoảng 5 phút.' },
+  { target: 'tabbar', text: 'Ôn tập và kiểm tra nằm ở mục Luyện tập. Kết quả học nằm ở mục Tiến độ.' },
 ] as const;
 
 type Rect = { top: number; left: number; width: number; height: number };

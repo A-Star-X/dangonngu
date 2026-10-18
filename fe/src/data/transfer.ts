@@ -1,6 +1,6 @@
 // @spec S8-05, DATA-06
 // Xuất và nhập tiến độ của một cặp (bộ nội dung, ngôn ngữ) dưới dạng file JSON.
-import type { Progress, Settings } from './progress';
+import { isProgress, validAttempt, validItem, validSession, type Progress, type Settings } from './progress';
 import type { PackId } from './types';
 
 export interface ProgressFile {
@@ -26,35 +26,15 @@ export function makeExport(pack: PackId, lang: string, settings: Settings, progr
 }
 
 const isObj = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
-const isNum = (v: unknown): v is number => typeof v === 'number' && Number.isFinite(v);
-const isStr = (v: unknown): v is string => typeof v === 'string';
-const oneOf = (v: unknown, list: readonly string[]) => isStr(v) && list.includes(v);
 
-const NGUON = ['lo-trinh', 'on-tap', 'tu-khoa', 'cau', 'kiem-tra'] as const;
-const KIND = ['ghi-nho', 'trac-nghiem', 'nghe-chon', 'sap-xep'] as const;
-const OUTCOME = ['nho', 'can-on', 'dung', 'sai'] as const;
-
+/** File nhập phải đúng hoàn toàn: một phần tử sai là từ chối cả file (S8-05). */
 function validProgress(v: unknown): v is Progress {
-  if (!isObj(v) || v.schema !== 1 || !Array.isArray(v.sessions) || !Array.isArray(v.attempts) || !isObj(v.items)) return false;
-  const sessionsOk = v.sessions.every(
-    (s) =>
-      isObj(s) &&
-      isStr(s.id) &&
-      oneOf(s.nguon, NGUON) &&
-      Array.isArray(s.itemIds) &&
-      s.itemIds.every(isNum) &&
-      isNum(s.startedAt) &&
-      (s.completedAt === undefined || isNum(s.completedAt)) &&
-      isNum(s.position),
-  );
-  const attemptsOk = v.attempts.every(
-    (a) => isObj(a) && isStr(a.sessionId) && isNum(a.itemId) && isNum(a.at) && oneOf(a.kind, KIND) && oneOf(a.outcome, OUTCOME) && typeof a.hinted === 'boolean',
-  );
-  const itemsOk = Object.entries(v.items).every(
-    ([id, s]) => /^\d+$/.test(id) && isObj(s) && oneOf(s.status, ['da-hoc', 'kiem-tra']) && isNum(s.streak) && s.streak >= 0 && isNum(s.due) && isNum(s.lastAt),
-  );
-  return sessionsOk && attemptsOk && itemsOk;
+  if (!isProgress(v)) return false;
+  return v.sessions.every(validSession) && v.attempts.every(validAttempt) && Object.entries(v.items).every(([id, s]) => validItem(id, s));
 }
+
+/** Tệp tiến độ lớn hơn mức này chắc chắn không phải tệp do app xuất (vài trăm KB với người học lâu năm). */
+export const MAX_IMPORT_BYTES = 8 * 1024 * 1024;
 
 /**
  * Đọc file nhập. Trả về tiến độ khi file đúng cấu trúc DATA-06 và đúng cặp (bộ, ngôn ngữ) đang học;
@@ -62,6 +42,7 @@ function validProgress(v: unknown): v is Progress {
  */
 export function parseImport(text: string, pack: PackId, lang: string): Progress | null {
   let raw: unknown;
+  if (text.length > MAX_IMPORT_BYTES) return null;
   try {
     raw = JSON.parse(text);
   } catch {

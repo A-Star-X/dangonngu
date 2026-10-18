@@ -3,7 +3,7 @@ import { useEffect, useMemo } from 'react';
 import { CaretRight, MagnifyingGlass, X } from '@phosphor-icons/react';
 import { Button } from '../../components/C3-nut/Button';
 import { useSheet } from '../../components/C6-sheet/SheetHost';
-import { dueItemIds, formatCount, nextUnitIndex, searchItems, type LanguageData } from '../../data';
+import { dueItemIds, formatCount, lowerFirst, nextUnitIndex, searchItems, type LanguageData } from '../../data';
 import { navigate } from '../../app/router';
 import { useApp } from '../../app/state';
 import { createStore, useStore, type Store } from '../../app/hooks';
@@ -48,8 +48,8 @@ export function T2LuyenTap() {
             data-testid="t2-on-tap"
           >
             <span className="t2__row-text">
-              <span className="t2__name t-body">Ôn câu cần ôn</span>
-              <span className="t-sm muted">{due > 0 ? 'Các câu đến hạn ôn hôm nay, kể cả câu bạn chưa nhớ hoặc làm chưa đúng.' : 'Không có câu cần ôn hôm nay.'}</span>
+              <span className="t2__name t-body">Ôn tập hôm nay</span>
+              <span className="t-sm muted">{due > 0 ? 'Các câu đến hạn ôn hôm nay, gồm cả câu bạn chưa nhớ hoặc trả lời chưa đúng.' : 'Hôm nay không có câu nào cần ôn.'}</span>
             </span>
             {due > 0 && (
               <span className="t2__count t-body num" aria-label={`${due} câu`}>
@@ -63,7 +63,7 @@ export function T2LuyenTap() {
           <button type="button" className="t2__row" aria-haspopup="dialog" onClick={openKeyword}>
             <span className="t2__row-text">
               <span className="t2__name t-body">Học theo từ khóa</span>
-              <span className="t-sm muted">Tìm câu có chữ như đặt phòng, ăn uống, sân bay.</span>
+              <span className="t-sm muted">Tìm câu theo từ bạn cần, ví dụ đặt phòng, ăn uống, sân bay.</span>
             </span>
             <CaretRight size={20} aria-hidden className="t2__caret" />
           </button>
@@ -72,7 +72,7 @@ export function T2LuyenTap() {
           <button type="button" className="t2__row" onClick={() => navigate('kiem-tra', { unit: unitNumber })}>
             <span className="t2__row-text">
               <span className="t2__name t-body">Kiểm tra nhanh</span>
-              <span className="t-sm muted">Nghe hiểu, nghe theo cụm, sắp xếp câu.</span>
+              <span className="t-sm muted">Nghe và chọn nghĩa, nghe theo cụm, sắp xếp câu.</span>
             </span>
             <CaretRight size={20} aria-hidden className="t2__caret" />
           </button>
@@ -86,6 +86,7 @@ type KeywordState = { input: string; q: string };
 
 function KeywordBody({ d, store }: { d: LanguageData; store: Store<KeywordState> }) {
   const st = useStore(store);
+  const { language } = useApp();
   // T2-03: cập nhật sau khi ngừng gõ 250 ms.
   useEffect(() => {
     if (st.input === st.q) return;
@@ -104,7 +105,7 @@ function KeywordBody({ d, store }: { d: LanguageData; store: Store<KeywordState>
         <input
           type="search"
           className="lib-search__input t-body"
-          placeholder="Ví dụ: đặt phòng, airport"
+          placeholder="Ví dụ: đặt phòng, sân bay"
           aria-label="Từ khóa"
           value={st.input}
           onChange={(e) => store.set({ input: e.target.value })}
@@ -127,7 +128,7 @@ function KeywordBody({ d, store }: { d: LanguageData; store: Store<KeywordState>
       {q &&
         (results.length === 0 ? (
           <p className="t-body kw__none" role="status">
-            Không có câu nào chứa "{q}". Thử từ khác hoặc từ tiếng Anh.
+            Không có câu nào chứa "{q}". Thử từ khác bằng tiếng Việt hoặc {lowerFirst(language?.name ?? 'ngôn ngữ đang học')}.
           </p>
         ) : (
           <>

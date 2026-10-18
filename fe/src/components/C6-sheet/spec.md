@@ -18,7 +18,7 @@ Dưới 900 px: trượt từ dưới lên (220 ms), rộng hết màn, cao tố
 
 ### C6-02 Tiêu đề và đóng
 
-Mỗi sheet có tiêu đề `--t-lg` và nút đóng (icon x, nhãn trợ năng "Đóng") ở góc trên bên phải của sheet. Đóng được bằng: nút đóng, chạm lớp nền phía sau, phím Esc, và vuốt xuống trên tay nắm (dưới 900 px). Sheet xác nhận (thoát phiên, xóa tiến độ) không đóng khi chạm lớp nền, chỉ đóng bằng các nút của nó hoặc Esc.
+Mỗi sheet có tiêu đề `--t-lg` và nút đóng (icon x, nhãn trợ năng "Đóng") ở góc trên bên phải của sheet. Đóng được bằng: nút đóng, chạm lớp nền phía sau, phím Esc, và vuốt xuống trên tay nắm (dưới 900 px). Sheet xác nhận (thoát phiên, xóa tiến độ) không đóng khi chạm lớp nền, chỉ đóng bằng các nút của nó hoặc Esc. Đổi màn (kể cả nút Back của trình duyệt hay điện thoại) thì sheet đang mở đóng lại; khi màn đang chặn việc rời đi (S3-07, S5-08) thì màn không đổi và sheet xác nhận của màn đó hiện ra.
 
 ### C6-03 Focus
 
@@ -44,3 +44,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 
 - 0.1 (07/10/2026): bản đầu.
 - 0.2 (10/10/2026): lớp nền sau sheet dùng `--scrim`, ở giao diện tối là đen độ mờ 60% (Claude quyết định theo ủy quyền của nhóm).
+- 0.3 (18/10/2026): C6-02 đổi màn thì đóng sheet đang mở (sửa lỗi tìm thấy khi rà soát code).

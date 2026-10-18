@@ -19,13 +19,13 @@ Trạng thái:
 | T1-04 Số câu cần ôn hôm nay | L-D3 Lịch ôn | Lịch sử trả lời, quy tắc DATA-07 | Viết lại logic |
 | S3-01 đến S3-09 Phiên học 8 câu | L-D1, L-D2, L-D2b | `units-{lang}.json`, localStorage | Có sẵn; bỏ bước chọn cách lấy câu của L-D1 |
 | S3-05 Gợi ý | Xem gợi ý trong L-D2 | Nghĩa của câu | Có sẵn; cách hiển thị gợi ý là mới |
-| T2-02 Ôn câu cần ôn | Không có lối vào riêng | Lịch sử trả lời, DATA-07 | Mới, chạy ở trình duyệt |
+| T2-02 Ôn tập hôm nay | Không có lối vào riêng | Lịch sử trả lời, DATA-07 | Mới, chạy ở trình duyệt |
 | T2-03 Học theo từ khóa | L-D7 (ô tìm tự do) | Tìm trên câu gốc và nghĩa | Có sẵn |
 | S5-01 đến S5-08 Kiểm tra nhanh | L-D6, L-D6b (T01, T02, T03) | `{lang}.json`; cụm do app tự chia | Có sẵn; viết lại logic chia cụm (S5-04) và đáp án nhiễu (DATA-08) |
 | T3-01 đến T3-04 Danh sách, tìm, phân trang | Danh sách dữ liệu trong L-S2 | `{lang}.json` | Có sẵn |
 | T3-03 Lọc theo unit, trạng thái học, chủ đề, trình độ | Không có (Tình huống, Chủ đề có trong L-D1) | `units-{lang}.json`, `topic`, localStorage | Mới, chạy ở trình duyệt |
 | T3-05 Sheet Chi tiết câu, Học câu này | Không có | `{lang}.json`, `units-{lang}.json` | Mới, chạy ở trình duyệt |
-| T4-01 đến T4-08 Tiến bộ | L-D3 | localStorage | Có sẵn; bỏ xuất CSV |
+| T4-01 đến T4-08 Tiến độ | L-D3 | localStorage | Có sẵn; bỏ xuất CSV |
 | S8-02 Giọng đọc, tốc độ đọc | L-D8 (không có tốc độ) | Giọng trên thiết bị; thuộc tính `rate` | Có sẵn; tốc độ là mới |
 | S8-03 Âm thanh ngoại tuyến | L-D8 | `/data/audio/*`, chỉ có tiếng Lào | Ẩn trong bản đầu với mọi ngôn ngữ; tiếng Anh không có gói |
 | S8-01, S8-04, S8-05 Mục tiêu, giao diện, dữ liệu | Header, L-D4 | localStorage | Có sẵn |

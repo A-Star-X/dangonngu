@@ -57,7 +57,7 @@ test.describe('Đợt 2: các màn còn lại', () => {
 
         for (const k of ['1', '7', '30']) {
           await go(page, `./#/tien-bo?khoang=${k}`);
-          await expect(page.getByRole('heading', { name: 'Tiến bộ' })).toBeVisible();
+          await expect(page.getByRole('heading', { name: 'Tiến độ' })).toBeVisible();
           bad.push(...(await axe(page, `T4 ${k} ngày ${tag}`)));
         }
         await page.getByRole('button', { name: /^Thứ Năm, 8\/10/ }).click();
@@ -88,7 +88,7 @@ test.describe('Đợt 2: các màn còn lại', () => {
         await page.getByRole('button', { name: /Giọng đọc/ }).click();
         bad.push(...(await axe(page, `S8 sheet giọng ${tag}`)));
         await page.keyboard.press('Escape');
-        await page.getByRole('button', { name: 'Xóa tiến độ Tiếng Anh' }).click();
+        await page.getByRole('button', { name: 'Xóa tiến độ tiếng Anh' }).click();
         bad.push(...(await axe(page, `S8 sheet xóa ${tag}`)));
         await page.keyboard.press('Escape');
         expect(bad).toEqual([]);

@@ -4,12 +4,12 @@ import { CaretRight, Minus, Plus, SpeakerHigh } from '@phosphor-icons/react';
 import { Button } from '../../components/C3-nut/Button';
 import { useSheet } from '../../components/C6-sheet/SheetHost';
 import { useToast } from '../../components/C7-thong-bao/ToastHost';
-import { emptyProgress, exportFileName, makeExport, packInfo, parseImport, type Progress, type ThemeChoice } from '../../data';
+import { emptyProgress, exportFileName, lowerFirst, makeExport, MAX_IMPORT_BYTES, packInfo, parseImport, type Progress, type ThemeChoice } from '../../data';
 import { navigate } from '../../app/router';
 import { useApp } from '../../app/state';
 import { useLanguageSheet } from '../../app/useLanguageSheet';
 import { createStore, useStore, type Store } from '../../app/hooks';
-import { speak, voicesFor } from '../../app/speech';
+import { autoVoice, speak, voicesFor } from '../../app/speech';
 import './s8.css';
 
 const RATES = [0.75, 1, 1.25];
@@ -76,8 +76,10 @@ export function S8CaiDat({ params }: { params: Record<string, string> }) {
   const lang = language.id;
   const multi = language.packs.length > 1;
   /** Tên dùng trong câu xác nhận và câu báo lỗi nhập tiến độ (S8-05): kèm tên bộ khi ngôn ngữ có nhiều bộ. */
-  const who = multi ? `${language.name} (${packInfo(pack).name})` : language.name;
+  const who = multi ? `${lowerFirst(language.name)} (${packInfo(pack).name})` : lowerFirst(language.name);
   const chosen = voices.find((v) => v.voiceURI === settings.voiceByLang[lang] && voicesFor(lang, [v]).length > 0);
+  // Vùng giọng theo bộ nội dung đang học (Global English en-GB, English Fluency en-US), giống thẻ câu.
+  const auto = autoVoice(lang, language.entries[pack]?.locale ?? language.locale, voices);
 
   const doExport = () => {
     const now = deps.now();
@@ -88,14 +90,17 @@ export function S8CaiDat({ params }: { params: Record<string, string> }) {
     if (fileInput.current) fileInput.current.value = '';
     if (!file) return;
     let text = '';
-    try {
-      text = await fileIO.read(file);
-    } catch {
-      text = '';
+    // Tệp quá lớn thì không đọc vào bộ nhớ; coi như tệp sai (S8-05).
+    if (file.size <= MAX_IMPORT_BYTES) {
+      try {
+        text = await fileIO.read(file);
+      } catch {
+        text = '';
+      }
     }
     const p = parseImport(text, pack, lang);
     if (!p) {
-      toast.show({ text: `Tệp này không phải tiến độ VITASR của ${who}. Chọn tệp đã xuất bằng Xuất tiến độ khi đang học ${who}.`, kind: 'alert' });
+      toast.show({ text: `Tệp này không phải tệp tiến độ học ${who} của VITASR. Chọn tệp đã xuất bằng Xuất tiến độ khi đang học ${who}.`, kind: 'alert' });
       return;
     }
     confirmImport(p);
@@ -129,7 +134,7 @@ export function S8CaiDat({ params }: { params: Record<string, string> }) {
   const confirmDelete = () => {
     const store = createStore({ typed: '' });
     sheet.open({
-      title: `Xóa tiến độ ${language.name}`,
+      title: `Xóa tiến độ ${lowerFirst(language.name)}`,
       kind: 'confirm',
       body: () => <DeleteBody name={language.name} store={store} />,
       footer: (close) => (
@@ -207,7 +212,7 @@ export function S8CaiDat({ params }: { params: Record<string, string> }) {
           <li>
             <button type="button" className="s8__row s8__row--btn" aria-haspopup="dialog" onClick={openVoices}>
               <span className="s8__label">Giọng đọc</span>
-              <span className="s8__value t-body">{chosen ? chosen.name : 'Mặc định của thiết bị'}</span>
+              <span className="s8__value t-body">{chosen ? chosen.name : auto ? `Tự động (${auto.name})` : 'Tự động'}</span>
               <CaretRight size={20} aria-hidden className="s8__caret" />
             </button>
           </li>
@@ -256,7 +261,7 @@ export function S8CaiDat({ params }: { params: Record<string, string> }) {
           </li>
           <li>
             <button type="button" className="s8__row s8__row--btn" aria-haspopup="dialog" onClick={confirmDelete}>
-              <span className="s8__label">Xóa tiến độ {language.name}</span>
+              <span className="s8__label">Xóa tiến độ {lowerFirst(language.name)}</span>
             </button>
           </li>
         </ul>
@@ -327,7 +332,7 @@ function DeleteFooter({ name, store, close, onDelete }: { name: string; store: S
 
 /** S8-02: sheet Giọng đọc. */
 function VoicesBody() {
-  const { language, settings, updateSettings, voices, voicesReady, data } = useApp();
+  const { language, pack, settings, updateSettings, voices, voicesReady, data } = useApp();
   const store = useRef(createStore({ target: 'lang' as 'lang' | 'vi' })).current;
   const st = useStore(store);
   if (!language) return null;
@@ -337,7 +342,7 @@ function VoicesBody() {
   const chosen = settings.voiceByLang[code];
   const d = data?.status === 'ready' ? data.value : null;
   const sample = d?.items[0] ? (st.target === 'lang' ? d.items[0].en : d.items[0].vi) : language.name;
-  const locale = st.target === 'lang' ? language.locale : 'vi-VN';
+  const locale = st.target === 'lang' ? ((pack && language.entries[pack]?.locale) ?? language.locale) : 'vi-VN';
   const pick = (uri: string | undefined) =>
     updateSettings((s) => {
       const next = { ...s.voiceByLang };
@@ -347,11 +352,13 @@ function VoicesBody() {
     });
   const test = (uri?: string) => speak({ text: sample, lang: code, locale, voiceURI: uri, rate: settings.rate });
   const isDefault = !chosen || !list.some((v) => v.voiceURI === chosen);
+  // S8-02: "Tự động" ưu tiên giọng Google, rồi giọng chất lượng cao, rồi giọng mặc định của thiết bị.
+  const auto = autoVoice(code, locale, voices);
 
   return (
     <div className="voices">
       <fieldset className="s8__fieldset">
-        <legend className="t-sm muted">Giọng cho</legend>
+        <legend className="t-sm muted">Chọn giọng cho</legend>
         <div className="seg" role="radiogroup">
           {(['lang', 'vi'] as const).map((t) => (
             <label key={t} className="seg__opt">
@@ -364,16 +371,23 @@ function VoicesBody() {
 
       {voicesReady && list.length === 0 ? (
         <p className="t-body" role="status">
-          Thiết bị chưa có giọng {name}. Thêm giọng trong cài đặt hệ thống của thiết bị rồi mở lại app.
+          Thiết bị chưa có giọng {lowerFirst(name)}. Thêm giọng trong cài đặt hệ thống của thiết bị rồi mở lại app.
         </p>
       ) : (
-        <ul className="voices__list" aria-label={`Giọng ${name}`}>
+        <ul className="voices__list" aria-label={`Giọng ${lowerFirst(name)}`}>
           <li className="voices__row">
             <label className="voices__pick">
-              <input type="radio" name="voice" checked={isDefault} onChange={() => pick(undefined)} />
-              <span className="t-body">Mặc định của thiết bị</span>
+              <input type="radio" name="voice" checked={isDefault} onChange={() => pick(undefined)} aria-label="Tự động" aria-describedby={auto ? 'voice-auto-name' : undefined} />
+              <span className="voices__name">
+                <span className="t-body">Tự động</span>
+                {auto && (
+                  <span id="voice-auto-name" className="t-sm muted">
+                    Đang dùng {auto.name}
+                  </span>
+                )}
+              </span>
             </label>
-            <Button variant="text" icon={<SpeakerHigh size={20} aria-hidden />} onClick={() => test(undefined)} aria-label="Nghe thử Mặc định của thiết bị">
+            <Button variant="text" icon={<SpeakerHigh size={20} aria-hidden />} onClick={() => test(undefined)} aria-label="Nghe thử giọng tự động">
               Nghe thử
             </Button>
           </li>

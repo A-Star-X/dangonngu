@@ -1,6 +1,6 @@
-# Kịch bản thử thật cho 22 mục nghiệm thu `[human]`
+# Kịch bản thử thật cho 23 mục nghiệm thu `[human]`
 
-Cập nhật 10/10/2026. Các mục `[human]` chỉ người trong nhóm được đánh dấu (`docs/QUY-TRINH.md` mục 5): cần thiết bị thật, người học thật, người ngoài nhóm, khách hoặc trang học chính thật. File này gom 22 mục đó thành 4 buổi thử, mỗi mục có cách làm và điều kiện đạt. Tình trạng hiện tại của từng mục: `npm run spec:acceptance` rồi mở `docs/generated/acceptance-report.md`.
+Cập nhật 18/10/2026 (thêm S8-AC12 sau Đợt 4). Các mục `[human]` chỉ người trong nhóm được đánh dấu (`docs/QUY-TRINH.md` mục 5): cần thiết bị thật, người học thật, người ngoài nhóm, khách hoặc trang học chính thật. File này gom 22 mục đó thành 4 buổi thử, mỗi mục có cách làm và điều kiện đạt. Tình trạng hiện tại của từng mục: `npm run spec:acceptance` rồi mở `docs/generated/acceptance-report.md`.
 
 ## Chuẩn bị chung
 
@@ -24,7 +24,7 @@ Người làm: người trong nhóm. Thời gian khoảng 1 giờ cho cả ba th
 
 | Mục | Làm gì | Đạt khi |
 |---|---|---|
-| APP-AC13 | Trên Chrome, Edge, Safari ở máy tính và trên iPhone, Android: chọn ngôn ngữ, học hết một phiên 8 câu, mở Tiến bộ | Ở mọi nơi hiển thị đủ, không nút nào bị che hay tràn, không cuộn ngang. Chụp mỗi nơi một ảnh T1 và một ảnh T4 |
+| APP-AC13 | Trên Chrome, Edge, Safari ở máy tính và trên iPhone, Android: chọn ngôn ngữ, học hết một phiên 8 câu, mở Tiến độ | Ở mọi nơi hiển thị đủ, không nút nào bị che hay tràn, không cuộn ngang. Chụp mỗi nơi một ảnh T1 và một ảnh T4 |
 | APP-AC14 | Trên iPhone và Android: mở app khi có mạng, học vài câu, đợi khoảng 10 giây; bật chế độ máy bay; đóng hẳn trình duyệt rồi mở lại địa chỉ app | App mở được, có dải "Đang ngoại tuyến", học tiếp được ngôn ngữ đã tải. Nên mở app có mạng hai lần trước khi tắt mạng nếu thử tiếng Nhật, Thái... (font Noto lưu từ lần thứ hai, APP-10) |
 | C1-AC05 | Trên iPhone, Android, Windows: ở thẻ câu bấm "Nghe", rồi "Nghe lặp", rồi "Dừng" | "Nghe" đọc đúng câu bằng giọng tiếng Anh; "Nghe lặp" lặp lại cách nhau khoảng 1,5 giây; "Dừng" dừng ngay |
 | C3-AC03 | Trên điện thoại, cầm một tay, trong phiên học bấm xen kẽ "Tôi nhớ" và "Cần ôn lại" 20 lần (qua nhiều câu) | Không lần nào bấm nhầm nút |
@@ -34,7 +34,7 @@ Người làm: người trong nhóm. Thời gian khoảng 1 giờ cho cả ba th
 | S8-AC03 | Trên iPhone, Android, Windows: Cài đặt > Giọng đọc, chạm "Nghe thử" ở vài giọng | Danh sách đúng các giọng tiếng Anh có trên máy; "Nghe thử" phát đúng giọng vừa chạm |
 | S8-AC07 | Trên iPhone (Safari) và Android (Chrome): học vài câu, Cài đặt > Xuất tiến độ; Xóa tiến độ; Nhập tiến độ và chọn đúng tệp vừa tải | Tải được tệp về máy, chọn lại được tệp đó, tiến độ trở lại như trước khi xóa |
 
-## Buổi 2: người học thật (9 mục)
+## Buổi 2: người học thật (10 mục)
 
 Người tham gia: 5 người học chưa từng thấy app, mỗi người khoảng 20 phút trên điện thoại của họ hoặc của nhóm. Một người trong nhóm dẫn, một người ghi. Không hướng dẫn trước; chỉ nói "Bạn muốn học tiếng Anh với app này". Xóa dữ liệu trước mỗi người.
 
@@ -45,8 +45,9 @@ Trình tự cho mỗi người và mục được kiểm:
 3. Bắt đầu phiên học đầu tiên không hỏi ai; đếm số lần chạm từ lúc chọn ngôn ngữ tới câu đầu tiên của phiên (G-AC01: 5/5 người làm được, không quá 2 lần chạm).
 4. Học hết một phiên 8 câu. Quan sát và ghi lần nào bấm nhầm giữa "Tôi nhớ" và "Cần ôn lại" (G-AC03: không ai bấm nhầm). Ghi thời gian phiên; hỏi sau phiên bước kiểm tra lặp lại có vô nghĩa hay khó chịu không (S3-AC11, cần 3 người).
 5. Quay lại màn Học; hỏi "Khi nào bạn bấm nút đỏ, khi nào chạm dòng câu cần ôn?" (T1-AC09).
-6. Nhờ tự tìm màn xem tiến bộ; hỏi "Câu cần ôn là gì?", "Con số cần ôn hôm nay và Lịch ôn nghĩa là gì?" (G-AC02: 4/5 người tìm được và giải thích đúng; T4-AC10).
+6. Nhờ tự tìm màn Tiến độ; hỏi "Câu cần ôn là gì?", "Con số "câu cần ôn hôm nay" và "Lịch ôn tập" nghĩa là gì?" (G-AC02: 4/5 người tìm được và giải thích đúng; T4-AC10).
 7. Vào Luyện tập > Kiểm tra nhanh, làm cả 3 bước; ghi câu nào họ thấy chia cụm vô lý (S5-AC10, cần 3 người; nhóm quyết định giữ hay đổi quy tắc chia cụm).
+8. Chỉ làm trên Chrome máy tính có mạng (Windows hoặc Mac), với dữ liệu trang đã xóa: mở Cài đặt > Giọng đọc, ghi tên giọng ở dòng "Tự động" (phải là giọng Google, ví dụ "Google UK English Female" với Global English); nhấn "Nghe thử" ở dòng "Tự động" rồi ở giọng mặc định của máy (Microsoft trên Windows, Samantha hoặc Daniel trên Mac); hỏi giọng nào dễ nghe hơn (S8-AC12: ít nhất 3 người chọn giọng Google).
 
 Phiếu ghi cho mỗi người (chép vào `docs/evidence/G-AC01/ghi-chep.md`):
 
@@ -59,8 +60,9 @@ Phiếu ghi cho mỗi người (chép vào `docs/evidence/G-AC01/ghi-chep.md`):
 | Bấm nhầm Tôi nhớ / Cần ôn lại (G-AC03) | | | | | |
 | Thời gian phiên, cảm nhận bước kiểm tra (S3-AC11) | | | | | |
 | Hiểu nút chính và dòng câu cần ôn (T1-AC09) | | | | | |
-| Tìm được Tiến bộ, giải thích câu cần ôn, Lịch ôn (G-AC02, T4-AC10) | | | | | |
+| Tìm được Tiến độ, giải thích câu cần ôn, Lịch ôn tập (G-AC02, T4-AC10) | | | | | |
 | Câu thấy chia cụm vô lý (S5-AC10) | | | | | |
+| Giọng ở dòng Tự động, giọng thấy dễ nghe hơn (S8-AC12) | | | | | |
 
 ## Buổi 3: người ngoài nhóm (2 mục)
 

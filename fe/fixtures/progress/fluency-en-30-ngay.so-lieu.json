@@ -25,12 +25,12 @@
   "sessionList30": {
     "total": 23,
     "firstPage": 20,
-    "first": { "time": "09:00", "label": "Kiểm tra" },
-    "second": { "time": "08:00", "label": "Lộ trình" },
+    "first": { "time": "09:00", "label": "Kiểm tra nhanh" },
+    "second": { "time": "08:00", "label": "Học theo lộ trình" },
     "labelsInOrder": [
-      "Kiểm tra", "Lộ trình", "Ôn tập", "Một câu", "Kiểm tra", "Ôn tập", "Kiểm tra", "Kiểm tra", "Một câu", "Kiểm tra",
-      "Lộ trình", "Kiểm tra", "Một câu", "Kiểm tra", "Kiểm tra", "Kiểm tra", "Một câu", "Kiểm tra", "Kiểm tra", "Một câu",
-      "Lộ trình", "Kiểm tra", "Kiểm tra"
+      "Kiểm tra nhanh", "Học theo lộ trình", "Ôn tập", "Học một câu", "Kiểm tra nhanh", "Ôn tập", "Kiểm tra nhanh", "Kiểm tra nhanh", "Học một câu", "Kiểm tra nhanh",
+      "Học theo lộ trình", "Kiểm tra nhanh", "Học một câu", "Kiểm tra nhanh", "Kiểm tra nhanh", "Kiểm tra nhanh", "Học một câu", "Kiểm tra nhanh", "Kiểm tra nhanh", "Học một câu",
+      "Học theo lộ trình", "Kiểm tra nhanh", "Kiểm tra nhanh"
     ]
   },
   "dayToday": {

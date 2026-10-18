@@ -36,3 +36,5 @@
 /* C1-05: dòng giữ chỗ khi chưa biết có giọng hay không; ẩn nhưng giữ đúng chiều cao của câu báo. */
 .card__novoice--pending { visibility: hidden; }
 .card__novoice--pending .card__link { display: inline-block; }
+/* C1-02: nhận focus bằng mã sau khi hiện câu gốc; không phải điều khiển nên không vẽ viền focus. */
+.card__revealed:focus { outline: none; }

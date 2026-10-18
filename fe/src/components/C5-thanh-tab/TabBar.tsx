@@ -7,12 +7,12 @@ const TABS: { route: RouteName; label: string; Icon: typeof BookOpen }[] = [
   { route: 'hoc', label: 'Học', Icon: BookOpen },
   { route: 'luyen-tap', label: 'Luyện tập', Icon: Target },
   { route: 'thu-vien', label: 'Thư viện', Icon: Books },
-  { route: 'tien-bo', label: 'Tiến bộ', Icon: ChartLineUp },
+  { route: 'tien-bo', label: 'Tiến độ', Icon: ChartLineUp },
 ];
 
 export function TabBar({ current, reviewCount, brand }: { current: RouteName | null; reviewCount: number; brand?: boolean }) {
   return (
-    <nav className="tabbar" aria-label="Khu chính" data-guide="tabbar">
+    <nav className="tabbar" aria-label="Điều hướng chính" data-guide="tabbar">
       {brand && <p className="tabbar__brand t-lg">VITASR</p>}
       <ul className="tabbar__list">
         {TABS.map(({ route, label, Icon }) => {

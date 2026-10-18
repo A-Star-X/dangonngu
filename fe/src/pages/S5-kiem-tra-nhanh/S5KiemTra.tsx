@@ -13,6 +13,7 @@ import {
   chunkSentence,
   completeSession,
   levelOf,
+  lowerFirst,
   nextUnitIndex,
   recordCheck,
   shuffleOrder,
@@ -222,7 +223,7 @@ function TestView({ d, unit, unitIndex }: { d: LanguageData; unit: Unit; unitInd
             <div className="s5__one">
               {ALL_STEPS.map((s) => (
                 <Button key={s} variant="text" onClick={() => begin([s])}>
-                  Chỉ {STEP_NAME[s].charAt(0).toLocaleLowerCase('vi') + STEP_NAME[s].slice(1)}
+                  Chỉ {lowerFirst(STEP_NAME[s])}
                 </Button>
               ))}
             </div>
@@ -341,7 +342,7 @@ function useEnterNext(show: boolean, onNext: () => void) {
   useEffect(() => {
     if (!show) return;
     const on = (e: KeyboardEvent) => {
-      if (e.key === 'Enter' && !isInteractive(e.target)) {
+      if (e.key === 'Enter' && !e.repeat && !isInteractive(e.target)) {
         e.preventDefault();
         onNext();
       }
@@ -450,7 +451,7 @@ function ListenChunks({ d, item, chunks, onNext }: { d: LanguageData; item: Item
   return (
     <div className="s5__task" data-item-id={item.id}>
       <Meaning item={item} />
-      <p className="t-body muted">Chạm từng cụm để nghe.</p>
+      <p className="t-body muted">Nhấn từng cụm để nghe.</p>
       <ul className="s5__chunks" lang={d.lang}>
         {chunks.map((c, i) => {
           const shown = open.has(i);
@@ -514,17 +515,41 @@ function Arrange({ d, item, chunks, onFirstCheck, onNext }: { d: LanguageData; i
     }
     setResult(ok ? 'right' : 'wrong');
     setWrongAt(bad);
-    setLive(ok ? 'Đúng' : 'Chưa đúng, sắp xếp lại các cụm được đánh dấu');
+    setLive(ok ? 'Đúng' : 'Chưa đúng. Nhấn các cụm có dấu x để đưa về hàng cụm, rồi xếp lại.');
   };
   const nextBtn = useNextFocus(right);
   useEnterNext(right, onNext);
 
+  // S5-05: nút cụm vừa nhấn biến mất khỏi hàng của nó; nếu nó đang có focus thì chuyển focus sang cụm kế bên
+  // (hoặc nút Kiểm tra khi đã xếp hết), để người dùng bàn phím không phải Tab lại từ đầu trang.
+  const box = useRef<HTMLDivElement>(null);
+  const refocus = useRef<{ zone: 'pool' | 'answer'; at: number } | null>(null);
+  useEffect(() => {
+    const r = refocus.current;
+    const root = box.current;
+    if (!r || !root) return;
+    refocus.current = null;
+    const pick = (sel: string) => [...root.querySelectorAll<HTMLElement>(sel)];
+    const poolBtns = pick('[data-testid="s5-pool"] .chunk');
+    const answerBtns = pick('[data-testid="s5-answer"] .chunk');
+    const check = root.querySelector<HTMLElement>('.s3__check-actions button');
+    const target =
+      r.zone === 'pool'
+        ? (poolBtns[Math.min(r.at, poolBtns.length - 1)] ?? check)
+        : (answerBtns[Math.min(r.at, answerBtns.length - 1)] ?? poolBtns[0]);
+    target?.focus();
+  }, [answer]);
+  const tap = (e: { currentTarget: HTMLElement }, zone: 'pool' | 'answer', at: number, next: number[]) => {
+    if (e.currentTarget === document.activeElement) refocus.current = { zone, at };
+    change(next);
+  };
+
   return (
-    <div className="s5__task" data-item-id={item.id}>
+    <div className="s5__task" data-item-id={item.id} ref={box}>
       <Meaning item={item} />
       <div className={`s5__answer ${right ? 's5__answer--right' : ''}`} aria-label="Câu của bạn" role="group" data-testid="s5-answer">
         {answer.length === 0 ? (
-          <span className="t-sm muted">Chạm các cụm bên dưới theo đúng thứ tự.</span>
+          <span className="t-sm muted">Nhấn các cụm bên dưới theo đúng thứ tự.</span>
         ) : (
           answer.map((idx, at) => (
             <button
@@ -534,7 +559,7 @@ function Arrange({ d, item, chunks, onFirstCheck, onNext }: { d: LanguageData; i
               aria-label={`${chunkLabel(chunks[idx])}${wrongAt.has(at) ? ', chưa đúng vị trí' : ''}`}
               data-wrong={wrongAt.has(at) ? 'true' : undefined}
               aria-disabled={right || undefined}
-              onClick={() => change(answer.filter((x) => x !== idx))}
+              onClick={(e) => tap(e, 'answer', at, answer.filter((x) => x !== idx))}
             >
               <span className="src t-body" lang={d.lang}>
                 {chunkLabel(chunks[idx])}
@@ -546,9 +571,9 @@ function Arrange({ d, item, chunks, onFirstCheck, onNext }: { d: LanguageData; i
         {right && <Check size={24} aria-hidden className="s5__answer-mark" />}
       </div>
       <ul className="s5__chunks s5__pool" aria-label="Các cụm" data-testid="s5-pool">
-        {pool.map((idx) => (
+        {pool.map((idx, at) => (
           <li key={idx}>
-            <button type="button" className="chunk chunk--open" onClick={() => change([...answer, idx])}>
+            <button type="button" className="chunk chunk--open" onClick={(e) => tap(e, 'pool', at, [...answer, idx])}>
               <span className="src t-body" lang={d.lang}>
                 {chunkLabel(chunks[idx])}
               </span>
@@ -556,8 +581,8 @@ function Arrange({ d, item, chunks, onFirstCheck, onNext }: { d: LanguageData; i
           </li>
         ))}
       </ul>
-      <p className="sr-only" aria-live="polite">
-        {live}
+      <p className={`s5__feedback t-body ${result === 'wrong' ? 's5__feedback--wrong' : ''} ${right ? 's5__feedback--right' : ''}`} aria-live="polite" data-testid="s5-feedback">
+        {result === 'idle' ? '' : live}
       </p>
       <div className="s3__check-actions">
         {right ? (

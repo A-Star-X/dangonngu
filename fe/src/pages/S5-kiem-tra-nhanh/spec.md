@@ -48,7 +48,7 @@ Câu gốc được chia thành cụm bằng `Intl.Segmenter` theo từ: câu c�
 
 ### S5-05 Bước 3: Sắp xếp câu
 
-Dùng các cụm như S5-04, hiện xáo trộn (xáo tất định theo `id` câu, không trùng thứ tự đúng). Chạm một cụm để đưa xuống hàng đáp án; chạm cụm trong hàng đáp án để trả về. Đủ cụm thì nút chính "Kiểm tra" mở. Đúng: viền `--known` cả hàng, nút thành "Câu tiếp". Sai: cụm sai vị trí viền `--review`, cho sắp lại. Câu chỉ có 1 cụm bị bỏ qua ở bước này.
+Dùng các cụm như S5-04, hiện xáo trộn (xáo tất định theo `id` câu, không trùng thứ tự đúng). Chạm một cụm để đưa xuống hàng đáp án; chạm cụm trong hàng đáp án để trả về. Đủ cụm thì nút chính "Kiểm tra" mở. Đúng: viền `--known` cả hàng, nút thành "Câu tiếp". Sai: cụm sai vị trí viền 2 px `--wrong`, nền `--wrong-soft`, kèm icon dấu x (FND-02); dưới khu xếp hiện dòng chữ `--wrong` "Chưa đúng. Nhấn các cụm có dấu x để đưa về hàng cụm, rồi xếp lại." (cũng là nội dung vùng `aria-live`), cho sắp lại; đổi bất kỳ cụm nào thì bỏ đánh dấu và dòng chữ. Đúng: dòng chữ `--known` "Đúng". Hướng dẫn ở bước 2 là "Nhấn từng cụm để nghe.", ở bước 3 khi hàng đáp án còn trống là "Nhấn các cụm bên dưới theo đúng thứ tự." Câu chỉ có 1 cụm bị bỏ qua ở bước này. Dùng bàn phím: nhấn một cụm đang có focus thì focus chuyển sang cụm kế bên trong cùng hàng; xếp hết cụm thì sang nút "Kiểm tra". Giữ Enter chỉ tính một lần nhấn.
 
 ### S5-06 Nghĩa hiển thị
 
@@ -81,3 +81,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 
 - 0.1 (07/10/2026): bản đầu.
 - 0.2 (10/10/2026): chốt các câu hỏi mở (Claude quyết định theo ủy quyền của nhóm): kết quả bước Nghe theo cụm, không thêm loại lượt, Dừng luôn về T2, bước 1 chờ biết có giọng rồi mới hiện lựa chọn.
+- 0.3 (18/10/2026): S5-05 cụm xếp sai dùng đỏ `--wrong`, thêm dòng báo nhìn thấy được; chữ hướng dẫn dùng "nhấn" (theo phản hồi người dùng do nhóm chuyển); S5-05 giữ focus khi xếp cụm bằng bàn phím (sửa lỗi tìm thấy khi rà soát code).

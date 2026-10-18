@@ -32,7 +32,7 @@ export async function animationsDone(page: Page) {
 }
 
 export async function revealAndKnow(page: Page) {
-  await page.getByRole('button', { name: 'Chạm để hiện câu gốc' }).click();
+  await page.getByRole('button', { name: 'Nhấn để hiện câu gốc' }).click();
   await page.getByRole('button', { name: /Tôi nhớ/ }).click();
 }
 

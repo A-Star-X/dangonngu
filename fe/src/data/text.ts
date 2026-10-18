@@ -1,11 +1,15 @@
 // @spec DATA-08, DATA-12
 // Chuẩn hóa chuỗi dùng chung.
 
-/** Bỏ dấu tiếng Việt và dấu phụ, chữ thường. "Đặt phòng" -> "dat phong". */
+/**
+ * Bỏ dấu tiếng Việt và dấu phụ của chữ Latinh, chữ thường. "Đặt phòng" -> "dat phong".
+ * Dấu của chữ khác (kana Nhật, Devanagari, Thái, Kirin "й") giữ nguyên, vì bỏ đi sẽ thành chữ khác (DATA-12).
+ */
 export function fold(s: string): string {
   return s
     .normalize('NFD')
-    .replace(/\p{M}/gu, '')
+    .replace(/([A-Za-z])\p{M}+/gu, '$1')
+    .normalize('NFC')
     .replace(/đ/g, 'd')
     .replace(/Đ/g, 'd')
     .toLowerCase()
@@ -16,6 +20,15 @@ export function fold(s: string): string {
 /** Chuẩn hóa để so trùng nghĩa (DATA-08): bỏ khoảng trắng thừa, không phân biệt hoa thường, bỏ dấu câu cuối. */
 export function normalizeMeaning(s: string): string {
   return s.replace(/\s+/g, ' ').trim().toLocaleLowerCase('vi').replace(/[\s.!?…,;:。！？]+$/u, '');
+}
+
+/**
+ * Tên ngôn ngữ đứng giữa câu viết thường chữ đầu: "Tiếng Anh" thành "tiếng Anh" (FND-12).
+ * Nhãn, tiêu đề hay lựa chọn đứng một mình thì giữ nguyên tên.
+ */
+// @spec FND-12
+export function lowerFirst(s: string): string {
+  return s.charAt(0).toLocaleLowerCase('vi') + s.slice(1);
 }
 
 /** Bộ sinh số giả ngẫu nhiên có hạt giống (mulberry32), để kết quả tất định. */

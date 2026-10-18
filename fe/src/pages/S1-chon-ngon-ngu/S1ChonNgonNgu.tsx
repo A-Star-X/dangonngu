@@ -1,7 +1,7 @@
 // @spec S1-01, S1-02, S1-03, S1-04, S1-05, S1-06, S1-07, APP-12
 import { useState } from 'react';
 import { CaretLeft, CaretRight } from '@phosphor-icons/react';
-import { formatCount, PACKS, type CatalogLanguage, type PackId } from '../../data';
+import { formatCount, lowerFirst, PACKS, type CatalogLanguage, type PackId } from '../../data';
 import { HostBack } from '../../app/HostBack';
 import { LangRowText } from '../../app/LanguageList';
 import { LoadError, Skeleton } from '../../app/States';
@@ -60,7 +60,7 @@ export function S1ChonNgonNgu() {
           <CaretLeft size={24} aria-hidden />
           Quay lại
         </button>
-        <h1 className="s1__title t-xl">Học {lang.name.charAt(0).toLocaleLowerCase('vi') + lang.name.slice(1)} với bộ nào?</h1>
+        <h1 className="s1__title t-xl">Học {lowerFirst(lang.name)} với bộ nào?</h1>
         <ul className="s1__packs">
           {PACKS.filter((p) => lang.packs.includes(p.id)).map((p) => {
             const key = `${p.id}.${lang.id}`;
@@ -83,7 +83,7 @@ export function S1ChonNgonNgu() {
             );
           })}
         </ul>
-        <p className="t-sm muted s1__note">Có thể đổi bộ sau ở thanh trên cùng hoặc Cài đặt.</p>
+        <p className="t-sm muted s1__note">Bạn có thể đổi bộ sau ở thanh trên cùng hoặc trong Cài đặt.</p>
       </div>
     );
   }
@@ -129,7 +129,7 @@ export function S1ChonNgonNgu() {
           <li key={l.id}>{row(l)}</li>
         ))}
       </ul>
-      <p className="t-sm muted s1__note">Có thể đổi sau ở thanh trên cùng.</p>
+      <p className="t-sm muted s1__note">Bạn có thể đổi ngôn ngữ sau ở thanh trên cùng hoặc trong Cài đặt.</p>
     </div>
   );
 }

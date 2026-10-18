@@ -64,12 +64,19 @@ describe('FND', () => {
       ['muted', 'surface', 4.5],
       ['ink', 'line', 4.5],
       ['on-brand', 'brand', 4.5],
-      ['known', 'surface', 3],
+      // Chữ "Đúng" cạnh lựa chọn đúng (C4-02) và dòng kết quả S5-05 là chữ nhỏ trên --surface hoặc --paper.
+      ['known', 'surface', 4.5],
+      ['known', 'paper', 4.5],
       ['review', 'surface', 4.5],
       ['review', 'paper', 4.5],
       ['surface', 'known', 4.5],
       ['surface', 'review', 4.5],
       ['paper', 'ink', 4.5],
+      // Trả lời chưa đúng (FND-02): chữ và icon --wrong trên --surface, --paper và nền nhạt --wrong-soft; câu trên nền --wrong-soft.
+      ['wrong', 'surface', 4.5],
+      ['wrong', 'paper', 4.5],
+      ['wrong', 'wrong-soft', 4.5],
+      ['ink', 'wrong-soft', 4.5],
     ];
     for (const [name, t] of [['sáng', light], ['tối', dark]] as const) {
       const tok = { ...light, ...t };

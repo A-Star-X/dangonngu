@@ -29,8 +29,9 @@ Màn toàn trang, hiện khi mở app lần đầu (APP-05).
 │  Português                │
 │  ... (danh sách cuộn)     │
 │                           │
-│ Có thể đổi sau ở thanh    │
-│ trên cùng.                │
+│ Bạn có thể đổi ngôn ngữ   │
+│ sau ở thanh trên cùng hoặc│
+│ trong Cài đặt.            │
 └───────────────────────────┘
 ```
 
@@ -54,7 +55,7 @@ Chạm một dòng là chọn ngay: lưu ngôn ngữ (DATA-06) và chuyển sang
 
 ### S1-05 Chú thích
 
-Cuối danh sách có dòng "Có thể đổi sau ở thanh trên cùng." `--t-sm`, `--muted`.
+Cuối danh sách có dòng "Bạn có thể đổi ngôn ngữ sau ở thanh trên cùng hoặc trong Cài đặt." `--t-sm`, `--muted`.
 
 ### S1-06 Tải và lỗi
 
@@ -62,7 +63,7 @@ Khi đang tải manifest: khung xương 6 dòng. Lỗi tải: theo APP-08.
 
 ### S1-07 Chọn bộ nội dung
 
-Bước thứ hai của S1, chỉ hiện với ngôn ngữ có nhiều bộ (DATA-13). Tiêu đề "Học tiếng Anh với bộ nào?", nút "Quay lại" về danh sách ngôn ngữ. Mỗi bộ là một dòng lớn: tên bộ (`--t-body` đậm 600) và mô tả ngắn theo DATA-13 (`--t-sm`, `--muted`). Thứ tự: Global English, English Fluency. Chạm một dòng là lưu ngôn ngữ và bộ (DATA-06), tải dữ liệu bộ đó và chuyển sang `#/hoc`. Dưới danh sách có dòng "Có thể đổi bộ sau ở thanh trên cùng hoặc Cài đặt."
+Bước thứ hai của S1, chỉ hiện với ngôn ngữ có nhiều bộ (DATA-13). Tiêu đề "Học tiếng Anh với bộ nào?", nút "Quay lại" về danh sách ngôn ngữ. Mỗi bộ là một dòng lớn: tên bộ (`--t-body` đậm 600) và mô tả ngắn theo DATA-13 (`--t-sm`, `--muted`). Thứ tự: Global English, English Fluency. Chạm một dòng là lưu ngôn ngữ và bộ (DATA-06), tải dữ liệu bộ đó và chuyển sang `#/hoc`. Dưới danh sách có dòng "Bạn có thể đổi bộ sau ở thanh trên cùng hoặc trong Cài đặt."
 
 ```
 ┌───────────────────────────┐
@@ -79,8 +80,9 @@ Bước thứ hai của S1, chỉ hiện với ngôn ngữ có nhiều bộ (DAT
 │ Câu luyện nói theo mẫu    │
 │ câu.                      │
 │                           │
-│ Có thể đổi bộ sau ở thanh │
-│ trên cùng hoặc Cài đặt.   │
+│ Bạn có thể đổi bộ sau ở   │
+│ thanh trên cùng hoặc trong│
+│ Cài đặt.                  │
 └───────────────────────────┘
 ```
 
@@ -102,3 +104,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.2 (08/10/2026): hỗ trợ hai bộ nội dung tiếng Anh (English Fluency và Global English).
 - 0.3 (08/10/2026): cập nhật theo bộ dữ liệu khách gửi và câu trả lời của nhóm (ưu tiên web, responsive; đủ 15 ngôn ngữ; không đọc tiến độ bản cũ).
 - 0.4 (10/10/2026): chốt không có chế độ đảo chiều ở bản này (Claude quyết định theo ủy quyền của nhóm).
+- 0.5 (18/10/2026): hai dòng ghi chú cuối danh sách gọi người học là "bạn" (theo phản hồi người dùng do nhóm chuyển); dòng ghi chú danh sách ngôn ngữ nhắc thêm Cài đặt.

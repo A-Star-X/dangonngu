@@ -50,7 +50,7 @@ Khổ máy tính (1280 px, ưu tiên giai đoạn đầu):
 │ ▌Học         │                                                              │
 │  Luyện tập   │ ┌──────────────────────────────────┐   Tuần này: 3/5 phiên   │
 │  Thư viện    │ │ ■■■□□□□□          Câu 4/8         │   ▓▓▓▓▓▓░░░░            │
-│  Tiến bộ     │ │ Unit 1 · A1                       │                         │
+│  Tiến độ     │ │ Unit 1 · A1                       │                         │
 │              │ │ Find your classroom               │   12 câu cần ôn       › │
 │              │ │ Tìm đúng phòng học                │                         │
 │              │ │ Bạn mới đến trường và hỏi...      │                         │
@@ -113,3 +113,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.1 (07/10/2026): bản đầu.
 - 0.2 (08/10/2026): hỗ trợ hai bộ nội dung tiếng Anh (English Fluency và Global English).
 - 0.3 (10/10/2026): chốt cách đếm phiên hoàn tất cho mục tiêu tuần (Claude quyết định theo ủy quyền của nhóm).
+- 0.4 (18/10/2026): sơ đồ ghi tên khu T4 là "Tiến độ" (theo phản hồi người dùng do nhóm chuyển).
