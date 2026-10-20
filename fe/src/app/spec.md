@@ -15,7 +15,7 @@ Khung bao quanh mọi trang: điều hướng, route, thanh trên cùng, bố c�
 
 ### APP-01 Bốn khu chính
 
-App có đúng 4 khu chính, theo thứ tự: T1 Học, T2 Luyện tập, T3 Thư viện, T4 Tiến độ. Dưới 900 px chuyển khu bằng thanh tab dưới đáy (C5). Từ 900 px trở lên dùng thanh điều hướng dọc bên trái rộng 220 px, cùng 4 mục và cùng thứ tự.
+App có đúng 4 khu chính, theo thứ tự: T1 Học, T2 Luyện tập, T3 Thư viện, T4 Tiến độ. Dưới 900 px chuyển khu bằng thanh tab dưới đáy (C5). Từ 900 px trở lên dùng thanh điều hướng dọc bên trái rộng 220 px, cùng 4 mục và cùng thứ tự. Màn cấp hai của một khu (S10 Chi tiết Unit thuộc Thư viện) giữ mục của khu đó ở trạng thái đang chọn.
 
 ### APP-02 Thanh trên cùng
 
@@ -34,14 +34,14 @@ Route dùng hash (QD-02). Đây là nguồn chân lý cho điều hướng.
 | `#/chon-ngon-ngu` | S1 | |
 | `#/hoc` | T1 | Route mặc định khi đã chọn ngôn ngữ |
 | `#/luyen-tap` | T2 | |
-| `#/thu-vien` | T3 | Tham số tùy chọn `?xem=unit|cau`, `?trinh-do=`, `?unit=`, `?q=` |
+| `#/thu-vien` | T3 | Tham số tùy chọn `?xem=unit|cau`, `?trinh-do=`, `?unit=`, `?q=`, `?trang=` |
 | `#/unit` | S10 | Tham số `?so=`; thuộc khu Thư viện: có thanh trên cùng, thanh tab với mục Thư viện đang chọn |
 | `#/tien-bo` | T4 | Tham số tùy chọn `?khoang=1|7|30` |
 | `#/cai-dat` | S8 | Mở như một khu, có nút quay lại |
 | `#/phien-hoc` | S3 | Tham số `?nguon=lo-trinh|on-tap|tu-khoa|cau|unit` và tham số theo nguồn |
 | `#/kiem-tra` | S5 | Tham số tùy chọn `?unit=` |
 
-Route không hợp lệ chuyển về `#/hoc` (hoặc `#/chon-ngon-ngu` nếu chưa chọn ngôn ngữ). Nút Back của trình duyệt đi ngược đúng lịch sử route.
+Route không hợp lệ chuyển về `#/hoc` (hoặc `#/chon-ngon-ngu` nếu chưa chọn ngôn ngữ). Nút Back và Forward của trình duyệt đi đúng lịch sử route, kể cả chuỗi T3 → S10 → S3. Trạng thái màn mà người học muốn quay lại được đều nằm trong route: ở T3 là cách xem (`xem`), trình độ (`trinh-do`), unit (`unit`), từ khóa (`q`) và trang đang xem (`trang`, ở cả hai cách xem; đổi trang thì thay route, không thêm lịch sử); ở S10 là số unit (`so`). Tải lại trang ở bất kỳ route nào thì hiện đúng màn và đúng các trạng thái đó; sheet đang mở thì đóng.
 
 ### APP-05 Khởi động
 
@@ -95,6 +95,14 @@ Vì app mở bằng trang mới (APP-09), app có một nút để người họ
 - Bấm khi đang có phiên dở thì không hỏi; tiến độ đã lưu trên máy (DATA-06) và phiên dở mở lại được lần sau (S3-08).
 - Nếu trang chính mở app bằng tab mới thì bấm nút sẽ mở trang học chính ngay trong tab của app, tab trang học cũ vẫn còn. Không đóng tab bằng mã (`window.close()` chỉ chạy được trong một số trường hợp) và không đọc `window.opener` (APP-09).
 
+### APP-13 Không dùng liên kết neo
+
+Không dùng `href` bắt đầu bằng `#` mà không phải route (`#/...`) để trỏ tới một phần trong trang, vì router hiểu phần sau `#` là route và sẽ chuyển màn. Nhảy tới một phần trong trang thì cuộn bằng mã, không đổi hash.
+
+### APP-14 Đường dẫn
+
+Màn cấp hai trong một khu (S10 Chi tiết Unit trong Thư viện) có dòng đường dẫn đầu màn: tên khu là liên kết, rồi dấu "/", rồi tên màn đang xem (có `aria-current="page"`), ví dụ "Thư viện / Unit 12 · A1". Liên kết tên khu mở lại khu đó đúng route đã xem trước khi vào màn cấp hai (cùng cách xem, trình độ, trang); chưa xem lần nào trong lần mở app này thì mở route mặc định của khu (với S10 là cách xem Unit đúng trình độ của unit). Dòng đường dẫn nằm trong vùng `nav` có nhãn trợ năng "Đường dẫn", vùng chạm của liên kết từ 44 px. Khu chính T1 đến T4 không có đường dẫn.
+
 ## Câu hỏi mở
 
 Không còn câu hỏi mở.
@@ -119,3 +127,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.5 (10/10/2026): chốt các câu hỏi mở (Claude quyết định theo ủy quyền của nhóm): APP-10 ghi rõ cách kích hoạt bản mới và lưu ngoại tuyến; APP-12 chốt địa chỉ mặc định và trường hợp trang chính mở tab mới; APP-08 đổi câu cảnh báo bộ nhớ bị chặn cho có hướng xử lý (FND-12).
 - 0.6 (18/10/2026): T4 đổi tên thành "Tiến độ"; câu lỗi tải dùng "nhấn"; câu ngoại tuyến gọi người học là "bạn" (theo phản hồi người dùng do nhóm chuyển).
 - 0.7 (20/10/2026): APP-04 thêm route `#/unit` (S10) và tham số cách xem, trình độ của T3; nguồn phiên `unit` (Đợt 5 việc 3).
+- 0.8 (20/10/2026): Đợt 5 việc 10: APP-04 giữ trạng thái màn trong route, tải lại và Back, Forward đúng; APP-01 màn cấp hai giữ mục khu đang chọn; thêm APP-13 không dùng liên kết neo, APP-14 đường dẫn.
