@@ -63,7 +63,7 @@ Font được tự host trong bản build (QD-05). Font Noto chỉ tải khi ng�
 | `--t-2xl` | 31 / 42 | Câu ngắn trên thẻ |
 | `--t-3xl` | 39 / 48 | Số liệu lớn ở tổng kết (chỉ một chỗ mỗi màn) |
 
-Không dùng cỡ chữ ngoài thang này. Khoảng dòng của chữ giao diện từ 1,5 lần cỡ chữ trở lên, của câu trên thẻ từ 1,3 lần, để dấu tiếng Việt chồng hai tầng ("ễ", "ộ") không chạm dòng trên. Chữ từ `--t-xl` trở lên giãn chữ -0,01em vì Lexend rộng và trông thưa ở cỡ lớn; chữ nhỏ hơn giữ giãn chữ mặc định.
+Không dùng cỡ chữ ngoài thang này. Khoảng dòng của chữ cỡ `--t-sm` đến `--t-lg` từ 1,4 lần cỡ chữ trở lên, để dấu tiếng Việt chồng hai tầng ("ễ", "ộ") không chạm dòng trên; chữ từ `--t-xl` trở lên (tiêu đề màn, câu trên thẻ, số liệu lớn) từ 1,2 lần. Chữ từ `--t-xl` trở lên giãn chữ -0,01em vì Lexend rộng và trông thưa ở cỡ lớn; chữ nhỏ hơn giữ giãn chữ mặc định.
 
 ### FND-06 Cỡ câu theo độ dài
 
@@ -145,4 +145,4 @@ Chỉ dùng hai độ đậm 400 và 600. Nhấn mạnh bằng cỡ và độ đ
 - 0.3 (08/10/2026): cập nhật theo bộ dữ liệu khách gửi và câu trả lời của nhóm (ưu tiên web, responsive; đủ 15 ngôn ngữ; không đọc tiến độ bản cũ).
 - 0.4 (10/10/2026): FND-01 thêm token `--scrim`; FND-02 ghi ngoại lệ cột hôm nay của T4; FND-03 dùng "Theo thiết bị" như S8-04; FND-14 ghi hai ngoại lệ vùng chạm (Claude quyết định theo ủy quyền của nhóm).
 - 0.5 (18/10/2026): FND-01 thêm token `--wrong`, `--wrong-soft`; FND-02 đổi màu trả lời sai sang đỏ; FND-12 thêm quy tắc viết tên ngôn ngữ giữa câu, dùng "nhấn", tên khu T4 là "Tiến độ" (theo phản hồi người dùng do nhóm chuyển).
-- 0.6 (20/10/2026): Đợt 5 việc 2: FND-05 nâng `--t-sm` lên 14 px, nới khoảng dòng, giãn chữ âm cho chữ lớn; FND-07 thêm nhịp dọc; thêm FND-15 thứ bậc chữ (theo rà soát `docs/theo-doi/ra-soat-ui-dot5.md`).
+- 0.6 (20/10/2026): Đợt 5 việc 2: FND-05 nâng `--t-sm` lên 14 px, nới khoảng dòng, giãn chữ âm cho chữ lớn; FND-07 thêm nhịp dọc; thêm FND-15 thứ bậc chữ (theo rà soát `docs/theo-doi/ra-soat-ui-dot5.md`). Sửa câu khoảng dòng cho khớp bảng: 1,4 lần cho `--t-sm` đến `--t-lg`, 1,2 lần từ `--t-xl` (bản đầu ghi 1,5 cho mọi chữ giao diện, mâu thuẫn với `--t-sm` 14/20 và tiêu đề màn 25/34, phát hiện khi đo FND-AC19).
