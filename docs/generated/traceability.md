@@ -1,6 +1,6 @@
 # Ma trận truy vết spec, code và acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-20 14:19 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-20 14:23 UTC. Không sửa tay.
 
 Tổng: 136 yêu cầu, 186 mục acceptance, 456 ghi chú @spec/@ac trong code.
 
