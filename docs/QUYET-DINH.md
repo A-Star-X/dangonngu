@@ -53,7 +53,13 @@ Bối cảnh: danh sách việc Đợt 5 của công ty yêu cầu website có �
 - Test tự động không gọi Supabase thật: chế độ fixture dùng một cài đặt đăng nhập và tiến độ chạy trong bộ nhớ, để CI chạy được không cần tài khoản.
 - App vẫn là trang tĩnh nên vẫn host được trên GitHub Pages; Supabase là phần backend duy nhất.
 
-Cần công ty cung cấp: một project Supabase (ai giữ tài khoản, gói miễn phí hay trả phí), URL và anon key cho bản chạy thử, có bắt xác nhận email khi đăng ký không, địa chỉ trang cho email đặt lại mật khẩu.
+Project Supabase (20/10/2026): giai đoạn phát triển dùng project Supabase cá nhân của Nguyễn Đình Đạt. Project chính thức của công ty tính sau; khi chuyển chỉ đổi `VITE_SUPABASE_URL` và `VITE_SUPABASE_ANON_KEY` và chạy lại file tạo bảng, không sửa code. Vì vậy:
+
+- Không đưa URL hay key của project cá nhân vào repo: đặt trong `.env.local` (đã có trong `.gitignore`). `.env.example` chỉ ghi tên biến.
+- Mọi bảng, Row Level Security và cấu hình Auth phải ghi thành file SQL trong repo, không chỉ bấm tay trên giao diện Supabase, để dựng lại y hệt trên project của công ty.
+- Tài khoản và tiến độ tạo trên project cá nhân là dữ liệu thử, không chuyển sang project của công ty.
+
+Còn cần công ty quyết khi chuyển sang project chính thức: ai giữ tài khoản, gói miễn phí hay trả phí, có bắt xác nhận email khi đăng ký không, địa chỉ trang cho email đặt lại mật khẩu.
 
 Rủi ro: trang học chính `language.pomaskhoahocnaobo.com` đã có tài khoản riêng (`docs/legacy/README.md`). Nếu người học vẫn vào app từ trang học chính thì họ phải có hai tài khoản. Cần công ty xác nhận website mới thay thế hay chạy song song với trang học chính.
 
