@@ -1,6 +1,13 @@
-/* @spec S8-01, S8-02, S8-04, S8-05, S8-06 */
+/* @spec S8-01, S8-02, S8-04, S8-05, S8-06, S8-07 */
 /* Tiêu đề màn, tiêu đề nhóm và khoảng cách theo .page, .page-title, .block, .block-title (FND-07, FND-15). */
 .s8 { max-width: 720px; }
+/* S8-07: từ 1200 px các nhóm xếp vào lưới tự xuống hàng. */
+@media (min-width: 1200px) {
+  .s8 { max-width: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); column-gap: var(--s-12); align-items: start; }
+  .s8 > .s8__title { grid-column: 1 / -1; }
+  /* Vùng nội dung tối đa 1120 px nên lưới có tối đa hai cột: hai nhóm của hàng đầu cùng cách tiêu đề màn 32 px. */
+  .s8 > .s8__title + * + * { margin-top: var(--s-8); }
+}
 .s8__list { background: var(--surface); border-radius: var(--r-card); padding: 0 var(--s-4); }
 .s8__list > li + li, .s8__list > .s8__radio + .s8__radio { border-top: 1px solid var(--line); }
 .s8__row {

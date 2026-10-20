@@ -127,7 +127,20 @@ test.describe('Đợt 2: các màn còn lại', () => {
 
   // @ac T3-AC08
   // @ac APP-AC09
-  for (const width of [900, 1000, 1100, 1280]) {
+  // Đợt 5 việc 6: hai cột từ 1200 px (T3-07); 900 đến 1199 px một cột, chạm dòng mở sheet.
+  for (const width of [900, 1024]) {
+    test(`T3 cách xem Câu một cột dưới 1200 px (${width})`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 800 });
+      await seed(page, { 'vitasr2.settings': settings() });
+      await go(page, './#/thu-vien?xem=cau');
+      await expect(page.locator('.lib-row').first()).toBeVisible();
+      await expect(page.locator('.t3__detail-col')).toHaveCount(0);
+      await page.locator('.lib-row').nth(1).click();
+      await expect(page.getByRole('dialog')).toBeVisible();
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+    });
+  }
+  for (const width of [1200, 1280, 1440]) {
     test(`T3 hai cột không cuộn ngang và cột chi tiết đủ rộng (${width})`, async ({ page }) => {
       await page.setViewportSize({ width, height: 800 });
       await seed(page, { 'vitasr2.settings': settings() });

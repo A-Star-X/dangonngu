@@ -1,10 +1,10 @@
 # Ma trận truy vết spec, code và acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-20 15:03 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-20 15:05 UTC. Không sửa tay.
 
-Tổng: 153 yêu cầu, 214 mục acceptance, 509 ghi chú @spec/@ac trong code.
+Tổng: 153 yêu cầu, 214 mục acceptance, 513 ghi chú @spec/@ac trong code.
 
-Yêu cầu chưa có code gắn @spec: 13/153.
+Yêu cầu chưa có code gắn @spec: 10/153.
 
 ## G Tổng quan giao diện bản mới
 
@@ -30,7 +30,7 @@ Spec: [fe/src/app/spec.md](../../fe/src/app/spec.md) · Acceptance: [fe/src/app/
 | APP-04 | Bảng route | APP-AC02, APP-AC05, APP-AC21, APP-AC22 | docs/new/navigation.md:36<br>docs/new/navigation.md:569 | fe/src/app/App.tsx:1<br>fe/src/app/router.ts:1 | fe/tests/e2e/app.spec.ts:108<br>fe/tests/e2e/app.spec.ts:124<br>fe/tests/e2e/dot5-dieu-huong.spec.ts:22<br>fe/tests/e2e/dot5-dieu-huong.spec.ts:58<br>fe/tests/unit/app.test.tsx:175 |
 | APP-05 | Khởi động | APP-AC06, APP-AC07 | docs/new/navigation.md:20<br>docs/new/navigation.md:22<br>docs/new/navigation.md:52<br>docs/new/navigation.md:54<br>docs/new/navigation.md:60<br>docs/new/navigation.md:62<br>docs/new/navigation.md:74<br>docs/new/navigation.md:76<br>docs/new/navigation.md:98<br>docs/new/navigation.md:106 | fe/src/app/App.tsx:1<br>fe/src/app/state.tsx:1 | fe/tests/unit/app.test.tsx:184 |
 | APP-06 | Sheet Đổi ngôn ngữ | APP-AC08, APP-AC17 | docs/new/navigation.md:118<br>docs/new/navigation.md:294<br>docs/new/navigation.md:308 | fe/src/app/LanguageList.tsx:1<br>fe/src/app/TopBar.tsx:1<br>fe/src/app/state.tsx:1<br>fe/src/app/useLanguageSheet.tsx:1 | fe/tests/unit/app.test.tsx:198 |
-| APP-07 | Bố cục theo khổ màn hình | APP-AC09, APP-AC13, APP-AC25, APP-AC26 | - | fe/src/app/App.tsx:1<br>fe/src/app/app.css:1<br>fe/src/pages/S3-phien-hoc/s3.css:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1<br>fe/src/pages/T3-thu-vien/t3.css:1 | fe/tests/e2e/dot2.spec.ts:129 |
+| APP-07 | Bố cục theo khổ màn hình | APP-AC09, APP-AC13, APP-AC25, APP-AC26 | - | fe/src/app/App.tsx:1<br>fe/src/app/app.css:1<br>fe/src/pages/S3-phien-hoc/s3.css:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1<br>fe/src/pages/T3-thu-vien/t3.css:1 | fe/tests/e2e/dot2.spec.ts:129<br>fe/tests/e2e/dot5-responsive.spec.ts:19 |
 | APP-08 | Trạng thái toàn cục | APP-AC07, APP-AC10, APP-AC11 | docs/new/navigation.md:56<br>docs/new/navigation.md:58<br>docs/new/navigation.md:78 | fe/src/app/App.tsx:1<br>fe/src/app/States.tsx:1<br>fe/src/app/app.css:1<br>fe/src/app/state.tsx:1<br>fe/src/data/storage.ts:1 | fe/tests/unit/app.test.tsx:223<br>fe/tests/unit/app.test.tsx:234<br>fe/tests/unit/app.test.tsx:243 |
 | APP-09 | Cách trang chính mở app | APP-AC12, APP-AC13, APP-AC20 | - | fe/src/app/App.tsx:1<br>fe/src/app/HostBack.tsx:1<br>fe/src/app/app.css:1 | - |
 | APP-10 | Ngoại tuyến và cập nhật | APP-AC14, APP-AC15 | - | fe/src/app/App.tsx:1<br>fe/src/app/sw.js:1<br>fe/src/app/updates.ts:1<br>fe/src/data/source.ts:1<br>fe/src/main.tsx:1 | fe/tests/unit/s8.test.tsx:242<br>fe/tests/unit/s8.test.tsx:269<br>fe/tests/unit/s8.test.tsx:303 |
@@ -58,7 +58,7 @@ Spec: [fe/src/foundation/spec.md](../../fe/src/foundation/spec.md) · Acceptance
 | FND-11 | Chuyển động | FND-AC10, FND-AC11 | - | fe/src/foundation/base.css:1<br>fe/src/foundation/tokens.css:1 | fe/tests/e2e/app.spec.ts:93 |
 | FND-12 | Giọng văn và từ ngữ | FND-AC12, FND-AC13 | - | fe/src/data/text.ts:29 | fe/tests/unit/speech.test.ts:99 |
 | FND-13 | Quy tắc tránh giao diện kiểu AI | FND-AC14 | - | - | - |
-| FND-14 | Trợ năng chung | APP-AC25, FND-AC15, FND-AC16, FND-AC17 | - | fe/src/foundation/base.css:1 | fe/tests/e2e/app.spec.ts:156<br>fe/tests/e2e/dot2.spec.ts:26 |
+| FND-14 | Trợ năng chung | APP-AC25, FND-AC15, FND-AC16, FND-AC17 | - | fe/src/foundation/base.css:1 | fe/tests/e2e/app.spec.ts:156<br>fe/tests/e2e/dot2.spec.ts:26<br>fe/tests/e2e/dot5-responsive.spec.ts:19 |
 | FND-15 | Thứ bậc chữ | FND-AC18 | - | fe/src/foundation/base.css:1<br>fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:210<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:375<br>fe/src/pages/T1-hoc/T1Hoc.tsx:101 | fe/tests/e2e/dot5-chu.spec.ts:23<br>fe/tests/e2e/dot5-chu.spec.ts:62 |
 
 ## DATA Dữ liệu và tiến độ
@@ -230,7 +230,7 @@ Spec: [fe/src/pages/S8-cai-dat/spec.md](../../fe/src/pages/S8-cai-dat/spec.md) �
 | S8-04 | Giao diện | S8-AC05, S8-AC09 | - | fe/src/pages/S8-cai-dat/S8CaiDat.tsx:1<br>fe/src/pages/S8-cai-dat/s8.css:1 | fe/tests/unit/s8.test.tsx:110 |
 | S8-05 | Tiến độ | S8-AC06, S8-AC07, S8-AC09, S8-AC13 | docs/new/navigation.md:575<br>docs/new/navigation.md:577<br>docs/new/navigation.md:579 | fe/src/app/hooks.ts:1<br>fe/src/data/transfer.ts:1<br>fe/src/pages/S8-cai-dat/S8CaiDat.tsx:1<br>fe/src/pages/S8-cai-dat/s8.css:1 | fe/tests/unit/dot2-data.test.ts:81<br>fe/tests/unit/ra-soat.test.tsx:78<br>fe/tests/unit/s8.test.tsx:125 |
 | S8-06 | Trợ giúp | S8-AC08, S8-AC09 | docs/new/navigation.md:167<br>docs/new/navigation.md:581 | fe/src/pages/S8-cai-dat/S8CaiDat.tsx:1<br>fe/src/pages/S8-cai-dat/s8.css:1 | fe/tests/unit/s8.test.tsx:184 |
-| S8-07 | Bố cục máy tính | S8-AC14 | - | - | - |
+| S8-07 | Bố cục máy tính | S8-AC14 | - | fe/src/pages/S8-cai-dat/s8.css:1 | - |
 
 ## S9 Hướng dẫn lần đầu
 
@@ -271,7 +271,7 @@ Spec: [fe/src/pages/T2-luyen-tap/spec.md](../../fe/src/pages/T2-luyen-tap/spec.m
 | T2-03 | Học theo từ khóa | T2-AC03, T2-AC06, T2-AC07 | docs/new/navigation.md:135<br>docs/new/navigation.md:137<br>docs/new/navigation.md:425<br>docs/new/navigation.md:427 | fe/src/app/hooks.ts:1<br>fe/src/pages/T2-luyen-tap/T2LuyenTap.tsx:1<br>fe/src/pages/T2-luyen-tap/t2.css:1 | fe/tests/unit/t2-t4.test.tsx:42<br>fe/tests/unit/t2-t4.test.tsx:64<br>fe/tests/unit/t2-t4.test.tsx:81<br>fe/tests/unit/t2-t4.test.tsx:114<br>fe/tests/unit/t2-t4.test.tsx:289 |
 | T2-04 | Kiểm tra nhanh | T2-AC04 | docs/new/navigation.md:34<br>docs/new/navigation.md:139<br>docs/new/navigation.md:429 | fe/src/pages/T2-luyen-tap/T2LuyenTap.tsx:1 | fe/tests/unit/t2-t4.test.tsx:90 |
 | T2-05 | Không có kết quả | T2-AC05, T2-AC06 | - | fe/src/pages/T2-luyen-tap/T2LuyenTap.tsx:1<br>fe/src/pages/T2-luyen-tap/t2.css:1 | fe/tests/unit/t2-t4.test.tsx:104 |
-| T2-06 | Bố cục máy tính | T2-AC08 | - | - | - |
+| T2-06 | Bố cục máy tính | T2-AC08 | - | fe/src/pages/T2-luyen-tap/t2.css:1 | - |
 
 ## T3 Thư viện
 
@@ -304,8 +304,4 @@ Spec: [fe/src/pages/T4-tien-bo/spec.md](../../fe/src/pages/T4-tien-bo/spec.md) �
 | T4-06 | Các phiên học | S10-AC07, T4-AC07 | - | fe/src/data/stats.ts:1<br>fe/src/pages/T4-tien-bo/T4TienBo.tsx:1<br>fe/src/pages/T4-tien-bo/t4.css:1 | fe/tests/unit/dot5-unit.test.tsx:150<br>fe/tests/unit/t2-t4.test.tsx:214 |
 | T4-07 | Chi tiết ngày | T4-AC08 | docs/new/navigation.md:157<br>docs/new/navigation.md:521 | fe/src/data/stats.ts:1<br>fe/src/pages/T4-tien-bo/T4TienBo.tsx:1<br>fe/src/pages/T4-tien-bo/t4.css:1 | fe/tests/unit/t2-t4.test.tsx:230 |
 | T4-08 | Chưa có dữ liệu | T4-AC09 | docs/new/navigation.md:159<br>docs/new/navigation.md:523 | fe/src/pages/T4-tien-bo/T4TienBo.tsx:1<br>fe/src/pages/T4-tien-bo/t4.css:1 | fe/tests/unit/t2-t4.test.tsx:250 |
-| T4-09 | Bố cục máy tính | T4-AC11 | - | - | - |
-
-## Mục [auto] chưa có test gắn @ac (1)
-
-APP-AC25
+| T4-09 | Bố cục máy tính | T4-AC11 | - | fe/src/pages/T4-tien-bo/t4.css:1 | - |

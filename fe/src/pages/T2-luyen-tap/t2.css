@@ -1,7 +1,14 @@
-/* @spec T2-01, T2-03, T2-05, C6-04 */
+/* @spec T2-01, T2-03, T2-05, T2-06, C6-04 */
 /* Tiêu đề và khoảng cách theo .page, .page-title (FND-07, FND-15). */
 .t2 { max-width: 720px; }
 .t2__list > li + li { border-top: 1px solid var(--line); }
+/* T2-06: từ 1200 px ba mục xếp vào lưới tự xuống hàng, vẫn ngăn bằng đường kẻ. */
+@media (min-width: 1200px) {
+  .t2 { max-width: none; }
+  .t2__list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); column-gap: var(--s-8); }
+  .t2__list > li { border-bottom: 1px solid var(--line); }
+  .t2__list > li + li { border-top: 0; }
+}
 .t2__row {
   display: flex; align-items: center; gap: var(--s-3);
   width: 100%; min-height: 72px;
