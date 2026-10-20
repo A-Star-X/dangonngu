@@ -1,10 +1,10 @@
 # Ma trận truy vết spec, code và acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-20 14:47 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-20 14:48 UTC. Không sửa tay.
 
-Tổng: 145 yêu cầu, 198 mục acceptance, 488 ghi chú @spec/@ac trong code.
+Tổng: 147 yêu cầu, 201 mục acceptance, 488 ghi chú @spec/@ac trong code.
 
-Yêu cầu chưa có code gắn @spec: 9/145.
+Yêu cầu chưa có code gắn @spec: 11/147.
 
 ## G Tổng quan giao diện bản mới
 
@@ -24,12 +24,12 @@ Spec: [fe/src/app/spec.md](../../fe/src/app/spec.md) · Acceptance: [fe/src/app/
 
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
-| APP-01 | Bốn khu chính | APP-AC01, APP-AC02 | docs/new/navigation.md:110<br>docs/new/navigation.md:294<br>docs/new/navigation.md:296<br>docs/new/navigation.md:298 | fe/src/app/App.tsx:1<br>fe/src/app/app.css:1<br>fe/src/components/C5-thanh-tab/TabBar.tsx:1 | fe/tests/e2e/app.spec.ts:108 |
-| APP-02 | Thanh trên cùng | APP-AC03, APP-AC17, APP-AC19 | docs/new/navigation.md:36<br>docs/new/navigation.md:118<br>docs/new/navigation.md:120<br>docs/new/navigation.md:286<br>docs/new/navigation.md:288 | fe/src/app/TopBar.tsx:1<br>fe/src/app/app.css:1 | fe/tests/unit/app.test.tsx:198 |
+| APP-01 | Bốn khu chính | APP-AC01, APP-AC02 | docs/new/navigation.md:110<br>docs/new/navigation.md:300<br>docs/new/navigation.md:302<br>docs/new/navigation.md:304 | fe/src/app/App.tsx:1<br>fe/src/app/app.css:1<br>fe/src/components/C5-thanh-tab/TabBar.tsx:1 | fe/tests/e2e/app.spec.ts:108 |
+| APP-02 | Thanh trên cùng | APP-AC03, APP-AC17, APP-AC19 | docs/new/navigation.md:36<br>docs/new/navigation.md:118<br>docs/new/navigation.md:120<br>docs/new/navigation.md:292<br>docs/new/navigation.md:294 | fe/src/app/TopBar.tsx:1<br>fe/src/app/app.css:1 | fe/tests/unit/app.test.tsx:198 |
 | APP-03 | Màn toàn trang | APP-AC04 | docs/new/navigation.md:34 | fe/src/app/App.tsx:1<br>fe/src/app/app.css:1<br>fe/src/pages/S3-phien-hoc/s3.css:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/app.test.tsx:123 |
-| APP-04 | Bảng route | APP-AC02, APP-AC05 | docs/new/navigation.md:36<br>docs/new/navigation.md:561 | fe/src/app/App.tsx:1<br>fe/src/app/router.ts:1 | fe/tests/e2e/app.spec.ts:108<br>fe/tests/e2e/app.spec.ts:124<br>fe/tests/unit/app.test.tsx:175 |
+| APP-04 | Bảng route | APP-AC02, APP-AC05 | docs/new/navigation.md:36<br>docs/new/navigation.md:567 | fe/src/app/App.tsx:1<br>fe/src/app/router.ts:1 | fe/tests/e2e/app.spec.ts:108<br>fe/tests/e2e/app.spec.ts:124<br>fe/tests/unit/app.test.tsx:175 |
 | APP-05 | Khởi động | APP-AC06, APP-AC07 | docs/new/navigation.md:20<br>docs/new/navigation.md:22<br>docs/new/navigation.md:52<br>docs/new/navigation.md:54<br>docs/new/navigation.md:60<br>docs/new/navigation.md:62<br>docs/new/navigation.md:74<br>docs/new/navigation.md:76<br>docs/new/navigation.md:98<br>docs/new/navigation.md:106 | fe/src/app/App.tsx:1<br>fe/src/app/state.tsx:1 | fe/tests/unit/app.test.tsx:184 |
-| APP-06 | Sheet Đổi ngôn ngữ | APP-AC08, APP-AC17 | docs/new/navigation.md:118<br>docs/new/navigation.md:286<br>docs/new/navigation.md:300 | fe/src/app/LanguageList.tsx:1<br>fe/src/app/TopBar.tsx:1<br>fe/src/app/state.tsx:1<br>fe/src/app/useLanguageSheet.tsx:1 | fe/tests/unit/app.test.tsx:198 |
+| APP-06 | Sheet Đổi ngôn ngữ | APP-AC08, APP-AC17 | docs/new/navigation.md:118<br>docs/new/navigation.md:292<br>docs/new/navigation.md:306 | fe/src/app/LanguageList.tsx:1<br>fe/src/app/TopBar.tsx:1<br>fe/src/app/state.tsx:1<br>fe/src/app/useLanguageSheet.tsx:1 | fe/tests/unit/app.test.tsx:198 |
 | APP-07 | Bố cục theo khổ màn hình | APP-AC09, APP-AC13 | - | fe/src/app/App.tsx:1<br>fe/src/app/app.css:1<br>fe/src/pages/S3-phien-hoc/s3.css:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1<br>fe/src/pages/T3-thu-vien/t3.css:1 | fe/tests/e2e/dot2.spec.ts:129 |
 | APP-08 | Trạng thái toàn cục | APP-AC07, APP-AC10, APP-AC11 | docs/new/navigation.md:56<br>docs/new/navigation.md:58<br>docs/new/navigation.md:78 | fe/src/app/App.tsx:1<br>fe/src/app/States.tsx:1<br>fe/src/app/app.css:1<br>fe/src/app/state.tsx:1<br>fe/src/data/storage.ts:1 | fe/tests/unit/app.test.tsx:223<br>fe/tests/unit/app.test.tsx:234<br>fe/tests/unit/app.test.tsx:243 |
 | APP-09 | Cách trang chính mở app | APP-AC12, APP-AC13, APP-AC20 | - | fe/src/app/App.tsx:1<br>fe/src/app/HostBack.tsx:1<br>fe/src/app/app.css:1 | - |
@@ -89,7 +89,7 @@ Spec: [fe/src/components/C1-the-cau/spec.md](../../fe/src/components/C1-the-cau/
 | C1-02 | Trạng thái che câu gốc | C1-AC02, C1-AC10 | - | fe/src/components/C1-the-cau/SentenceCard.tsx:1<br>fe/src/components/C1-the-cau/card.css:1 | fe/tests/unit/components.test.tsx:24<br>fe/tests/unit/ra-soat.test.tsx:165 |
 | C1-03 | Trạng thái hiện đầy đủ | C1-AC03 | - | fe/src/components/C1-the-cau/SentenceCard.tsx:1<br>fe/src/components/C1-the-cau/card.css:1 | fe/tests/unit/components.test.tsx:39 |
 | C1-04 | Phát âm | C1-AC04, C1-AC05, C1-AC09 | - | fe/src/app/speech.ts:1<br>fe/src/components/C1-the-cau/SentenceCard.tsx:1<br>fe/src/components/C1-the-cau/useSpeaker.ts:1 | fe/tests/unit/components.test.tsx:48<br>fe/tests/unit/ra-soat.test.tsx:133 |
-| C1-05 | Không có giọng đọc | C1-AC06 | docs/new/navigation.md:157<br>docs/new/navigation.md:304 | fe/src/app/speech.ts:1<br>fe/src/components/C1-the-cau/SentenceCard.tsx:1<br>fe/src/components/C1-the-cau/card.css:1<br>fe/src/components/C1-the-cau/useSpeaker.ts:1 | fe/tests/e2e/app.spec.ts:192<br>fe/tests/unit/components.test.tsx:70<br>fe/tests/unit/components.test.tsx:83 |
+| C1-05 | Không có giọng đọc | C1-AC06 | docs/new/navigation.md:163<br>docs/new/navigation.md:310 | fe/src/app/speech.ts:1<br>fe/src/components/C1-the-cau/SentenceCard.tsx:1<br>fe/src/components/C1-the-cau/card.css:1<br>fe/src/components/C1-the-cau/useSpeaker.ts:1 | fe/tests/e2e/app.spec.ts:192<br>fe/tests/unit/components.test.tsx:70<br>fe/tests/unit/components.test.tsx:83 |
 | C1-06 | Dòng Cách dùng | C1-AC07 | - | fe/src/components/C1-the-cau/SentenceCard.tsx:1 | fe/tests/unit/components.test.tsx:113 |
 | C1-07 | Phiên âm | C1-AC07 | - | fe/src/components/C1-the-cau/SentenceCard.tsx:1 | fe/tests/unit/components.test.tsx:113 |
 | C1-08 | Thuộc tính ngôn ngữ | C1-AC08 | - | fe/src/components/C1-the-cau/SentenceCard.tsx:1 | fe/tests/unit/components.test.tsx:136 |
@@ -112,7 +112,7 @@ Spec: [fe/src/components/C3-nut/spec.md](../../fe/src/components/C3-nut/spec.md)
 |---|---|---|---|---|---|
 | C3-01 | Nút chính | C3-AC01 | - | fe/src/components/C3-nut/Button.tsx:1<br>fe/src/components/C3-nut/button.css:1 | - |
 | C3-02 | Nút phụ | C3-AC01 | - | fe/src/components/C3-nut/Button.tsx:1<br>fe/src/components/C3-nut/button.css:1 | - |
-| C3-03 | Cặp nút đánh giá | C3-AC02, C3-AC03 | docs/new/navigation.md:353<br>docs/new/navigation.md:355 | fe/src/components/C3-nut/RatePair.tsx:1<br>fe/src/components/C3-nut/button.css:1 | - |
+| C3-03 | Cặp nút đánh giá | C3-AC02, C3-AC03 | docs/new/navigation.md:359<br>docs/new/navigation.md:361 | fe/src/components/C3-nut/RatePair.tsx:1<br>fe/src/components/C3-nut/button.css:1 | - |
 | C3-04 | Trạng thái chung | C3-AC04 | - | fe/src/components/C3-nut/Button.tsx:1<br>fe/src/components/C3-nut/button.css:1 | fe/tests/e2e/app.spec.ts:44<br>fe/tests/unit/components.test.tsx:170 |
 
 ## C4 Lựa chọn trắc nghiệm
@@ -131,7 +131,7 @@ Spec: [fe/src/components/C5-thanh-tab/spec.md](../../fe/src/components/C5-thanh-
 
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
-| C5-01 | Thanh dưới đáy | C5-AC01 | docs/new/navigation.md:110<br>docs/new/navigation.md:294<br>docs/new/navigation.md:296<br>docs/new/navigation.md:298 | fe/src/components/C5-thanh-tab/TabBar.tsx:1<br>fe/src/components/C5-thanh-tab/tabbar.css:1 | - |
+| C5-01 | Thanh dưới đáy | C5-AC01 | docs/new/navigation.md:110<br>docs/new/navigation.md:300<br>docs/new/navigation.md:302<br>docs/new/navigation.md:304 | fe/src/components/C5-thanh-tab/TabBar.tsx:1<br>fe/src/components/C5-thanh-tab/tabbar.css:1 | - |
 | C5-02 | Thanh dọc | C5-AC02 | - | fe/src/components/C5-thanh-tab/TabBar.tsx:1<br>fe/src/components/C5-thanh-tab/tabbar.css:1 | - |
 | C5-03 | Mục đang chọn | C5-AC03 | - | fe/src/components/C5-thanh-tab/TabBar.tsx:1<br>fe/src/components/C5-thanh-tab/tabbar.css:1 | fe/tests/unit/components.test.tsx:235 |
 | C5-04 | Mục có số | C5-AC04 | - | fe/src/components/C5-thanh-tab/TabBar.tsx:1<br>fe/src/components/C5-thanh-tab/tabbar.css:1 | fe/tests/unit/components.test.tsx:246 |
@@ -166,10 +166,10 @@ Spec: [fe/src/pages/S1-chon-ngon-ngu/spec.md](../../fe/src/pages/S1-chon-ngon-ng
 | S1-01 | Danh sách và thứ tự | S1-AC01, S1-AC02, S1-AC06 | - | fe/src/data/catalog.ts:1<br>fe/src/pages/S1-chon-ngon-ngu/S1ChonNgonNgu.tsx:1<br>fe/src/pages/S1-chon-ngon-ngu/s1.css:1 | fe/tests/unit/app.test.tsx:37 |
 | S1-02 | Nội dung mỗi dòng | S1-AC02, S1-AC03 | - | fe/src/app/LanguageList.tsx:1<br>fe/src/data/catalog.ts:1<br>fe/src/pages/S1-chon-ngon-ngu/S1ChonNgonNgu.tsx:1 | fe/tests/unit/app.test.tsx:47 |
 | S1-03 | Số câu | S1-AC02 | - | fe/src/app/LanguageList.tsx:1<br>fe/src/data/catalog.ts:1<br>fe/src/pages/S1-chon-ngon-ngu/S1ChonNgonNgu.tsx:1 | - |
-| S1-04 | Chọn | S1-AC04, S1-AC06, S1-AC07 | docs/new/navigation.md:24<br>docs/new/navigation.md:64<br>docs/new/navigation.md:70<br>docs/new/navigation.md:76<br>docs/new/navigation.md:100<br>docs/new/navigation.md:222<br>docs/new/navigation.md:228 | fe/src/pages/S1-chon-ngon-ngu/S1ChonNgonNgu.tsx:1 | fe/tests/unit/app.test.tsx:69<br>fe/tests/unit/app.test.tsx:102 |
+| S1-04 | Chọn | S1-AC04, S1-AC06, S1-AC07 | docs/new/navigation.md:24<br>docs/new/navigation.md:64<br>docs/new/navigation.md:70<br>docs/new/navigation.md:76<br>docs/new/navigation.md:100<br>docs/new/navigation.md:228<br>docs/new/navigation.md:234 | fe/src/pages/S1-chon-ngon-ngu/S1ChonNgonNgu.tsx:1 | fe/tests/unit/app.test.tsx:69<br>fe/tests/unit/app.test.tsx:102 |
 | S1-05 | Chú thích | S1-AC02 | - | fe/src/pages/S1-chon-ngon-ngu/S1ChonNgonNgu.tsx:1<br>fe/src/pages/S1-chon-ngon-ngu/s1.css:1 | - |
 | S1-06 | Tải và lỗi | S1-AC05 | - | fe/src/pages/S1-chon-ngon-ngu/S1ChonNgonNgu.tsx:1 | fe/tests/unit/app.test.tsx:89 |
-| S1-07 | Chọn bộ nội dung | S1-AC07, S1-AC08 | docs/new/navigation.md:20<br>docs/new/navigation.md:66<br>docs/new/navigation.md:68<br>docs/new/navigation.md:72<br>docs/new/navigation.md:102<br>docs/new/navigation.md:104<br>docs/new/navigation.md:222<br>docs/new/navigation.md:224<br>docs/new/navigation.md:226 | fe/src/pages/S1-chon-ngon-ngu/S1ChonNgonNgu.tsx:1<br>fe/src/pages/S1-chon-ngon-ngu/s1.css:1 | fe/tests/unit/app.test.tsx:102 |
+| S1-07 | Chọn bộ nội dung | S1-AC07, S1-AC08 | docs/new/navigation.md:20<br>docs/new/navigation.md:66<br>docs/new/navigation.md:68<br>docs/new/navigation.md:72<br>docs/new/navigation.md:102<br>docs/new/navigation.md:104<br>docs/new/navigation.md:228<br>docs/new/navigation.md:230<br>docs/new/navigation.md:232 | fe/src/pages/S1-chon-ngon-ngu/S1ChonNgonNgu.tsx:1<br>fe/src/pages/S1-chon-ngon-ngu/s1.css:1 | fe/tests/unit/app.test.tsx:102 |
 
 ## S10 Chi tiết Unit
 
@@ -177,11 +177,11 @@ Spec: [fe/src/pages/S10-chi-tiet-unit/spec.md](../../fe/src/pages/S10-chi-tiet-u
 
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
-| S10-01 | Route và khung | S10-AC01, S10-AC08 | docs/new/navigation.md:484 | fe/src/app/router.ts:1<br>fe/src/pages/S10-chi-tiet-unit/S10ChiTietUnit.tsx:1<br>fe/src/pages/S10-chi-tiet-unit/s10.css:1 | fe/tests/unit/dot5-unit.test.tsx:70 |
+| S10-01 | Route và khung | S10-AC01, S10-AC08 | docs/new/navigation.md:490 | fe/src/app/router.ts:1<br>fe/src/pages/S10-chi-tiet-unit/S10ChiTietUnit.tsx:1<br>fe/src/pages/S10-chi-tiet-unit/s10.css:1 | fe/tests/unit/dot5-unit.test.tsx:70 |
 | S10-02 | Đầu màn | S10-AC02, S10-AC08 | - | fe/src/pages/S10-chi-tiet-unit/S10ChiTietUnit.tsx:1<br>fe/src/pages/S10-chi-tiet-unit/s10.css:1 | fe/tests/unit/dot5-unit.test.tsx:81 |
 | S10-03 | Tiến độ unit | S10-AC03, S10-AC08 | - | fe/src/data/units.ts:1<br>fe/src/pages/S10-chi-tiet-unit/S10ChiTietUnit.tsx:1<br>fe/src/pages/S10-chi-tiet-unit/s10.css:1 | fe/tests/unit/dot5-unit.test.tsx:92 |
-| S10-04 | Hành động | S10-AC04, S10-AC07 | docs/new/navigation.md:143<br>docs/new/navigation.md:145<br>docs/new/navigation.md:478<br>docs/new/navigation.md:480 | fe/src/pages/S10-chi-tiet-unit/S10ChiTietUnit.tsx:1<br>fe/src/pages/S10-chi-tiet-unit/s10.css:1 | fe/tests/unit/dot5-unit.test.tsx:102<br>fe/tests/unit/dot5-unit.test.tsx:146 |
-| S10-05 | Danh sách câu | S10-AC05 | docs/new/navigation.md:147<br>docs/new/navigation.md:482 | fe/src/pages/S10-chi-tiet-unit/S10ChiTietUnit.tsx:1 | fe/tests/unit/dot5-unit.test.tsx:125 |
+| S10-04 | Hành động | S10-AC04, S10-AC07 | docs/new/navigation.md:149<br>docs/new/navigation.md:151<br>docs/new/navigation.md:484<br>docs/new/navigation.md:486 | fe/src/pages/S10-chi-tiet-unit/S10ChiTietUnit.tsx:1<br>fe/src/pages/S10-chi-tiet-unit/s10.css:1 | fe/tests/unit/dot5-unit.test.tsx:102<br>fe/tests/unit/dot5-unit.test.tsx:146 |
+| S10-05 | Danh sách câu | S10-AC05 | docs/new/navigation.md:153<br>docs/new/navigation.md:488 | fe/src/pages/S10-chi-tiet-unit/S10ChiTietUnit.tsx:1 | fe/tests/unit/dot5-unit.test.tsx:125 |
 | S10-06 | Unit trước và sau | S10-AC06 | - | fe/src/pages/S10-chi-tiet-unit/S10ChiTietUnit.tsx:1<br>fe/src/pages/S10-chi-tiet-unit/s10.css:1 | fe/tests/unit/dot5-unit.test.tsx:135 |
 
 ## S3 Phiên học
@@ -191,12 +191,12 @@ Spec: [fe/src/pages/S3-phien-hoc/spec.md](../../fe/src/pages/S3-phien-hoc/spec.m
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
 | S3-01 | Nguồn câu của phiên | S10-AC04, S3-AC01 | - | fe/src/data/path.ts:1<br>fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:1 | fe/tests/unit/dot5-unit.test.tsx:102<br>fe/tests/unit/s3.test.tsx:14 |
-| S3-02 | Khung phiên | S3-AC02, S3-AC07 | docs/new/navigation.md:153 | fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:1<br>fe/src/pages/S3-phien-hoc/s3.css:1 | fe/tests/unit/s3.test.tsx:38 |
-| S3-03 | Bước ghi nhớ | S3-AC03, S3-AC07, S3-AC11 | docs/new/navigation.md:353<br>docs/new/navigation.md:355 | fe/src/data/session.ts:1<br>fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:1 | fe/tests/unit/s3.test.tsx:38 |
-| S3-04 | Bước kiểm tra | S3-AC04, S3-AC07, S3-AC11 | docs/new/navigation.md:357 | fe/src/data/session.ts:1<br>fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:1<br>fe/src/pages/S3-phien-hoc/s3.css:1 | fe/tests/unit/s3.test.tsx:70 |
+| S3-02 | Khung phiên | S3-AC02, S3-AC07 | docs/new/navigation.md:159 | fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:1<br>fe/src/pages/S3-phien-hoc/s3.css:1 | fe/tests/unit/s3.test.tsx:38 |
+| S3-03 | Bước ghi nhớ | S3-AC03, S3-AC07, S3-AC11 | docs/new/navigation.md:359<br>docs/new/navigation.md:361 | fe/src/data/session.ts:1<br>fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:1 | fe/tests/unit/s3.test.tsx:38 |
+| S3-04 | Bước kiểm tra | S3-AC04, S3-AC07, S3-AC11 | docs/new/navigation.md:363 | fe/src/data/session.ts:1<br>fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:1<br>fe/src/pages/S3-phien-hoc/s3.css:1 | fe/tests/unit/s3.test.tsx:70 |
 | S3-05 | Gợi ý | S3-AC05, S3-AC12 | - | fe/src/data/session.ts:1<br>fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:1 | fe/tests/unit/ra-soat.test.tsx:90<br>fe/tests/unit/s3.test.tsx:88 |
-| S3-06 | Tổng kết phiên | S3-AC06, S3-AC07 | docs/new/navigation.md:153<br>docs/new/navigation.md:365<br>docs/new/navigation.md:367 | fe/src/data/session.ts:1<br>fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:1<br>fe/src/pages/S3-phien-hoc/s3.css:1 | fe/tests/unit/s3.test.tsx:104 |
-| S3-07 | Thoát giữa phiên | S3-AC08 | docs/new/navigation.md:359<br>docs/new/navigation.md:361<br>docs/new/navigation.md:363 | fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:1 | fe/tests/e2e/app.spec.ts:6<br>fe/tests/unit/s3.test.tsx:168 |
+| S3-06 | Tổng kết phiên | S3-AC06, S3-AC07 | docs/new/navigation.md:159<br>docs/new/navigation.md:371<br>docs/new/navigation.md:373 | fe/src/data/session.ts:1<br>fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:1<br>fe/src/pages/S3-phien-hoc/s3.css:1 | fe/tests/unit/s3.test.tsx:104 |
+| S3-07 | Thoát giữa phiên | S3-AC08 | docs/new/navigation.md:365<br>docs/new/navigation.md:367<br>docs/new/navigation.md:369 | fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:1 | fe/tests/e2e/app.spec.ts:6<br>fe/tests/unit/s3.test.tsx:168 |
 | S3-08 | Phiên dở | S3-AC09 | - | fe/src/data/session.ts:1<br>fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:1 | fe/tests/unit/s3.test.tsx:133 |
 | S3-09 | Điều khiển | S3-AC10, S3-AC13 | - | fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:1 | fe/tests/unit/ra-soat.test.tsx:111<br>fe/tests/unit/s3.test.tsx:194 |
 
@@ -206,14 +206,14 @@ Spec: [fe/src/pages/S5-kiem-tra-nhanh/spec.md](../../fe/src/pages/S5-kiem-tra-nh
 
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
-| S5-01 | Màn bắt đầu | S5-AC01, S5-AC09 | docs/new/navigation.md:421<br>docs/new/navigation.md:423<br>docs/new/navigation.md:425 | fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/s5.test.tsx:48 |
+| S5-01 | Màn bắt đầu | S5-AC01, S5-AC09 | docs/new/navigation.md:427<br>docs/new/navigation.md:429<br>docs/new/navigation.md:431 | fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/s5.test.tsx:48 |
 | S5-02 | Chỉ báo bước | S5-AC02 | - | fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/s5.test.tsx:73 |
 | S5-03 | Bước 1: Nghe và chọn nghĩa | S5-AC03, S5-AC09 | - | fe/src/app/hooks.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1 | fe/tests/unit/s5.test.tsx:91<br>fe/tests/unit/s5.test.tsx:119 |
 | S5-04 | Bước 2: Nghe theo cụm | S5-AC04, S5-AC09, S5-AC10 | - | fe/src/app/hooks.ts:1<br>fe/src/data/chunks.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/dot2-data.test.ts:48<br>fe/tests/unit/s5.test.tsx:135<br>fe/tests/unit/s5.test.tsx:152 |
 | S5-05 | Bước 3: Sắp xếp câu | S5-AC05, S5-AC09, S5-AC10, S5-AC11 | - | fe/src/data/chunks.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/dot2-data.test.ts:65<br>fe/tests/unit/ra-soat.test.tsx:211<br>fe/tests/unit/s5.test.tsx:169 |
 | S5-06 | Nghĩa hiển thị | S5-AC06 | - | fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | - |
-| S5-07 | Kết quả | S5-AC07, S5-AC09 | docs/new/navigation.md:135<br>docs/new/navigation.md:431<br>docs/new/navigation.md:433 | fe/src/data/session.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/s5.test.tsx:214<br>fe/tests/unit/s5.test.tsx:239 |
-| S5-08 | Thoát giữa chừng | S5-AC08 | docs/new/navigation.md:427<br>docs/new/navigation.md:429 | fe/src/data/session.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1 | fe/tests/unit/s5.test.tsx:255<br>fe/tests/unit/s5.test.tsx:286<br>fe/tests/unit/s5.test.tsx:306 |
+| S5-07 | Kết quả | S5-AC07, S5-AC09 | docs/new/navigation.md:141<br>docs/new/navigation.md:437<br>docs/new/navigation.md:439 | fe/src/data/session.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/s5.test.tsx:214<br>fe/tests/unit/s5.test.tsx:239 |
+| S5-08 | Thoát giữa chừng | S5-AC08 | docs/new/navigation.md:433<br>docs/new/navigation.md:435 | fe/src/data/session.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1 | fe/tests/unit/s5.test.tsx:255<br>fe/tests/unit/s5.test.tsx:286<br>fe/tests/unit/s5.test.tsx:306 |
 
 ## S8 Cài đặt
 
@@ -221,12 +221,12 @@ Spec: [fe/src/pages/S8-cai-dat/spec.md](../../fe/src/pages/S8-cai-dat/spec.md) �
 
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
-| S8-01 | Học tập | S8-AC01, S8-AC09, S8-AC10 | docs/new/navigation.md:563 | fe/src/app/TopBar.tsx:1<br>fe/src/app/router.ts:1<br>fe/src/pages/S8-cai-dat/S8CaiDat.tsx:1<br>fe/src/pages/S8-cai-dat/s8.css:1 | fe/tests/unit/s8.test.tsx:21<br>fe/tests/unit/s8.test.tsx:201 |
-| S8-02 | Giọng đọc | S8-AC02, S8-AC03, S8-AC09, S8-AC11, S8-AC12 | docs/new/navigation.md:155<br>docs/new/navigation.md:565 | fe/src/app/hooks.ts:1<br>fe/src/app/speech.ts:1<br>fe/src/pages/S8-cai-dat/S8CaiDat.tsx:1<br>fe/src/pages/S8-cai-dat/s8.css:1 | fe/tests/unit/ra-soat.test.tsx:183<br>fe/tests/unit/s8.test.tsx:57<br>fe/tests/unit/s8.test.tsx:92<br>fe/tests/unit/speech.test.ts:30<br>fe/tests/unit/speech.test.ts:42<br>fe/tests/unit/speech.test.ts:77 |
+| S8-01 | Học tập | S8-AC01, S8-AC09, S8-AC10 | docs/new/navigation.md:569 | fe/src/app/TopBar.tsx:1<br>fe/src/app/router.ts:1<br>fe/src/pages/S8-cai-dat/S8CaiDat.tsx:1<br>fe/src/pages/S8-cai-dat/s8.css:1 | fe/tests/unit/s8.test.tsx:21<br>fe/tests/unit/s8.test.tsx:201 |
+| S8-02 | Giọng đọc | S8-AC02, S8-AC03, S8-AC09, S8-AC11, S8-AC12 | docs/new/navigation.md:161<br>docs/new/navigation.md:571 | fe/src/app/hooks.ts:1<br>fe/src/app/speech.ts:1<br>fe/src/pages/S8-cai-dat/S8CaiDat.tsx:1<br>fe/src/pages/S8-cai-dat/s8.css:1 | fe/tests/unit/ra-soat.test.tsx:183<br>fe/tests/unit/s8.test.tsx:57<br>fe/tests/unit/s8.test.tsx:92<br>fe/tests/unit/speech.test.ts:30<br>fe/tests/unit/speech.test.ts:42<br>fe/tests/unit/speech.test.ts:77 |
 | S8-03 | Âm thanh ngoại tuyến | S8-AC04 | - | fe/src/pages/S8-cai-dat/S8CaiDat.tsx:1 | fe/tests/unit/s8.test.tsx:103 |
 | S8-04 | Giao diện | S8-AC05, S8-AC09 | - | fe/src/pages/S8-cai-dat/S8CaiDat.tsx:1<br>fe/src/pages/S8-cai-dat/s8.css:1 | fe/tests/unit/s8.test.tsx:110 |
-| S8-05 | Tiến độ | S8-AC06, S8-AC07, S8-AC09, S8-AC13 | docs/new/navigation.md:567<br>docs/new/navigation.md:569<br>docs/new/navigation.md:571 | fe/src/app/hooks.ts:1<br>fe/src/data/transfer.ts:1<br>fe/src/pages/S8-cai-dat/S8CaiDat.tsx:1<br>fe/src/pages/S8-cai-dat/s8.css:1 | fe/tests/unit/dot2-data.test.ts:81<br>fe/tests/unit/ra-soat.test.tsx:78<br>fe/tests/unit/s8.test.tsx:125 |
-| S8-06 | Trợ giúp | S8-AC08, S8-AC09 | docs/new/navigation.md:159<br>docs/new/navigation.md:573 | fe/src/pages/S8-cai-dat/S8CaiDat.tsx:1<br>fe/src/pages/S8-cai-dat/s8.css:1 | fe/tests/unit/s8.test.tsx:184 |
+| S8-05 | Tiến độ | S8-AC06, S8-AC07, S8-AC09, S8-AC13 | docs/new/navigation.md:573<br>docs/new/navigation.md:575<br>docs/new/navigation.md:577 | fe/src/app/hooks.ts:1<br>fe/src/data/transfer.ts:1<br>fe/src/pages/S8-cai-dat/S8CaiDat.tsx:1<br>fe/src/pages/S8-cai-dat/s8.css:1 | fe/tests/unit/dot2-data.test.ts:81<br>fe/tests/unit/ra-soat.test.tsx:78<br>fe/tests/unit/s8.test.tsx:125 |
+| S8-06 | Trợ giúp | S8-AC08, S8-AC09 | docs/new/navigation.md:165<br>docs/new/navigation.md:579 | fe/src/pages/S8-cai-dat/S8CaiDat.tsx:1<br>fe/src/pages/S8-cai-dat/s8.css:1 | fe/tests/unit/s8.test.tsx:184 |
 
 ## S9 Hướng dẫn lần đầu
 
@@ -234,11 +234,11 @@ Spec: [fe/src/pages/S9-huong-dan/spec.md](../../fe/src/pages/S9-huong-dan/spec.m
 
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
-| S9-01 | Khi nào hiện | S9-AC01 | docs/new/navigation.md:80<br>docs/new/navigation.md:82<br>docs/new/navigation.md:224<br>docs/new/navigation.md:226<br>docs/new/navigation.md:228 | fe/src/pages/S9-huong-dan/S9HuongDan.tsx:1 | fe/tests/unit/app.test.tsx:421 |
+| S9-01 | Khi nào hiện | S9-AC01 | docs/new/navigation.md:80<br>docs/new/navigation.md:82<br>docs/new/navigation.md:230<br>docs/new/navigation.md:232<br>docs/new/navigation.md:234 | fe/src/pages/S9-huong-dan/S9HuongDan.tsx:1 | fe/tests/unit/app.test.tsx:421 |
 | S9-02 | Ba bước | S9-AC02, S9-AC06 | - | fe/src/pages/S9-huong-dan/S9HuongDan.tsx:1<br>fe/src/pages/S9-huong-dan/s9.css:1 | - |
-| S9-03 | Điều khiển | S9-AC03 | docs/new/navigation.md:84<br>docs/new/navigation.md:86<br>docs/new/navigation.md:230<br>docs/new/navigation.md:232 | fe/src/pages/S9-huong-dan/S9HuongDan.tsx:1 | fe/tests/unit/app.test.tsx:429 |
+| S9-03 | Điều khiển | S9-AC03 | docs/new/navigation.md:84<br>docs/new/navigation.md:86<br>docs/new/navigation.md:236<br>docs/new/navigation.md:238 | fe/src/pages/S9-huong-dan/S9HuongDan.tsx:1 | fe/tests/unit/app.test.tsx:429 |
 | S9-04 | Không hiện lại | S9-AC04 | docs/new/navigation.md:88 | fe/src/pages/S9-huong-dan/S9HuongDan.tsx:1 | fe/tests/unit/app.test.tsx:450 |
-| S9-05 | Xem lại | S9-AC05 | docs/new/navigation.md:159<br>docs/new/navigation.md:573 | fe/src/pages/S9-huong-dan/S9HuongDan.tsx:1 | fe/tests/unit/s8.test.tsx:184 |
+| S9-05 | Xem lại | S9-AC05 | docs/new/navigation.md:165<br>docs/new/navigation.md:579 | fe/src/pages/S9-huong-dan/S9HuongDan.tsx:1 | fe/tests/unit/s8.test.tsx:184 |
 
 ## T1 Học
 
@@ -246,13 +246,15 @@ Spec: [fe/src/pages/T1-hoc/spec.md](../../fe/src/pages/T1-hoc/spec.md) · Accept
 
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
-| T1-01 | Thẻ câu tiếp theo | T1-AC01, T1-AC02, T1-AC10 | - | fe/src/pages/T1-hoc/T1Hoc.tsx:1<br>fe/src/pages/T1-hoc/t1.css:1 | fe/tests/unit/app.test.tsx:323<br>fe/tests/unit/app.test.tsx:405 |
-| T1-02 | Nút chính đổi chữ theo ngữ cảnh | T1-AC03, T1-AC09 | docs/new/navigation.md:34<br>docs/new/navigation.md:123<br>docs/new/navigation.md:290 | fe/src/pages/T1-hoc/T1Hoc.tsx:1 | fe/tests/unit/app.test.tsx:335 |
+| T1-01 | Thẻ câu tiếp theo | T1-AC01, T1-AC02, T1-AC10, T1-AC11 | docs/new/navigation.md:127 | fe/src/pages/T1-hoc/T1Hoc.tsx:1<br>fe/src/pages/T1-hoc/t1.css:1 | fe/tests/unit/app.test.tsx:323<br>fe/tests/unit/app.test.tsx:405 |
+| T1-02 | Nút chính đổi chữ theo ngữ cảnh | T1-AC03, T1-AC09 | docs/new/navigation.md:34<br>docs/new/navigation.md:123<br>docs/new/navigation.md:296 | fe/src/pages/T1-hoc/T1Hoc.tsx:1 | fe/tests/unit/app.test.tsx:335 |
 | T1-03 | Mục tiêu tuần | T1-AC04 | - | fe/src/data/path.ts:1<br>fe/src/pages/T1-hoc/T1Hoc.tsx:1<br>fe/src/pages/T1-hoc/t1.css:1 | fe/tests/unit/app.test.tsx:355 |
-| T1-04 | Câu cần ôn | T1-AC05, T1-AC09 | docs/new/navigation.md:123<br>docs/new/navigation.md:292 | fe/src/pages/T1-hoc/T1Hoc.tsx:1<br>fe/src/pages/T1-hoc/t1.css:1 | fe/tests/unit/app.test.tsx:365 |
-| T1-05 | Học hết lộ trình | T1-AC06 | docs/new/navigation.md:125<br>docs/new/navigation.md:302 | fe/src/pages/T1-hoc/T1Hoc.tsx:1 | fe/tests/unit/app.test.tsx:378 |
+| T1-04 | Câu cần ôn | T1-AC05, T1-AC09 | docs/new/navigation.md:123<br>docs/new/navigation.md:298 | fe/src/pages/T1-hoc/T1Hoc.tsx:1<br>fe/src/pages/T1-hoc/t1.css:1 | fe/tests/unit/app.test.tsx:365 |
+| T1-05 | Học hết lộ trình | T1-AC06 | docs/new/navigation.md:125<br>docs/new/navigation.md:308 | fe/src/pages/T1-hoc/T1Hoc.tsx:1 | fe/tests/unit/app.test.tsx:378 |
 | T1-06 | Bố cục máy tính | T1-AC07 | - | fe/src/pages/T1-hoc/T1Hoc.tsx:1<br>fe/src/pages/T1-hoc/t1.css:1 | - |
 | T1-07 | Không đổi câu trên T1 | T1-AC08 | - | fe/src/pages/T1-hoc/T1Hoc.tsx:1 | fe/tests/unit/app.test.tsx:391 |
+| T1-08 | Unit tiếp theo | T1-AC12 | docs/new/navigation.md:127<br>docs/new/navigation.md:129 | - | - |
+| T1-09 | Tiến độ của bạn | T1-AC13 | docs/new/navigation.md:131 | - | - |
 
 ## T2 Luyện tập
 
@@ -261,9 +263,9 @@ Spec: [fe/src/pages/T2-luyen-tap/spec.md](../../fe/src/pages/T2-luyen-tap/spec.m
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
 | T2-01 | Danh sách cách luyện | T2-AC01 | - | fe/src/pages/T2-luyen-tap/T2LuyenTap.tsx:1<br>fe/src/pages/T2-luyen-tap/t2.css:1 | - |
-| T2-02 | Ôn tập hôm nay | T2-AC02 | docs/new/navigation.md:127<br>docs/new/navigation.md:415 | fe/src/pages/T2-luyen-tap/T2LuyenTap.tsx:1 | fe/tests/unit/t2-t4.test.tsx:24 |
-| T2-03 | Học theo từ khóa | T2-AC03, T2-AC06, T2-AC07 | docs/new/navigation.md:129<br>docs/new/navigation.md:131<br>docs/new/navigation.md:417<br>docs/new/navigation.md:419 | fe/src/app/hooks.ts:1<br>fe/src/pages/T2-luyen-tap/T2LuyenTap.tsx:1<br>fe/src/pages/T2-luyen-tap/t2.css:1 | fe/tests/unit/t2-t4.test.tsx:42<br>fe/tests/unit/t2-t4.test.tsx:64<br>fe/tests/unit/t2-t4.test.tsx:81<br>fe/tests/unit/t2-t4.test.tsx:114<br>fe/tests/unit/t2-t4.test.tsx:289 |
-| T2-04 | Kiểm tra nhanh | T2-AC04 | docs/new/navigation.md:34<br>docs/new/navigation.md:133<br>docs/new/navigation.md:421 | fe/src/pages/T2-luyen-tap/T2LuyenTap.tsx:1 | fe/tests/unit/t2-t4.test.tsx:90 |
+| T2-02 | Ôn tập hôm nay | T2-AC02 | docs/new/navigation.md:133<br>docs/new/navigation.md:421 | fe/src/pages/T2-luyen-tap/T2LuyenTap.tsx:1 | fe/tests/unit/t2-t4.test.tsx:24 |
+| T2-03 | Học theo từ khóa | T2-AC03, T2-AC06, T2-AC07 | docs/new/navigation.md:135<br>docs/new/navigation.md:137<br>docs/new/navigation.md:423<br>docs/new/navigation.md:425 | fe/src/app/hooks.ts:1<br>fe/src/pages/T2-luyen-tap/T2LuyenTap.tsx:1<br>fe/src/pages/T2-luyen-tap/t2.css:1 | fe/tests/unit/t2-t4.test.tsx:42<br>fe/tests/unit/t2-t4.test.tsx:64<br>fe/tests/unit/t2-t4.test.tsx:81<br>fe/tests/unit/t2-t4.test.tsx:114<br>fe/tests/unit/t2-t4.test.tsx:289 |
+| T2-04 | Kiểm tra nhanh | T2-AC04 | docs/new/navigation.md:34<br>docs/new/navigation.md:139<br>docs/new/navigation.md:427 | fe/src/pages/T2-luyen-tap/T2LuyenTap.tsx:1 | fe/tests/unit/t2-t4.test.tsx:90 |
 | T2-05 | Không có kết quả | T2-AC05, T2-AC06 | - | fe/src/pages/T2-luyen-tap/T2LuyenTap.tsx:1<br>fe/src/pages/T2-luyen-tap/t2.css:1 | fe/tests/unit/t2-t4.test.tsx:104 |
 
 ## T3 Thư viện
@@ -276,11 +278,11 @@ Spec: [fe/src/pages/T3-thu-vien/spec.md](../../fe/src/pages/T3-thu-vien/spec.md)
 | T3-02 | Tìm kiếm | T3-AC03 | - | fe/src/app/hooks.ts:1<br>fe/src/pages/T3-thu-vien/T3ThuVien.tsx:1<br>fe/src/pages/T3-thu-vien/filter.ts:1<br>fe/src/pages/T3-thu-vien/t3.css:1 | fe/tests/unit/t3.test.tsx:42<br>fe/tests/unit/t3.test.tsx:220 |
 | T3-03 | Bộ lọc | T3-AC04, T3-AC09, T3-AC10 | - | fe/src/pages/T3-thu-vien/T3ThuVien.tsx:1<br>fe/src/pages/T3-thu-vien/filter.ts:1<br>fe/src/pages/T3-thu-vien/t3.css:1 | fe/tests/unit/t3.test.tsx:61<br>fe/tests/unit/t3.test.tsx:134<br>fe/tests/unit/t3.test.tsx:146 |
 | T3-04 | Phân trang | T3-AC05 | - | fe/src/pages/T3-thu-vien/T3ThuVien.tsx:1<br>fe/src/pages/T3-thu-vien/filter.ts:1<br>fe/src/pages/T3-thu-vien/t3.css:1 | fe/tests/unit/t3.test.tsx:77 |
-| T3-05 | Chi tiết câu | T3-AC06 | docs/new/navigation.md:137<br>docs/new/navigation.md:139<br>docs/new/navigation.md:474<br>docs/new/navigation.md:476 | fe/src/data/stats.ts:1<br>fe/src/pages/T3-thu-vien/T3ThuVien.tsx:1 | fe/tests/unit/t3.test.tsx:103 |
+| T3-05 | Chi tiết câu | T3-AC06 | docs/new/navigation.md:143<br>docs/new/navigation.md:145<br>docs/new/navigation.md:480<br>docs/new/navigation.md:482 | fe/src/data/stats.ts:1<br>fe/src/pages/T3-thu-vien/T3ThuVien.tsx:1 | fe/tests/unit/t3.test.tsx:103 |
 | T3-06 | Không có kết quả | T3-AC07 | - | fe/src/pages/T3-thu-vien/T3ThuVien.tsx:1<br>fe/src/pages/T3-thu-vien/t3.css:1 | fe/tests/unit/t3.test.tsx:121 |
 | T3-07 | Bố cục máy tính | T3-AC08 | - | fe/src/app/hooks.ts:1<br>fe/src/pages/T3-thu-vien/T3ThuVien.tsx:1<br>fe/src/pages/T3-thu-vien/t3.css:1 | fe/tests/e2e/dot2.spec.ts:128 |
 | T3-08 | Chọn cách xem | T3-AC11 | - | fe/src/pages/T3-thu-vien/T3ThuVien.tsx:1<br>fe/src/pages/T3-thu-vien/t3.css:93 | fe/tests/unit/dot5-unit.test.tsx:21 |
-| T3-09 | Danh sách Unit | T3-AC12, T3-AC14 | docs/new/navigation.md:141<br>docs/new/navigation.md:472 | fe/src/data/units.ts:1<br>fe/src/pages/T3-thu-vien/T3ThuVien.tsx:1<br>fe/src/pages/T3-thu-vien/t3.css:93 | fe/tests/unit/dot5-unit.test.tsx:38 |
+| T3-09 | Danh sách Unit | T3-AC12, T3-AC14 | docs/new/navigation.md:147<br>docs/new/navigation.md:478 | fe/src/data/units.ts:1<br>fe/src/pages/T3-thu-vien/T3ThuVien.tsx:1<br>fe/src/pages/T3-thu-vien/t3.css:93 | fe/tests/unit/dot5-unit.test.tsx:38 |
 | T3-10 | Tổng quan Unit | T3-AC13 | - | fe/src/data/units.ts:1<br>fe/src/pages/T3-thu-vien/T3ThuVien.tsx:1<br>fe/src/pages/T3-thu-vien/t3.css:93 | fe/tests/unit/dot5-unit.test.tsx:50 |
 
 ## T4 Tiến độ
@@ -295,5 +297,9 @@ Spec: [fe/src/pages/T4-tien-bo/spec.md](../../fe/src/pages/T4-tien-bo/spec.md) �
 | T4-04 | Biểu đồ theo ngày | T4-AC04, T4-AC05 | - | fe/src/data/stats.ts:1<br>fe/src/pages/T4-tien-bo/T4TienBo.tsx:1<br>fe/src/pages/T4-tien-bo/t4.css:1 | fe/tests/unit/t2-t4.test.tsx:184 |
 | T4-05 | Lịch ôn tập | T4-AC06, T4-AC10 | - | fe/src/data/stats.ts:1<br>fe/src/pages/T4-tien-bo/T4TienBo.tsx:1<br>fe/src/pages/T4-tien-bo/t4.css:1 | fe/tests/unit/dot2-data.test.ts:29<br>fe/tests/unit/t2-t4.test.tsx:204 |
 | T4-06 | Các phiên học | S10-AC07, T4-AC07 | - | fe/src/data/stats.ts:1<br>fe/src/pages/T4-tien-bo/T4TienBo.tsx:1<br>fe/src/pages/T4-tien-bo/t4.css:1 | fe/tests/unit/dot5-unit.test.tsx:146<br>fe/tests/unit/t2-t4.test.tsx:214 |
-| T4-07 | Chi tiết ngày | T4-AC08 | docs/new/navigation.md:149<br>docs/new/navigation.md:513 | fe/src/data/stats.ts:1<br>fe/src/pages/T4-tien-bo/T4TienBo.tsx:1<br>fe/src/pages/T4-tien-bo/t4.css:1 | fe/tests/unit/t2-t4.test.tsx:230 |
-| T4-08 | Chưa có dữ liệu | T4-AC09 | docs/new/navigation.md:151<br>docs/new/navigation.md:515 | fe/src/pages/T4-tien-bo/T4TienBo.tsx:1<br>fe/src/pages/T4-tien-bo/t4.css:1 | fe/tests/unit/t2-t4.test.tsx:250 |
+| T4-07 | Chi tiết ngày | T4-AC08 | docs/new/navigation.md:155<br>docs/new/navigation.md:519 | fe/src/data/stats.ts:1<br>fe/src/pages/T4-tien-bo/T4TienBo.tsx:1<br>fe/src/pages/T4-tien-bo/t4.css:1 | fe/tests/unit/t2-t4.test.tsx:230 |
+| T4-08 | Chưa có dữ liệu | T4-AC09 | docs/new/navigation.md:157<br>docs/new/navigation.md:521 | fe/src/pages/T4-tien-bo/T4TienBo.tsx:1<br>fe/src/pages/T4-tien-bo/t4.css:1 | fe/tests/unit/t2-t4.test.tsx:250 |
+
+## Mục [auto] chưa có test gắn @ac (3)
+
+T1-AC11, T1-AC12, T1-AC13

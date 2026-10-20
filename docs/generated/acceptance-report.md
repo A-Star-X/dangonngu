@@ -1,6 +1,6 @@
 # Báo cáo acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-20 14:47 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-20 14:48 UTC. Không sửa tay.
 
 Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã được đánh dấu [x].
 
@@ -23,12 +23,12 @@ Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã đ
 | S5 | Kiểm tra nhanh | 10/11 | 8/8 | 2/2 | 0/1 | Chưa |
 | S8 | Cài đặt | 10/13 | 9/9 | 1/1 | 0/3 | Chưa |
 | S9 | Hướng dẫn lần đầu | 5/6 | 4/4 | 1/1 | 0/1 | Chưa |
-| T1 | Học | 9/10 | 7/7 | 2/2 | 0/1 | Chưa |
+| T1 | Học | 7/13 | 6/10 | 1/2 | 0/1 | Chưa |
 | T2 | Luyện tập | 7/7 | 5/5 | 2/2 | - | Đạt |
 | T3 | Thư viện | 0/14 | 0/11 | 0/3 | - | Chưa |
 | T4 | Tiến độ | 9/10 | 8/8 | 1/1 | 0/1 | Chưa |
 
-Tổng: 153/198 mục đã đạt.
+Tổng: 151/201 mục đã đạt.
 
 ## Mục còn mở
 
@@ -102,7 +102,12 @@ Tổng: 153/198 mục đã đạt.
 
 ### T1 Học
 
+- T1-AC01 [auto] (T1-01): Với tiến độ trống, thẻ hiện câu đầu của unit 1 trong fixture ở trạng thái hiện đầy đủ, có "Unit 1", title và translation của unit; dải có ô đầu ở trạng thái Đang học.
+- T1-AC07 [claude] (T1-06): Ảnh chụp 1280 và 1440 px: cột chính rộng không quá 560 px, cột phụ có mục tiêu tuần, câu cần ôn, Unit tiếp theo, Tiến độ của bạn; ở 1440 px không còn khoảng trống lớn bên phải. Ảnh 375 và 1024 px: một cột đúng thứ tự T1-06.
 - T1-AC09 [human] (T1-02, T1-04): Trên điện thoại thật, người học hiểu được khi nào nên bấm nút chính và khi nào nên chạm dòng câu cần ôn (hỏi lại sau khi họ thao tác).
+- T1-AC11 [auto] (T1-01): Dòng "Unit n" trên thẻ là liên kết tới `#/unit?so=n` của unit đang học.
+- T1-AC12 [auto] (T1-08): Với tiến độ fixture đang học unit 2, khối "Unit tiếp theo" có đúng unit 3 và 4 (fixture có 4 unit), mỗi dòng mở `#/unit?so=n`, liên kết "Xem tất cả unit" mở `#/thu-vien`; đang học unit cuối thì không có khối.
+- T1-AC13 [auto] (T1-09): Với tiến độ mẫu 30 ngày, khối "Tiến độ của bạn" hiện đúng số câu đã học trên tổng số câu của bộ, thanh tiến độ đúng tỉ lệ, đúng số unit đã học; "Xem tiến độ" mở `#/tien-bo`; khối vẫn có khi đã học hết lộ trình.
 
 ### T3 Thư viện
 
