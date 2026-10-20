@@ -1,12 +1,27 @@
-// @spec T1-01, T1-02, T1-03, T1-04, T1-05, T1-06, T1-07
+// @spec T1-01, T1-02, T1-03, T1-04, T1-05, T1-06, T1-07, T1-08, T1-09
 import { CaretRight } from '@phosphor-icons/react';
 import { SentenceCard } from '../../components/C1-the-cau/SentenceCard';
 import type { CellState } from '../../components/C2-dai-8-o/Strip';
 import { Button } from '../../components/C3-nut/Button';
-import { displayStatus, dueItemIds, levelOf, nextItemId, nextUnitIndex, openSession, sessionsInLast7Days, formatCount, GROUP_SIZE, lowerFirst } from '../../data';
+import {
+  displayStatus,
+  dueItemIds,
+  levelOf,
+  nextItemId,
+  nextUnitIndex,
+  openSession,
+  sessionsInLast7Days,
+  formatCount,
+  unitLearnState,
+  GROUP_SIZE,
+  lowerFirst,
+  type LanguageData,
+  type Progress,
+} from '../../data';
 import { href, navigate, useRoute } from '../../app/router';
 import { useApp } from '../../app/state';
 import { S9HuongDan } from '../S9-huong-dan/S9HuongDan';
+import { UnitRow } from '../T3-thu-vien/T3ThuVien';
 import './t1.css';
 
 export function T1Hoc() {
@@ -62,6 +77,7 @@ export function T1Hoc() {
           </Button>
         </div>
         {reviewLine && <div className="t1__review-area">{reviewLine}</div>}
+        <OverallProgress d={d} progress={progress} />
       </section>
     );
   }
@@ -94,10 +110,10 @@ export function T1Hoc() {
           onOpenVoices={() => navigate('cai-dat', { giong: 1 })}
           header={
             <div className="t1__unit">
-              <p className="t-sm muted">
+              <a className="t1__unit-link t-sm" href={href('unit', { so: unit.number })}>
                 Unit {unit.number}
                 {level ? ` · ${level}` : ''}
-              </p>
+              </a>
               {unit.title && (
                 <p className="t-body" lang={d.lang}>
                   <span className="src" lang={d.lang}>
@@ -126,7 +142,70 @@ export function T1Hoc() {
       </div>
       <div className="t1__goal-area">{goalLine}</div>
       {reviewLine && <div className="t1__review-area">{reviewLine}</div>}
+      <NextUnits d={d} progress={progress} now={now} from={ui + 1} />
+      <OverallProgress d={d} progress={progress} />
       {showGuide && <S9HuongDan replay={replay} onStart={startSession} />}
+    </section>
+  );
+}
+
+/** T1-08: tối đa 3 unit ngay sau unit đang học. */
+function NextUnits({ d, progress, now, from }: { d: LanguageData; progress: Progress; now: number; from: number }) {
+  const units = d.units.slice(from, from + 3);
+  if (units.length === 0) return null;
+  return (
+    <section className="t1__next block" aria-labelledby="t1-next">
+      <h2 id="t1-next" className="block-title">
+        Unit tiếp theo
+      </h2>
+      <ul className="t1__next-list">
+        {units.map((u) => (
+          <li key={u.number}>
+            <UnitRow d={d} u={u} progress={progress} now={now} />
+          </li>
+        ))}
+      </ul>
+      <a className="t1__more t-body" href={href('thu-vien')}>
+        Xem tất cả unit
+        <CaretRight size={20} aria-hidden />
+      </a>
+    </section>
+  );
+}
+
+/** T1-09: số câu đã qua bước ghi nhớ trên tổng số câu của bộ, số unit đã học. */
+function OverallProgress({ d, progress }: { d: LanguageData; progress: Progress }) {
+  const total = d.items.length;
+  const learned = d.items.filter((it) => progress.items[it.id]?.status === 'da-hoc').length;
+  const units = d.units.filter((u) => unitLearnState(u, progress) === 'da-hoc').length;
+  return (
+    <section className="t1__stats block" aria-labelledby="t1-stats">
+      <h2 id="t1-stats" className="block-title">
+        Tiến độ của bạn
+      </h2>
+      <p className="t-body num" data-testid="t1-learned">
+        {formatCount(learned)}/{formatCount(total)} câu
+      </p>
+      <div
+        className="t1__bar"
+        role="progressbar"
+        aria-label="Số câu đã học"
+        aria-valuemin={0}
+        aria-valuemax={total}
+        aria-valuenow={learned}
+        aria-valuetext={`${formatCount(learned)}/${formatCount(total)} câu`}
+      >
+        <span className="t1__bar-fill" style={{ width: `${total ? (learned / total) * 100 : 0}%` }} />
+      </div>
+      {units > 0 && (
+        <p className="t-sm muted num" data-testid="t1-units">
+          {formatCount(units)} unit đã học
+        </p>
+      )}
+      <a className="t1__more t-body" href={href('tien-bo')}>
+        Xem tiến độ
+        <CaretRight size={20} aria-hidden />
+      </a>
     </section>
   );
 }

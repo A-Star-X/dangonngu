@@ -124,6 +124,12 @@ flowchart TD
   %% @spec T1-02, T1-04
   H -->|"Mở Luyện tập, khi học hết lộ trình"| P
   %% @spec T1-05
+  H -->|"tên unit trên thẻ, Unit tiếp theo"| U
+  %% @spec T1-01, T1-08
+  H -->|"Xem tất cả unit"| B
+  %% @spec T1-08
+  H -->|"Xem tiến độ"| G
+  %% @spec T1-09
   P -->|"Ôn tập hôm nay"| S
   %% @spec T2-02
   P -->|"Học theo từ khóa"| C["Sheet Học theo từ khóa"]

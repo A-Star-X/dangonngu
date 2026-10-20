@@ -154,3 +154,42 @@ describe('S10 Chi tiết Unit', () => {
     expect(screen.getAllByText('Học theo unit').length).toBeGreaterThan(0);
   });
 });
+
+describe('T1 nối tới Unit (Đợt 5 việc 1)', () => {
+  const U1 = [1, 257, 769, 770, 258, 771, 772, 1793];
+  /** Đã học hết unit 1, đang học unit 2. */
+  const onUnit2 = { schema: 1, sessions: [], attempts: [], items: Object.fromEntries(U1.map((id) => [id, known])) };
+
+  // @ac T1-AC11
+  it('dòng Unit n trên thẻ là liên kết tới Chi tiết Unit của unit đang học', async () => {
+    await renderApp('#/hoc', { seed: { ...settingsSeed(), ...progressSeed(onUnit2) } });
+    expect(screen.getByRole('link', { name: 'Unit 2' })).toHaveAttribute('href', '#/unit?so=2');
+  });
+
+  // @ac T1-AC12
+  it('Unit tiếp theo có đúng các unit sau unit đang học; Xem tất cả unit mở Thư viện; unit cuối thì không có khối', async () => {
+    const r = await renderApp('#/hoc', { seed: { ...settingsSeed(), ...progressSeed(onUnit2) } });
+    const block = screen.getByRole('region', { name: 'Unit tiếp theo' });
+    expect([...block.querySelectorAll<HTMLAnchorElement>('.unit-row')].map((a) => a.getAttribute('href'))).toEqual(['#/unit?so=3', '#/unit?so=4']);
+    expect(within(block).getByRole('link', { name: 'Xem tất cả unit' })).toHaveAttribute('href', '#/thu-vien');
+    r.unmount();
+    const upTo3 = { schema: 1, sessions: [], attempts: [], items: Object.fromEntries([...U1, ...U2, 3, 261, 777, 778, 262, 779, 780, 1795].map((id) => [id, known])) };
+    await renderApp('#/hoc', { seed: { ...settingsSeed(), ...progressSeed(upTo3) } });
+    expect(screen.getByRole('link', { name: 'Unit 4' })).toBeInTheDocument();
+    expect(screen.queryByRole('region', { name: 'Unit tiếp theo' })).toBeNull();
+  });
+
+  // @ac T1-AC13
+  it('Tiến độ của bạn đúng số câu, thanh và số unit; có cả khi đã học hết lộ trình', async () => {
+    const r = await renderApp('#/hoc', { seed: { ...settingsSeed(), ...progressSeed(onUnit2) } });
+    expect(screen.getByTestId('t1-learned').textContent).toBe('8/29 câu');
+    expect(screen.getByRole('progressbar', { name: 'Số câu đã học' })).toHaveAttribute('aria-valuenow', '8');
+    expect(screen.getByTestId('t1-units').textContent).toBe('1 unit đã học');
+    expect(screen.getByRole('link', { name: 'Xem tiến độ' })).toHaveAttribute('href', '#/tien-bo');
+    r.unmount();
+    await renderApp('#/hoc', { seed: { ...settingsSeed(), ...progressSeed(PROGRESS_30) } });
+    expect(screen.getByRole('button', { name: 'Mở Luyện tập' })).toBeInTheDocument();
+    expect(screen.getByTestId('t1-learned').textContent).toBe('29/29 câu');
+    expect(screen.getByTestId('t1-units').textContent).toBe('4 unit đã học');
+  });
+});
