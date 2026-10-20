@@ -1,6 +1,6 @@
 # Báo cáo acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-18 17:19 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-20 14:29 UTC. Không sửa tay.
 
 Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã được đánh dấu [x].
 
@@ -8,7 +8,7 @@ Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã đ
 |---|---|---|---|---|---|---|
 | G | Tổng quan giao diện bản mới | 1/5 | - | 1/1 | 0/4 | Chưa |
 | APP | Khung app | 17/20 | 11/11 | 6/6 | 0/3 | Chưa |
-| FND | Nền tảng thiết kế | 14/17 | 7/7 | 7/7 | 0/3 | Chưa |
+| FND | Nền tảng thiết kế | 16/19 | 8/8 | 8/8 | 0/3 | Chưa |
 | DATA | Dữ liệu và tiến độ | 20/21 | 18/18 | 2/2 | 0/1 | Chưa |
 | C1 | Thẻ câu | 9/10 | 8/8 | 1/1 | 0/1 | Chưa |
 | C2 | Dải 8 ô | 3/3 | 2/2 | 1/1 | - | Đạt |
@@ -27,7 +27,7 @@ Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã đ
 | T3 | Thư viện | 10/10 | 8/8 | 2/2 | - | Đạt |
 | T4 | Tiến độ | 9/10 | 8/8 | 1/1 | 0/1 | Chưa |
 
-Tổng: 161/184 mục đã đạt.
+Tổng: 163/186 mục đã đạt.
 
 ## Mục còn mở
 

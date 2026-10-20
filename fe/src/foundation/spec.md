@@ -56,14 +56,14 @@ Font được tự host trong bản build (QD-05). Font Noto chỉ tải khi ng�
 
 | Token | Cỡ / dòng (px) | Dùng cho |
 |---|---|---|
-| `--t-sm` | 13 / 18 | Chú thích, số thứ tự câu |
-| `--t-body` | 16 / 24 | Nội dung giao diện |
-| `--t-lg` | 20 / 28 | Tiêu đề màn, nghĩa trên thẻ |
-| `--t-xl` | 25 / 32 | Câu dài trên thẻ |
-| `--t-2xl` | 31 / 38 | Câu ngắn trên thẻ |
-| `--t-3xl` | 39 / 46 | Số liệu lớn ở tổng kết (chỉ một chỗ mỗi màn) |
+| `--t-sm` | 14 / 20 | Mô tả, chú thích, số thứ tự câu |
+| `--t-body` | 16 / 26 | Nội dung giao diện |
+| `--t-lg` | 20 / 30 | Tiêu đề khối, tiêu đề sheet, nghĩa trên thẻ |
+| `--t-xl` | 25 / 34 | Tiêu đề màn, câu dài trên thẻ |
+| `--t-2xl` | 31 / 42 | Câu ngắn trên thẻ |
+| `--t-3xl` | 39 / 48 | Số liệu lớn ở tổng kết (chỉ một chỗ mỗi màn) |
 
-Không dùng cỡ chữ ngoài thang này.
+Không dùng cỡ chữ ngoài thang này. Khoảng dòng của chữ cỡ `--t-sm` đến `--t-lg` từ 1,4 lần cỡ chữ trở lên, để dấu tiếng Việt chồng hai tầng ("ễ", "ộ") không chạm dòng trên; chữ từ `--t-xl` trở lên (tiêu đề màn, câu trên thẻ, số liệu lớn) từ 1,2 lần. Chữ từ `--t-xl` trở lên giãn chữ -0,01em vì Lexend rộng và trông thưa ở cỡ lớn; chữ nhỏ hơn giữ giãn chữ mặc định.
 
 ### FND-06 Cỡ câu theo độ dài
 
@@ -72,6 +72,18 @@ Câu ngôn ngữ đích trên thẻ câu chọn cỡ theo số ký tự: dưới
 ### FND-07 Khoảng cách và lề
 
 Lưới 4 px; chỉ dùng các giá trị 4, 8, 12, 16, 24, 32, 48. Lề hai bên 16 px dưới 600 px, 24 px từ 600 px.
+
+Nhịp dọc dùng chung cho mọi màn:
+
+| Khoảng giữa | Dưới 600 px | Từ 600 px |
+|---|---|---|
+| Tiêu đề màn và nội dung đầu tiên | 24 | 32 |
+| Các khối lớn trong một màn | 32 | 48 |
+| Tiêu đề khối và nội dung của khối | 12 | 12 |
+| Các dòng cùng nhóm (tên mục và mô tả, tên unit và tên bài) | 4 | 4 |
+| Lề trong thẻ câu | 16 | 24 |
+
+Dòng chạm được trong danh sách có lề trên và dưới 12 px, cao tối thiểu 44 px (FND-14).
 
 ### FND-08 Bo góc theo vai trò
 
@@ -112,9 +124,25 @@ Không gradient, không hiệu ứng kính mờ (`backdrop-filter` làm nền), 
 
 Mọi thao tác làm được bằng bàn phím; viền focus 2 px `--brand`, cách phần tử 2 px, chỉ hiện khi dùng bàn phím (`:focus-visible`). Vùng chạm tối thiểu 44 x 44 px; ngoại lệ là liên kết nằm trong dòng chữ (C1-05) và cột biểu đồ 30 ngày trên màn hẹp (T4-04). Phần tử chứa câu ngôn ngữ đích có `lang` đúng mã ngôn ngữ; nghĩa có `lang="vi"`. Màu không bao giờ là tín hiệu duy nhất. Phóng chữ 200% không làm mất nội dung hay chức năng.
 
+### FND-15 Thứ bậc chữ
+
+Mỗi vai trò chữ chỉ có một kiểu trên mọi màn:
+
+| Vai trò | Cỡ | Độ đậm | Màu |
+|---|---|---|---|
+| Tiêu đề màn | `--t-xl` | 600 | `--ink` |
+| Tiêu đề khối, tiêu đề sheet | `--t-lg` | 600 | `--ink` |
+| Tên mục trong danh sách, nhãn chính, số liệu trong dòng | `--t-body` | 600 | `--ink` |
+| Nội dung | `--t-body` | 400 | `--ink` |
+| Mô tả, chú thích, số thứ tự | `--t-sm` | 400 | `--muted` |
+| Số liệu lớn | `--t-3xl` (một chỗ mỗi màn) hoặc `--t-xl` | 600 | `--ink` |
+
+Chỉ dùng hai độ đậm 400 và 600. Nhấn mạnh bằng cỡ và độ đậm, không bằng màu; màu dành cho trạng thái (FND-02). Tiêu đề khối không viết hoa, không giãn chữ (FND-13). Mỗi màn có đúng một tiêu đề màn (`h1`); màn mà spec trang không vẽ tiêu đề thì tiêu đề màn ẩn khỏi khung hình nhưng trình đọc màn hình vẫn đọc được. Câu ngôn ngữ đích và nghĩa trên thẻ theo C1 và FND-06, không theo bảng này.
+
 ## Lịch sử thay đổi
 
 - 0.1 (07/10/2026): bản đầu.
 - 0.3 (08/10/2026): cập nhật theo bộ dữ liệu khách gửi và câu trả lời của nhóm (ưu tiên web, responsive; đủ 15 ngôn ngữ; không đọc tiến độ bản cũ).
 - 0.4 (10/10/2026): FND-01 thêm token `--scrim`; FND-02 ghi ngoại lệ cột hôm nay của T4; FND-03 dùng "Theo thiết bị" như S8-04; FND-14 ghi hai ngoại lệ vùng chạm (Claude quyết định theo ủy quyền của nhóm).
 - 0.5 (18/10/2026): FND-01 thêm token `--wrong`, `--wrong-soft`; FND-02 đổi màu trả lời sai sang đỏ; FND-12 thêm quy tắc viết tên ngôn ngữ giữa câu, dùng "nhấn", tên khu T4 là "Tiến độ" (theo phản hồi người dùng do nhóm chuyển).
+- 0.6 (20/10/2026): Đợt 5 việc 2: FND-05 nâng `--t-sm` lên 14 px, nới khoảng dòng, giãn chữ âm cho chữ lớn; FND-07 thêm nhịp dọc; thêm FND-15 thứ bậc chữ (theo rà soát `docs/theo-doi/ra-soat-ui-dot5.md`). Sửa câu khoảng dòng cho khớp bảng: 1,4 lần cho `--t-sm` đến `--t-lg`, 1,2 lần từ `--t-xl` (bản đầu ghi 1,5 cho mọi chữ giao diện, mâu thuẫn với `--t-sm` 14/20 và tiêu đề màn 25/34, phát hiện khi đo FND-AC19).

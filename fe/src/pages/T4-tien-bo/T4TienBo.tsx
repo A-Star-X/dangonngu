@@ -66,8 +66,8 @@ export function T4TienBo({ params }: { params: Record<string, string> }) {
   );
 
   const head = (
-    <div className="t4__head">
-      <h1 className="t-lg t4__title">Tiến độ</h1>
+    <div className="t4__head page-head">
+      <h1 className="page-title t4__title">Tiến độ</h1>
       {picker}
     </div>
   );
@@ -75,7 +75,7 @@ export function T4TienBo({ params }: { params: Record<string, string> }) {
   // T4-08: chưa có phiên nào.
   if (!hasCompletedSession(progress)) {
     return (
-      <section className="t4">
+      <section className="t4 page">
         {head}
         <div className="t4__empty">
           <p className="t-body">Bạn chưa hoàn thành phiên học nào. Học 8 câu đầu tiên để bắt đầu theo dõi tiến độ.</p>
@@ -100,7 +100,7 @@ export function T4TienBo({ params }: { params: Record<string, string> }) {
   };
 
   return (
-    <section className="t4">
+    <section className="t4 page">
       {head}
       <dl className="t4__stats">
         <div className="t4__stat">
@@ -146,7 +146,7 @@ export function T4TienBo({ params }: { params: Record<string, string> }) {
       {k > 1 && <Chart k={k} now={now} progress={progress} valid={valid} onOpenDay={openDay} />}
 
       <section className="t4__block" aria-labelledby="t4-schedule">
-        <h2 id="t4-schedule" className="t-body t4__h2">
+        <h2 id="t4-schedule" className="block-title t4__h2">
           Lịch ôn tập
         </h2>
         <dl className="t4__schedule">
@@ -173,7 +173,7 @@ export function T4TienBo({ params }: { params: Record<string, string> }) {
 
       {sessions.length > 0 && (
         <section className="t4__block" aria-labelledby="t4-sessions">
-          <h2 id="t4-sessions" className="t-body t4__h2">
+          <h2 id="t4-sessions" className="block-title t4__h2">
             Các phiên học
           </h2>
           <SessionList sessions={sessions.slice(0, limit)} progress={progress} now={now} />
@@ -199,7 +199,7 @@ function Chart({ k, now, progress, valid, onOpenDay }: { k: RangeDays; now: numb
   };
   return (
     <section className="t4__block" aria-labelledby="t4-chart">
-      <h2 id="t4-chart" className="t-body t4__h2">
+      <h2 id="t4-chart" className="block-title t4__h2">
         Số câu đã học mỗi ngày
       </h2>
       <div className={`chart chart--${k}`} data-testid="t4-chart">

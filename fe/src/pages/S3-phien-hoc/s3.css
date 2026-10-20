@@ -19,10 +19,8 @@
 .s3__check-actions { display: flex; justify-content: space-between; align-items: center; gap: var(--s-3); min-height: 48px; }
 .s3__check-actions .btn--primary { margin-left: auto; }
 .s3--summary .s3__body { padding-top: var(--s-12); }
-.s3__done-title { font-weight: 600; }
 .s3__score { display: flex; flex-direction: column; gap: var(--s-1); }
 .s3__review { display: flex; flex-direction: column; gap: var(--s-2); border-top: 1px solid var(--line); padding-top: var(--s-4); }
-.s3__review-title { font-weight: 600; }
 .s3__review li { padding: var(--s-1) 0; }
 .s3__summary-actions { display: flex; flex-direction: column; gap: var(--s-3); align-items: stretch; }
 .s3__summary-links { display: flex; gap: var(--s-4); }

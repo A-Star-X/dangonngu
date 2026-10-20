@@ -153,11 +153,11 @@ export function S8CaiDat({ params }: { params: Record<string, string> }) {
   };
 
   return (
-    <section className="s8">
-      <h1 className="t-lg s8__title">Cài đặt</h1>
+    <section className="s8 page">
+      <h1 className="page-title s8__title">Cài đặt</h1>
 
-      <section className="s8__group" aria-labelledby="s8-hoc">
-        <h2 id="s8-hoc" className="t-sm muted s8__group-title">
+      <section className="s8__group block" aria-labelledby="s8-hoc">
+        <h2 id="s8-hoc" className="block-title s8__group-title">
           Học tập
         </h2>
         <ul className="s8__list">
@@ -204,8 +204,8 @@ export function S8CaiDat({ params }: { params: Record<string, string> }) {
         </ul>
       </section>
 
-      <section className="s8__group" aria-labelledby="s8-am-thanh">
-        <h2 id="s8-am-thanh" className="t-sm muted s8__group-title">
+      <section className="s8__group block" aria-labelledby="s8-am-thanh">
+        <h2 id="s8-am-thanh" className="block-title s8__group-title">
           Âm thanh
         </h2>
         <ul className="s8__list">
@@ -220,8 +220,8 @@ export function S8CaiDat({ params }: { params: Record<string, string> }) {
         </ul>
       </section>
 
-      <section className="s8__group" aria-labelledby="s8-giao-dien">
-        <h2 id="s8-giao-dien" className="t-sm muted s8__group-title">
+      <section className="s8__group block" aria-labelledby="s8-giao-dien">
+        <h2 id="s8-giao-dien" className="block-title s8__group-title">
           Giao diện
         </h2>
         <div className="s8__list" role="radiogroup" aria-labelledby="s8-giao-dien">
@@ -234,8 +234,8 @@ export function S8CaiDat({ params }: { params: Record<string, string> }) {
         </div>
       </section>
 
-      <section className="s8__group" aria-labelledby="s8-tien-do">
-        <h2 id="s8-tien-do" className="t-sm muted s8__group-title">
+      <section className="s8__group block" aria-labelledby="s8-tien-do">
+        <h2 id="s8-tien-do" className="block-title s8__group-title">
           Tiến độ
         </h2>
         <ul className="s8__list">
@@ -267,8 +267,8 @@ export function S8CaiDat({ params }: { params: Record<string, string> }) {
         </ul>
       </section>
 
-      <section className="s8__group" aria-labelledby="s8-tro-giup">
-        <h2 id="s8-tro-giup" className="t-sm muted s8__group-title">
+      <section className="s8__group block" aria-labelledby="s8-tro-giup">
+        <h2 id="s8-tro-giup" className="block-title s8__group-title">
           Trợ giúp
         </h2>
         <ul className="s8__list">

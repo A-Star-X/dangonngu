@@ -1,0 +1,240 @@
+{
+  "S1-1440": {
+    "texts": {
+      "16/24/400": 1,
+      "16/24/600": 16,
+      "25/32/600": 1,
+      "13/18/400": 31
+    },
+    "offScale": [],
+    "tight": [
+      ".s1__title 25/32 \"Bạn muốn học ngôn ngữ nào?\""
+    ],
+    "offGrid": [],
+    "hscroll": false
+  },
+  "T1-1440": {
+    "texts": {
+      "20/28/600": 1,
+      "16/24/600": 3,
+      "13/18/600": 1,
+      "16/24/400": 10,
+      "13/18/400": 3,
+      "20/28/400": 1,
+      "31/38/400": 1
+    },
+    "offScale": [],
+    "tight": [
+      ".card__source 31/38 \"rather wait a little longer\""
+    ],
+    "offGrid": [],
+    "hscroll": false
+  },
+  "T2-1440": {
+    "texts": {
+      "20/28/600": 2,
+      "16/24/400": 4,
+      "13/18/600": 1,
+      "16/24/600": 6,
+      "13/18/400": 4
+    },
+    "offScale": [],
+    "tight": [],
+    "offGrid": [],
+    "hscroll": false
+  },
+  "T3-1440": {
+    "texts": {
+      "20/28/600": 2,
+      "16/24/400": 75,
+      "13/18/600": 1,
+      "16/24/600": 3,
+      "13/18/400": 69,
+      "20/28/400": 1,
+      "31/38/400": 1
+    },
+    "offScale": [],
+    "tight": [],
+    "offGrid": [],
+    "hscroll": false
+  },
+  "T4-1440": {
+    "texts": {
+      "20/28/600": 2,
+      "16/24/400": 70,
+      "13/18/600": 2,
+      "16/24/600": 8,
+      "13/18/400": 12,
+      "25/32/600": 3,
+      "16/24/700": 32
+    },
+    "offScale": [],
+    "tight": [],
+    "offGrid": [
+      "th paddingTop=1",
+      "th paddingBottom=1",
+      "th paddingLeft=1",
+      "th paddingRight=1",
+      "td paddingTop=1",
+      "td paddingBottom=1",
+      "td paddingLeft=1",
+      "td paddingRight=1"
+    ],
+    "hscroll": false
+  },
+  "S8-1440": {
+    "texts": {
+      "20/28/600": 2,
+      "16/24/400": 19,
+      "13/18/600": 6,
+      "13/18/400": 1
+    },
+    "offScale": [],
+    "tight": [],
+    "offGrid": [],
+    "hscroll": false
+  },
+  "S3-1440": {
+    "texts": {
+      "16/24/400": 7,
+      "20/28/400": 1,
+      "13/18/400": 2
+    },
+    "offScale": [],
+    "tight": [],
+    "offGrid": [],
+    "hscroll": false
+  },
+  "S5-1440": {
+    "texts": {
+      "16/24/400": 6,
+      "13/18/400": 4,
+      "20/28/600": 1,
+      "16/24/600": 4
+    },
+    "offScale": [],
+    "tight": [],
+    "offGrid": [],
+    "hscroll": false
+  },
+  "S1-375": {
+    "texts": {
+      "16/24/600": 16,
+      "25/32/600": 1,
+      "13/18/400": 31
+    },
+    "offScale": [],
+    "tight": [
+      ".s1__title 25/32 \"Bạn muốn học ngôn ngữ nào?\""
+    ],
+    "offGrid": [],
+    "hscroll": false
+  },
+  "T1-375": {
+    "texts": {
+      "13/18/600": 2,
+      "13/18/400": 6,
+      "16/24/600": 2,
+      "16/24/400": 6,
+      "20/28/400": 1,
+      "31/38/400": 1
+    },
+    "offScale": [],
+    "tight": [
+      ".card__source 31/38 \"rather wait a little longer\""
+    ],
+    "offGrid": [
+      ".shell__content paddingBottom=88"
+    ],
+    "hscroll": false
+  },
+  "T2-375": {
+    "texts": {
+      "13/18/400": 7,
+      "13/18/600": 2,
+      "16/24/600": 5,
+      "20/28/600": 1
+    },
+    "offScale": [],
+    "tight": [],
+    "offGrid": [
+      ".shell__content paddingBottom=88"
+    ],
+    "hscroll": false
+  },
+  "T3-375": {
+    "texts": {
+      "13/18/400": 72,
+      "13/18/600": 2,
+      "16/24/600": 1,
+      "16/24/400": 66
+    },
+    "offScale": [],
+    "tight": [],
+    "offGrid": [
+      ".shell__content paddingBottom=88"
+    ],
+    "hscroll": false
+  },
+  "T4-375": {
+    "texts": {
+      "13/18/400": 15,
+      "13/18/600": 3,
+      "16/24/600": 7,
+      "20/28/600": 1,
+      "25/32/600": 3,
+      "16/24/400": 66,
+      "16/24/700": 32
+    },
+    "offScale": [],
+    "tight": [],
+    "offGrid": [
+      ".shell__content paddingBottom=88",
+      "th paddingTop=1",
+      "th paddingBottom=1",
+      "th paddingLeft=1",
+      "th paddingRight=1",
+      "td paddingTop=1",
+      "td paddingBottom=1",
+      "td paddingLeft=1",
+      "td paddingRight=1"
+    ],
+    "hscroll": false
+  },
+  "S8-375": {
+    "texts": {
+      "13/18/400": 5,
+      "13/18/600": 6,
+      "16/24/400": 15,
+      "20/28/600": 1
+    },
+    "offScale": [],
+    "tight": [],
+    "offGrid": [
+      ".shell__content paddingBottom=88"
+    ],
+    "hscroll": false
+  },
+  "S3-375": {
+    "texts": {
+      "16/24/400": 7,
+      "20/28/400": 1
+    },
+    "offScale": [],
+    "tight": [],
+    "offGrid": [],
+    "hscroll": false
+  },
+  "S5-375": {
+    "texts": {
+      "16/24/400": 6,
+      "13/18/400": 4,
+      "20/28/600": 1,
+      "16/24/600": 4
+    },
+    "offScale": [],
+    "tight": [],
+    "offGrid": [],
+    "hscroll": false
+  }
+}

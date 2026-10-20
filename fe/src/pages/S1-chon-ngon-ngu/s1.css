@@ -5,7 +5,9 @@
 /* Ở S1 không có tên ngôn ngữ bên cạnh nên bỏ đường kẻ ngăn của .host-back (app.css). Hai lớp để thắng quy tắc của app.css dù CSS nạp theo thứ tự nào. */
 @media (min-width: 600px) { .s1 .s1__host { border-right: 0; border-radius: var(--r-button); } }
 .s1__brand { font-weight: 600; letter-spacing: 0.02em; margin-bottom: var(--s-8); }
-.s1__title { font-weight: 600; margin-bottom: var(--s-6); }
+/* Kiểu chữ theo .page-title (FND-15); cách nội dung 24 px, từ 600 px là 32 px (FND-07). */
+.s1__title { margin-bottom: var(--s-6); }
+@media (min-width: 600px) { .s1__title { margin-bottom: var(--s-8); } }
 .s1__featured { border: 1px solid var(--line); border-radius: var(--r-button); padding: 0 var(--s-4); margin-bottom: var(--s-2); background: var(--surface); }
 .s1__list { padding: 0 var(--s-4); }
 .s1__packs-count { display: inline-flex; align-items: center; gap: var(--s-1); flex: none; }

@@ -60,7 +60,7 @@ export function S1ChonNgonNgu() {
           <CaretLeft size={24} aria-hidden />
           Quay lại
         </button>
-        <h1 className="s1__title t-xl">Học {lowerFirst(lang.name)} với bộ nào?</h1>
+        <h1 className="s1__title page-title">Học {lowerFirst(lang.name)} với bộ nào?</h1>
         <ul className="s1__packs">
           {PACKS.filter((p) => lang.packs.includes(p.id)).map((p) => {
             const key = `${p.id}.${lang.id}`;
@@ -122,7 +122,7 @@ export function S1ChonNgonNgu() {
     <div className="s1">
       <HostBack className="s1__host" />
       <p className="s1__brand t-body">VITASR</p>
-      <h1 className="s1__title t-xl">Bạn muốn học ngôn ngữ nào?</h1>
+      <h1 className="s1__title page-title">Bạn muốn học ngôn ngữ nào?</h1>
       {first && <div className="s1__featured">{row(first)}</div>}
       <ul className="lang-list s1__list">
         {rest.map((l) => (

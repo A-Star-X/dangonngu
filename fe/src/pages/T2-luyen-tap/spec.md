@@ -40,7 +40,7 @@ Gom các cách luyện ngoài lộ trình vào một chỗ.
 
 ### T2-01 Danh sách cách luyện
 
-Màn có tiêu đề "Luyện tập" (`--t-lg`) và ba mục xếp dọc, ngăn bằng đường kẻ `--line` (không dùng thẻ): Ôn tập hôm nay, Học theo từ khóa, Kiểm tra nhanh. Mỗi mục có tên (`--t-body` đậm 600), một dòng mô tả (`--t-sm`, `--muted`) và cả mục là một vùng chạm. Màn không có nút chính. Dòng mô tả của ba mục lần lượt là: "Các câu đến hạn ôn hôm nay, gồm cả câu bạn chưa nhớ hoặc trả lời chưa đúng." (T2-02 ghi chữ khi không có câu nào); "Tìm câu theo từ bạn cần, ví dụ đặt phòng, ăn uống, sân bay."; "Nghe và chọn nghĩa, nghe theo cụm, sắp xếp câu." (trùng tên ba bước của S5).
+Màn có tiêu đề "Luyện tập" (tiêu đề màn, FND-15) và ba mục xếp dọc, ngăn bằng đường kẻ `--line` (không dùng thẻ): Ôn tập hôm nay, Học theo từ khóa, Kiểm tra nhanh. Mỗi mục có tên (`--t-body` đậm 600), một dòng mô tả (`--t-sm`, `--muted`) và cả mục là một vùng chạm. Màn không có nút chính. Dòng mô tả của ba mục lần lượt là: "Các câu đến hạn ôn hôm nay, gồm cả câu bạn chưa nhớ hoặc trả lời chưa đúng." (T2-02 ghi chữ khi không có câu nào); "Tìm câu theo từ bạn cần, ví dụ đặt phòng, ăn uống, sân bay."; "Nghe và chọn nghĩa, nghe theo cụm, sắp xếp câu." (trùng tên ba bước của S5).
 
 ### T2-02 Ôn tập hôm nay
 
@@ -78,3 +78,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.2 (08/10/2026): hỗ trợ hai bộ nội dung tiếng Anh (English Fluency và Global English).
 - 0.3 (10/10/2026): chốt các câu hỏi mở (Claude quyết định theo ủy quyền của nhóm): nút "Học N câu" khi tìm thấy dưới 8 câu; giữ tìm theo chuỗi con; đổi dòng mô tả Ôn câu cần ôn.
 - 0.4 (18/10/2026): mục "Ôn câu cần ôn" đổi tên thành "Ôn tập hôm nay"; viết lại các dòng mô tả; placeholder và câu không có kết quả không còn giả định tiếng Anh (theo phản hồi người dùng do nhóm chuyển).
+- 0.5 (20/10/2026): tiêu đề màn theo FND-15 thay cho cỡ ghi riêng (Đợt 5 việc 2).

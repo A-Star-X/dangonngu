@@ -207,6 +207,8 @@ function SessionView({ data: d, session, origin }: { data: LanguageData; session
 
   return (
     <div className="s3">
+      {/* @spec FND-15: khi đang học S3 không vẽ tiêu đề, tiêu đề màn chỉ dành cho trình đọc màn hình. */}
+      <h1 className="sr-only">Phiên học</h1>
       <header className="s3__bar">
         <button type="button" className="s3__exit" onClick={confirmExit}>
           <X size={24} aria-hidden />
@@ -354,7 +356,7 @@ function Summary({
   return (
     <div className="s3 s3--summary">
       <div className="s3__body">
-        <h1 className="t-lg s3__done-title">Xong phiên học</h1>
+        <h1 className="page-title s3__done-title">Xong phiên học</h1>
         <Strip cells={cells} />
         <p className="s3__score">
           <span className="t-3xl num">
@@ -364,7 +366,7 @@ function Summary({
         </p>
         {reviewItems.length > 0 && (
           <div className="s3__review">
-            <h2 className="t-body s3__review-title">Cần ôn lại:</h2>
+            <h2 className="block-title s3__review-title">Cần ôn lại:</h2>
             <ul>
               {reviewItems.map((it) => (
                 <li key={it.id} className="t-body src" lang={d.lang}>
