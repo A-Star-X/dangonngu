@@ -14,7 +14,7 @@
   - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
 - [ ] T3-AC07 [auto] T3-06: Tìm "xyzxyz": hiện đúng câu thông báo; "Xóa tìm kiếm và bộ lọc" đưa về danh sách đầy đủ.
   - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
-- [ ] T3-AC08 [claude] T3-07: Ảnh chụp 1280 px: danh sách trái rộng không quá 480 px, chi tiết câu ở cột phải, chạm dòng khác thì cột phải đổi, không mở sheet.
+- [ ] T3-AC08 [claude] T3-07: Ảnh chụp 1280 px (và 1024 px: một cột, chạm dòng mở sheet): danh sách trái rộng không quá 480 px, chi tiết câu ở cột phải, chạm dòng khác thì cột phải đổi, không mở sheet.
   - Bằng chứng: ảnh và số đo docs/evidence/T3-AC08/: ở 1280 px danh sách rộng 480 px, cột phải hiện Câu 0001; chạm dòng thứ 5 thì cột phải đổi thành Câu 0005 và không có dialog nào mở, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [ ] T3-AC09 [auto] T3-03: Với fixture Global English có bộ lọc Chủ đề, chọn "Trường học" chỉ còn các câu có `topic` đó; với fixture English Fluency không có bộ lọc Chủ đề.
   - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784

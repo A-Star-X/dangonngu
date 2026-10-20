@@ -100,7 +100,7 @@ Khi không có câu nào khớp: "Không có câu nào khớp với tìm kiếm 
 
 ### T3-07 Bố cục máy tính
 
-Từ 900 px: hai cột. Danh sách bên trái (tối đa 480 px); chi tiết câu (nội dung như T3-05) hiển thị ở cột phải thay cho sheet, mặc định là câu đầu của trang.
+Ở cách xem Câu, từ 1200 px: hai cột. Danh sách bên trái (tối đa 480 px); chi tiết câu (nội dung như T3-05) hiển thị ở cột phải thay cho sheet, mặc định là câu đầu của trang. Dưới 1200 px dùng sheet như T3-05.
 
 ### T3-08 Chọn cách xem
 
@@ -136,3 +136,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.4 (10/10/2026): chốt các câu hỏi về bộ lọc (Claude quyết định theo ủy quyền của nhóm).
 - 0.5 (18/10/2026): sơ đồ ghi tên khu T4 là "Tiến độ" (theo phản hồi người dùng do nhóm chuyển).
 - 0.6 (20/10/2026): Đợt 5 việc 3: thêm cách xem Unit làm mặc định (T3-08, T3-09, T3-10), T3-01 đến T3-07 áp cho cách xem Câu.
+- 0.7 (20/10/2026): T3-07 hai cột từ 1200 px thay cho 900 px (Đợt 5 việc 6).

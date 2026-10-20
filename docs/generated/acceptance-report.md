@@ -1,13 +1,13 @@
 # Báo cáo acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-20 15:02 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-20 15:03 UTC. Không sửa tay.
 
 Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã được đánh dấu [x].
 
 | Khu vực | Tên | Đã đạt | auto | claude | human | Trạng thái |
 |---|---|---|---|---|---|---|
 | G | Tổng quan giao diện bản mới | 1/5 | - | 1/1 | 0/4 | Chưa |
-| APP | Khung app | 16/24 | 10/14 | 6/7 | 0/3 | Chưa |
+| APP | Khung app | 15/26 | 10/15 | 5/8 | 0/3 | Chưa |
 | FND | Nền tảng thiết kế | 16/19 | 8/8 | 8/8 | 0/3 | Chưa |
 | DATA | Dữ liệu và tiến độ | 20/21 | 18/18 | 2/2 | 0/1 | Chưa |
 | C1 | Thẻ câu | 9/10 | 8/8 | 1/1 | 0/1 | Chưa |
@@ -21,14 +21,14 @@ Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã đ
 | S10 | Chi tiết Unit | 0/8 | 0/7 | 0/1 | - | Chưa |
 | S3 | Phiên học | 12/13 | 11/11 | 1/1 | 0/1 | Chưa |
 | S5 | Kiểm tra nhanh | 7/15 | 5/11 | 2/3 | 0/1 | Chưa |
-| S8 | Cài đặt | 10/13 | 9/9 | 1/1 | 0/3 | Chưa |
+| S8 | Cài đặt | 10/14 | 9/9 | 1/2 | 0/3 | Chưa |
 | S9 | Hướng dẫn lần đầu | 5/6 | 4/4 | 1/1 | 0/1 | Chưa |
 | T1 | Học | 7/13 | 6/10 | 1/2 | 0/1 | Chưa |
-| T2 | Luyện tập | 6/7 | 4/5 | 2/2 | - | Chưa |
+| T2 | Luyện tập | 6/8 | 4/5 | 2/3 | - | Chưa |
 | T3 | Thư viện | 0/14 | 0/11 | 0/3 | - | Chưa |
-| T4 | Tiến độ | 9/10 | 8/8 | 1/1 | 0/1 | Chưa |
+| T4 | Tiến độ | 9/11 | 8/8 | 1/2 | 0/1 | Chưa |
 
-Tổng: 146/209 mục đã đạt.
+Tổng: 145/214 mục đã đạt.
 
 ## Mục còn mở
 
@@ -42,6 +42,7 @@ Tổng: 146/209 mục đã đạt.
 ### APP Khung app
 
 - APP-AC05 [auto] (APP-04): Mở route không hợp lệ thì chuyển về `#/hoc` (đã chọn ngôn ngữ) hoặc `#/chon-ngon-ngu` (chưa chọn). Nút Back của trình duyệt sau chuỗi T1 → T3 → T4 quay về T3 rồi T1.
+- APP-AC09 [claude] (APP-07): Ảnh chụp T1, T3, S3 ở 1440, 1280, 768, 375, 320 px: ở 1440 px vùng nội dung không rộng quá 1120 px, S3 không rộng quá 720 px; không có cuộn ngang, lề đúng 16 / 24 px, khối nội dung ở 768 px rộng tối đa 560 px.
 - APP-AC13 [human] (APP-07, APP-09): Mở app trên trình duyệt máy tính (Chrome, Edge, Safari) và trên điện thoại (iPhone, Android), mỗi nơi đi hết luồng chọn ngôn ngữ, học một phiên, xem tiến độ: hiển thị đủ, không có điều khiển bị che hay tràn.
 - APP-AC14 [human] (APP-10): Trên điện thoại thật: mở app có mạng, tắt mạng, đóng và mở lại app: vẫn học được ngôn ngữ đã tải.
 - APP-AC20 [human] (APP-09, APP-12): Trên trang học chính thật, đăng nhập, mở Đa ngôn ngữ: app mở ở trang mới. Bấm "Quay lại trang học": về đúng trang học chính và vẫn đăng nhập.
@@ -49,6 +50,8 @@ Tổng: 146/209 mục đã đạt.
 - APP-AC22 [auto] (APP-04, APP-14): Chuỗi T1 → T3 → sang trang 2 → S10 → Back về T3 vẫn ở trang 2 → Forward về S10 → "Học unit này" → Thoát, Dừng thì về S10 (S3-07) → liên kết "Thư viện" trên đường dẫn mở lại T3 ở trang 2.
 - APP-AC23 [auto] (APP-13): Quét mã nguồn `fe/src`: không có `href` bắt đầu bằng `#` mà không phải `#/`.
 - APP-AC24 [claude] (APP-14, APP-01): Ảnh S10 ở 375 và 1280 px: đường dẫn "Thư viện / Unit n" đầu màn, mục Thư viện trên thanh điều hướng đang chọn.
+- APP-AC25 [auto] (APP-07, FND-14): Trên bản build, ở 320, 375, 768, 1024, 1280, 1440 px, mở T1, T2, T3 (hai cách xem), T4, S8, S10: không có cuộn ngang; mọi nút, liên kết và ô nhập đang hiện có vùng chạm từ 44 x 44 px (trừ các ngoại lệ của FND-14); ở 1440 px nội dung của T1 đến T4 và S8 rộng từ 80% vùng nội dung.
+- APP-AC26 [claude] (APP-07): Ảnh T1, T2, T3, T4, S8, S10 ở 320, 375, 768, 1024, 1280, 1440 px, sáng và tối: không vỡ bố cục, không khối hẹp giữa khoảng trắng lớn ở 1280 và 1440 px.
 
 ### FND Nền tảng thiết kế
 
@@ -107,6 +110,7 @@ Tổng: 146/209 mục đã đạt.
 - S8-AC03 [human] (S8-02): Trên iPhone, Android và Windows: danh sách giọng hiện đúng các giọng của máy; "Nghe thử" phát đúng giọng đã chạm.
 - S8-AC07 [human] (S8-05): Trên iPhone (Safari) và Android (Chrome): "Xuất tiến độ" tải được file về máy và "Nhập tiến độ" chọn được chính file đó.
 - S8-AC12 [human] (S8-02): Trên Chrome máy tính (Windows hoặc Mac) có mạng, xóa dữ liệu trang rồi mở app lần đầu, không chọn giọng: câu tiếng Anh được đọc bằng giọng Google; ít nhất 3 người thử thấy giọng này dễ nghe hơn giọng mặc định của máy (so bằng "Nghe thử" trong Cài đặt > Giọng đọc).
+- S8-AC14 [claude] (S8-07): Ảnh 1280 và 1440 px, sáng và tối: các khối xếp nhiều cột tự xuống hàng, đúng thứ tự đọc, không có khung thẻ; ở 1024 px một cột.
 
 ### S9 Hướng dẫn lần đầu
 
@@ -124,6 +128,7 @@ Tổng: 146/209 mục đã đạt.
 ### T2 Luyện tập
 
 - T2-AC04 [auto] (T2-04): Chạm Kiểm tra nhanh mở `#/kiem-tra` với unit đang học trong lộ trình.
+- T2-AC08 [claude] (T2-06): Ảnh 1280 và 1440 px, sáng và tối: các khối xếp nhiều cột tự xuống hàng, đúng thứ tự đọc, không có khung thẻ; ở 1024 px một cột.
 
 ### T3 Thư viện
 
@@ -134,7 +139,7 @@ Tổng: 146/209 mục đã đạt.
 - T3-AC05 [auto] (T3-04): Ở trang 2, đổi bộ lọc thì về trang 1; "Trước" khóa ở trang 1, "Sau" khóa ở trang cuối; chỉ một trang thì không có phân trang.
 - T3-AC06 [auto] (T3-05): Chạm dòng id 257: sheet tiêu đề "Câu 0257" có thẻ câu, unit, trạng thái, lần học gần nhất; "Học câu này" mở `#/phien-hoc?nguon=cau&id=257`.
 - T3-AC07 [auto] (T3-06): Tìm "xyzxyz": hiện đúng câu thông báo; "Xóa tìm kiếm và bộ lọc" đưa về danh sách đầy đủ.
-- T3-AC08 [claude] (T3-07): Ảnh chụp 1280 px: danh sách trái rộng không quá 480 px, chi tiết câu ở cột phải, chạm dòng khác thì cột phải đổi, không mở sheet.
+- T3-AC08 [claude] (T3-07): Ảnh chụp 1280 px (và 1024 px: một cột, chạm dòng mở sheet): danh sách trái rộng không quá 480 px, chi tiết câu ở cột phải, chạm dòng khác thì cột phải đổi, không mở sheet.
 - T3-AC09 [auto] (T3-03): Với fixture Global English có bộ lọc Chủ đề, chọn "Trường học" chỉ còn các câu có `topic` đó; với fixture English Fluency không có bộ lọc Chủ đề.
 - T3-AC10 [auto] (T3-03): Với fixture Global English, bộ lọc Trình độ có A1 và B2 (các trình độ có trong dữ liệu); chọn B2 chỉ còn 8 câu của unit B2-89; danh sách Chủ đề có ô tìm và số câu mỗi chủ đề.
 - T3-AC11 [auto] (T3-08): Mở `#/thu-vien` thấy cách xem Unit; chọn "Câu" thì route có `?xem=cau` và danh sách câu như T3-01; tải lại trang giữ cách xem.
@@ -145,3 +150,4 @@ Tổng: 146/209 mục đã đạt.
 ### T4 Tiến độ
 
 - T4-AC10 [human] (T4-02, T4-05): Người học xem màn này và giải thích đúng con số "câu cần ôn hôm nay" và "Lịch ôn tập" nghĩa là gì (dùng chung buổi test G-AC02).
+- T4-AC11 [claude] (T4-09): Ảnh 1280 và 1440 px, sáng và tối: các khối xếp nhiều cột tự xuống hàng, đúng thứ tự đọc, không có khung thẻ; ở 1024 px một cột.

@@ -14,3 +14,4 @@
   - Bằng chứng: ảnh docs/evidence/T2-AC06/ (375 px, Global English): 40 kết quả với từ khóa "bus" và 0 kết quả với "xyzxyz" (nút Học 8 câu đầu bị khóa), sáng và tối, ở 375 x 812 và 375 x 667, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [x] T2-AC07 [auto] T2-03: Với fixture Global English, chip là các `topic` xếp theo số câu giảm dần, tối đa 6; với fixture English Fluency, chip là 4 chip cố định.
   - Bằng chứng: test fe/tests/unit/t2-t4.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784; kiểm lại 18/10 với bản Đợt 4 (npm test, npm run test:e2e), commit 5ed137c
+- [ ] T2-AC08 [claude] T2-06: Ảnh 1280 và 1440 px, sáng và tối: các khối xếp nhiều cột tự xuống hàng, đúng thứ tự đọc, không có khung thẻ; ở 1024 px một cột.

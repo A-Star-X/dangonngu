@@ -1,6 +1,6 @@
 # Ánh xạ sơ đồ điều hướng sang spec
 
-File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-20 15:02 UTC từ các dòng `%% @spec` trong docs/new/navigation.md. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-20 15:03 UTC từ các dòng `%% @spec` trong docs/new/navigation.md. Không sửa tay.
 
 Tổng: 108 mũi tên; 107 gắn yêu cầu, 1 ngoài phạm vi.
 
@@ -14,9 +14,9 @@ Tổng: 108 mũi tên; 107 gắn yêu cầu, 1 ngoài phạm vi.
 | S1 Chọn ngôn ngữ và bộ nội dung → 4 khu chính, chuyển bằng thanh tab | - | S1-04 Chọn ([fe/src/pages/S1-chon-ngon-ngu/spec.md:52](../../fe/src/pages/S1-chon-ngon-ngu/spec.md)) | `fe/src/pages/S1-chon-ngon-ngu/` | docs/new/navigation.md:24 |
 | 4 khu chính, chuyển bằng thanh tab → Màn toàn trang S3 Phiên học, S5 Kiểm tra nhanh | - | APP-03 Màn toàn trang ([fe/src/app/spec.md:24](../../fe/src/app/spec.md))<br>T1-02 Nút chính đổi chữ theo ngữ cảnh ([fe/src/pages/T1-hoc/spec.md:72](../../fe/src/pages/T1-hoc/spec.md))<br>T2-04 Kiểm tra nhanh ([fe/src/pages/T2-luyen-tap/spec.md:53](../../fe/src/pages/T2-luyen-tap/spec.md)) | `fe/src/app/`<br>`fe/src/pages/T1-hoc/`<br>`fe/src/pages/T2-luyen-tap/` | docs/new/navigation.md:34 |
 | 4 khu chính, chuyển bằng thanh tab → S8 Cài đặt | - | APP-02 Thanh trên cùng ([fe/src/app/spec.md:20](../../fe/src/app/spec.md))<br>APP-04 Bảng route ([fe/src/app/spec.md:28](../../fe/src/app/spec.md)) | `fe/src/app/` | docs/new/navigation.md:36 |
-| 4 khu chính, chuyển bằng thanh tab → Sheet đổi ngôn ngữ, từ khóa, chi tiết câu, chi tiết ngày, giọng đọc, xác nhận | - | APP-11 Một lớp phủ tại một thời điểm ([fe/src/app/spec.md:84](../../fe/src/app/spec.md))<br>C6-01 Dạng hiển thị ([fe/src/components/C6-sheet/spec.md:15](../../fe/src/components/C6-sheet/spec.md)) | `fe/src/app/`<br>`fe/src/components/C6-sheet/` | docs/new/navigation.md:38 |
-| 4 khu chính, chuyển bằng thanh tab → Trang học chính (ngoài phạm vi) | Quay lại trang học | APP-12 Nút về trang học chính ([fe/src/app/spec.md:88](../../fe/src/app/spec.md)) | `fe/src/app/` | docs/new/navigation.md:40 |
-| S1 Chọn ngôn ngữ và bộ nội dung → Trang học chính (ngoài phạm vi) | Quay lại trang học | APP-12 Nút về trang học chính ([fe/src/app/spec.md:88](../../fe/src/app/spec.md)) | `fe/src/app/` | docs/new/navigation.md:42 |
+| 4 khu chính, chuyển bằng thanh tab → Sheet đổi ngôn ngữ, từ khóa, chi tiết câu, chi tiết ngày, giọng đọc, xác nhận | - | APP-11 Một lớp phủ tại một thời điểm ([fe/src/app/spec.md:85](../../fe/src/app/spec.md))<br>C6-01 Dạng hiển thị ([fe/src/components/C6-sheet/spec.md:15](../../fe/src/components/C6-sheet/spec.md)) | `fe/src/app/`<br>`fe/src/components/C6-sheet/` | docs/new/navigation.md:38 |
+| 4 khu chính, chuyển bằng thanh tab → Trang học chính (ngoài phạm vi) | Quay lại trang học | APP-12 Nút về trang học chính ([fe/src/app/spec.md:89](../../fe/src/app/spec.md)) | `fe/src/app/` | docs/new/navigation.md:40 |
+| S1 Chọn ngôn ngữ và bộ nội dung → Trang học chính (ngoài phạm vi) | Quay lại trang học | APP-12 Nút về trang học chính ([fe/src/app/spec.md:89](../../fe/src/app/spec.md)) | `fe/src/app/` | docs/new/navigation.md:42 |
 
 ## 2. Luồng khởi động
 
@@ -24,8 +24,8 @@ Tổng: 108 mũi tên; 107 gắn yêu cầu, 1 ngoài phạm vi.
 |---|---|---|---|---|
 | Mở mini app → Khởi động hiện khung xương, tải danh sách ngôn ngữ | - | APP-05 Khởi động ([fe/src/app/spec.md:46](../../fe/src/app/spec.md)) | `fe/src/app/` | docs/new/navigation.md:52 |
 | Khởi động hiện khung xương, tải danh sách ngôn ngữ → Tải được? | - | APP-05 Khởi động ([fe/src/app/spec.md:46](../../fe/src/app/spec.md)) | `fe/src/app/` | docs/new/navigation.md:54 |
-| Tải được? → Lỗi tải Không tải được danh sách câu nút Thử lại | Không | APP-08 Trạng thái toàn cục ([fe/src/app/spec.md:67](../../fe/src/app/spec.md)) | `fe/src/app/` | docs/new/navigation.md:56 |
-| Lỗi tải Không tải được danh sách câu nút Thử lại → Khởi động hiện khung xương, tải danh sách ngôn ngữ | Thử lại | APP-08 Trạng thái toàn cục ([fe/src/app/spec.md:67](../../fe/src/app/spec.md)) | `fe/src/app/` | docs/new/navigation.md:58 |
+| Tải được? → Lỗi tải Không tải được danh sách câu nút Thử lại | Không | APP-08 Trạng thái toàn cục ([fe/src/app/spec.md:68](../../fe/src/app/spec.md)) | `fe/src/app/` | docs/new/navigation.md:56 |
+| Lỗi tải Không tải được danh sách câu nút Thử lại → Khởi động hiện khung xương, tải danh sách ngôn ngữ | Thử lại | APP-08 Trạng thái toàn cục ([fe/src/app/spec.md:68](../../fe/src/app/spec.md)) | `fe/src/app/` | docs/new/navigation.md:58 |
 | Tải được? → Đã lưu ngôn ngữ đang học? | Có | APP-05 Khởi động ([fe/src/app/spec.md:46](../../fe/src/app/spec.md)) | `fe/src/app/` | docs/new/navigation.md:60 |
 | Đã lưu ngôn ngữ đang học? → S1 Chọn ngôn ngữ | Chưa: lần đầu | APP-05 Khởi động ([fe/src/app/spec.md:46](../../fe/src/app/spec.md)) | `fe/src/app/` | docs/new/navigation.md:62 |
 | S1 Chọn ngôn ngữ → Ngôn ngữ có nhiều bộ nội dung? | chạm một ngôn ngữ | S1-04 Chọn ([fe/src/pages/S1-chon-ngon-ngu/spec.md:52](../../fe/src/pages/S1-chon-ngon-ngu/spec.md))<br>DATA-13 Bộ nội dung ([fe/src/data/spec.md:130](../../fe/src/data/spec.md)) | `fe/src/pages/S1-chon-ngon-ngu/`<br>`fe/src/data/` | docs/new/navigation.md:64 |
@@ -35,7 +35,7 @@ Tổng: 108 mũi tên; 107 gắn yêu cầu, 1 ngoài phạm vi.
 | S1 bước 2 Chọn bộ nội dung → S1 Chọn ngôn ngữ | Quay lại | S1-07 Chọn bộ nội dung ([fe/src/pages/S1-chon-ngon-ngu/spec.md:64](../../fe/src/pages/S1-chon-ngon-ngu/spec.md)) | `fe/src/pages/S1-chon-ngon-ngu/` | docs/new/navigation.md:72 |
 | Đã lưu ngôn ngữ đang học? → Tải câu và unit của bộ và ngôn ngữ đó | Rồi | APP-05 Khởi động ([fe/src/app/spec.md:46](../../fe/src/app/spec.md)) | `fe/src/app/` | docs/new/navigation.md:74 |
 | Tải câu và unit của bộ và ngôn ngữ đó → Tải được? | - | APP-05 Khởi động ([fe/src/app/spec.md:46](../../fe/src/app/spec.md))<br>S1-04 Chọn ([fe/src/pages/S1-chon-ngon-ngu/spec.md:52](../../fe/src/pages/S1-chon-ngon-ngu/spec.md)) | `fe/src/app/`<br>`fe/src/pages/S1-chon-ngon-ngu/` | docs/new/navigation.md:76 |
-| Tải được? → Lỗi tải Không tải được danh sách câu nút Thử lại | Không | APP-08 Trạng thái toàn cục ([fe/src/app/spec.md:67](../../fe/src/app/spec.md)) | `fe/src/app/` | docs/new/navigation.md:78 |
+| Tải được? → Lỗi tải Không tải được danh sách câu nút Thử lại | Không | APP-08 Trạng thái toàn cục ([fe/src/app/spec.md:68](../../fe/src/app/spec.md)) | `fe/src/app/` | docs/new/navigation.md:78 |
 | Tải được? → Đã xem hướng dẫn? | Có | S9-01 Khi nào hiện ([fe/src/pages/S9-huong-dan/spec.md:17](../../fe/src/pages/S9-huong-dan/spec.md)) | `fe/src/pages/S9-huong-dan/` | docs/new/navigation.md:80 |
 | Đã xem hướng dẫn? → T1 Học kèm S9 Hướng dẫn 3 bước | Chưa: lần đầu | S9-01 Khi nào hiện ([fe/src/pages/S9-huong-dan/spec.md:17](../../fe/src/pages/S9-huong-dan/spec.md)) | `fe/src/pages/S9-huong-dan/` | docs/new/navigation.md:82 |
 | T1 Học kèm S9 Hướng dẫn 3 bước → T1 Học | Bỏ qua hoặc Esc | S9-03 Điều khiển ([fe/src/pages/S9-huong-dan/spec.md:31](../../fe/src/pages/S9-huong-dan/spec.md)) | `fe/src/pages/S9-huong-dan/` | docs/new/navigation.md:84 |

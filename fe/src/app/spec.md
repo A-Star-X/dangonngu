@@ -59,10 +59,11 @@ App dùng được cả trên web và trên điện thoại, thiết kế respon
 |---|---|
 | 320 đến 599 px | Một cột, lề 16 px, thanh tab dưới đáy, sheet trượt từ dưới lên |
 | 600 đến 899 px | Một cột, lề 24 px, nội dung rộng tối đa 560 px nằm giữa, chữ trong khối vẫn căn trái |
-| 900 px trở lên | Thanh điều hướng dọc trái 220 px; T1 và T3 hai cột (nêu trong spec trang); S3 và S5 có khối nội dung giữa màn rộng tối đa 720 px; sheet hiển thị thành hộp thoại giữa màn |
+| 900 px trở lên | Thanh điều hướng dọc trái 220 px; S3 và S5 có khối nội dung giữa màn rộng tối đa 720 px; sheet hiển thị thành hộp thoại giữa màn. Không cố định hai cột từ 900 px: T1, T3 một cột tới 1199 px |
+| 1200 px trở lên | Các khu chính dùng thêm chiều ngang theo spec trang (T1-06, T3-07, T2-06, T4-09, S8-07): bố cục nhiều cột dùng lưới tự xuống hàng theo độ rộng tối thiểu của cột, không cố định số cột, thứ tự đọc giữ như một cột |
 | 1440 px trở lên | Như trên; vùng nội dung bên phải thanh điều hướng rộng tối đa 1120 px, căn giữa |
 
-Không có thanh cuộn ngang ở bất kỳ khổ nào từ 320 px.
+Không có thanh cuộn ngang ở bất kỳ khổ nào từ 320 px. Ở 1440 px, nội dung của T1 đến T4 và S8 trải rộng từ 80% vùng nội dung trở lên, không để một khối hẹp giữa khoảng trắng lớn.
 
 ### APP-08 Trạng thái toàn cục
 
@@ -128,3 +129,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.6 (18/10/2026): T4 đổi tên thành "Tiến độ"; câu lỗi tải dùng "nhấn"; câu ngoại tuyến gọi người học là "bạn" (theo phản hồi người dùng do nhóm chuyển).
 - 0.7 (20/10/2026): APP-04 thêm route `#/unit` (S10) và tham số cách xem, trình độ của T3; nguồn phiên `unit` (Đợt 5 việc 3).
 - 0.8 (20/10/2026): Đợt 5 việc 10: APP-04 giữ trạng thái màn trong route, tải lại và Back, Forward đúng; APP-01 màn cấp hai giữ mục khu đang chọn; thêm APP-13 không dùng liên kết neo, APP-14 đường dẫn.
+- 0.9 (20/10/2026): Đợt 5 việc 6: APP-07 bỏ hai cột cố định từ 900 px, thêm mốc 1200 px với lưới tự xuống hàng, nội dung ở 1440 px trải từ 80% vùng nội dung.

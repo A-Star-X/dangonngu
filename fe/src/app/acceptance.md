@@ -18,7 +18,7 @@ Khổ kiểm mặc định và quy tắc đánh dấu: `docs/QUY-TRINH.md` mục
   - Bằng chứng: ảnh docs/evidence/APP-AC07/ (dữ liệu trả chậm 2,5 giây): T1 hiện khung xương hình thẻ, T3 hiện khung xương hình danh sách, không màn trắng, không vòng xoay, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [x] APP-AC08 [auto] APP-06: Mở sheet Đổi ngôn ngữ, chọn ngôn ngữ khác: sheet đóng, về `#/hoc`, tên ngôn ngữ trên thanh trên cùng đổi; quay lại ngôn ngữ cũ thì tiến độ cũ còn nguyên.
   - Bằng chứng: test fe/tests/unit/app.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
-- [x] APP-AC09 [claude] APP-07: Ảnh chụp T1, T3, S3 ở 1440, 1280, 768, 375, 320 px: ở 1440 px vùng nội dung không rộng quá 1120 px, S3 không rộng quá 720 px; không có cuộn ngang, lề đúng 16 / 24 px, khối nội dung ở 768 px rộng tối đa 560 px.
+- [ ] APP-AC09 [claude] APP-07: Ảnh chụp T1, T3, S3 ở 1440, 1280, 768, 375, 320 px: ở 1440 px vùng nội dung không rộng quá 1120 px, S3 không rộng quá 720 px; không có cuộn ngang, lề đúng 16 / 24 px, khối nội dung ở 768 px rộng tối đa 560 px.
   - Bằng chứng: ảnh và số đo docs/evidence/APP-AC09/do-dac.json: 1440 px khối nội dung 1120 px, S3 rộng 720 px; 768 px khối 560 px, lề 24 px; 375 và 320 px lề 16 px; không có cuộn ngang ở cả 15 ảnh, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [x] APP-AC10 [auto] APP-08: Cho DataSource trả lỗi: màn hiện đúng câu "Không tải được danh sách câu. Kiểm tra kết nối rồi nhấn Thử lại." và nút "Thử lại"; bấm Thử lại khi nguồn đã ổn thì hiện dữ liệu.
   - Bằng chứng: test fe/tests/unit/app.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa; kiểm lại 18/10 với bản Đợt 4 (npm test, npm run test:e2e), commit 5ed137c
@@ -43,3 +43,5 @@ Khổ kiểm mặc định và quy tắc đánh dấu: `docs/QUY-TRINH.md` mục
 - [ ] APP-AC22 [auto] APP-04, APP-14: Chuỗi T1 → T3 → sang trang 2 → S10 → Back về T3 vẫn ở trang 2 → Forward về S10 → "Học unit này" → Thoát, Dừng thì về S10 (S3-07) → liên kết "Thư viện" trên đường dẫn mở lại T3 ở trang 2.
 - [ ] APP-AC23 [auto] APP-13: Quét mã nguồn `fe/src`: không có `href` bắt đầu bằng `#` mà không phải `#/`.
 - [ ] APP-AC24 [claude] APP-14, APP-01: Ảnh S10 ở 375 và 1280 px: đường dẫn "Thư viện / Unit n" đầu màn, mục Thư viện trên thanh điều hướng đang chọn.
+- [ ] APP-AC25 [auto] APP-07, FND-14: Trên bản build, ở 320, 375, 768, 1024, 1280, 1440 px, mở T1, T2, T3 (hai cách xem), T4, S8, S10: không có cuộn ngang; mọi nút, liên kết và ô nhập đang hiện có vùng chạm từ 44 x 44 px (trừ các ngoại lệ của FND-14); ở 1440 px nội dung của T1 đến T4 và S8 rộng từ 80% vùng nội dung.
+- [ ] APP-AC26 [claude] APP-07: Ảnh T1, T2, T3, T4, S8, S10 ở 320, 375, 768, 1024, 1280, 1440 px, sáng và tối: không vỡ bố cục, không khối hẹp giữa khoảng trắng lớn ở 1280 và 1440 px.
