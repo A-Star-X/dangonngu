@@ -1,26 +1,30 @@
 # Acceptance: T3 Thư viện
 
-- [ ] T3-AC01 [auto] T3-01: Trang 1 có tối đa 32 dòng; mỗi dòng có id 4 chữ số, câu gốc, nghĩa và biểu tượng trạng thái đúng với tiến độ fixture cho cả 3 trạng thái.
-  - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
-- [ ] T3-AC02 [claude] T3-01: Ảnh chụp ở 320, 375, 1280 px, sáng và tối, với câu dài: câu gốc cắt ở 2 dòng, nghĩa cắt ở 1 dòng, không tràn ngang; biểu tượng trạng thái phân biệt được khi chuyển ảnh sang thang xám.
-  - Bằng chứng: ảnh docs/evidence/T3-AC02/ (320, 375, 1280 px, sáng và tối, unit 377 có câu dài nhất bộ): câu gốc cắt ở 2 dòng, nghĩa cắt ở 1 dòng; số đo không có cuộn ngang; bản thang xám (*-thang-xam.jpg) vẫn phân biệt được vòng rỗng, dấu tích và mũi tên vòng nhờ hình dạng, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
-- [ ] T3-AC03 [auto] T3-02: Gõ "BOOK" hiện các câu chứa "book"; route có `?q=BOOK`; tải lại trang giữ từ khóa; nút xóa làm trống ô và hiện lại toàn bộ.
-  - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
-- [ ] T3-AC04 [auto] T3-03: Lọc Unit 2 và Trạng thái "Chưa học" chỉ hiện câu thuộc unit 2 chưa học; kết hợp thêm từ khóa thì thu hẹp tiếp; nhãn bộ lọc hiện giá trị đang chọn.
-  - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
-- [ ] T3-AC05 [auto] T3-04: Ở trang 2, đổi bộ lọc thì về trang 1; "Trước" khóa ở trang 1, "Sau" khóa ở trang cuối; chỉ một trang thì không có phân trang.
-  - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
-- [ ] T3-AC06 [auto] T3-05: Chạm dòng id 257: sheet tiêu đề "Câu 0257" có thẻ câu, unit, trạng thái, lần học gần nhất; "Học câu này" mở `#/phien-hoc?nguon=cau&id=257`.
-  - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
-- [ ] T3-AC07 [auto] T3-06: Tìm "xyzxyz": hiện đúng câu thông báo; "Xóa tìm kiếm và bộ lọc" đưa về danh sách đầy đủ.
-  - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
-- [ ] T3-AC08 [claude] T3-07: Ảnh chụp 1280 px (và 1024 px: một cột, chạm dòng mở sheet): danh sách trái rộng không quá 480 px, chi tiết câu ở cột phải, chạm dòng khác thì cột phải đổi, không mở sheet.
-  - Bằng chứng: ảnh và số đo docs/evidence/T3-AC08/: ở 1280 px danh sách rộng 480 px, cột phải hiện Câu 0001; chạm dòng thứ 5 thì cột phải đổi thành Câu 0005 và không có dialog nào mở, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
-- [ ] T3-AC09 [auto] T3-03: Với fixture Global English có bộ lọc Chủ đề, chọn "Trường học" chỉ còn các câu có `topic` đó; với fixture English Fluency không có bộ lọc Chủ đề.
-  - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
-- [ ] T3-AC10 [auto] T3-03: Với fixture Global English, bộ lọc Trình độ có A1 và B2 (các trình độ có trong dữ liệu); chọn B2 chỉ còn 8 câu của unit B2-89; danh sách Chủ đề có ô tìm và số câu mỗi chủ đề.
-  - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
-- [ ] T3-AC11 [auto] T3-08: Mở `#/thu-vien` thấy cách xem Unit; chọn "Câu" thì route có `?xem=cau` và danh sách câu như T3-01; tải lại trang giữ cách xem.
-- [ ] T3-AC12 [auto] T3-09: Với tiến độ fixture, trang 1 cách xem Unit có tối đa 24 dòng; dòng của unit đã học có dải 8 ô đúng trạng thái và số "x/N" đúng; unit chưa học không có số; chạm dòng mở `#/unit?so=n` đúng unit.
-- [ ] T3-AC13 [auto] T3-10: Dòng tổng quan đúng số unit, số unit đã học và đang học dở theo tiến độ fixture; với fixture Global English có hàng nút trình độ, mặc định là trình độ đang học, chọn B2 chỉ còn unit B2 và route có `?trinh-do=B2`.
-- [ ] T3-AC14 [claude] T3-09: Ảnh cách xem Unit ở 375, 1280, 1440 px, sáng và tối: dòng không có khung thẻ, từ 900 px nhiều cột tự xuống hàng, không cuộn ngang.
+- [x] T3-AC01 [auto] T3-01: Trang 1 có tối đa 32 dòng; mỗi dòng có id 4 chữ số, câu gốc, nghĩa và biểu tượng trạng thái đúng với tiến độ fixture cho cả 3 trạng thái.
+  - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784; kiểm lại 20/10 với bản Đợt 5: test fe/tests/unit/t3.test.tsx pass ở cách xem Câu (`?xem=cau`) (npm test, npm run test:e2e), commit edaf896
+- [x] T3-AC02 [claude] T3-01: Ảnh chụp ở 320, 375, 1280 px, sáng và tối, với câu dài: câu gốc cắt ở 2 dòng, nghĩa cắt ở 1 dòng, không tràn ngang; biểu tượng trạng thái phân biệt được khi chuyển ảnh sang thang xám.
+  - Bằng chứng: ảnh docs/evidence/T3-AC02/ (320, 375, 1280 px, sáng và tối, unit 377 có câu dài nhất bộ): câu gốc cắt ở 2 dòng, nghĩa cắt ở 1 dòng; số đo không có cuộn ngang; bản thang xám (*-thang-xam.jpg) vẫn phân biệt được vòng rỗng, dấu tích và mũi tên vòng nhờ hình dạng, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c; kiểm lại 20/10 với bản Đợt 5: ảnh chụp lại docs/evidence/T3-AC02/ ở cách xem Câu (`?xem=cau`) sau Đợt 5: câu gốc cắt 2 dòng, nghĩa 1 dòng, không cuộn ngang ở cả 6 lần đo, commit edaf896
+- [x] T3-AC03 [auto] T3-02: Gõ "BOOK" hiện các câu chứa "book"; route có `?q=BOOK`; tải lại trang giữ từ khóa; nút xóa làm trống ô và hiện lại toàn bộ.
+  - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784; kiểm lại 20/10 với bản Đợt 5: test fe/tests/unit/t3.test.tsx pass ở cách xem Câu (`?xem=cau`) (npm test, npm run test:e2e), commit edaf896
+- [x] T3-AC04 [auto] T3-03: Lọc Unit 2 và Trạng thái "Chưa học" chỉ hiện câu thuộc unit 2 chưa học; kết hợp thêm từ khóa thì thu hẹp tiếp; nhãn bộ lọc hiện giá trị đang chọn.
+  - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784; kiểm lại 20/10 với bản Đợt 5: test fe/tests/unit/t3.test.tsx pass ở cách xem Câu (`?xem=cau`) (npm test, npm run test:e2e), commit edaf896
+- [x] T3-AC05 [auto] T3-04: Ở trang 2, đổi bộ lọc thì về trang 1; "Trước" khóa ở trang 1, "Sau" khóa ở trang cuối; chỉ một trang thì không có phân trang.
+  - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784; kiểm lại 20/10 với bản Đợt 5: test fe/tests/unit/t3.test.tsx pass ở cách xem Câu (`?xem=cau`) (npm test, npm run test:e2e), commit edaf896
+- [x] T3-AC06 [auto] T3-05: Chạm dòng id 257: sheet tiêu đề "Câu 0257" có thẻ câu, unit, trạng thái, lần học gần nhất; "Học câu này" mở `#/phien-hoc?nguon=cau&id=257`.
+  - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784; kiểm lại 20/10 với bản Đợt 5: test fe/tests/unit/t3.test.tsx pass ở cách xem Câu (`?xem=cau`) (npm test, npm run test:e2e), commit edaf896
+- [x] T3-AC07 [auto] T3-06: Tìm "xyzxyz": hiện đúng câu thông báo; "Xóa tìm kiếm và bộ lọc" đưa về danh sách đầy đủ.
+  - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784; kiểm lại 20/10 với bản Đợt 5: test fe/tests/unit/t3.test.tsx pass ở cách xem Câu (`?xem=cau`) (npm test, npm run test:e2e), commit edaf896
+- [x] T3-AC08 [claude] T3-07: Ảnh chụp 1280 px (và 1024 px: một cột, chạm dòng mở sheet): danh sách trái rộng không quá 480 px, chi tiết câu ở cột phải, chạm dòng khác thì cột phải đổi, không mở sheet.
+  - Bằng chứng: ảnh và số đo docs/evidence/T3-AC08/: ở 1280 px danh sách rộng 480 px, cột phải hiện Câu 0001; chạm dòng thứ 5 thì cột phải đổi thành Câu 0005 và không có dialog nào mở, Claude, 2026-10-10, commit 757a784; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c; kiểm lại 20/10 với bản Đợt 5: ảnh và số đo docs/evidence/T3-AC08/ ở cách xem Câu: 1280 px danh sách 480 px, chạm dòng 5 thì cột phải đổi, không mở dialog; ảnh 1024 px một cột, chạm dòng mở sheet; test fe/tests/e2e/dot2.spec.ts (1024, 1200, 1280, 1440) pass, commit 9036fa6
+- [x] T3-AC09 [auto] T3-03: Với fixture Global English có bộ lọc Chủ đề, chọn "Trường học" chỉ còn các câu có `topic` đó; với fixture English Fluency không có bộ lọc Chủ đề.
+  - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784; kiểm lại 20/10 với bản Đợt 5: test fe/tests/unit/t3.test.tsx pass ở cách xem Câu (`?xem=cau`) (npm test, npm run test:e2e), commit edaf896
+- [x] T3-AC10 [auto] T3-03: Với fixture Global English, bộ lọc Trình độ có A1 và B2 (các trình độ có trong dữ liệu); chọn B2 chỉ còn 8 câu của unit B2-89; danh sách Chủ đề có ô tìm và số câu mỗi chủ đề.
+  - Bằng chứng: test fe/tests/unit/t3.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784; kiểm lại 20/10 với bản Đợt 5: test fe/tests/unit/t3.test.tsx pass ở cách xem Câu (`?xem=cau`) (npm test, npm run test:e2e), commit edaf896
+- [x] T3-AC11 [auto] T3-08: Mở `#/thu-vien` thấy cách xem Unit; chọn "Câu" thì route có `?xem=cau` và danh sách câu như T3-01; tải lại trang giữ cách xem.
+  - Bằng chứng: test fe/tests/unit/dot5-unit.test.tsx pass (npm test), Claude, 2026-10-20, commit edaf896
+- [x] T3-AC12 [auto] T3-09: Với tiến độ fixture, trang 1 cách xem Unit có tối đa 24 dòng; dòng của unit đã học có dải 8 ô đúng trạng thái và số "x/N" đúng; unit chưa học không có số; chạm dòng mở `#/unit?so=n` đúng unit.
+  - Bằng chứng: test fe/tests/unit/dot5-unit.test.tsx pass (npm test), Claude, 2026-10-20, commit edaf896
+- [x] T3-AC13 [auto] T3-10: Dòng tổng quan đúng số unit, số unit đã học và đang học dở theo tiến độ fixture; với fixture Global English có hàng nút trình độ, mặc định là trình độ đang học, chọn B2 chỉ còn unit B2 và route có `?trinh-do=B2`.
+  - Bằng chứng: test fe/tests/unit/dot5-unit.test.tsx pass (npm test), Claude, 2026-10-20, commit edaf896
+- [x] T3-AC14 [claude] T3-09: Ảnh cách xem Unit ở 375, 1280, 1440 px, sáng và tối: dòng không có khung thẻ, từ 900 px nhiều cột tự xuống hàng, không cuộn ngang.
+  - Bằng chứng: ảnh và số đo docs/evidence/T3-AC14/ (Global English, 375, 1280, 1440 px, sáng và tối): dòng unit không có khung thẻ, 1440 px ba cột, 1280 px hai cột, 375 px một cột, không cuộn ngang, Claude, 2026-10-20, commit edaf896

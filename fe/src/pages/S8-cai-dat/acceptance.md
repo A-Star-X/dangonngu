@@ -23,4 +23,5 @@
 - [ ] S8-AC12 [human] S8-02: Trên Chrome máy tính (Windows hoặc Mac) có mạng, xóa dữ liệu trang rồi mở app lần đầu, không chọn giọng: câu tiếng Anh được đọc bằng giọng Google; ít nhất 3 người thử thấy giọng này dễ nghe hơn giọng mặc định của máy (so bằng "Nghe thử" trong Cài đặt > Giọng đọc).
 - [x] S8-AC13 [auto] S8-05: Tệp nhập có phiên `position` âm hoặc lớn hơn số câu, thiếu `step`, câu có `streak` không nguyên, hoặc tệp lớn hơn 8 MB: bị từ chối như tệp sai; tệp xuất từ app vẫn nhập được.
   - Bằng chứng: test fe/tests/unit/ra-soat.test.tsx pass (npm test), Claude, 2026-10-18, commit 5ed137c
-- [ ] S8-AC14 [claude] S8-07: Ảnh 1280 và 1440 px, sáng và tối: các khối xếp nhiều cột tự xuống hàng, đúng thứ tự đọc, không có khung thẻ; ở 1024 px một cột.
+- [x] S8-AC14 [claude] S8-07: Ảnh 1280 và 1440 px, sáng và tối: các khối xếp nhiều cột tự xuống hàng, đúng thứ tự đọc, không có khung thẻ; ở 1024 px một cột.
+  - Bằng chứng: ảnh docs/evidence/S8-AC14/ (1024, 1280, 1440 px, sáng và tối): từ 1280 px hai cột, nhóm hàng đầu thẳng hàng, đúng thứ tự đọc; 1024 px một cột, Claude, 2026-10-20, commit 9036fa6

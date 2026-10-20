@@ -21,4 +21,5 @@ Dùng một bộ tiến độ mẫu cố định (fixture tiến độ 30 ngày)
 - [x] T4-AC09 [auto] T4-08: Tiến độ trống: chỉ có bộ chọn khoảng, đoạn thông báo đúng mẫu và nút "Học 8 câu".
   - Bằng chứng: test fe/tests/unit/t2-t4.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784; kiểm lại 18/10 với bản Đợt 4 (npm test, npm run test:e2e), commit 5ed137c
 - [ ] T4-AC10 [human] T4-02, T4-05: Người học xem màn này và giải thích đúng con số "câu cần ôn hôm nay" và "Lịch ôn tập" nghĩa là gì (dùng chung buổi test G-AC02).
-- [ ] T4-AC11 [claude] T4-09: Ảnh 1280 và 1440 px, sáng và tối: các khối xếp nhiều cột tự xuống hàng, đúng thứ tự đọc, không có khung thẻ; ở 1024 px một cột.
+- [x] T4-AC11 [claude] T4-09: Ảnh 1280 và 1440 px, sáng và tối: các khối xếp nhiều cột tự xuống hàng, đúng thứ tự đọc, không có khung thẻ; ở 1024 px một cột.
+  - Bằng chứng: ảnh docs/evidence/T4-AC11/ (1024, 1280, 1440 px, sáng và tối): ba chỉ số rộng hết vùng nội dung, các khối sau xếp hai cột từ 1280 px, đúng thứ tự đọc, không khung thẻ; 1024 px một cột, Claude, 2026-10-20, commit 9036fa6
