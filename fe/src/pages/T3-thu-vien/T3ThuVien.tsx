@@ -188,7 +188,8 @@ export function StatusIcon({ status, decorative }: { status: DisplayStatus; deco
 
 function Library({ d, params, progress, now }: { d: LanguageData; params: Record<string, string>; progress: ReturnType<typeof useApp>['progress']; now: number }) {
   const sheet = useSheet();
-  const wide = useMediaQuery('(min-width: 900px)');
+  // T3-07: hai cột từ 1200 px (APP-07).
+  const wide = useMediaQuery('(min-width: 1200px)');
   const [input, setInput] = useState(params.q ?? '');
   const q = useDebounced(input, 250);
   const unit = params.unit && d.units.some((u) => u.number === Number(params.unit)) ? Number(params.unit) : null;

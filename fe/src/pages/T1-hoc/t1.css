@@ -16,7 +16,7 @@
 
 .t1__unit { display: flex; flex-direction: column; gap: var(--s-1); padding-bottom: var(--s-3); border-bottom: 1px solid var(--line); }
 /* T1-01: "Unit n" mở Chi tiết Unit; vùng chạm 44 px (FND-14). */
-.t1__unit-link { display: inline-flex; align-items: center; align-self: flex-start; min-height: 44px; color: var(--muted); text-decoration: none; }
+.t1__unit-link { display: inline-flex; align-items: center; align-self: flex-start; min-height: 44px; min-width: 44px; color: var(--muted); text-decoration: none; }
 @media (hover: hover) { .t1__unit-link:hover { color: var(--ink); text-decoration: underline; } }
 .t1__situation { margin-top: var(--s-1); }
 .t1__goal { color: var(--ink); }

@@ -1,6 +1,11 @@
-/* @spec T4-01, T4-02, T4-03, T4-04, T4-05, T4-06, T4-07, T4-08 */
+/* @spec T4-01, T4-02, T4-03, T4-04, T4-05, T4-06, T4-07, T4-08, T4-09 */
 /* Tiêu đề và khoảng cách giữa các khối theo .page, .page-title, .block-title (FND-07, FND-15). */
 .t4 { max-width: 720px; }
+/* T4-09: từ 1200 px các khối sau ba chỉ số xếp vào lưới tự xuống hàng; khoảng giữa các hàng theo .page. */
+@media (min-width: 1200px) {
+  .t4 { max-width: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); column-gap: var(--s-12); align-items: start; }
+  .t4 > .t4__head, .t4 > .t4__stats, .t4 > .t4__empty { grid-column: 1 / -1; }
+}
 .t4__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-3); }
 
 /* T4-01: ba nút liền nhau */

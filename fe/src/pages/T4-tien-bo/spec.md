@@ -76,6 +76,10 @@ Chạm một cột của biểu đồ mở sheet (C6) "[Thứ], [ngày]/[tháng]
 
 Khi chưa có phiên nào: thay toàn bộ nội dung dưới bộ chọn khoảng bằng "Bạn chưa hoàn thành phiên học nào. Học 8 câu đầu tiên để bắt đầu theo dõi tiến độ." và nút chính "Học 8 câu" (mở `#/phien-hoc?nguon=lo-trinh`). "Chưa có phiên nào" nghĩa là chưa từng hoàn tất phiên nào; khi đã có phiên nhưng khoảng đang chọn không có phiên, màn vẫn hiện các chỉ số (bằng 0) và ẩn mục "Các phiên học".
 
+### T4-09 Bố cục máy tính
+
+Từ 1200 px, sau đầu màn và ba chỉ số (vẫn rộng hết vùng nội dung), các khối mục tiêu tuần, biểu đồ, lịch ôn tập và các phiên học xếp vào lưới tự xuống hàng (cột rộng tối thiểu 360 px), thứ tự đọc giữ nguyên.
+
 ## Câu hỏi mở
 
 Không còn câu hỏi mở.
@@ -97,3 +101,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.2 (10/10/2026): chốt các câu hỏi mở (Claude quyết định theo ủy quyền của nhóm).
 - 0.3 (18/10/2026): đổi tên khu thành "Tiến độ"; nhãn "phiên học", "câu cần ôn hôm nay", "Lịch ôn tập", "Các phiên học"; tên nguồn phiên trùng tên lối vào; câu khi chưa có phiên (theo phản hồi người dùng do nhóm chuyển); T4-03 đổi thành "Mục tiêu mỗi tuần" cho cùng tên với Cài đặt.
 - 0.4 (20/10/2026): T4-06 thêm tên nguồn "Học theo unit" (Đợt 5 việc 3).
+- 0.5 (20/10/2026): thêm T4-09 bố cục từ 1200 px (Đợt 5 việc 6).

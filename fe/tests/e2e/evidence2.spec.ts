@@ -401,10 +401,14 @@ test('FND-AC16 chỉ dùng bàn phím: T1 → S3 → tổng kết → T4', async
     // Chờ bước kiểm tra hiện hẳn rồi mới bấm phím, để phím không rơi vào lúc màn đang đổi (chạy song song dễ chậm).
     await expect(page.getByText('Câu này nghĩa là gì?')).toBeVisible();
     const right = await page.locator('.choice').evaluateAll((els) => els.findIndex((e) => e.getAttribute('data-correct') === 'true'));
+    // Bộ nghe phím của bước kiểm tra gắn sau khi màn vẽ xong; chờ ngắn để phím không rơi vào khoảng đó.
+    await page.waitForTimeout(150);
     await page.keyboard.press(String(right + 1));
     await expect(page.locator('.choice--right')).toBeVisible();
     if (i === 0) await shot(page, 'FND-AC16', '05-S3b-focus-cau-tiep');
     await page.keyboard.press('Enter');
+    // Chờ câu sau hiện hẳn rồi mới bấm Space, để phím không rơi vào lúc màn đang đổi.
+    if (i < 7) await expect(page.getByText(`Câu ${i + 2}/8`)).toBeVisible();
   }
   await expect(page.getByText('Xong phiên học')).toBeVisible();
   await focusTo('Xem tiến độ');
