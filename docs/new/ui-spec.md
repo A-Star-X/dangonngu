@@ -15,7 +15,7 @@ Người học người Việt mở app trên điện thoại, học một nhóm
 
 - Người học: người Việt học ngoại ngữ, từ mất gốc đến nâng cao, học lẻ tẻ trong ngày. Giao diện bằng tiếng Việt, nội dung học là một trong 15 ngôn ngữ của bộ English Fluency, riêng tiếng Anh có thêm bộ Global English (A1 đến C2).
 - Thiết bị: dùng được cả trên web và trên điện thoại (responsive). Giai đoạn đầu ưu tiên web trên máy tính.
-- Môi trường chạy: trang học chính mở app bằng một trang mới (tab mới hoặc chuyển thẳng trang) từ một URL tĩnh, không nhúng iframe, không có backend (xem `fe/src/app/spec.md` và `fe/src/data/spec.md`). App có nút về trang học chính (APP-12).
+- Môi trường chạy: website tĩnh có trang giới thiệu (Landing) cho khách và phần học cho người đã đăng nhập (QD-07). Đăng nhập và tiến độ lưu trên Supabase (QD-06); dữ liệu câu vẫn là file tĩnh. Trước Đợt 5, app là mini app do trang học chính mở bằng trang mới, không có backend; quan hệ giữa website mới và trang học chính đang chờ công ty trả lời (mục 5).
 
 ## 2. Mục tiêu
 
@@ -45,7 +45,9 @@ Giữ trong bản đầu: chọn ngôn ngữ và bộ nội dung (tiếng Anh c�
 
 Bỏ khỏi bản đầu: Chia sẻ thư viện và lời mời (cần backend `/api/sharing/*`), Góp ý, Khảo sát và Trò chuyện, Thông tin bản chạy thử.
 
-Ngoài phạm vi: trang học chính, đăng ký, đăng nhập, thanh toán; lấy dữ liệu thật từ khách. Bản này cũng không có: Chia sẻ, chọn trình độ bắt đầu cho Global English, chế độ đảo chiều "Tiếng Việt (từ tiếng Anh)", nghe nghĩa tiếng Việt, mục pháp lý của bản cũ 1.9.45 (chốt 10/10/2026; khách cần thì làm thành đợt riêng).
+Thêm từ Đợt 5 (20/10/2026): trang giới thiệu (Landing), đăng ký, đăng nhập, lưu tiến độ theo tài khoản (QD-06, QD-07).
+
+Ngoài phạm vi: trang học chính, thanh toán; lấy dữ liệu thật từ khách; AI nhận xét bài luyện tập (QD-08, để sau). Bản này cũng không có: Chia sẻ, chọn trình độ bắt đầu cho Global English, chế độ đảo chiều "Tiếng Việt (từ tiếng Anh)", nghe nghĩa tiếng Việt, mục pháp lý của bản cũ 1.9.45 (chốt 10/10/2026; khách cần thì làm thành đợt riêng).
 
 Đối chiếu từng chức năng với bản cũ: `mapping-legacy.md`. Sơ đồ điều hướng: `navigation.md`.
 
@@ -75,7 +77,15 @@ Ngoài phạm vi: trang học chính, đăng ký, đăng nhập, thanh toán; l�
 
 ## 5. Câu hỏi mở
 
-Không còn câu hỏi mở cho khách. Các câu dưới đây (bảng 10/10/2026) do Claude quyết định theo ủy quyền của nhóm để làm xong bản web; khách muốn khác thì sửa ở đợt sau.
+Đợt 5 (20/10/2026), chờ công ty trả lời:
+
+1. Website mới thay thế hay chạy song song với trang học chính `language.pomaskhoahocnaobo.com`? Nếu song song, người học có hai tài khoản (QD-06). Câu trả lời quyết định giữ hay bỏ nút "Quay lại trang học" (APP-12).
+2. Project Supabase do ai tạo và giữ; có bắt xác nhận email khi đăng ký không (QD-06).
+3. G-04 giới hạn toàn bộ chức năng trong 4 khu chính, Cài đặt và 3 màn toàn trang. Đợt 5 thêm Landing, Đăng nhập, Đăng ký và màn Chi tiết Unit (việc 3). Sửa G-04 thành giới hạn mới nào?
+4. Có đối tác nào được phép nêu tên và hiện logo ở Landing không (việc 4)? Chưa có thì ẩn phần Đối tác.
+5. AI nhận xét bài luyện tập (việc 9, QD-08): để sau Đợt 5. Khi làm cần chốt dạng bài nào được nhận xét, chi phí mỗi lượt và tiêu chí.
+
+Các câu ở bảng 10/10/2026 do Claude quyết định theo ủy quyền của nhóm để làm xong bản web; khách muốn khác thì sửa ở đợt sau.
 
 ### Đã trả lời (08/10/2026)
 
@@ -105,3 +115,4 @@ Không còn câu hỏi mở cho khách. Các câu dưới đây (bảng 10/10/20
 - 0.4 (08/10/2026): cập nhật theo bộ dữ liệu khách gửi và câu trả lời của nhóm (ưu tiên web, responsive; đủ 15 ngôn ngữ; không đọc tiến độ bản cũ).
 - 0.5 (10/10/2026): nhóm trả lời câu hỏi về cách trang chính mở mini app: mở trang mới, không nhúng iframe, có nút về trang học chính (APP-09, APP-12). Câu hỏi 4 cũ thành câu 3.
 - 0.6 (10/10/2026): chốt các câu hỏi còn lại cho khách (Claude quyết định theo ủy quyền của nhóm): không có Chia sẻ, chọn trình độ bắt đầu, chế độ đảo chiều, nghe nghĩa, mục pháp lý ở bản này; quy trình duyệt thiết kế.
+- 0.7 (20/10/2026): Đợt 5: website có Landing, đăng ký, đăng nhập, tiến độ theo tài khoản (QD-06, QD-07); AI nhận xét để sau (QD-08); thêm câu hỏi mở cho công ty.
