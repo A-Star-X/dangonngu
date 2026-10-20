@@ -1,10 +1,10 @@
 # Ma trận truy vết spec, code và acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-20 14:48 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-20 14:50 UTC. Không sửa tay.
 
-Tổng: 147 yêu cầu, 201 mục acceptance, 488 ghi chú @spec/@ac trong code.
+Tổng: 147 yêu cầu, 201 mục acceptance, 496 ghi chú @spec/@ac trong code.
 
-Yêu cầu chưa có code gắn @spec: 11/147.
+Yêu cầu chưa có code gắn @spec: 9/147.
 
 ## G Tổng quan giao diện bản mới
 
@@ -49,7 +49,7 @@ Spec: [fe/src/foundation/spec.md](../../fe/src/foundation/spec.md) · Acceptance
 | FND-04 | Font | FND-AC05 | - | fe/src/foundation/base.css:1<br>fe/src/foundation/fonts.ts:1 | - |
 | FND-05 | Thang chữ | FND-AC06, FND-AC19 | - | fe/src/foundation/base.css:1<br>fe/src/foundation/tokens.css:1 | fe/tests/unit/foundation.test.ts:93 |
 | FND-06 | Cỡ câu theo độ dài | FND-AC07 | - | fe/src/foundation/typography.ts:1 | fe/tests/unit/foundation.test.ts:104 |
-| FND-07 | Khoảng cách và lề | FND-AC08, FND-AC19 | - | fe/src/components/C1-the-cau/card.css:1<br>fe/src/foundation/base.css:1<br>fe/src/foundation/tokens.css:1<br>fe/src/pages/S10-chi-tiet-unit/s10.css:1 | - |
+| FND-07 | Khoảng cách và lề | FND-AC08, FND-AC19 | - | fe/src/components/C1-the-cau/card.css:1<br>fe/src/foundation/base.css:1<br>fe/src/foundation/tokens.css:1<br>fe/src/pages/S10-chi-tiet-unit/s10.css:1<br>fe/src/pages/T1-hoc/t1.css:1 | - |
 | FND-08 | Bo góc theo vai trò | FND-AC08 | - | fe/src/foundation/tokens.css:1 | - |
 | FND-09 | Đổ bóng | FND-AC08 | - | fe/src/foundation/tokens.css:1 | - |
 | FND-10 | Icon | FND-AC09 | - | - | - |
@@ -57,7 +57,7 @@ Spec: [fe/src/foundation/spec.md](../../fe/src/foundation/spec.md) · Acceptance
 | FND-12 | Giọng văn và từ ngữ | FND-AC12, FND-AC13 | - | fe/src/data/text.ts:29 | fe/tests/unit/speech.test.ts:99 |
 | FND-13 | Quy tắc tránh giao diện kiểu AI | FND-AC14 | - | - | - |
 | FND-14 | Trợ năng chung | FND-AC15, FND-AC16, FND-AC17 | - | fe/src/foundation/base.css:1 | fe/tests/e2e/app.spec.ts:156<br>fe/tests/e2e/dot2.spec.ts:26 |
-| FND-15 | Thứ bậc chữ | FND-AC18 | - | fe/src/foundation/base.css:1<br>fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:210<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:282<br>fe/src/pages/T1-hoc/T1Hoc.tsx:85 | fe/tests/e2e/dot5-chu.spec.ts:23<br>fe/tests/e2e/dot5-chu.spec.ts:62 |
+| FND-15 | Thứ bậc chữ | FND-AC18 | - | fe/src/foundation/base.css:1<br>fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:210<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:282<br>fe/src/pages/T1-hoc/T1Hoc.tsx:101 | fe/tests/e2e/dot5-chu.spec.ts:23<br>fe/tests/e2e/dot5-chu.spec.ts:62 |
 
 ## DATA Dữ liệu và tiến độ
 
@@ -246,15 +246,15 @@ Spec: [fe/src/pages/T1-hoc/spec.md](../../fe/src/pages/T1-hoc/spec.md) · Accept
 
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
-| T1-01 | Thẻ câu tiếp theo | T1-AC01, T1-AC02, T1-AC10, T1-AC11 | docs/new/navigation.md:127 | fe/src/pages/T1-hoc/T1Hoc.tsx:1<br>fe/src/pages/T1-hoc/t1.css:1 | fe/tests/unit/app.test.tsx:323<br>fe/tests/unit/app.test.tsx:405 |
+| T1-01 | Thẻ câu tiếp theo | T1-AC01, T1-AC02, T1-AC10, T1-AC11 | docs/new/navigation.md:127 | fe/src/pages/T1-hoc/T1Hoc.tsx:1<br>fe/src/pages/T1-hoc/t1.css:1 | fe/tests/unit/app.test.tsx:323<br>fe/tests/unit/app.test.tsx:405<br>fe/tests/unit/dot5-unit.test.tsx:163 |
 | T1-02 | Nút chính đổi chữ theo ngữ cảnh | T1-AC03, T1-AC09 | docs/new/navigation.md:34<br>docs/new/navigation.md:123<br>docs/new/navigation.md:296 | fe/src/pages/T1-hoc/T1Hoc.tsx:1 | fe/tests/unit/app.test.tsx:335 |
 | T1-03 | Mục tiêu tuần | T1-AC04 | - | fe/src/data/path.ts:1<br>fe/src/pages/T1-hoc/T1Hoc.tsx:1<br>fe/src/pages/T1-hoc/t1.css:1 | fe/tests/unit/app.test.tsx:355 |
 | T1-04 | Câu cần ôn | T1-AC05, T1-AC09 | docs/new/navigation.md:123<br>docs/new/navigation.md:298 | fe/src/pages/T1-hoc/T1Hoc.tsx:1<br>fe/src/pages/T1-hoc/t1.css:1 | fe/tests/unit/app.test.tsx:365 |
 | T1-05 | Học hết lộ trình | T1-AC06 | docs/new/navigation.md:125<br>docs/new/navigation.md:308 | fe/src/pages/T1-hoc/T1Hoc.tsx:1 | fe/tests/unit/app.test.tsx:378 |
 | T1-06 | Bố cục máy tính | T1-AC07 | - | fe/src/pages/T1-hoc/T1Hoc.tsx:1<br>fe/src/pages/T1-hoc/t1.css:1 | - |
 | T1-07 | Không đổi câu trên T1 | T1-AC08 | - | fe/src/pages/T1-hoc/T1Hoc.tsx:1 | fe/tests/unit/app.test.tsx:391 |
-| T1-08 | Unit tiếp theo | T1-AC12 | docs/new/navigation.md:127<br>docs/new/navigation.md:129 | - | - |
-| T1-09 | Tiến độ của bạn | T1-AC13 | docs/new/navigation.md:131 | - | - |
+| T1-08 | Unit tiếp theo | T1-AC12 | docs/new/navigation.md:127<br>docs/new/navigation.md:129 | fe/src/pages/T1-hoc/T1Hoc.tsx:1<br>fe/src/pages/T1-hoc/t1.css:1 | fe/tests/unit/dot5-unit.test.tsx:169 |
+| T1-09 | Tiến độ của bạn | T1-AC13 | docs/new/navigation.md:131 | fe/src/pages/T1-hoc/T1Hoc.tsx:1<br>fe/src/pages/T1-hoc/t1.css:1 | fe/tests/unit/dot5-unit.test.tsx:182 |
 
 ## T2 Luyện tập
 
@@ -299,7 +299,3 @@ Spec: [fe/src/pages/T4-tien-bo/spec.md](../../fe/src/pages/T4-tien-bo/spec.md) �
 | T4-06 | Các phiên học | S10-AC07, T4-AC07 | - | fe/src/data/stats.ts:1<br>fe/src/pages/T4-tien-bo/T4TienBo.tsx:1<br>fe/src/pages/T4-tien-bo/t4.css:1 | fe/tests/unit/dot5-unit.test.tsx:146<br>fe/tests/unit/t2-t4.test.tsx:214 |
 | T4-07 | Chi tiết ngày | T4-AC08 | docs/new/navigation.md:155<br>docs/new/navigation.md:519 | fe/src/data/stats.ts:1<br>fe/src/pages/T4-tien-bo/T4TienBo.tsx:1<br>fe/src/pages/T4-tien-bo/t4.css:1 | fe/tests/unit/t2-t4.test.tsx:230 |
 | T4-08 | Chưa có dữ liệu | T4-AC09 | docs/new/navigation.md:157<br>docs/new/navigation.md:521 | fe/src/pages/T4-tien-bo/T4TienBo.tsx:1<br>fe/src/pages/T4-tien-bo/t4.css:1 | fe/tests/unit/t2-t4.test.tsx:250 |
-
-## Mục [auto] chưa có test gắn @ac (3)
-
-T1-AC11, T1-AC12, T1-AC13
