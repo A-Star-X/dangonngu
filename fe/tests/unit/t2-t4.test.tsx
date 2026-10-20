@@ -275,7 +275,7 @@ describe('DATA-07 một khái niệm cần ôn', () => {
     expect(stat('t4-due')).toBe(String(n));
     expect(stat('t4-today')).toBe(`${n} câu`);
     r.unmount();
-    await renderApp('#/thu-vien', { seed });
+    await renderApp('#/thu-vien?xem=cau', { seed });
     fireEvent.click(screen.getByRole('button', { name: 'Trạng thái' }));
     await settle();
     fireEvent.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Cần ôn' }));

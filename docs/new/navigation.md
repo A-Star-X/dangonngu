@@ -124,6 +124,12 @@ flowchart TD
   %% @spec T1-02, T1-04
   H -->|"Mở Luyện tập, khi học hết lộ trình"| P
   %% @spec T1-05
+  H -->|"tên unit trên thẻ, Unit tiếp theo"| U
+  %% @spec T1-01, T1-08
+  H -->|"Xem tất cả unit"| B
+  %% @spec T1-08
+  H -->|"Xem tiến độ"| G
+  %% @spec T1-09
   P -->|"Ôn tập hôm nay"| S
   %% @spec T2-02
   P -->|"Học theo từ khóa"| C["Sheet Học theo từ khóa"]
@@ -132,12 +138,22 @@ flowchart TD
   %% @spec T2-03
   P -->|"Kiểm tra nhanh"| K["S5 Kiểm tra nhanh"]
   %% @spec T2-04
+  K -->|"Thoát, Tạm dừng"| P
+  %% @spec S5-08, S5-09
   K -->|"xong bước cuối"| KR["S5 Kết quả"]
   %% @spec S5-07
   B -->|"chạm vào câu"| D["Sheet Chi tiết câu"]
   %% @spec T3-05
   D -->|"Học câu này"| S
   %% @spec T3-05
+  B -->|"chạm vào unit"| U["S10 Chi tiết Unit"]
+  %% @spec T3-09
+  U -->|"Học unit này"| S
+  %% @spec S10-04
+  U -->|"Kiểm tra nhanh unit này"| K
+  %% @spec S10-04
+  U -->|"chạm vào câu"| D
+  %% @spec S10-05
   G -->|"chạm vào cột ngày"| GD["Sheet Chi tiết ngày"]
   %% @spec T4-07
   G -->|"Học 8 câu, khi chưa có phiên"| S
@@ -441,7 +457,8 @@ flowchart TB
   classDef win fill:#fff,stroke:#333,color:#000
 
   subgraph W_T3["«window» T3 Thư viện"]
-    t3_row["«list item»<br/>Dòng câu"]
+    t3_unit["«list item»<br/>Dòng unit (cách xem Unit)"]
+    t3_row["«list item»<br/>Dòng câu (cách xem Câu)"]
   end
   subgraph W_DET["«sheet» Chi tiết câu"]
     det_learn["«button»<br/>Học câu này"]
@@ -450,13 +467,34 @@ flowchart TB
     W_S3_x[" "]
   end
 
+  subgraph W_S10["«window» S10 Chi tiết Unit"]
+    s10_learn["«button»<br/>Học unit này"]
+    s10_check["«button»<br/>Kiểm tra nhanh unit này"]
+    s10_row["«list item»<br/>Dòng câu"]
+    s10_back["«link»<br/>Thư viện"]
+  end
+  subgraph W_S5["«window» S5 Kiểm tra nhanh"]
+    W_S5_x[" "]
+  end
+
+  t3_unit -->|"Click"| W_S10
+  %% @spec T3-09
   t3_row -->|"Click"| W_DET
   %% @spec T3-05
   det_learn -->|"Click"| W_S3
   %% @spec T3-05
+  s10_learn -->|"Click"| W_S3
+  %% @spec S10-04
+  s10_check -->|"Click"| W_S5
+  %% @spec S10-04
+  s10_row -->|"Click"| W_DET
+  %% @spec S10-05
+  s10_back -->|"Click"| W_T3
+  %% @spec S10-01
 
-  class t3_row,det_learn el
-  class W_T3,W_DET,W_S3 win
+  class t3_unit,t3_row,det_learn,s10_learn,s10_check,s10_row,s10_back el
+  class W_T3,W_DET,W_S3,W_S10,W_S5 win
+  style W_S5_x fill:none,stroke:none
   style W_S3_x fill:none,stroke:none
 ```
 

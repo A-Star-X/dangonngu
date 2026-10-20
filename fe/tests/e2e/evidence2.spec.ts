@@ -100,19 +100,19 @@ for (const theme of THEMES) {
     for (const w of [320, 375, 1280]) {
       await page.setViewportSize({ width: w, height: w === 1280 ? 800 : 812 });
       // Unit 377 có câu tiếng Anh dài nhất bộ (id 3010) và đủ 3 trạng thái.
-      await go(page, './#/thu-vien?unit=377');
+      await go(page, './#/thu-vien?xem=cau&unit=377');
       await expect(page.locator('.lib-row').first()).toBeVisible();
       await shot(page, 'T3-AC02', `${w}-${theme}-cau-dai`, { full: true });
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
       note('T3-AC02', `${w}-${theme}`, { horizontalOverflow: overflow });
       if (w !== 1280) {
-        await go(page, './#/thu-vien');
+        await go(page, './#/thu-vien?xem=cau');
         await expect(page.locator('.lib-row').first()).toBeVisible();
         await shot(page, 'T3-AC02', `${w}-${theme}-trang-1`);
         await page.locator('.lib-row').nth(2).click();
         await shot(page, 'T3-AC02', `${w}-${theme}-sheet-chi-tiet`);
       } else {
-        await go(page, './#/thu-vien');
+        await go(page, './#/thu-vien?xem=cau');
         await expect(page.locator('.t3__detail-col')).toBeVisible();
         await shot(page, 'T3-AC08', `${w}-${theme}-cau-dau`);
         const m1 = await page.evaluate(() => ({
@@ -267,7 +267,7 @@ test('APP-AC09 bố cục theo khổ', async ({ page }) => {
     await page.setViewportSize({ width: w, height: 900 });
     for (const [name, hash, sel] of [
       ['T1', './#/hoc', '.card'],
-      ['T3', './#/thu-vien', '.lib-row'],
+      ['T3', './#/thu-vien?xem=cau', '.lib-row'],
       ['S3', './#/phien-hoc?nguon=lo-trinh', '.card'],
     ] as const) {
       await go(page, hash);
@@ -401,10 +401,14 @@ test('FND-AC16 chỉ dùng bàn phím: T1 → S3 → tổng kết → T4', async
     // Chờ bước kiểm tra hiện hẳn rồi mới bấm phím, để phím không rơi vào lúc màn đang đổi (chạy song song dễ chậm).
     await expect(page.getByText('Câu này nghĩa là gì?')).toBeVisible();
     const right = await page.locator('.choice').evaluateAll((els) => els.findIndex((e) => e.getAttribute('data-correct') === 'true'));
+    // Bộ nghe phím của bước kiểm tra gắn sau khi màn vẽ xong; chờ ngắn để phím không rơi vào khoảng đó.
+    await page.waitForTimeout(150);
     await page.keyboard.press(String(right + 1));
     await expect(page.locator('.choice--right')).toBeVisible();
     if (i === 0) await shot(page, 'FND-AC16', '05-S3b-focus-cau-tiep');
     await page.keyboard.press('Enter');
+    // Chờ câu sau hiện hẳn rồi mới bấm Space, để phím không rơi vào lúc màn đang đổi.
+    if (i < 7) await expect(page.getByText(`Câu ${i + 2}/8`)).toBeVisible();
   }
   await expect(page.getByText('Xong phiên học')).toBeVisible();
   await focusTo('Xem tiến độ');

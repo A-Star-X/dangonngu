@@ -31,7 +31,7 @@ import { href, lastMainRoute, navigate, setLeaveGuard } from '../../app/router';
 import { useApp } from '../../app/state';
 import './s3.css';
 
-const NGUON: Nguon[] = ['lo-trinh', 'on-tap', 'tu-khoa', 'cau'];
+const NGUON: Nguon[] = ['lo-trinh', 'on-tap', 'tu-khoa', 'cau', 'unit'];
 
 /** Gợi ý S3-05: chữ đầu tiên của nghĩa và số từ. */
 export function hintText(vi: string): string {
@@ -78,7 +78,7 @@ export function S3PhienHoc({ params }: { params: Record<string, string> }) {
       return;
     }
     const rest: Record<string, string> = {};
-    for (const k of ['q', 'nhom', 'id']) if (params[k]) rest[k] = params[k];
+    for (const k of ['q', 'nhom', 'id', 'so']) if (params[k]) rest[k] = params[k];
     let created: Session | undefined;
     updateProgress((p) => {
       const r = startSession(p, nguon, g.itemIds, rest, deps.now());

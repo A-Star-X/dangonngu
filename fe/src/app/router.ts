@@ -1,12 +1,14 @@
-// @spec APP-04, S8-01
+// @spec APP-04, APP-14, S8-01, S10-01
 // Điều hướng bằng hash (QD-02). Bảng route là nguồn chân lý ở APP-04.
 import { useEffect, useState } from 'react';
 
-export type RouteName = 'chon-ngon-ngu' | 'hoc' | 'luyen-tap' | 'thu-vien' | 'tien-bo' | 'cai-dat' | 'phien-hoc' | 'kiem-tra';
+export type RouteName = 'chon-ngon-ngu' | 'hoc' | 'luyen-tap' | 'thu-vien' | 'unit' | 'tien-bo' | 'cai-dat' | 'phien-hoc' | 'kiem-tra';
 
-export const ROUTES: RouteName[] = ['chon-ngon-ngu', 'hoc', 'luyen-tap', 'thu-vien', 'tien-bo', 'cai-dat', 'phien-hoc', 'kiem-tra'];
+export const ROUTES: RouteName[] = ['chon-ngon-ngu', 'hoc', 'luyen-tap', 'thu-vien', 'unit', 'tien-bo', 'cai-dat', 'phien-hoc', 'kiem-tra'];
 export const TAB_ROUTES: RouteName[] = ['hoc', 'luyen-tap', 'thu-vien', 'tien-bo'];
 export const FULLSCREEN_ROUTES: RouteName[] = ['chon-ngon-ngu', 'phien-hoc', 'kiem-tra'];
+/** Khu trên thanh tab mà mỗi route thuộc về (S10-01: Chi tiết Unit thuộc Thư viện). */
+export const tabOf = (name: RouteName | null): RouteName | null => (name === 'unit' ? 'thu-vien' : name);
 
 export interface Route {
   name: RouteName | null;
@@ -48,6 +50,10 @@ export function navigate(name: RouteName, params?: Record<string, string | numbe
 /** Khu chính gần nhất đã mở (để "về màn trước" từ S3, S5). */
 let lastMain: { name: RouteName; params: Record<string, string> } = { name: 'hoc', params: {} };
 export const lastMainRoute = () => lastMain;
+
+/** APP-14: route Thư viện đã xem gần nhất, để đường dẫn ở S10 mở lại đúng chỗ. */
+let lastLibrary: Record<string, string> | null = null;
+export const lastLibraryParams = () => lastLibrary;
 
 /**
  * Chặn rời route (S3-07: Back của trình duyệt giữa phiên mở sheet xác nhận).
@@ -106,7 +112,9 @@ export function useRoute(): Route {
     };
   }, []);
   useEffect(() => {
-    if (route.name && TAB_ROUTES.includes(route.name)) lastMain = { name: route.name, params: route.params };
+    // S10-04: thoát phiên mở từ Chi tiết Unit thì về lại đúng unit đó.
+    if (route.name && (TAB_ROUTES.includes(route.name) || route.name === 'unit')) lastMain = { name: route.name, params: route.params };
+    if (route.name === 'thu-vien') lastLibrary = route.params;
   }, [route]);
   return route;
 }

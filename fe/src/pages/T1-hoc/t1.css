@@ -1,10 +1,23 @@
-/* @spec T1-01, T1-03, T1-04, T1-06 */
-/* Dưới 900 px: mục tiêu tuần, thẻ và nút chính, dòng câu cần ôn. */
-.t1 { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: 'goal' 'main' 'review'; gap: var(--s-4); }
+/* @spec T1-01, T1-03, T1-04, T1-06, T1-08, T1-09, FND-07 */
+/* Dưới 1200 px: một cột theo thứ tự mục tiêu tuần, thẻ và nút chính, câu cần ôn, Unit tiếp theo, Tiến độ của bạn (T1-06). */
+.t1 {
+  display: grid; grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: 'goal' 'main' 'review' 'next' 'stats';
+  row-gap: var(--s-4);
+}
 .t1__goal-area { grid-area: goal; }
 .t1__main { grid-area: main; display: flex; flex-direction: column; gap: var(--s-4); min-width: 0; }
 .t1__review-area { grid-area: review; }
+.t1__next { grid-area: next; min-width: 0; }
+.t1__stats { grid-area: stats; min-width: 0; }
+/* Khối lớn cách nhau theo nhịp dọc: 32 px, từ 600 px là 48 px (FND-07). Gap 16 của lưới cộng thêm phần còn thiếu. */
+.t1__next, .t1__stats { margin-top: var(--s-4); }
+@media (min-width: 600px) { .t1__next, .t1__stats { margin-top: var(--s-8); } }
+
 .t1__unit { display: flex; flex-direction: column; gap: var(--s-1); padding-bottom: var(--s-3); border-bottom: 1px solid var(--line); }
+/* T1-01: "Unit n" mở Chi tiết Unit; vùng chạm 44 px (FND-14). */
+.t1__unit-link { display: inline-flex; align-items: center; align-self: flex-start; min-height: 44px; min-width: 44px; color: var(--muted); text-decoration: none; }
+@media (hover: hover) { .t1__unit-link:hover { color: var(--ink); text-decoration: underline; } }
 .t1__situation { margin-top: var(--s-1); }
 .t1__goal { color: var(--ink); }
 .t1__review {
@@ -15,16 +28,26 @@
 }
 @media (hover: hover) { .t1__review:hover span { text-decoration: underline; } }
 
-/* Từ 900 px: hai cột, cột trái tối đa 560 px là thẻ và nút chính; cột phải là mục tiêu tuần và câu cần ôn (T1-06). */
-@media (min-width: 900px) {
+/* T1-08 */
+.t1__next-list > li { border-bottom: 1px solid var(--line); }
+.t1__more { display: inline-flex; align-items: center; gap: var(--s-1); align-self: flex-start; min-height: 44px; color: var(--ink); text-decoration: none; }
+@media (hover: hover) { .t1__more:hover { text-decoration: underline; } }
+
+/* T1-09: thanh tiến độ như thanh mục tiêu ở T4-03. */
+.t1__bar { height: 8px; border-radius: var(--r-round); background: var(--line); overflow: hidden; }
+.t1__bar-fill { display: block; height: 100%; min-width: 0; background: var(--ink); border-radius: var(--r-round); }
+
+@media (min-width: 600px) { .t1__start { align-self: flex-start; } }
+
+/* Từ 1200 px: cột chính tối đa 560 px, cột phụ tối thiểu 320 px giãn theo phần còn lại (T1-06). */
+@media (min-width: 1200px) {
   .t1 {
-    grid-template-columns: minmax(0, 560px) minmax(220px, 320px);
-    grid-template-rows: auto 1fr;
-    grid-template-areas: 'main goal' 'main review';
-    column-gap: var(--s-12); row-gap: var(--s-4);
+    grid-template-columns: minmax(0, 560px) minmax(320px, 1fr);
+    grid-template-rows: auto auto auto 1fr;
+    grid-template-areas: 'main goal' 'main review' 'main next' 'main stats';
+    column-gap: var(--s-12);
     align-items: start;
   }
   .t1__goal-area { padding-top: var(--s-2); }
   .t1__start .btn { min-width: 240px; }
 }
-@media (min-width: 600px) { .t1__start { align-self: flex-start; } }

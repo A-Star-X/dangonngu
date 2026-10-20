@@ -52,11 +52,15 @@ Chạm mở sheet (C6) "Học theo từ khóa" gồm: ô tìm (placeholder "Ví 
 
 ### T2-04 Kiểm tra nhanh
 
-Chạm mở `#/kiem-tra` với nhóm câu là unit đang học trong lộ trình.
+Chạm mở `#/kiem-tra` với nhóm câu là unit đang học trong lộ trình. Khi có bài kiểm tra dở (S5-09): mục có thêm dòng "Đang làm dở: …" và chạm thì mở lại bài dở ở đúng bước và câu.
 
 ### T2-05 Không có kết quả
 
 Trong sheet T2-03, khi không có câu nào khớp: thay phần xem trước bằng "Không có câu nào chứa "[từ khóa]". Thử từ khác bằng tiếng Việt hoặc [tên ngôn ngữ]." ([tên ngôn ngữ] viết thường chữ đầu, ví dụ "tiếng Nhật") và khóa nút "Học 8 câu đầu".
+
+### T2-06 Bố cục máy tính
+
+Từ 1200 px, ba mục xếp vào lưới tự xuống hàng (cột rộng tối thiểu 320 px) thay cho một cột rộng 720 px; vẫn ngăn bằng đường kẻ, không có khung thẻ (FND-13), thứ tự đọc giữ nguyên.
 
 ## Câu hỏi mở
 
@@ -79,3 +83,5 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.3 (10/10/2026): chốt các câu hỏi mở (Claude quyết định theo ủy quyền của nhóm): nút "Học N câu" khi tìm thấy dưới 8 câu; giữ tìm theo chuỗi con; đổi dòng mô tả Ôn câu cần ôn.
 - 0.4 (18/10/2026): mục "Ôn câu cần ôn" đổi tên thành "Ôn tập hôm nay"; viết lại các dòng mô tả; placeholder và câu không có kết quả không còn giả định tiếng Anh (theo phản hồi người dùng do nhóm chuyển).
 - 0.5 (20/10/2026): tiêu đề màn theo FND-15 thay cho cỡ ghi riêng (Đợt 5 việc 2).
+- 0.6 (20/10/2026): T2-04 mở lại bài kiểm tra dở (Đợt 5 việc 8).
+- 0.7 (20/10/2026): thêm T2-06 bố cục từ 1200 px (Đợt 5 việc 6).

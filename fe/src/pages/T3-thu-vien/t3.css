@@ -2,8 +2,8 @@
 .t3 { display: flex; flex-direction: column; gap: var(--s-6); }
 .t3__list-col { display: flex; flex-direction: column; gap: var(--s-3); min-width: 0; }
 
-/* T3-07: từ 900 px hai cột, danh sách trái tối đa 480 px, chi tiết bên phải. */
-@media (min-width: 900px) {
+/* T3-07: từ 1200 px hai cột, danh sách trái tối đa 480 px, chi tiết bên phải. */
+@media (min-width: 1200px) {
   .t3--wide { display: grid; grid-template-columns: minmax(0, min(480px, 50%)) minmax(0, 1fr); gap: var(--s-8); align-items: start; }
   /* Tiêu đề khối cách nội dung 12 px (FND-07). */
   .t3__detail-col { position: sticky; top: var(--s-6); display: flex; flex-direction: column; gap: var(--s-3); align-items: flex-start; min-width: 0; }
@@ -89,3 +89,29 @@
 .opt-row__label { flex: 1; min-width: 0; overflow-wrap: anywhere; }
 .opt-row[aria-pressed='true'] .opt-row__label { font-weight: 600; }
 .opt-row__check { color: var(--ink); flex: none; }
+
+/* @spec T3-08, T3-09, T3-10 */
+.t3-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-3); }
+/* T3-08: nút chọn cách xem, kiểu như bộ chọn khoảng ở T4-01. */
+.seg-switch { display: inline-flex; border: 1px solid var(--line); border-radius: var(--r-button); overflow: hidden; }
+.seg-switch__btn { min-height: 44px; min-width: 72px; padding: 0 var(--s-4); color: var(--ink); }
+.seg-switch__btn + .seg-switch__btn { border-left: 1px solid var(--line); }
+.seg-switch__btn[aria-pressed='true'] { background: var(--ink); color: var(--paper); font-weight: 600; }
+
+.t3u { display: flex; flex-direction: column; gap: var(--s-3); }
+.t3u__levels { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.t3u__levels .lib-filter[aria-pressed='true'] { border-color: var(--ink); font-weight: 600; }
+/* T3-09: dòng ngăn bằng đường kẻ, không khung thẻ; từ 900 px lưới tự xuống hàng, cột tối thiểu 320 px. */
+.t3u__list { display: grid; grid-template-columns: minmax(0, 1fr); column-gap: var(--s-8); }
+.t3u__list > li { border-bottom: 1px solid var(--line); min-width: 0; }
+@media (min-width: 900px) { .t3u__list { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); } }
+.unit-row {
+  display: flex; flex-direction: column; gap: var(--s-2);
+  min-height: 44px; padding: var(--s-3) var(--s-2);
+  color: var(--ink); text-decoration: none; border-radius: var(--r-input);
+}
+@media (hover: hover) { .unit-row:hover { background: var(--surface); } }
+.unit-row__text { display: flex; flex-direction: column; gap: var(--s-1); min-width: 0; }
+.unit-row__title { font-weight: 600; overflow-wrap: anywhere; }
+.unit-row__vi { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.unit-row__progress { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }

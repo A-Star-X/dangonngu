@@ -23,7 +23,7 @@ describe('T3 Thư viện', () => {
     // Tiến độ mẫu, bỏ 5 câu unit 4 để có đủ 3 trạng thái.
     const p = structuredClone(PROGRESS_30) as typeof PROGRESS_30 & { items: Record<string, unknown> };
     for (const id of [4, 263, 264, 781, 782]) delete p.items[id];
-    await renderApp('#/thu-vien', { seed: { ...settingsSeed(), ...progressSeed(p) } });
+    await renderApp('#/thu-vien?xem=cau', { seed: { ...settingsSeed(), ...progressSeed(p) } });
     expect(rows().length).toBe(29);
     expect(rows().length).toBeLessThanOrEqual(32);
     expect(screen.getByText('29 câu')).toBeInTheDocument();
@@ -41,31 +41,31 @@ describe('T3 Thư viện', () => {
 
   // @ac T3-AC03
   it('gõ BOOK: hiện câu chứa book, route có q, tải lại giữ từ khóa, nút xóa hiện lại toàn bộ', async () => {
-    const r = await renderApp('#/thu-vien', { seed: settingsSeed(GLOBAL) });
+    const r = await renderApp('#/thu-vien?xem=cau', { seed: settingsSeed(GLOBAL) });
     expect(rows().length).toBe(24);
     await type('BOOK');
     expect(rows().length).toBe(3);
     for (const row of rows()) expect(row.textContent!.toLowerCase()).toContain('book');
-    expect(hash()).toBe('#/thu-vien?q=BOOK');
+    expect(hash()).toBe('#/thu-vien?xem=cau&q=BOOK');
     r.unmount();
-    await renderApp('#/thu-vien?q=BOOK', { seed: settingsSeed(GLOBAL) });
+    await renderApp('#/thu-vien?xem=cau&q=BOOK', { seed: settingsSeed(GLOBAL) });
     expect(search().value).toBe('BOOK');
     expect(rows().length).toBe(3);
     fireEvent.click(screen.getByRole('button', { name: 'Xóa từ khóa' }));
     await settle(320);
     expect(search().value).toBe('');
     expect(rows().length).toBe(24);
-    expect(hash()).toBe('#/thu-vien');
+    expect(hash()).toBe('#/thu-vien?xem=cau');
   });
 
   // @ac T3-AC04
   it('lọc Unit 2 và Chưa học, thêm từ khóa thì thu hẹp tiếp; nhãn bộ lọc hiện giá trị', async () => {
     const learned = { status: 'da-hoc', streak: 1, due: Date.UTC(2026, 9, 20), lastAt: Date.UTC(2026, 9, 7) };
     const p = { schema: 1, sessions: [], attempts: [], items: { 2: learned, 259: learned } };
-    await renderApp('#/thu-vien', { seed: { ...settingsSeed(), ...progressSeed(p) } });
+    await renderApp('#/thu-vien?xem=cau', { seed: { ...settingsSeed(), ...progressSeed(p) } });
     await pick('Unit', 'Unit 2');
     expect(rowIds()).toEqual([2, 259, 260, 773, 774, 775, 776, 1794]);
-    expect(hash()).toBe('#/thu-vien?unit=2');
+    expect(hash()).toBe('#/thu-vien?xem=cau&unit=2');
     await pick('Trạng thái', 'Chưa học');
     expect(rowIds()).toEqual([260, 773, 774, 775, 776, 1794]);
     await type('ask');
@@ -76,7 +76,7 @@ describe('T3 Thư viện', () => {
 
   // @ac T3-AC05
   it('phân trang: Trước khóa ở trang 1, Sau khóa ở trang cuối, đổi bộ lọc về trang 1, một trang thì không có phân trang', async () => {
-    await renderApp('#/thu-vien', { seed: settingsSeed(), source: await publicSource() });
+    await renderApp('#/thu-vien?xem=cau', { seed: settingsSeed(), source: await publicSource() });
     expect(rows().length).toBe(32);
     expect(screen.getByText('Trang 1/128')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Trước' })).toHaveAttribute('aria-disabled', 'true');
@@ -102,7 +102,7 @@ describe('T3 Thư viện', () => {
 
   // @ac T3-AC06
   it('chạm dòng 257: sheet Câu 0257 có thẻ câu, unit, trạng thái, lần học gần nhất; Học câu này mở phiên một câu', async () => {
-    await renderApp('#/thu-vien', { seed: { ...settingsSeed(), ...progressSeed() } });
+    await renderApp('#/thu-vien?xem=cau', { seed: { ...settingsSeed(), ...progressSeed() } });
     fireEvent.click(document.querySelector('.lib-row[data-id="257"]')!);
     await settle();
     const dialog = screen.getByRole('dialog', { name: 'Câu 0257' });
@@ -120,7 +120,7 @@ describe('T3 Thư viện', () => {
 
   // @ac T3-AC07
   it('không có kết quả: đúng câu thông báo; Xóa tìm kiếm và bộ lọc đưa về danh sách đầy đủ', async () => {
-    await renderApp('#/thu-vien', { seed: settingsSeed() });
+    await renderApp('#/thu-vien?xem=cau', { seed: settingsSeed() });
     await pick('Trạng thái', 'Đã nhớ');
     await type('xyzxyz');
     expect(screen.getByText('Không có câu nào khớp với tìm kiếm và bộ lọc hiện tại.')).toBeInTheDocument();
@@ -133,19 +133,19 @@ describe('T3 Thư viện', () => {
 
   // @ac T3-AC09
   it('Global English có bộ lọc Chủ đề; English Fluency thì không', async () => {
-    const r = await renderApp('#/thu-vien', { seed: settingsSeed(GLOBAL) });
+    const r = await renderApp('#/thu-vien?xem=cau', { seed: settingsSeed(GLOBAL) });
     await pick('Chủ đề', 'Trường học');
     expect(rows().length).toBe(8);
     expect(rowIds()).toEqual([1, 2, 3, 4, 5, 6, 7, 8]);
     r.unmount();
-    await renderApp('#/thu-vien', { seed: settingsSeed() });
+    await renderApp('#/thu-vien?xem=cau', { seed: settingsSeed() });
     expect(screen.queryByRole('button', { name: /^Chủ đề/ })).toBeNull();
     expect(screen.queryByRole('button', { name: /^Trình độ/ })).toBeNull();
   });
 
   // @ac T3-AC10
   it('Trình độ có A1 và B2; chọn B2 còn 8 câu của B2-89; danh sách Chủ đề có ô tìm và số câu', async () => {
-    await renderApp('#/thu-vien', { seed: settingsSeed(GLOBAL) });
+    await renderApp('#/thu-vien?xem=cau', { seed: settingsSeed(GLOBAL) });
     fireEvent.click(screen.getByRole('button', { name: 'Trình độ' }));
     await settle();
     const opts = within(screen.getByRole('dialog')).getAllByRole('button', { pressed: false }).concat(within(screen.getByRole('dialog')).getAllByRole('button', { pressed: true }));
@@ -170,7 +170,7 @@ describe('T3 Thư viện', () => {
 describe('APP và DATA qua Thư viện', () => {
   // @ac APP-AC16
   it('mở sheet Chi tiết câu rồi mở sheet Đổi ngôn ngữ: lúc nào cũng chỉ có một sheet', async () => {
-    await renderApp('#/thu-vien', { seed: settingsSeed() });
+    await renderApp('#/thu-vien?xem=cau', { seed: settingsSeed() });
     let max = 0;
     const obs = new MutationObserver(() => (max = Math.max(max, dialogs().length)));
     obs.observe(document.body, { childList: true, subtree: true });
@@ -192,7 +192,7 @@ describe('APP và DATA qua Thư viện', () => {
     expect(document.querySelector('.t1__situation')).not.toBeNull();
     expect(screen.getByText(/^Cách dùng: /)).toBeInTheDocument();
     g.unmount();
-    await renderApp('#/thu-vien', { seed: settingsSeed(GLOBAL) });
+    await renderApp('#/thu-vien?xem=cau', { seed: settingsSeed(GLOBAL) });
     expect(screen.getByRole('button', { name: 'Chủ đề' })).toBeInTheDocument();
     fireEvent.click(rows()[0]);
     await settle();
@@ -207,7 +207,7 @@ describe('APP và DATA qua Thư viện', () => {
     expect(document.querySelector('.t1__situation')).toBeNull();
     expect(screen.queryByText(/^Cách dùng: /)).toBeNull();
     f.unmount();
-    await renderApp('#/thu-vien', { seed: settingsSeed() });
+    await renderApp('#/thu-vien?xem=cau', { seed: settingsSeed() });
     expect(screen.queryByRole('button', { name: 'Chủ đề' })).toBeNull();
     fireEvent.click(rows()[0]);
     await settle();
@@ -219,9 +219,9 @@ describe('APP và DATA qua Thư viện', () => {
 describe('T3 ô tìm theo route', () => {
   // @ac T3-AC03
   it('route đổi từ chỗ khác (chạm lại tab Thư viện) thì ô tìm theo route', async () => {
-    await renderApp('#/thu-vien?q=book', { seed: settingsSeed(GLOBAL) });
+    await renderApp('#/thu-vien?xem=cau&q=book', { seed: settingsSeed(GLOBAL) });
     expect(rows().length).toBe(3);
-    window.location.hash = '#/thu-vien';
+    window.location.hash = '#/thu-vien?xem=cau';
     await settle(50);
     expect(search().value).toBe('');
     await settle(320);

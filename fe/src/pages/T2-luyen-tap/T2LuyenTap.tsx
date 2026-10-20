@@ -3,11 +3,12 @@ import { useEffect, useMemo } from 'react';
 import { CaretRight, MagnifyingGlass, X } from '@phosphor-icons/react';
 import { Button } from '../../components/C3-nut/Button';
 import { useSheet } from '../../components/C6-sheet/SheetHost';
-import { dueItemIds, formatCount, lowerFirst, nextUnitIndex, searchItems, type LanguageData } from '../../data';
+import { dueItemIds, formatCount, lowerFirst, nextUnitIndex, openTest, searchItems, type LanguageData } from '../../data';
 import { navigate } from '../../app/router';
 import { useApp } from '../../app/state';
 import { createStore, useStore, type Store } from '../../app/hooks';
 import { topicsByCount } from '../T3-thu-vien/filter';
+import { pausedTestLine } from '../S5-kiem-tra-nhanh/S5KiemTra';
 import './t2.css';
 
 const FIXED_CHIPS = ['đặt phòng', 'ăn uống', 'sân bay', 'mua sắm'];
@@ -23,6 +24,9 @@ export function T2LuyenTap() {
   // T2-04: unit đang học trong lộ trình; học hết lộ trình thì unit cuối.
   const ui = nextUnitIndex(d, progress) ?? d.units.length - 1;
   const unitNumber = d.units[ui]?.number;
+  // T2-04, S5-09: có bài kiểm tra dở thì mở lại đúng chỗ.
+  const paused = openTest(progress);
+  const pausedLine = paused ? pausedTestLine(d, paused) : null;
 
   const openKeyword = () => {
     const store = createStore({ input: '', q: '' });
@@ -69,10 +73,16 @@ export function T2LuyenTap() {
           </button>
         </li>
         <li>
-          <button type="button" className="t2__row" onClick={() => navigate('kiem-tra', { unit: unitNumber })}>
+          <button
+            type="button"
+            className="t2__row"
+            onClick={() => (paused && pausedLine ? navigate('kiem-tra', { unit: paused.params?.unit, tiep: 1 }) : navigate('kiem-tra', { unit: unitNumber }))}
+            data-testid="t2-kiem-tra"
+          >
             <span className="t2__row-text">
               <span className="t2__name t-body">Kiểm tra nhanh</span>
               <span className="t-sm muted">Nghe và chọn nghĩa, nghe theo cụm, sắp xếp câu.</span>
+              {pausedLine && <span className="t2__paused t-sm">{pausedLine}</span>}
             </span>
             <CaretRight size={20} aria-hidden className="t2__caret" />
           </button>

@@ -42,7 +42,15 @@ test.describe('Đợt 2: các màn còn lại', () => {
         bad.push(...(await axe(page, `T2 sheet từ khóa ${tag}`)));
         await page.keyboard.press('Escape');
 
+        // Đợt 5: cách xem Unit (T3-09) và S10 Chi tiết Unit cũng được quét.
         await go(page, './#/thu-vien');
+        await expect(page.locator('.unit-row').first()).toBeVisible();
+        bad.push(...(await axe(page, `T3 cách xem Unit ${tag}`)));
+        await go(page, './#/unit?so=2');
+        await expect(page.getByRole('button', { name: /unit này$/ }).first()).toBeVisible();
+        bad.push(...(await axe(page, `S10 ${tag}`)));
+
+        await go(page, './#/thu-vien?xem=cau');
         await expect(page.locator('.lib-row').first()).toBeVisible();
         bad.push(...(await axe(page, `T3 ${tag}`)));
         await page.locator('.lib-row').nth(2).click();
@@ -108,6 +116,7 @@ test.describe('Đợt 2: các màn còn lại', () => {
     await page.getByRole('button', { name: 'Thoát' }).click();
     await page.getByRole('dialog').getByRole('button', { name: 'Dừng' }).click();
     await page.getByRole('link', { name: 'Thư viện', exact: true }).click();
+    await page.getByRole('button', { name: 'Xem theo câu' }).click();
     await page.getByRole('searchbox', { name: 'Tìm câu hoặc nghĩa' }).fill('book');
     await page.getByRole('link', { name: 'Cài đặt' }).click();
     await page.getByRole('button', { name: /Giọng đọc/ }).click();
@@ -118,11 +127,24 @@ test.describe('Đợt 2: các màn còn lại', () => {
 
   // @ac T3-AC08
   // @ac APP-AC09
-  for (const width of [900, 1000, 1100, 1280]) {
+  // Đợt 5 việc 6: hai cột từ 1200 px (T3-07); 900 đến 1199 px một cột, chạm dòng mở sheet.
+  for (const width of [900, 1024]) {
+    test(`T3 cách xem Câu một cột dưới 1200 px (${width})`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 800 });
+      await seed(page, { 'vitasr2.settings': settings() });
+      await go(page, './#/thu-vien?xem=cau');
+      await expect(page.locator('.lib-row').first()).toBeVisible();
+      await expect(page.locator('.t3__detail-col')).toHaveCount(0);
+      await page.locator('.lib-row').nth(1).click();
+      await expect(page.getByRole('dialog')).toBeVisible();
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+    });
+  }
+  for (const width of [1200, 1280, 1440]) {
     test(`T3 hai cột không cuộn ngang và cột chi tiết đủ rộng (${width})`, async ({ page }) => {
       await page.setViewportSize({ width, height: 800 });
       await seed(page, { 'vitasr2.settings': settings() });
-      await go(page, './#/thu-vien');
+      await go(page, './#/thu-vien?xem=cau');
       await expect(page.locator('.t3__detail-col')).toBeVisible();
       const m = await page.evaluate(() => ({
         scroll: document.documentElement.scrollWidth,

@@ -48,6 +48,10 @@ Nhóm "Tiến độ" gồm:
 
 Nhóm "Trợ giúp" gồm "Xem lại hướng dẫn" (mở S9 trên T1) và dòng "Phiên bản [số phiên bản app]" không chạm được.
 
+### S8-07 Bố cục máy tính
+
+Từ 1200 px, các nhóm cài đặt xếp vào lưới tự xuống hàng (cột rộng tối thiểu 360 px), thứ tự đọc giữ nguyên.
+
 ## Câu hỏi mở
 
 Không còn câu hỏi mở.
@@ -71,3 +75,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.2 (08/10/2026): hỗ trợ hai bộ nội dung tiếng Anh (English Fluency và Global English).
 - 0.3 (10/10/2026): chốt các câu hỏi mở (Claude quyết định theo ủy quyền của nhóm): nhóm "Dữ liệu" đổi tên thành "Tiến độ"; câu báo lỗi nhập tệp có hướng xử lý; ghi tên nút sheet xác nhận; không có nghe nghĩa ở bản này.
 - 0.4 (18/10/2026): S8-02 thay "Mặc định của thiết bị" bằng "Tự động", ưu tiên giọng Google rồi giọng chất lượng cao, đọc lại bằng giọng trên máy khi giọng cần mạng lỗi; "Giọng cho" thành "Chọn giọng cho"; S8-05 viết tên ngôn ngữ theo FND-12 (theo phản hồi người dùng do nhóm chuyển); S8-05 kiểm cả giá trị trong tệp nhập và giới hạn 8 MB (sửa lỗi tìm thấy khi rà soát code); giọng Tự động lấy vùng theo bộ đang học; câu báo tệp sai viết lại.
+- 0.5 (20/10/2026): thêm S8-07 bố cục từ 1200 px (Đợt 5 việc 6).

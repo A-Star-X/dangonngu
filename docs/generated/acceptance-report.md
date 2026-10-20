@@ -1,13 +1,13 @@
 # Báo cáo acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-20 14:29 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-20 15:13 UTC. Không sửa tay.
 
 Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã được đánh dấu [x].
 
 | Khu vực | Tên | Đã đạt | auto | claude | human | Trạng thái |
 |---|---|---|---|---|---|---|
 | G | Tổng quan giao diện bản mới | 1/5 | - | 1/1 | 0/4 | Chưa |
-| APP | Khung app | 17/20 | 11/11 | 6/6 | 0/3 | Chưa |
+| APP | Khung app | 23/26 | 15/15 | 8/8 | 0/3 | Chưa |
 | FND | Nền tảng thiết kế | 16/19 | 8/8 | 8/8 | 0/3 | Chưa |
 | DATA | Dữ liệu và tiến độ | 20/21 | 18/18 | 2/2 | 0/1 | Chưa |
 | C1 | Thẻ câu | 9/10 | 8/8 | 1/1 | 0/1 | Chưa |
@@ -18,16 +18,17 @@ Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã đ
 | C6 | Sheet | 5/6 | 3/3 | 2/2 | 0/1 | Chưa |
 | C7 | Thông báo ngắn | 3/3 | 2/2 | 1/1 | - | Đạt |
 | S1 | Chọn ngôn ngữ | 7/8 | 5/5 | 2/2 | 0/1 | Chưa |
+| S10 | Chi tiết Unit | 8/8 | 7/7 | 1/1 | - | Đạt |
 | S3 | Phiên học | 12/13 | 11/11 | 1/1 | 0/1 | Chưa |
-| S5 | Kiểm tra nhanh | 10/11 | 8/8 | 2/2 | 0/1 | Chưa |
-| S8 | Cài đặt | 10/13 | 9/9 | 1/1 | 0/3 | Chưa |
+| S5 | Kiểm tra nhanh | 14/15 | 11/11 | 3/3 | 0/1 | Chưa |
+| S8 | Cài đặt | 11/14 | 9/9 | 2/2 | 0/3 | Chưa |
 | S9 | Hướng dẫn lần đầu | 5/6 | 4/4 | 1/1 | 0/1 | Chưa |
-| T1 | Học | 9/10 | 7/7 | 2/2 | 0/1 | Chưa |
-| T2 | Luyện tập | 7/7 | 5/5 | 2/2 | - | Đạt |
-| T3 | Thư viện | 10/10 | 8/8 | 2/2 | - | Đạt |
-| T4 | Tiến độ | 9/10 | 8/8 | 1/1 | 0/1 | Chưa |
+| T1 | Học | 12/13 | 10/10 | 2/2 | 0/1 | Chưa |
+| T2 | Luyện tập | 8/8 | 5/5 | 3/3 | - | Đạt |
+| T3 | Thư viện | 14/14 | 11/11 | 3/3 | - | Đạt |
+| T4 | Tiến độ | 10/11 | 8/8 | 2/2 | 0/1 | Chưa |
 
-Tổng: 163/186 mục đã đạt.
+Tổng: 191/214 mục đã đạt.
 
 ## Mục còn mở
 
