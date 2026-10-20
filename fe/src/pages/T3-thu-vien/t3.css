@@ -5,7 +5,8 @@
 /* T3-07: từ 900 px hai cột, danh sách trái tối đa 480 px, chi tiết bên phải. */
 @media (min-width: 900px) {
   .t3--wide { display: grid; grid-template-columns: minmax(0, min(480px, 50%)) minmax(0, 1fr); gap: var(--s-8); align-items: start; }
-  .t3__detail-col { position: sticky; top: var(--s-6); display: flex; flex-direction: column; gap: var(--s-4); align-items: flex-start; min-width: 0; }
+  /* Tiêu đề khối cách nội dung 12 px (FND-07). */
+  .t3__detail-col { position: sticky; top: var(--s-6); display: flex; flex-direction: column; gap: var(--s-3); align-items: flex-start; min-width: 0; }
   .t3__detail-col .lib-detail { width: 100%; }
 }
 
