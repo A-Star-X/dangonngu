@@ -1,10 +1,10 @@
 # Ma trận truy vết spec, code và acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-20 14:53 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-20 14:57 UTC. Không sửa tay.
 
-Tổng: 148 yêu cầu, 205 mục acceptance, 496 ghi chú @spec/@ac trong code.
+Tổng: 148 yêu cầu, 205 mục acceptance, 503 ghi chú @spec/@ac trong code.
 
-Yêu cầu chưa có code gắn @spec: 10/148.
+Yêu cầu chưa có code gắn @spec: 9/148.
 
 ## G Tổng quan giao diện bản mới
 
@@ -57,7 +57,7 @@ Spec: [fe/src/foundation/spec.md](../../fe/src/foundation/spec.md) · Acceptance
 | FND-12 | Giọng văn và từ ngữ | FND-AC12, FND-AC13 | - | fe/src/data/text.ts:29 | fe/tests/unit/speech.test.ts:99 |
 | FND-13 | Quy tắc tránh giao diện kiểu AI | FND-AC14 | - | - | - |
 | FND-14 | Trợ năng chung | FND-AC15, FND-AC16, FND-AC17 | - | fe/src/foundation/base.css:1 | fe/tests/e2e/app.spec.ts:156<br>fe/tests/e2e/dot2.spec.ts:26 |
-| FND-15 | Thứ bậc chữ | FND-AC18 | - | fe/src/foundation/base.css:1<br>fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:210<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:282<br>fe/src/pages/T1-hoc/T1Hoc.tsx:101 | fe/tests/e2e/dot5-chu.spec.ts:23<br>fe/tests/e2e/dot5-chu.spec.ts:62 |
+| FND-15 | Thứ bậc chữ | FND-AC18 | - | fe/src/foundation/base.css:1<br>fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:210<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:375<br>fe/src/pages/T1-hoc/T1Hoc.tsx:101 | fe/tests/e2e/dot5-chu.spec.ts:23<br>fe/tests/e2e/dot5-chu.spec.ts:62 |
 
 ## DATA Dữ liệu và tiến độ
 
@@ -206,15 +206,15 @@ Spec: [fe/src/pages/S5-kiem-tra-nhanh/spec.md](../../fe/src/pages/S5-kiem-tra-nh
 
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
-| S5-01 | Màn bắt đầu | S5-AC01, S5-AC09 | docs/new/navigation.md:429<br>docs/new/navigation.md:431<br>docs/new/navigation.md:433 | fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/s5.test.tsx:48 |
-| S5-02 | Chỉ báo bước | S5-AC02 | - | fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/s5.test.tsx:73 |
-| S5-03 | Bước 1: Nghe và chọn nghĩa | S5-AC03, S5-AC09 | - | fe/src/app/hooks.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1 | fe/tests/unit/s5.test.tsx:91<br>fe/tests/unit/s5.test.tsx:119 |
-| S5-04 | Bước 2: Nghe theo cụm | S5-AC04, S5-AC09, S5-AC10 | - | fe/src/app/hooks.ts:1<br>fe/src/data/chunks.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/dot2-data.test.ts:48<br>fe/tests/unit/s5.test.tsx:135<br>fe/tests/unit/s5.test.tsx:152 |
-| S5-05 | Bước 3: Sắp xếp câu | S5-AC05, S5-AC09, S5-AC10, S5-AC11 | - | fe/src/data/chunks.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/dot2-data.test.ts:65<br>fe/tests/unit/ra-soat.test.tsx:211<br>fe/tests/unit/s5.test.tsx:169 |
+| S5-01 | Màn bắt đầu | S5-AC01, S5-AC09 | docs/new/navigation.md:429<br>docs/new/navigation.md:431<br>docs/new/navigation.md:433 | fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/s5.test.tsx:49 |
+| S5-02 | Chỉ báo bước | S5-AC02 | - | fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/s5.test.tsx:74 |
+| S5-03 | Bước 1: Nghe và chọn nghĩa | S5-AC03, S5-AC09 | - | fe/src/app/hooks.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1 | fe/tests/unit/s5.test.tsx:92<br>fe/tests/unit/s5.test.tsx:120 |
+| S5-04 | Bước 2: Nghe theo cụm | S5-AC04, S5-AC09, S5-AC10 | - | fe/src/app/hooks.ts:1<br>fe/src/data/chunks.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/dot2-data.test.ts:48<br>fe/tests/unit/s5.test.tsx:136<br>fe/tests/unit/s5.test.tsx:153 |
+| S5-05 | Bước 3: Sắp xếp câu | S5-AC05, S5-AC09, S5-AC10, S5-AC11 | - | fe/src/data/chunks.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/dot2-data.test.ts:65<br>fe/tests/unit/ra-soat.test.tsx:211<br>fe/tests/unit/s5.test.tsx:170 |
 | S5-06 | Nghĩa hiển thị | S5-AC06 | - | fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | - |
-| S5-07 | Kết quả | S5-AC07, S5-AC09, S5-AC14, S5-AC15 | docs/new/navigation.md:143<br>docs/new/navigation.md:439<br>docs/new/navigation.md:441 | fe/src/data/session.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1 | fe/tests/unit/s5.test.tsx:214<br>fe/tests/unit/s5.test.tsx:239 |
-| S5-08 | Tạm dừng giữa chừng | S5-AC08, S5-AC12, S5-AC15 | docs/new/navigation.md:141<br>docs/new/navigation.md:435<br>docs/new/navigation.md:437 | fe/src/data/session.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1 | fe/tests/unit/s5.test.tsx:255<br>fe/tests/unit/s5.test.tsx:286<br>fe/tests/unit/s5.test.tsx:306 |
-| S5-09 | Bài kiểm tra dở | S5-AC12, S5-AC13, S5-AC15 | docs/new/navigation.md:141 | - | - |
+| S5-07 | Kết quả | S5-AC07, S5-AC09, S5-AC14, S5-AC15 | docs/new/navigation.md:143<br>docs/new/navigation.md:439<br>docs/new/navigation.md:441 | fe/src/data/session.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:1<br>fe/src/pages/S5-kiem-tra-nhanh/s5.css:81 | fe/tests/unit/s5.test.tsx:215<br>fe/tests/unit/s5.test.tsx:240<br>fe/tests/unit/s5.test.tsx:403 |
+| S5-08 | Tạm dừng giữa chừng | S5-AC08, S5-AC12, S5-AC15 | docs/new/navigation.md:141<br>docs/new/navigation.md:435<br>docs/new/navigation.md:437 | fe/src/data/session.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1 | fe/tests/unit/s5.test.tsx:256<br>fe/tests/unit/s5.test.tsx:290<br>fe/tests/unit/s5.test.tsx:310<br>fe/tests/unit/s5.test.tsx:335 |
+| S5-09 | Bài kiểm tra dở | S5-AC12, S5-AC13, S5-AC15 | docs/new/navigation.md:141 | fe/src/data/path.ts:1<br>fe/src/data/session.ts:1<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:1 | fe/tests/unit/s5.test.tsx:335<br>fe/tests/unit/s5.test.tsx:364 |
 
 ## S8 Cài đặt
 
@@ -300,7 +300,3 @@ Spec: [fe/src/pages/T4-tien-bo/spec.md](../../fe/src/pages/T4-tien-bo/spec.md) �
 | T4-06 | Các phiên học | S10-AC07, T4-AC07 | - | fe/src/data/stats.ts:1<br>fe/src/pages/T4-tien-bo/T4TienBo.tsx:1<br>fe/src/pages/T4-tien-bo/t4.css:1 | fe/tests/unit/dot5-unit.test.tsx:146<br>fe/tests/unit/t2-t4.test.tsx:214 |
 | T4-07 | Chi tiết ngày | T4-AC08 | docs/new/navigation.md:157<br>docs/new/navigation.md:521 | fe/src/data/stats.ts:1<br>fe/src/pages/T4-tien-bo/T4TienBo.tsx:1<br>fe/src/pages/T4-tien-bo/t4.css:1 | fe/tests/unit/t2-t4.test.tsx:230 |
 | T4-08 | Chưa có dữ liệu | T4-AC09 | docs/new/navigation.md:159<br>docs/new/navigation.md:523 | fe/src/pages/T4-tien-bo/T4TienBo.tsx:1<br>fe/src/pages/T4-tien-bo/t4.css:1 | fe/tests/unit/t2-t4.test.tsx:250 |
-
-## Mục [auto] chưa có test gắn @ac (3)
-
-S5-AC12, S5-AC13, S5-AC14

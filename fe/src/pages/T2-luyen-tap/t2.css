@@ -30,3 +30,5 @@
 .kw__preview > li { display: flex; flex-direction: column; gap: var(--s-1); padding: var(--s-3) 0; }
 .kw__preview > li + li { border-top: 1px solid var(--line); }
 .kw__none { padding: var(--s-2) 0; }
+/* T2-04, S5-09: dòng bài kiểm tra dở. */
+.t2__paused { color: var(--ink); font-weight: 600; }
