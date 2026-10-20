@@ -66,7 +66,7 @@ Ba dòng: "Hôm nay", "Ngày mai", "7 ngày tới", mỗi dòng là số câu đ
 
 ### T4-06 Các phiên học
 
-Danh sách phiên hoàn tất trong khoảng, mới nhất trước: giờ (và ngày nếu khác hôm nay), nguồn ("Học theo lộ trình", "Ôn tập", "Học theo từ khóa", "Học một câu", "Kiểm tra nhanh", trùng tên lối vào của từng cách học), dải ô (C2) thể hiện kết quả từng câu. Tối đa 20 phiên, có nút "Xem thêm".
+Danh sách phiên hoàn tất trong khoảng, mới nhất trước: giờ (và ngày nếu khác hôm nay), nguồn ("Học theo lộ trình", "Ôn tập", "Học theo từ khóa", "Học một câu", "Học theo unit", "Kiểm tra nhanh", trùng tên lối vào của từng cách học), dải ô (C2) thể hiện kết quả từng câu. Tối đa 20 phiên, có nút "Xem thêm".
 
 ### T4-07 Chi tiết ngày
 
@@ -96,3 +96,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.1 (07/10/2026): bản đầu.
 - 0.2 (10/10/2026): chốt các câu hỏi mở (Claude quyết định theo ủy quyền của nhóm).
 - 0.3 (18/10/2026): đổi tên khu thành "Tiến độ"; nhãn "phiên học", "câu cần ôn hôm nay", "Lịch ôn tập", "Các phiên học"; tên nguồn phiên trùng tên lối vào; câu khi chưa có phiên (theo phản hồi người dùng do nhóm chuyển); T4-03 đổi thành "Mục tiêu mỗi tuần" cho cùng tên với Cài đặt.
+- 0.4 (20/10/2026): T4-06 thêm tên nguồn "Học theo unit" (Đợt 5 việc 3).

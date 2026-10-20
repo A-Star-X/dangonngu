@@ -42,7 +42,15 @@ test.describe('Đợt 2: các màn còn lại', () => {
         bad.push(...(await axe(page, `T2 sheet từ khóa ${tag}`)));
         await page.keyboard.press('Escape');
 
+        // Đợt 5: cách xem Unit (T3-09) và S10 Chi tiết Unit cũng được quét.
         await go(page, './#/thu-vien');
+        await expect(page.locator('.unit-row').first()).toBeVisible();
+        bad.push(...(await axe(page, `T3 cách xem Unit ${tag}`)));
+        await go(page, './#/unit?so=2');
+        await expect(page.getByRole('button', { name: /unit này$/ }).first()).toBeVisible();
+        bad.push(...(await axe(page, `S10 ${tag}`)));
+
+        await go(page, './#/thu-vien?xem=cau');
         await expect(page.locator('.lib-row').first()).toBeVisible();
         bad.push(...(await axe(page, `T3 ${tag}`)));
         await page.locator('.lib-row').nth(2).click();
@@ -108,6 +116,7 @@ test.describe('Đợt 2: các màn còn lại', () => {
     await page.getByRole('button', { name: 'Thoát' }).click();
     await page.getByRole('dialog').getByRole('button', { name: 'Dừng' }).click();
     await page.getByRole('link', { name: 'Thư viện', exact: true }).click();
+    await page.getByRole('button', { name: 'Xem theo câu' }).click();
     await page.getByRole('searchbox', { name: 'Tìm câu hoặc nghĩa' }).fill('book');
     await page.getByRole('link', { name: 'Cài đặt' }).click();
     await page.getByRole('button', { name: /Giọng đọc/ }).click();
@@ -122,7 +131,7 @@ test.describe('Đợt 2: các màn còn lại', () => {
     test(`T3 hai cột không cuộn ngang và cột chi tiết đủ rộng (${width})`, async ({ page }) => {
       await page.setViewportSize({ width, height: 800 });
       await seed(page, { 'vitasr2.settings': settings() });
-      await go(page, './#/thu-vien');
+      await go(page, './#/thu-vien?xem=cau');
       await expect(page.locator('.t3__detail-col')).toBeVisible();
       const m = await page.evaluate(() => ({
         scroll: document.documentElement.scrollWidth,

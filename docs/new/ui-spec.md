@@ -72,6 +72,7 @@ Ngoài phạm vi: trang học chính, đăng ký, đăng nhập, thanh toán; l�
 | T4 | Tiến độ | `fe/src/pages/T4-tien-bo/spec.md` | C2 |
 | S8 | Cài đặt | `fe/src/pages/S8-cai-dat/spec.md` | C3, C6, C7 |
 | S9 | Hướng dẫn lần đầu | `fe/src/pages/S9-huong-dan/spec.md` | C3 |
+| S10 | Chi tiết Unit | `fe/src/pages/S10-chi-tiet-unit/spec.md` | C1, C2, C3, C6 |
 
 ## 5. Câu hỏi mở
 
@@ -105,3 +106,4 @@ Không còn câu hỏi mở cho khách. Các câu dưới đây (bảng 10/10/20
 - 0.4 (08/10/2026): cập nhật theo bộ dữ liệu khách gửi và câu trả lời của nhóm (ưu tiên web, responsive; đủ 15 ngôn ngữ; không đọc tiến độ bản cũ).
 - 0.5 (10/10/2026): nhóm trả lời câu hỏi về cách trang chính mở mini app: mở trang mới, không nhúng iframe, có nút về trang học chính (APP-09, APP-12). Câu hỏi 4 cũ thành câu 3.
 - 0.6 (10/10/2026): chốt các câu hỏi còn lại cho khách (Claude quyết định theo ủy quyền của nhóm): không có Chia sẻ, chọn trình độ bắt đầu, chế độ đảo chiều, nghe nghĩa, mục pháp lý ở bản này; quy trình duyệt thiết kế.
+- 0.8 (20/10/2026): thêm S10 Chi tiết Unit vào chỉ mục (Đợt 5 việc 3).

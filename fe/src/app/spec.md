@@ -34,10 +34,11 @@ Route dùng hash (QD-02). Đây là nguồn chân lý cho điều hướng.
 | `#/chon-ngon-ngu` | S1 | |
 | `#/hoc` | T1 | Route mặc định khi đã chọn ngôn ngữ |
 | `#/luyen-tap` | T2 | |
-| `#/thu-vien` | T3 | Tham số tùy chọn `?unit=`, `?q=` |
+| `#/thu-vien` | T3 | Tham số tùy chọn `?xem=unit|cau`, `?trinh-do=`, `?unit=`, `?q=` |
+| `#/unit` | S10 | Tham số `?so=`; thuộc khu Thư viện: có thanh trên cùng, thanh tab với mục Thư viện đang chọn |
 | `#/tien-bo` | T4 | Tham số tùy chọn `?khoang=1|7|30` |
 | `#/cai-dat` | S8 | Mở như một khu, có nút quay lại |
-| `#/phien-hoc` | S3 | Tham số `?nguon=lo-trinh|on-tap|tu-khoa|cau` và tham số theo nguồn |
+| `#/phien-hoc` | S3 | Tham số `?nguon=lo-trinh|on-tap|tu-khoa|cau|unit` và tham số theo nguồn |
 | `#/kiem-tra` | S5 | Tham số tùy chọn `?unit=` |
 
 Route không hợp lệ chuyển về `#/hoc` (hoặc `#/chon-ngon-ngu` nếu chưa chọn ngôn ngữ). Nút Back của trình duyệt đi ngược đúng lịch sử route.
@@ -117,3 +118,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.4 (10/10/2026): chốt cách trang chính mở app là trang mới, không nhúng iframe (APP-09, đổi tên từ "Chạy trong iframe"); thêm nút về trang học chính (APP-12); APP-02 có thêm nút này ở bên trái.
 - 0.5 (10/10/2026): chốt các câu hỏi mở (Claude quyết định theo ủy quyền của nhóm): APP-10 ghi rõ cách kích hoạt bản mới và lưu ngoại tuyến; APP-12 chốt địa chỉ mặc định và trường hợp trang chính mở tab mới; APP-08 đổi câu cảnh báo bộ nhớ bị chặn cho có hướng xử lý (FND-12).
 - 0.6 (18/10/2026): T4 đổi tên thành "Tiến độ"; câu lỗi tải dùng "nhấn"; câu ngoại tuyến gọi người học là "bạn" (theo phản hồi người dùng do nhóm chuyển).
+- 0.7 (20/10/2026): APP-04 thêm route `#/unit` (S10) và tham số cách xem, trình độ của T3; nguồn phiên `unit` (Đợt 5 việc 3).

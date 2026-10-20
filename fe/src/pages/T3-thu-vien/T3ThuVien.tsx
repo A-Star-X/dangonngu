@@ -1,11 +1,26 @@
-// @spec T3-01, T3-02, T3-03, T3-04, T3-05, T3-06, T3-07, DATA-04
+// @spec T3-01, T3-02, T3-03, T3-04, T3-05, T3-06, T3-07, T3-08, T3-09, T3-10, DATA-04
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowCounterClockwise, CaretDown, Check, Circle, MagnifyingGlass, X } from '@phosphor-icons/react';
 import { SentenceCard } from '../../components/C1-the-cau/SentenceCard';
 import { Button } from '../../components/C3-nut/Button';
 import { useSheet } from '../../components/C6-sheet/SheetHost';
-import { daysAgoText, displayStatus, formatCount, levelOf, type DisplayStatus, type Item, type LanguageData } from '../../data';
-import { navigate } from '../../app/router';
+import { Strip, type CellState } from '../../components/C2-dai-8-o/Strip';
+import {
+  daysAgoText,
+  defaultLevel,
+  displayStatus,
+  formatCount,
+  levelOf,
+  unitCounts,
+  unitLearnState,
+  unitLevel,
+  unitStatuses,
+  type DisplayStatus,
+  type Item,
+  type LanguageData,
+  type Unit,
+} from '../../data';
+import { href, navigate } from '../../app/router';
 import { useApp } from '../../app/state';
 import { useDebounced, useMediaQuery } from '../../app/hooks';
 import {
@@ -24,10 +39,143 @@ import './t3.css';
 export function T3ThuVien({ params }: { params: Record<string, string> }) {
   const { data, progress, deps } = useApp();
   if (!data || data.status !== 'ready') return null;
-  return <Library d={data.value} params={params} progress={progress} now={deps.now()} />;
+  const view = params.xem === 'cau' ? 'cau' : 'unit';
+  return (
+    <div className="t3-page page">
+      <div className="page-head t3-head">
+        <h1 className="page-title">Thư viện</h1>
+        {/* T3-08: chọn cách xem, giữ trong route. */}
+        <div className="seg-switch" role="group" aria-label="Cách xem">
+          {(['unit', 'cau'] as const).map((v) => (
+            <button
+              key={v}
+              type="button"
+              className="seg-switch__btn t-sm"
+              aria-label={v === 'unit' ? 'Xem theo unit' : 'Xem theo câu'}
+              aria-pressed={view === v}
+              onClick={() => view !== v && navigate('thu-vien', { xem: v })}
+            >
+              {v === 'unit' ? 'Unit' : 'Câu'}
+            </button>
+          ))}
+        </div>
+      </div>
+      {view === 'cau' ? (
+        <Library d={data.value} params={params} progress={progress} now={deps.now()} />
+      ) : (
+        <UnitLibrary d={data.value} params={params} progress={progress} now={deps.now()} />
+      )}
+    </div>
+  );
 }
 
-function StatusIcon({ status, decorative }: { status: DisplayStatus; decorative?: boolean }) {
+export const UNIT_PAGE_SIZE = 24;
+const CELL: Record<DisplayStatus, CellState> = { 'chua-hoc': 'chua', 'da-nho': 'nho', 'can-on': 'can-on' };
+export const unitCells = (u: Unit, progress: ReturnType<typeof useApp>['progress'], now: number) => unitStatuses(u, progress, now).map((s) => CELL[s]);
+
+/** T3-09, T3-10: danh sách Unit có dải 8 ô, dòng tổng quan và nút trình độ. */
+function UnitLibrary({ d, params, progress, now }: { d: LanguageData; params: Record<string, string>; progress: ReturnType<typeof useApp>['progress']; now: number }) {
+  const levels = useMemo(() => (d.hasLevel ? levelsIn(d) : []), [d]);
+  const asked = params['trinh-do'];
+  const level = levels.length ? (asked && levels.includes(asked) ? asked : defaultLevel(d, progress, levels)) : undefined;
+  const units = useMemo(() => (level ? d.units.filter((u) => unitLevel(d, u) === level) : d.units), [d, level]);
+  const [page, setPage] = useState(1);
+  const listTop = useRef<HTMLParagraphElement>(null);
+  useEffect(() => setPage(1), [level]);
+  const pages = Math.max(1, Math.ceil(units.length / UNIT_PAGE_SIZE));
+  const cur = Math.min(page, pages);
+  const shown = units.slice((cur - 1) * UNIT_PAGE_SIZE, cur * UNIT_PAGE_SIZE);
+  const learned = units.filter((u) => unitLearnState(u, progress) === 'da-hoc').length;
+  const partial = units.filter((u) => unitLearnState(u, progress) === 'dang-hoc').length;
+  const goPage = (n: number) => {
+    setPage(n);
+    listTop.current?.scrollIntoView?.({ block: 'start' });
+  };
+
+  return (
+    <section className="t3u" aria-label="Danh sách unit">
+      <p ref={listTop} className="t3u__summary t-sm muted num" data-testid="t3-unit-summary">
+        {formatCount(units.length)} unit · đã học {formatCount(learned)} · đang học dở {formatCount(partial)}
+      </p>
+      {levels.length > 0 && (
+        <div className="t3u__levels" role="group" aria-label="Trình độ">
+          {levels.map((l) => (
+            <button
+              key={l}
+              type="button"
+              className="lib-filter t-sm"
+              aria-pressed={l === level}
+              onClick={() => navigate('thu-vien', { xem: 'unit', 'trinh-do': l }, { replace: true })}
+            >
+              {l}
+            </button>
+          ))}
+        </div>
+      )}
+      <ul className="t3u__list">
+        {shown.map((u) => (
+          <li key={u.number}>
+            <UnitRow d={d} u={u} progress={progress} now={now} />
+          </li>
+        ))}
+      </ul>
+      {pages > 1 && (
+        <nav className="pager" aria-label="Phân trang">
+          <Button variant="secondary" locked={cur === 1} onClick={() => goPage(cur - 1)}>
+            Trước
+          </Button>
+          <span className="t-sm num">
+            Trang {cur}/{pages}
+          </span>
+          <Button variant="secondary" locked={cur === pages} onClick={() => goPage(cur + 1)}>
+            Sau
+          </Button>
+        </nav>
+      )}
+    </section>
+  );
+}
+
+/** T3-09: một dòng unit; là liên kết thật để mở được ở tab mới. */
+export function UnitRow({ d, u, progress, now }: { d: LanguageData; u: Unit; progress: ReturnType<typeof useApp>['progress']; now: number }) {
+  const lv = unitLevel(d, u);
+  const c = unitCounts(u, progress, now);
+  const n = u.ids.length;
+  const started = c.chuaHoc < n;
+  return (
+    <a className="unit-row" href={href('unit', { so: u.number })} data-so={u.number}>
+      <span className="unit-row__text">
+        <span className="t-sm muted">
+          Unit {u.number}
+          {lv ? ` · ${lv}` : ''}
+        </span>
+        {u.title && (
+          <span className="unit-row__title src t-body" lang={d.lang}>
+            {u.title}
+          </span>
+        )}
+        {u.translation && (
+          <span className="unit-row__vi vi t-sm muted" lang="vi">
+            {u.translation}
+          </span>
+        )}
+      </span>
+      <span className="unit-row__progress">
+        <span aria-hidden>
+          <Strip cells={unitCells(u, progress, now)} />
+        </span>
+        {started && (
+          <span className="unit-row__count t-sm num">
+            {c.daNho}/{n}
+            <span className="sr-only"> câu đã nhớ</span>
+          </span>
+        )}
+      </span>
+    </a>
+  );
+}
+
+export function StatusIcon({ status, decorative }: { status: DisplayStatus; decorative?: boolean }) {
   const label = STATUS_LABEL[status];
   return (
     <span className={`lib-status lib-status--${status}`} title={decorative ? undefined : label} aria-hidden={decorative || undefined}>
@@ -101,7 +249,7 @@ function Library({ d, params, progress, now }: { d: LanguageData; params: Record
     setStatus('all');
     setTopic(null);
     setLevel(null);
-    navigate('thu-vien', {}, { replace: true });
+    navigate('thu-vien', { xem: 'cau' }, { replace: true });
   };
 
   const openDetail = (it: Item) => {
@@ -219,8 +367,6 @@ function Library({ d, params, progress, now }: { d: LanguageData; params: Record
 
   return (
     <section className={`t3 ${wide ? 't3--wide' : ''}`}>
-      {/* @spec FND-15: T3 không vẽ tiêu đề, tiêu đề màn chỉ dành cho trình đọc màn hình. */}
-      <h1 className="sr-only">Thư viện</h1>
       <div className="t3__list-col">
         <div className="lib-search">
           <MagnifyingGlass size={20} aria-hidden className="lib-search__icon" />
@@ -366,8 +512,8 @@ function TopicList({ d, current, onPick }: { d: LanguageData; current: string | 
   );
 }
 
-/** T3-05: nội dung chi tiết câu (dùng trong sheet và ở cột phải từ 900 px). */
-function Detail({ d, id }: { d: LanguageData; id: number }) {
+/** T3-05: nội dung chi tiết câu (dùng trong sheet và ở cột phải từ 900 px; S10-05 dùng lại). */
+export function Detail({ d, id }: { d: LanguageData; id: number }) {
   const { progress, deps, language } = useApp();
   const it = d.byId.get(id);
   if (!it) return null;

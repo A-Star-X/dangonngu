@@ -102,6 +102,7 @@ export const NGUON_LABEL: Record<Nguon, string> = {
   'on-tap': 'Ôn tập',
   'tu-khoa': 'Học theo từ khóa',
   cau: 'Học một câu',
+  unit: 'Học theo unit',
   'kiem-tra': 'Kiểm tra nhanh',
 };
 
