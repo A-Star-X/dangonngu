@@ -84,9 +84,9 @@ Tiến độ và cài đặt lưu localStorage qua một interface `ProgressStor
 
 - `vitasr2.settings`: ngôn ngữ đang học, bộ nội dung đang dùng cho từng ngôn ngữ, giao diện, giọng đọc theo ngôn ngữ, tốc độ đọc, mục tiêu tuần, đã xem hướng dẫn.
 - `vitasr2.progress.{bộ}.{lang}` (ví dụ `vitasr2.progress.global.en`): tiến độ giữ riêng cho từng cặp bộ nội dung và ngôn ngữ, `{ schema: 1, sessions: [], attempts: [], items: { [id]: { status, streak, due, lastAt } } }`.
-  - Session: `id`, `nguon` (lo-trinh, on-tap, tu-khoa, cau, kiem-tra), `itemIds`, `startedAt`, `completedAt`, `position`.
+  - Session: `id`, `nguon` (lo-trinh, on-tap, tu-khoa, cau, unit, kiem-tra), `itemIds`, `startedAt`, `completedAt`, `position`.
   - Attempt: `sessionId`, `itemId`, `at`, `kind` (ghi-nho, trac-nghiem, nghe-chon, sap-xep), `outcome` (nho, can-on, dung, sai), `hinted`. Bước Nghe theo cụm của S5 không ghi lượt.
-  - Session lưu thêm `step` (bước đang làm, `ghi-nho` hoặc `kiem-tra`, để mở lại đúng chỗ, S3-08), `abandonedAt` (phiên dở bị thay bằng phiên mới, S3-08) và `params` (`q`, `nhom`, `id` để mở lại đúng phiên), `hintedItemId` (câu ở `position` đã mở gợi ý, S3-05).
+  - Session lưu thêm `step` (bước đang làm, `ghi-nho` hoặc `kiem-tra`, để mở lại đúng chỗ, S3-08), `abandonedAt` (phiên dở bị thay bằng phiên mới, S3-08) và `params` (`q`, `nhom`, `id`, `so` để mở lại đúng phiên), `hintedItemId` (câu ở `position` đã mở gợi ý, S3-05).
   - Trạng thái lưu của câu (`status`): `da-hoc` khi câu đã qua bước ghi nhớ, `kiem-tra` khi câu mới chỉ gặp ở bài kiểm tra. Mốc thời gian lưu dạng số mili giây.
 
 Khi đọc tiến độ đã lưu, phần tử hỏng (câu có `streak` không phải số nguyên không âm, phiên có `position` ngoài 0 đến số câu hoặc thiếu `step`, lượt sai cấu trúc) bị bỏ, phần còn lại giữ nguyên, để một dòng hỏng không làm app không mở được. App có thể mở ở nhiều tab cùng lúc: tab khác ghi tiến độ hay cài đặt thì tab này nạp lại (riêng ngôn ngữ và bộ đang học giữ theo tab đang xem), và mỗi lần ghi tiến độ đều đọc lại bản đang lưu trước, để tab này không ghi đè mất phần của tab kia. Mọi ghi đều bọc xử lý lỗi; khi localStorage không dùng được, app vẫn chạy với bộ nhớ tạm trong phiên và hiện cảnh báo (APP-08). Không đọc tiến độ của bản cũ (đã chốt 08/10/2026).
@@ -158,3 +158,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.3 (08/10/2026): cập nhật theo bộ dữ liệu khách gửi và câu trả lời của nhóm (ưu tiên web, responsive; đủ 15 ngôn ngữ; không đọc tiến độ bản cũ).
 - 0.4 (10/10/2026): chốt các câu hỏi mở (Claude quyết định theo ủy quyền của nhóm): khoảng ôn, không chọn trình độ bắt đầu, trả lời đúng không gợi ý giữ nguyên lịch, ghi các trường lưu thêm vào DATA-06.
 - 0.5 (18/10/2026): DATA-06 thêm `hintedItemId`, bỏ phần tử hỏng khi đọc tiến độ, đồng bộ giữa các tab; DATA-07 cộng ngày theo lịch; DATA-12 chỉ bỏ dấu chữ Latinh (sửa lỗi tìm thấy khi rà soát code).
+- 0.6 (20/10/2026): DATA-06 thêm nguồn phiên `unit` và tham số `so` (Đợt 5 việc 3).

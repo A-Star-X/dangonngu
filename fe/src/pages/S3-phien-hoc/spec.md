@@ -93,6 +93,7 @@ Tham số `nguon` quyết định nhóm câu:
 | `on-tap` | Tối đa 8 câu Cần ôn (DATA-07), ưu tiên câu có `due` sớm nhất |
 | `tu-khoa` | 8 câu thứ k trong kết quả tìm (tham số `q`, `nhom`), từ T2-03 |
 | `cau` | Các câu của unit chứa câu có `id` được truyền (tham số `id`), từ T3-05 |
+| `unit` | Các câu của unit số `so` (tham số `so`), từ S10-04 |
 
 Nhóm rỗng (ví dụ không còn câu cần ôn): không vào phiên, quay về màn trước và hiện thông báo ngắn (C7) "Không có câu nào để học trong nhóm này."
 
@@ -132,3 +133,4 @@ Không dùng vuốt để chuyển câu. Trên bàn phím: Space hiện câu g�
 
 - 0.1 (07/10/2026): bản đầu.
 - 0.2 (18/10/2026): đổi chữ: "Nhấn để hiện câu gốc", "Xong phiên học", "Xem tiến độ", sheet "Dừng phiên học?" (theo phản hồi người dùng do nhóm chuyển); S3-05 lưu việc mở gợi ý vào phiên; S3-09 bỏ qua phím lặp khi giữ phím (sửa lỗi tìm thấy khi rà soát code); sheet dừng có câu riêng khi chưa xong câu nào.
+- 0.6 (20/10/2026): S3-01 thêm nguồn `unit` cho nút "Học unit này" ở Chi tiết Unit (Đợt 5 việc 3).
