@@ -17,8 +17,7 @@ Một unit với tiến độ của nó, các câu trong unit và lối vào h�
 ```
 ┌───────────────────────────┐
 │ Tiếng Anh ▾          ⚙    │
-│ ‹ Thư viện                │  liên kết về Thư viện
-│ Unit 12 · A1              │
+│ Thư viện / Unit 12 · A1   │  đường dẫn (APP-14)
 │ Order at a café           │  tiêu đề màn: title, font ngôn ngữ đích
 │ Gọi món ở quán cà phê     │
 │ Bạn vào quán và gọi...    │  situation, khi có
@@ -42,11 +41,11 @@ Một unit với tiến độ của nó, các câu trong unit và lối vào h�
 
 ### S10-01 Route và khung
 
-Route `#/unit?so=n` với `n` là số thứ tự unit (DATA-03). Màn thuộc khu Thư viện: có thanh trên cùng (APP-02) và thanh tab với mục Thư viện đang chọn (APP-01). Đầu màn có liên kết "Thư viện" kèm icon mũi tên trái, mở lại Thư viện ở cách xem Unit, đúng trình độ của unit này. `so` không phải số unit có trong dữ liệu thì chuyển về `#/thu-vien` (thay route, không thêm lịch sử).
+Route `#/unit?so=n` với `n` là số thứ tự unit (DATA-03). Màn thuộc khu Thư viện: có thanh trên cùng (APP-02) và thanh tab với mục Thư viện đang chọn (APP-01). Đầu màn là dòng đường dẫn "Thư viện / Unit n" (APP-14). `so` không phải số unit có trong dữ liệu thì chuyển về `#/thu-vien` (thay route, không thêm lịch sử).
 
 ### S10-02 Đầu màn
 
-Từ trên xuống: dòng "Unit n" kèm mã trình độ khi có (`--t-sm`, `--muted`, như T1-01); `title` của unit là tiêu đề màn (`h1`, `--t-xl` đậm 600, font theo ngôn ngữ đích, có `lang`), unit không có `title` thì tiêu đề màn là "Unit n"; `translation` (Literata `--t-body`, `--muted`) khi có; `situation` của câu đầu unit (Literata `--t-sm`, `--muted`) khi có (DATA-04).
+Từ trên xuống: dòng đường dẫn (S10-01) với phần cuối là "Unit n" kèm mã trình độ khi có (`--t-sm`); `title` của unit là tiêu đề màn (`h1`, `--t-xl` đậm 600, font theo ngôn ngữ đích, có `lang`), unit không có `title` thì tiêu đề màn là "Unit n"; `translation` (Literata `--t-body`, `--muted`) khi có; `situation` của câu đầu unit (Literata `--t-sm`, `--muted`) khi có (DATA-04).
 
 ### S10-03 Tiến độ unit
 
@@ -71,3 +70,4 @@ Không có.
 ## Lịch sử thay đổi
 
 - 0.1 (20/10/2026): bản đầu (Đợt 5 việc 3, theo đề xuất `docs/theo-doi/de-xuat-spec-dot5.md` đã duyệt).
+- 0.2 (20/10/2026): S10-01, S10-02 dùng dòng đường dẫn theo APP-14 thay cho liên kết Thư viện và dòng Unit n riêng (Đợt 5 việc 10).

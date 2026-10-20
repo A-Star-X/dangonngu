@@ -1,11 +1,11 @@
-// @spec S10-01, S10-02, S10-03, S10-04, S10-05, S10-06
+// @spec S10-01, S10-02, S10-03, S10-04, S10-05, S10-06, APP-14
 import { useEffect } from 'react';
 import { ArrowLeft, ArrowRight } from '@phosphor-icons/react';
 import { Strip } from '../../components/C2-dai-8-o/Strip';
 import { Button } from '../../components/C3-nut/Button';
 import { useSheet } from '../../components/C6-sheet/SheetHost';
 import { displayStatus, unitCounts, unitLevel, type Item, type LanguageData, type Progress } from '../../data';
-import { href, navigate } from '../../app/router';
+import { href, lastLibraryParams, navigate } from '../../app/router';
 import { useApp } from '../../app/state';
 import { Detail, StatusIcon, unitCells } from '../T3-thu-vien/T3ThuVien';
 import { pad4 } from '../T3-thu-vien/filter';
@@ -64,14 +64,21 @@ function UnitDetail({ d, so, progress, now }: { d: LanguageData; so: number; pro
   return (
     <section className="s10 page">
       <div className="page-head s10__head">
-        <a className="s10__back t-body" href={href('thu-vien', { xem: 'unit', 'trinh-do': lv })}>
-          <ArrowLeft size={20} aria-hidden />
-          Thư viện
-        </a>
-        <p className="t-sm muted">
-          Unit {u.number}
-          {lv ? ` · ${lv}` : ''}
-        </p>
+        {/* APP-14: đường dẫn; tên khu mở lại Thư viện đúng chỗ đã xem. */}
+        <nav className="crumbs t-sm" aria-label="Đường dẫn">
+          <ol>
+            <li>
+              <a className="crumbs__link" href={href('thu-vien', lastLibraryParams() ?? { xem: 'unit', 'trinh-do': lv })}>
+                <ArrowLeft size={16} aria-hidden />
+                Thư viện
+              </a>
+            </li>
+            <li aria-current="page" className="muted">
+              Unit {u.number}
+              {lv ? ` · ${lv}` : ''}
+            </li>
+          </ol>
+        </nav>
         {u.title ? (
           <h1 className="page-title src" lang={d.lang}>
             {u.title}

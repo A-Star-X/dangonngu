@@ -10,7 +10,7 @@ Khổ kiểm mặc định và quy tắc đánh dấu: `docs/QUY-TRINH.md` mục
   - Bằng chứng: ảnh docs/evidence/APP-AC03/ chụp lại sau khi thêm nút về trang học (T1, T2, T3, T4 ở 375 và 1280 px, sáng và tối): nút về trang học ngoài cùng bên trái, tiếp theo là tên ngôn ngữ và tên bộ, nút Cài đặt bên phải (chụp lại sau PR #7 cùng bản build mới), Claude, 2026-10-10, commit 4e21a6e; ảnh chụp lại 10/10 với bản Đợt 3, commit 9aaf1ed; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [x] APP-AC04 [auto] APP-03: Ở `#/phien-hoc`, `#/kiem-tra`, `#/chon-ngon-ngu` không có thanh tab và thanh trên cùng trong DOM hiển thị; S3 và S5 có nút "Thoát".
   - Bằng chứng: test fe/tests/unit/app.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
-- [x] APP-AC05 [auto] APP-04: Mở route không hợp lệ thì chuyển về `#/hoc` (đã chọn ngôn ngữ) hoặc `#/chon-ngon-ngu` (chưa chọn). Nút Back của trình duyệt sau chuỗi T1 → T3 → T4 quay về T3 rồi T1.
+- [ ] APP-AC05 [auto] APP-04: Mở route không hợp lệ thì chuyển về `#/hoc` (đã chọn ngôn ngữ) hoặc `#/chon-ngon-ngu` (chưa chọn). Nút Back của trình duyệt sau chuỗi T1 → T3 → T4 quay về T3 rồi T1.
   - Bằng chứng: test fe/tests/unit/app.test.tsx, fe/tests/e2e/app.spec.ts pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
 - [x] APP-AC06 [auto] APP-05: Với localStorage trống, app mở vào S1; sau khi chọn ngôn ngữ và tải lại trang, app mở thẳng vào T1.
   - Bằng chứng: test fe/tests/unit/app.test.tsx pass (npm test, npm run test:e2e), Claude, 2026-10-08, commit 97e85fa
@@ -39,3 +39,7 @@ Khổ kiểm mặc định và quy tắc đánh dấu: `docs/QUY-TRINH.md` mục
 - [x] APP-AC19 [claude] APP-02, APP-12: Ảnh chụp thanh trên cùng của T1 ở 320, 375 và 1280 px, sáng và tối: nút về trang học nằm ngoài cùng bên trái, vùng chạm từ 44 x 44 px; từ 600 px có chữ "Trang học"; tên ngôn ngữ, tên bộ và nút Cài đặt không bị che hay cắt.
   - Bằng chứng: ảnh và số đo docs/evidence/APP-AC19/ (320, 375, 600, 1280 px, sáng và tối; do-dac-light.json, do-dac-dark.json): nút 44 x 44 px ở 320 và 375 px, 130 x 44 px có chữ "Trang học" từ 600 px; nút, tên ngôn ngữ, nút Cài đặt không chồng nhau; không cuộn ngang; ảnh S1 bước 1 ở 320 và 1280 px (chụp lại sau PR #7: bỏ đường kẻ ngăn thừa bên phải nút ở S1 từ 600 px), Claude, 2026-10-10, commit 4e21a6e; ảnh chụp lại 18/10 với bản Đợt 4, commit 5ed137c
 - [ ] APP-AC20 [human] APP-09, APP-12: Trên trang học chính thật, đăng nhập, mở Đa ngôn ngữ: app mở ở trang mới. Bấm "Quay lại trang học": về đúng trang học chính và vẫn đăng nhập.
+- [ ] APP-AC21 [auto] APP-04: Trên bản build, mở từng route (T1, T2, `#/thu-vien?xem=unit&trinh-do=B2&trang=1`, `#/thu-vien?xem=cau&q=book&trang=1`, `#/unit?so=2`, T4 với `khoang=30`, S8, `#/kiem-tra?unit=2`, S3) rồi tải lại trang: đúng màn và đúng trạng thái trong route; ở T3 sang trang 2 thì route có `trang=2`, tải lại vẫn ở trang 2.
+- [ ] APP-AC22 [auto] APP-04, APP-14: Chuỗi T1 → T3 → sang trang 2 → S10 → Back về T3 vẫn ở trang 2 → Forward về S10 → "Học unit này" → Thoát, Dừng thì về S10 (S3-07) → liên kết "Thư viện" trên đường dẫn mở lại T3 ở trang 2.
+- [ ] APP-AC23 [auto] APP-13: Quét mã nguồn `fe/src`: không có `href` bắt đầu bằng `#` mà không phải `#/`.
+- [ ] APP-AC24 [claude] APP-14, APP-01: Ảnh S10 ở 375 và 1280 px: đường dẫn "Thư viện / Unit n" đầu màn, mục Thư viện trên thanh điều hướng đang chọn.

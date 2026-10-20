@@ -1,13 +1,13 @@
 # Báo cáo acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-20 14:57 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-20 15:02 UTC. Không sửa tay.
 
 Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã được đánh dấu [x].
 
 | Khu vực | Tên | Đã đạt | auto | claude | human | Trạng thái |
 |---|---|---|---|---|---|---|
 | G | Tổng quan giao diện bản mới | 1/5 | - | 1/1 | 0/4 | Chưa |
-| APP | Khung app | 17/20 | 11/11 | 6/6 | 0/3 | Chưa |
+| APP | Khung app | 16/24 | 10/14 | 6/7 | 0/3 | Chưa |
 | FND | Nền tảng thiết kế | 16/19 | 8/8 | 8/8 | 0/3 | Chưa |
 | DATA | Dữ liệu và tiến độ | 20/21 | 18/18 | 2/2 | 0/1 | Chưa |
 | C1 | Thẻ câu | 9/10 | 8/8 | 1/1 | 0/1 | Chưa |
@@ -28,7 +28,7 @@ Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã đ
 | T3 | Thư viện | 0/14 | 0/11 | 0/3 | - | Chưa |
 | T4 | Tiến độ | 9/10 | 8/8 | 1/1 | 0/1 | Chưa |
 
-Tổng: 147/205 mục đã đạt.
+Tổng: 146/209 mục đã đạt.
 
 ## Mục còn mở
 
@@ -41,9 +41,14 @@ Tổng: 147/205 mục đã đạt.
 
 ### APP Khung app
 
+- APP-AC05 [auto] (APP-04): Mở route không hợp lệ thì chuyển về `#/hoc` (đã chọn ngôn ngữ) hoặc `#/chon-ngon-ngu` (chưa chọn). Nút Back của trình duyệt sau chuỗi T1 → T3 → T4 quay về T3 rồi T1.
 - APP-AC13 [human] (APP-07, APP-09): Mở app trên trình duyệt máy tính (Chrome, Edge, Safari) và trên điện thoại (iPhone, Android), mỗi nơi đi hết luồng chọn ngôn ngữ, học một phiên, xem tiến độ: hiển thị đủ, không có điều khiển bị che hay tràn.
 - APP-AC14 [human] (APP-10): Trên điện thoại thật: mở app có mạng, tắt mạng, đóng và mở lại app: vẫn học được ngôn ngữ đã tải.
 - APP-AC20 [human] (APP-09, APP-12): Trên trang học chính thật, đăng nhập, mở Đa ngôn ngữ: app mở ở trang mới. Bấm "Quay lại trang học": về đúng trang học chính và vẫn đăng nhập.
+- APP-AC21 [auto] (APP-04): Trên bản build, mở từng route (T1, T2, `#/thu-vien?xem=unit&trinh-do=B2&trang=1`, `#/thu-vien?xem=cau&q=book&trang=1`, `#/unit?so=2`, T4 với `khoang=30`, S8, `#/kiem-tra?unit=2`, S3) rồi tải lại trang: đúng màn và đúng trạng thái trong route; ở T3 sang trang 2 thì route có `trang=2`, tải lại vẫn ở trang 2.
+- APP-AC22 [auto] (APP-04, APP-14): Chuỗi T1 → T3 → sang trang 2 → S10 → Back về T3 vẫn ở trang 2 → Forward về S10 → "Học unit này" → Thoát, Dừng thì về S10 (S3-07) → liên kết "Thư viện" trên đường dẫn mở lại T3 ở trang 2.
+- APP-AC23 [auto] (APP-13): Quét mã nguồn `fe/src`: không có `href` bắt đầu bằng `#` mà không phải `#/`.
+- APP-AC24 [claude] (APP-14, APP-01): Ảnh S10 ở 375 và 1280 px: đường dẫn "Thư viện / Unit n" đầu màn, mục Thư viện trên thanh điều hướng đang chọn.
 
 ### FND Nền tảng thiết kế
 
@@ -73,8 +78,8 @@ Tổng: 147/205 mục đã đạt.
 
 ### S10 Chi tiết Unit
 
-- S10-AC01 [auto] (S10-01): Mở `#/unit?so=2` thấy thanh tab với mục Thư viện đang chọn; liên kết "Thư viện" mở `#/thu-vien` ở cách xem Unit; mở `#/unit?so=9999` thì route thành `#/thu-vien`.
-- S10-AC02 [auto] (S10-02): Với fixture Global English, đầu màn có "Unit n · A1", tiêu đề màn là `title` có `lang` đúng, `translation` và `situation` của unit.
+- S10-AC01 [auto] (S10-01): Mở `#/unit?so=2` thấy thanh tab với mục Thư viện đang chọn; đường dẫn có liên kết "Thư viện" mở `#/thu-vien` ở cách xem Unit và phần "Unit 2" có `aria-current="page"`; mở `#/unit?so=9999` thì route thành `#/thu-vien`.
+- S10-AC02 [auto] (S10-02): Với fixture Global English, đường dẫn kết thúc bằng "Unit n · A1", tiêu đề màn là `title` có `lang` đúng, `translation` và `situation` của unit.
 - S10-AC03 [auto] (S10-03): Với tiến độ fixture, dải 8 ô và dòng "Đã nhớ x · Cần ôn y · Chưa học z" đúng trạng thái từng câu; phần có số 0 không hiện.
 - S10-AC04 [auto] (S10-04, S3-01): "Học unit này" mở `#/phien-hoc?nguon=unit&so=n`, phiên có đúng các câu của unit n; thoát phiên thì về `#/unit?so=n`; unit đã nhớ hết thì nút là "Ôn lại unit này"; "Kiểm tra nhanh unit này" mở `#/kiem-tra?unit=n`.
 - S10-AC05 [auto] (S10-05): Danh sách có đúng các câu của unit; chạm một dòng mở sheet "Câu [id]" ở cả 375 và 1280 px.

@@ -1,6 +1,6 @@
 # Ánh xạ sơ đồ điều hướng sang spec
 
-File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-20 14:57 UTC từ các dòng `%% @spec` trong docs/new/navigation.md. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-20 15:02 UTC từ các dòng `%% @spec` trong docs/new/navigation.md. Không sửa tay.
 
 Tổng: 108 mũi tên; 107 gắn yêu cầu, 1 ngoài phạm vi.
 
@@ -67,9 +67,9 @@ Tổng: 108 mũi tên; 107 gắn yêu cầu, 1 ngoài phạm vi.
 | T3 Thư viện → Sheet Chi tiết câu | chạm vào câu | T3-05 Chi tiết câu ([fe/src/pages/T3-thu-vien/spec.md:93](../../fe/src/pages/T3-thu-vien/spec.md)) | `fe/src/pages/T3-thu-vien/` | docs/new/navigation.md:145 |
 | Sheet Chi tiết câu → S3 Phiên học | Học câu này | T3-05 Chi tiết câu ([fe/src/pages/T3-thu-vien/spec.md:93](../../fe/src/pages/T3-thu-vien/spec.md)) | `fe/src/pages/T3-thu-vien/` | docs/new/navigation.md:147 |
 | T3 Thư viện → S10 Chi tiết Unit | chạm vào unit | T3-09 Danh sách Unit ([fe/src/pages/T3-thu-vien/spec.md:109](../../fe/src/pages/T3-thu-vien/spec.md)) | `fe/src/pages/T3-thu-vien/` | docs/new/navigation.md:149 |
-| S10 Chi tiết Unit → S3 Phiên học | Học unit này | S10-04 Hành động ([fe/src/pages/S10-chi-tiet-unit/spec.md:55](../../fe/src/pages/S10-chi-tiet-unit/spec.md)) | `fe/src/pages/S10-chi-tiet-unit/` | docs/new/navigation.md:151 |
-| S10 Chi tiết Unit → S5 Kiểm tra nhanh | Kiểm tra nhanh unit này | S10-04 Hành động ([fe/src/pages/S10-chi-tiet-unit/spec.md:55](../../fe/src/pages/S10-chi-tiet-unit/spec.md)) | `fe/src/pages/S10-chi-tiet-unit/` | docs/new/navigation.md:153 |
-| S10 Chi tiết Unit → Sheet Chi tiết câu | chạm vào câu | S10-05 Danh sách câu ([fe/src/pages/S10-chi-tiet-unit/spec.md:59](../../fe/src/pages/S10-chi-tiet-unit/spec.md)) | `fe/src/pages/S10-chi-tiet-unit/` | docs/new/navigation.md:155 |
+| S10 Chi tiết Unit → S3 Phiên học | Học unit này | S10-04 Hành động ([fe/src/pages/S10-chi-tiet-unit/spec.md:54](../../fe/src/pages/S10-chi-tiet-unit/spec.md)) | `fe/src/pages/S10-chi-tiet-unit/` | docs/new/navigation.md:151 |
+| S10 Chi tiết Unit → S5 Kiểm tra nhanh | Kiểm tra nhanh unit này | S10-04 Hành động ([fe/src/pages/S10-chi-tiet-unit/spec.md:54](../../fe/src/pages/S10-chi-tiet-unit/spec.md)) | `fe/src/pages/S10-chi-tiet-unit/` | docs/new/navigation.md:153 |
+| S10 Chi tiết Unit → Sheet Chi tiết câu | chạm vào câu | S10-05 Danh sách câu ([fe/src/pages/S10-chi-tiet-unit/spec.md:58](../../fe/src/pages/S10-chi-tiet-unit/spec.md)) | `fe/src/pages/S10-chi-tiet-unit/` | docs/new/navigation.md:155 |
 | T4 Tiến độ → Sheet Chi tiết ngày | chạm vào cột ngày | T4-07 Chi tiết ngày ([fe/src/pages/T4-tien-bo/spec.md:71](../../fe/src/pages/T4-tien-bo/spec.md)) | `fe/src/pages/T4-tien-bo/` | docs/new/navigation.md:157 |
 | T4 Tiến độ → S3 Phiên học | Học 8 câu, khi chưa có phiên | T4-08 Chưa có dữ liệu ([fe/src/pages/T4-tien-bo/spec.md:75](../../fe/src/pages/T4-tien-bo/spec.md)) | `fe/src/pages/T4-tien-bo/` | docs/new/navigation.md:159 |
 | S3 Phiên học → S3c Tổng kết phiên | xong câu cuối | S3-02 Khung phiên ([fe/src/pages/S3-phien-hoc/spec.md:100](../../fe/src/pages/S3-phien-hoc/spec.md))<br>S3-06 Tổng kết phiên ([fe/src/pages/S3-phien-hoc/spec.md:116](../../fe/src/pages/S3-phien-hoc/spec.md)) | `fe/src/pages/S3-phien-hoc/` | docs/new/navigation.md:161 |
@@ -138,10 +138,10 @@ Tổng: 108 mũi tên; 107 gắn yêu cầu, 1 ngoài phạm vi.
 | «list item» Dòng unit (cách xem Unit) → «window» S10 Chi tiết Unit | Click | T3-09 Danh sách Unit ([fe/src/pages/T3-thu-vien/spec.md:109](../../fe/src/pages/T3-thu-vien/spec.md)) | `fe/src/pages/T3-thu-vien/` | docs/new/navigation.md:480 |
 | «list item» Dòng câu (cách xem Câu) → «sheet» Chi tiết câu | Click | T3-05 Chi tiết câu ([fe/src/pages/T3-thu-vien/spec.md:93](../../fe/src/pages/T3-thu-vien/spec.md)) | `fe/src/pages/T3-thu-vien/` | docs/new/navigation.md:482 |
 | «button» Học câu này → «window» S3 Phiên học | Click | T3-05 Chi tiết câu ([fe/src/pages/T3-thu-vien/spec.md:93](../../fe/src/pages/T3-thu-vien/spec.md)) | `fe/src/pages/T3-thu-vien/` | docs/new/navigation.md:484 |
-| «button» Học unit này → «window» S3 Phiên học | Click | S10-04 Hành động ([fe/src/pages/S10-chi-tiet-unit/spec.md:55](../../fe/src/pages/S10-chi-tiet-unit/spec.md)) | `fe/src/pages/S10-chi-tiet-unit/` | docs/new/navigation.md:486 |
-| «button» Kiểm tra nhanh unit này → «window» S5 Kiểm tra nhanh | Click | S10-04 Hành động ([fe/src/pages/S10-chi-tiet-unit/spec.md:55](../../fe/src/pages/S10-chi-tiet-unit/spec.md)) | `fe/src/pages/S10-chi-tiet-unit/` | docs/new/navigation.md:488 |
-| «list item» Dòng câu → «sheet» Chi tiết câu | Click | S10-05 Danh sách câu ([fe/src/pages/S10-chi-tiet-unit/spec.md:59](../../fe/src/pages/S10-chi-tiet-unit/spec.md)) | `fe/src/pages/S10-chi-tiet-unit/` | docs/new/navigation.md:490 |
-| «link» Thư viện → «window» T3 Thư viện | Click | S10-01 Route và khung ([fe/src/pages/S10-chi-tiet-unit/spec.md:43](../../fe/src/pages/S10-chi-tiet-unit/spec.md)) | `fe/src/pages/S10-chi-tiet-unit/` | docs/new/navigation.md:492 |
+| «button» Học unit này → «window» S3 Phiên học | Click | S10-04 Hành động ([fe/src/pages/S10-chi-tiet-unit/spec.md:54](../../fe/src/pages/S10-chi-tiet-unit/spec.md)) | `fe/src/pages/S10-chi-tiet-unit/` | docs/new/navigation.md:486 |
+| «button» Kiểm tra nhanh unit này → «window» S5 Kiểm tra nhanh | Click | S10-04 Hành động ([fe/src/pages/S10-chi-tiet-unit/spec.md:54](../../fe/src/pages/S10-chi-tiet-unit/spec.md)) | `fe/src/pages/S10-chi-tiet-unit/` | docs/new/navigation.md:488 |
+| «list item» Dòng câu → «sheet» Chi tiết câu | Click | S10-05 Danh sách câu ([fe/src/pages/S10-chi-tiet-unit/spec.md:58](../../fe/src/pages/S10-chi-tiet-unit/spec.md)) | `fe/src/pages/S10-chi-tiet-unit/` | docs/new/navigation.md:490 |
+| «link» Thư viện → «window» T3 Thư viện | Click | S10-01 Route và khung ([fe/src/pages/S10-chi-tiet-unit/spec.md:42](../../fe/src/pages/S10-chi-tiet-unit/spec.md)) | `fe/src/pages/S10-chi-tiet-unit/` | docs/new/navigation.md:492 |
 
 ## 4.6 T4 Tiến độ
 

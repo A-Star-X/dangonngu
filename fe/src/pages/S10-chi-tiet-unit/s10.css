@@ -1,14 +1,14 @@
-/* @spec S10-01, S10-02, S10-03, S10-04, S10-06, FND-07 */
+/* @spec S10-01, S10-02, S10-03, S10-04, S10-06, APP-14, FND-07 */
 .s10 { max-width: 720px; }
 .s10__head { display: flex; flex-direction: column; gap: var(--s-1); align-items: flex-start; }
-.s10__back {
-  display: inline-flex; align-items: center; gap: var(--s-2);
-  min-height: 44px; margin-bottom: var(--s-3);
-  color: var(--ink); text-decoration: none;
-}
+/* APP-14: đường dẫn "Thư viện / Unit n" */
+.crumbs { margin-bottom: var(--s-2); }
+.crumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2); }
+.crumbs li + li::before { content: '/'; margin-right: var(--s-2); color: var(--muted); }
+.crumbs__link { display: inline-flex; align-items: center; gap: var(--s-1); min-height: 44px; color: var(--ink); text-decoration: none; }
 .s10__progress { display: flex; flex-direction: column; gap: var(--s-3); align-items: flex-start; }
 .s10__actions { display: flex; flex-direction: column; gap: var(--s-2); align-items: stretch; width: 100%; margin-top: var(--s-2); }
 @media (min-width: 600px) { .s10__actions { flex-direction: row; align-items: center; width: auto; } }
 .s10__nav { display: flex; justify-content: space-between; gap: var(--s-3); border-top: 1px solid var(--line); padding-top: var(--s-4); }
 .s10__link { display: inline-flex; align-items: center; gap: var(--s-2); min-height: 44px; color: var(--ink); text-decoration: none; }
-@media (hover: hover) { .s10__back:hover, .s10__link:hover { text-decoration: underline; } }
+@media (hover: hover) { .crumbs__link:hover, .s10__link:hover { text-decoration: underline; } }
