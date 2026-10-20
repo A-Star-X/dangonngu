@@ -190,10 +190,12 @@ function TestView({ d, unit, unitIndex }: { d: LanguageData; unit: Unit; unitInd
               Kiểm tra nhanh · Unit {unit.number}
               {level ? ` · ${level}` : ''}
             </p>
-            {unit.title && (
+            {unit.title ? (
               <h1 className="t-lg s5__title src" lang={d.lang}>
                 {unit.title}
               </h1>
+            ) : (
+              <h1 className="sr-only">Kiểm tra nhanh</h1>
             )}
             {unit.translation && (
               <p className="t-body vi muted" lang="vi">
@@ -246,7 +248,7 @@ function TestView({ d, unit, unitIndex }: { d: LanguageData; unit: Unit; unitInd
     return (
       <div className="s3 s3--summary s5">
         <div className="s3__body">
-          <h1 className="t-lg s3__done-title">Xong kiểm tra</h1>
+          <h1 className="page-title s3__done-title">Xong kiểm tra</h1>
           <ul className="s5__result">
             {lines.map((l) => (
               <li key={l.s} className="t-body num">
@@ -277,6 +279,8 @@ function TestView({ d, unit, unitIndex }: { d: LanguageData; unit: Unit; unitInd
 
   return (
     <div className="s3 s5">
+      {/* @spec FND-15: khi đang làm bài S5 không vẽ tiêu đề, tiêu đề màn chỉ dành cho trình đọc màn hình. */}
+      <h1 className="sr-only">Kiểm tra nhanh</h1>
       <header className="s3__bar s5__bar">
         <button type="button" className="s3__exit" onClick={confirmExit}>
           <X size={24} aria-hidden />

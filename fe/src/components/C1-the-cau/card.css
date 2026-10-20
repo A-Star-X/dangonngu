@@ -1,12 +1,13 @@
-/* @spec C1-01, C1-02, C1-03, C1-05 */
+/* @spec C1-01, C1-02, C1-03, C1-05, FND-07 */
 .card {
   display: flex; flex-direction: column; gap: var(--s-4);
   background: var(--surface);
   border-radius: var(--r-card);
-  padding: var(--s-6);
+  padding: var(--s-4);
   min-width: 0;
 }
-@media (max-width: 359px) { .card { padding: var(--s-4); } }
+/* Lề trong thẻ 16 px dưới 600 px, 24 px từ 600 px (FND-07). */
+@media (min-width: 600px) { .card { padding: var(--s-6); } }
 .card--covered { cursor: pointer; }
 .card__top { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
 .card__meaning { color: var(--ink); overflow-wrap: anywhere; }

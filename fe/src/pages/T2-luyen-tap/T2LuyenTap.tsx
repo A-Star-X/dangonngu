@@ -34,8 +34,8 @@ export function T2LuyenTap() {
   };
 
   return (
-    <section className="t2">
-      <h1 className="t-lg t2__title">Luyện tập</h1>
+    <section className="t2 page">
+      <h1 className="page-title t2__title">Luyện tập</h1>
       <ul className="t2__list">
         <li>
           <button

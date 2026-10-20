@@ -51,6 +51,7 @@ export function T1Hoc() {
     const total = d.items.length;
     return (
       <section className="t1 t1--done">
+        <h1 className="sr-only">Học</h1>
         <div className="t1__goal-area">{goalLine}</div>
         <div className="t1__main">
           <p className="t-body">
@@ -81,6 +82,8 @@ export function T1Hoc() {
 
   return (
     <section className="t1">
+      {/* @spec FND-15: T1 không vẽ tiêu đề, tiêu đề màn chỉ dành cho trình đọc màn hình. */}
+      <h1 className="sr-only">Học</h1>
       <div className="t1__main">
         <SentenceCard
           item={item}

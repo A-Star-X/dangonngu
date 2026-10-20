@@ -24,12 +24,14 @@
   --shadow-dialog: 0 12px 48px rgb(15 30 61 / 0.24);
 
   /* Thang chữ FND-05 */
-  --t-sm: 13px;   --lh-sm: 18px;
-  --t-body: 16px; --lh-body: 24px;
-  --t-lg: 20px;   --lh-lg: 28px;
-  --t-xl: 25px;   --lh-xl: 32px;
-  --t-2xl: 31px;  --lh-2xl: 38px;
-  --t-3xl: 39px;  --lh-3xl: 46px;
+  --t-sm: 14px;   --lh-sm: 20px;
+  --t-body: 16px; --lh-body: 26px;
+  --t-lg: 20px;   --lh-lg: 30px;
+  --t-xl: 25px;   --lh-xl: 34px;
+  --t-2xl: 31px;  --lh-2xl: 42px;
+  --t-3xl: 39px;  --lh-3xl: 48px;
+  /* Chữ từ --t-xl trở lên giãn chữ âm vì Lexend rộng (FND-05). */
+  --ls-large: -0.01em;
 
   /* Khoảng cách FND-07 */
   --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-6: 24px; --s-8: 32px; --s-12: 48px;

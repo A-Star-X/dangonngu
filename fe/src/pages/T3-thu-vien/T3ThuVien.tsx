@@ -219,6 +219,8 @@ function Library({ d, params, progress, now }: { d: LanguageData; params: Record
 
   return (
     <section className={`t3 ${wide ? 't3--wide' : ''}`}>
+      {/* @spec FND-15: T3 không vẽ tiêu đề, tiêu đề màn chỉ dành cho trình đọc màn hình. */}
+      <h1 className="sr-only">Thư viện</h1>
       <div className="t3__list-col">
         <div className="lib-search">
           <MagnifyingGlass size={20} aria-hidden className="lib-search__icon" />
@@ -289,7 +291,7 @@ function Library({ d, params, progress, now }: { d: LanguageData; params: Record
       </div>
       {wide && detailItem && (
         <aside className="t3__detail-col" aria-label="Chi tiết câu">
-          <h2 className="t-lg t3__detail-title">Câu {pad4(detailItem.id)}</h2>
+          <h2 className="block-title t3__detail-title">Câu {pad4(detailItem.id)}</h2>
           <Detail d={d} id={detailItem.id} />
           <Button variant="primary" onClick={() => navigate('phien-hoc', { nguon: 'cau', id: detailItem.id })}>
             Học câu này

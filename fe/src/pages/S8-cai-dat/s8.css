@@ -1,8 +1,6 @@
 /* @spec S8-01, S8-02, S8-04, S8-05, S8-06 */
-.s8 { display: flex; flex-direction: column; gap: var(--s-8); max-width: 720px; }
-.s8__title { font-weight: 600; }
-.s8__group { display: flex; flex-direction: column; gap: var(--s-1); }
-.s8__group-title { font-weight: 600; }
+/* Tiêu đề màn, tiêu đề nhóm và khoảng cách theo .page, .page-title, .block, .block-title (FND-07, FND-15). */
+.s8 { max-width: 720px; }
 .s8__list { background: var(--surface); border-radius: var(--r-card); padding: 0 var(--s-4); }
 .s8__list > li + li, .s8__list > .s8__radio + .s8__radio { border-top: 1px solid var(--line); }
 .s8__row {

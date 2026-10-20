@@ -1,10 +1,10 @@
 # Ma trận truy vết spec, code và acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-18 17:19 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-20 14:19 UTC. Không sửa tay.
 
-Tổng: 135 yêu cầu, 184 mục acceptance, 448 ghi chú @spec/@ac trong code.
+Tổng: 136 yêu cầu, 186 mục acceptance, 456 ghi chú @spec/@ac trong code.
 
-Yêu cầu chưa có code gắn @spec: 9/135.
+Yêu cầu chưa có code gắn @spec: 9/136.
 
 ## G Tổng quan giao diện bản mới
 
@@ -47,9 +47,9 @@ Spec: [fe/src/foundation/spec.md](../../fe/src/foundation/spec.md) · Acceptance
 | FND-02 | Quy tắc dùng màu | FND-AC02, FND-AC03 | - | - | fe/tests/unit/foundation.test.ts:53 |
 | FND-03 | Sáng và tối | FND-AC04 | - | fe/index.html:7<br>fe/src/app/state.tsx:1<br>fe/src/foundation/tokens.css:1 | fe/tests/e2e/app.spec.ts:70 |
 | FND-04 | Font | FND-AC05 | - | fe/src/foundation/base.css:1<br>fe/src/foundation/fonts.ts:1 | - |
-| FND-05 | Thang chữ | FND-AC06 | - | fe/src/foundation/base.css:1<br>fe/src/foundation/tokens.css:1 | fe/tests/unit/foundation.test.ts:93 |
+| FND-05 | Thang chữ | FND-AC06, FND-AC19 | - | fe/src/foundation/base.css:1<br>fe/src/foundation/tokens.css:1 | fe/tests/unit/foundation.test.ts:93 |
 | FND-06 | Cỡ câu theo độ dài | FND-AC07 | - | fe/src/foundation/typography.ts:1 | fe/tests/unit/foundation.test.ts:104 |
-| FND-07 | Khoảng cách và lề | FND-AC08 | - | fe/src/foundation/base.css:1<br>fe/src/foundation/tokens.css:1 | - |
+| FND-07 | Khoảng cách và lề | FND-AC08, FND-AC19 | - | fe/src/components/C1-the-cau/card.css:1<br>fe/src/foundation/base.css:1<br>fe/src/foundation/tokens.css:1 | - |
 | FND-08 | Bo góc theo vai trò | FND-AC08 | - | fe/src/foundation/tokens.css:1 | - |
 | FND-09 | Đổ bóng | FND-AC08 | - | fe/src/foundation/tokens.css:1 | - |
 | FND-10 | Icon | FND-AC09 | - | - | - |
@@ -57,6 +57,7 @@ Spec: [fe/src/foundation/spec.md](../../fe/src/foundation/spec.md) · Acceptance
 | FND-12 | Giọng văn và từ ngữ | FND-AC12, FND-AC13 | - | fe/src/data/text.ts:29 | fe/tests/unit/speech.test.ts:99 |
 | FND-13 | Quy tắc tránh giao diện kiểu AI | FND-AC14 | - | - | - |
 | FND-14 | Trợ năng chung | FND-AC15, FND-AC16, FND-AC17 | - | fe/src/foundation/base.css:1 | fe/tests/e2e/app.spec.ts:156<br>fe/tests/e2e/dot2.spec.ts:26 |
+| FND-15 | Thứ bậc chữ | FND-AC18 | - | fe/src/foundation/base.css:1<br>fe/src/pages/S3-phien-hoc/S3PhienHoc.tsx:210<br>fe/src/pages/S5-kiem-tra-nhanh/S5KiemTra.tsx:282<br>fe/src/pages/T1-hoc/T1Hoc.tsx:85<br>fe/src/pages/T3-thu-vien/T3ThuVien.tsx:222 | fe/tests/e2e/dot5-chu.spec.ts:23<br>fe/tests/e2e/dot5-chu.spec.ts:62 |
 
 ## DATA Dữ liệu và tiến độ
 

@@ -1,6 +1,6 @@
 /* @spec T2-01, T2-03, T2-05, C6-04 */
-.t2 { display: flex; flex-direction: column; gap: var(--s-4); max-width: 720px; }
-.t2__title { font-weight: 600; }
+/* Tiêu đề và khoảng cách theo .page, .page-title (FND-07, FND-15). */
+.t2 { max-width: 720px; }
 .t2__list > li + li { border-top: 1px solid var(--line); }
 .t2__row {
   display: flex; align-items: center; gap: var(--s-3);

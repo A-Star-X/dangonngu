@@ -1,7 +1,7 @@
 /* @spec T4-01, T4-02, T4-03, T4-04, T4-05, T4-06, T4-07, T4-08 */
-.t4 { display: flex; flex-direction: column; gap: var(--s-8); max-width: 720px; }
+/* Tiêu đề và khoảng cách giữa các khối theo .page, .page-title, .block-title (FND-07, FND-15). */
+.t4 { max-width: 720px; }
 .t4__head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-3); }
-.t4__title { font-weight: 600; }
 
 /* T4-01: ba nút liền nhau */
 .t4__range { display: inline-flex; border: 1px solid var(--line); border-radius: var(--r-button); overflow: hidden; }
