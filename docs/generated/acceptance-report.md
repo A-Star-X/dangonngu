@@ -1,6 +1,6 @@
 # Báo cáo acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-20 14:50 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-20 14:53 UTC. Không sửa tay.
 
 Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã được đánh dấu [x].
 
@@ -20,15 +20,15 @@ Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã đ
 | S1 | Chọn ngôn ngữ | 7/8 | 5/5 | 2/2 | 0/1 | Chưa |
 | S10 | Chi tiết Unit | 0/8 | 0/7 | 0/1 | - | Chưa |
 | S3 | Phiên học | 12/13 | 11/11 | 1/1 | 0/1 | Chưa |
-| S5 | Kiểm tra nhanh | 10/11 | 8/8 | 2/2 | 0/1 | Chưa |
+| S5 | Kiểm tra nhanh | 7/15 | 5/11 | 2/3 | 0/1 | Chưa |
 | S8 | Cài đặt | 10/13 | 9/9 | 1/1 | 0/3 | Chưa |
 | S9 | Hướng dẫn lần đầu | 5/6 | 4/4 | 1/1 | 0/1 | Chưa |
 | T1 | Học | 7/13 | 6/10 | 1/2 | 0/1 | Chưa |
-| T2 | Luyện tập | 7/7 | 5/5 | 2/2 | - | Đạt |
+| T2 | Luyện tập | 6/7 | 4/5 | 2/2 | - | Chưa |
 | T3 | Thư viện | 0/14 | 0/11 | 0/3 | - | Chưa |
 | T4 | Tiến độ | 9/10 | 8/8 | 1/1 | 0/1 | Chưa |
 
-Tổng: 151/201 mục đã đạt.
+Tổng: 147/205 mục đã đạt.
 
 ## Mục còn mở
 
@@ -88,7 +88,14 @@ Tổng: 151/201 mục đã đạt.
 
 ### S5 Kiểm tra nhanh
 
+- S5-AC01 [auto] (S5-01): Mở `#/kiem-tra` không tham số thì nhóm câu là unit đang học; với `?unit=2` là unit 2. Bốn nút bắt đầu đúng nhãn; mỗi nút chạy đúng bước tương ứng.
+- S5-AC07 [auto] (S5-07): Làm cả 3 bước với 1 câu sai ở bước 1: kết quả hiện đúng số liệu từng bước; câu sai thành Cần ôn trong tiến độ; ở unit cuối không có nút "Kiểm tra unit tiếp theo".
+- S5-AC08 [auto] (S5-08): Thoát giữa bước 2: sheet xác nhận đúng chữ; "Dừng" về T2 Luyện tập (`#/luyen-tap`), kể cả khi mở thẳng `#/kiem-tra`; kết quả các câu đã làm có trong tiến độ; mở lại `#/kiem-tra` bắt đầu từ màn bắt đầu.
 - S5-AC10 [human] (S5-04, S5-05): Ba người học làm cả 3 bước trên điện thoại thật; ghi lại câu nào họ thấy cách chia cụm vô lý. Nhóm quyết định chấp nhận hay đổi quy tắc chia cụm.
+- S5-AC12 [auto] (S5-08, S5-09): Làm cả 3 bước, tạm dừng ở bước 3 câu 2 rồi tải lại trang: T2 hiện "Đang làm dở: Unit n, bước sắp xếp câu, câu 2/N"; chạm mục Kiểm tra nhanh mở lại đúng bước 3, câu 2, chỉ báo có hai bước đầu đã xong; làm hết thì màn kết quả tính cả các câu làm trước khi tạm dừng.
+- S5-AC13 [auto] (S5-09): Có bài dở ở unit n: màn bắt đầu của unit n có "Làm tiếp" và "Làm lại từ đầu"; "Làm lại từ đầu" kết thúc bài dở (T2 không còn dòng làm dở) và hiện lại "Làm cả 3 bước"; bắt đầu bài ở unit khác thì bài dở cũ kết thúc; phiên học dở của S3 không bị ảnh hưởng.
+- S5-AC14 [auto] (S5-07): Sai ngay lần đầu ở câu 2 bước 1 và câu 5 bước 3: khối "Câu cần xem lại" có đúng hai câu đó theo thứ tự, câu gốc có `lang`, có nút Nghe; làm đúng hết thì không có khối.
+- S5-AC15 [claude] (S5-08, S5-09, S5-07): Ảnh 375 và 1280 px, sáng và tối: sheet Tạm dừng kiểm tra, dòng làm dở ở T2, màn bắt đầu có Làm tiếp, khối Câu cần xem lại.
 
 ### S8 Cài đặt
 
@@ -108,6 +115,10 @@ Tổng: 151/201 mục đã đạt.
 - T1-AC11 [auto] (T1-01): Dòng "Unit n" trên thẻ là liên kết tới `#/unit?so=n` của unit đang học.
 - T1-AC12 [auto] (T1-08): Với tiến độ fixture đang học unit 2, khối "Unit tiếp theo" có đúng unit 3 và 4 (fixture có 4 unit), mỗi dòng mở `#/unit?so=n`, liên kết "Xem tất cả unit" mở `#/thu-vien`; đang học unit cuối thì không có khối.
 - T1-AC13 [auto] (T1-09): Với tiến độ mẫu 30 ngày, khối "Tiến độ của bạn" hiện đúng số câu đã học trên tổng số câu của bộ, thanh tiến độ đúng tỉ lệ, đúng số unit đã học; "Xem tiến độ" mở `#/tien-bo`; khối vẫn có khi đã học hết lộ trình.
+
+### T2 Luyện tập
+
+- T2-AC04 [auto] (T2-04): Chạm Kiểm tra nhanh mở `#/kiem-tra` với unit đang học trong lộ trình.
 
 ### T3 Thư viện
 

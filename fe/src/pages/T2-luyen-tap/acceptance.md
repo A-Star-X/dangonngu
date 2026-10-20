@@ -6,7 +6,7 @@
   - Bằng chứng: test fe/tests/unit/t2-t4.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784; kiểm lại 18/10 với bản Đợt 4 (npm test, npm run test:e2e), commit 5ed137c
 - [x] T2-AC03 [auto] T2-03: Gõ "dat phong" trong sheet: sau 250 ms hiện số câu khớp theo DATA-12 và tối đa 5 câu xem trước; chạm chip "sân bay" điền "sân bay" vào ô tìm; "Học 8 câu đầu" mở đúng route với `q` và `nhom=1`; từ khóa chỉ khớp 1 đến 7 câu thì nút là "Học N câu".
   - Bằng chứng: test fe/tests/unit/t2-t4.test.tsx pass (npm test), Claude, 2026-10-10, commit 9aaf1ed; kiểm lại 18/10 với bản Đợt 4 (npm test, npm run test:e2e), commit 5ed137c
-- [x] T2-AC04 [auto] T2-04: Chạm Kiểm tra nhanh mở `#/kiem-tra` với unit đang học trong lộ trình.
+- [ ] T2-AC04 [auto] T2-04: Chạm Kiểm tra nhanh mở `#/kiem-tra` với unit đang học trong lộ trình.
   - Bằng chứng: test fe/tests/unit/t2-t4.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784
 - [x] T2-AC05 [auto] T2-05: Gõ "xyzxyz": hiện đúng câu thông báo không có kết quả và nút "Học 8 câu đầu" bị khóa.
   - Bằng chứng: test fe/tests/unit/t2-t4.test.tsx pass (npm test), Claude, 2026-10-10, commit 757a784; kiểm lại 18/10 với bản Đợt 4 (npm test, npm run test:e2e), commit 5ed137c

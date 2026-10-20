@@ -56,11 +56,20 @@ Dùng các cụm như S5-04, hiện xáo trộn (xáo tất định theo `id` c�
 
 ### S5-07 Kết quả
 
-Sau bước cuối: tiêu đề "Xong kiểm tra", với mỗi bước đã làm là số câu đúng ngay lần đầu trên số câu của bước đó (ví dụ "Nghe và chọn nghĩa: 6/8"), và tổng số câu đã kiểm tra. Nút chính "Kiểm tra unit tiếp theo" (ẩn ở unit cuối), nút dạng chữ "Xong" (về `#/luyen-tap`). Kết quả từng câu ghi vào tiến độ (DATA-06), câu sai đầu tiên ở bất kỳ bước nào thành Cần ôn (DATA-07). Bước Nghe theo cụm không có đúng sai: kết quả ghi số câu đã làm xong trên số câu của bước (ví dụ "Nghe theo cụm: 8/8") và không ghi lượt vào tiến độ, nên phiên chỉ có bước này được tính là phiên hoàn tất nhưng không tính câu nào là đã học.
+Sau bước cuối: tiêu đề "Xong kiểm tra", với mỗi bước đã làm là số câu đúng ngay lần đầu trên số câu của bước đó (ví dụ "Nghe và chọn nghĩa: 6/8"), và tổng số câu đã kiểm tra. Nút chính "Kiểm tra unit tiếp theo" (ẩn ở unit cuối), nút dạng chữ "Xong" (về `#/luyen-tap`). Kết quả từng câu ghi vào tiến độ (DATA-06), câu sai đầu tiên ở bất kỳ bước nào thành Cần ôn (DATA-07). Khi có câu sai ngay lần đầu ở bước 1 hoặc bước 3: khối có tiêu đề khối "Câu cần xem lại" (FND-15) liệt kê các câu đó theo thứ tự trong unit, mỗi câu có câu gốc (font ngôn ngữ đích, có `lang`), nghĩa (Literata, `--muted`) và nút "Nghe" đọc câu gốc; không có câu sai thì không có khối này. Bước Nghe theo cụm không có đúng sai: kết quả ghi số câu đã làm xong trên số câu của bước (ví dụ "Nghe theo cụm: 8/8") và không ghi lượt vào tiến độ, nên phiên chỉ có bước này được tính là phiên hoàn tất nhưng không tính câu nào là đã học.
 
-### S5-08 Thoát giữa chừng
+### S5-08 Tạm dừng giữa chừng
 
-Như S3-07: sheet xác nhận "Dừng kiểm tra? Kết quả các câu đã làm vẫn được lưu." với nút "Làm tiếp" và "Dừng". Không lưu bài kiểm tra dở để làm tiếp. Bấm "Dừng" thì về T2 Luyện tập (cùng chỗ với nút "Xong" ở S5-07), kể cả khi S5 được mở thẳng bằng đường dẫn; nút "Thoát" ở màn bắt đầu cũng về T2.
+Bấm "Thoát" (hoặc Esc, hoặc Back của trình duyệt) khi đang làm bài: mở sheet xác nhận (C6) "Tạm dừng kiểm tra?" với dòng "Bài làm dở được lưu, lần sau làm tiếp từ câu này." và nút "Làm tiếp" (đóng sheet), "Tạm dừng" (lưu bài dở theo S5-09 rồi về T2 Luyện tập, kể cả khi S5 được mở thẳng bằng đường dẫn). Nút "Thoát" ở màn bắt đầu về T2. Kết quả các câu đã làm vẫn được lưu.
+
+### S5-09 Bài kiểm tra dở
+
+Bài đang làm được lưu sau mỗi câu: unit, các bước đã chọn, bước và câu đang làm (DATA-06). Mỗi ngôn ngữ có tối đa một bài kiểm tra dở, tách riêng với phiên học dở của S3 (S3-08); bắt đầu bài kiểm tra mới thì bài dở cũ coi như kết thúc. Khi có bài dở:
+
+- Ở T2, mục Kiểm tra nhanh có thêm dòng "Đang làm dở: Unit n, bước [tên bước viết thường chữ đầu], câu x/N" (x là câu đang làm, N là số câu của bước đó). Chạm mục này thì mở lại bài dở ở đúng bước và đúng câu (`#/kiem-tra?unit=n&tiep=1`).
+- Màn bắt đầu (S5-01) của đúng unit đó có nút chính "Làm tiếp" thay cho "Làm cả 3 bước", nút dạng chữ "Làm lại từ đầu" (kết thúc bài dở rồi về màn bắt đầu như khi chưa có bài dở); ba nút làm một bước vẫn có và cũng bắt đầu bài mới.
+
+Mở lại bài dở thì chỉ báo bước, số câu và số liệu ở màn kết quả tính cả các câu đã làm trước khi tạm dừng.
 
 ## Câu hỏi mở
 
@@ -82,3 +91,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.1 (07/10/2026): bản đầu.
 - 0.2 (10/10/2026): chốt các câu hỏi mở (Claude quyết định theo ủy quyền của nhóm): kết quả bước Nghe theo cụm, không thêm loại lượt, Dừng luôn về T2, bước 1 chờ biết có giọng rồi mới hiện lựa chọn.
 - 0.3 (18/10/2026): S5-05 cụm xếp sai dùng đỏ `--wrong`, thêm dòng báo nhìn thấy được; chữ hướng dẫn dùng "nhấn" (theo phản hồi người dùng do nhóm chuyển); S5-05 giữ focus khi xếp cụm bằng bàn phím (sửa lỗi tìm thấy khi rà soát code).
+- 0.5 (20/10/2026): Đợt 5 việc 8: S5-08 thành Tạm dừng, lưu bài dở; thêm S5-09 bài kiểm tra dở và làm tiếp; S5-07 thêm khối Câu cần xem lại.
