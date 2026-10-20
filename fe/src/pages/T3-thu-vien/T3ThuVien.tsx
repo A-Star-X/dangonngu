@@ -79,16 +79,15 @@ function UnitLibrary({ d, params, progress, now }: { d: LanguageData; params: Re
   const asked = params['trinh-do'];
   const level = levels.length ? (asked && levels.includes(asked) ? asked : defaultLevel(d, progress, levels)) : undefined;
   const units = useMemo(() => (level ? d.units.filter((u) => unitLevel(d, u) === level) : d.units), [d, level]);
-  const [page, setPage] = useState(1);
+  const page = Math.max(1, Number(params.trang) || 1);
   const listTop = useRef<HTMLParagraphElement>(null);
-  useEffect(() => setPage(1), [level]);
   const pages = Math.max(1, Math.ceil(units.length / UNIT_PAGE_SIZE));
   const cur = Math.min(page, pages);
   const shown = units.slice((cur - 1) * UNIT_PAGE_SIZE, cur * UNIT_PAGE_SIZE);
   const learned = units.filter((u) => unitLearnState(u, progress) === 'da-hoc').length;
   const partial = units.filter((u) => unitLearnState(u, progress) === 'dang-hoc').length;
   const goPage = (n: number) => {
-    setPage(n);
+    navigate('thu-vien', { ...params, trang: n > 1 ? n : undefined }, { replace: true });
     listTop.current?.scrollIntoView?.({ block: 'start' });
   };
 
@@ -196,7 +195,8 @@ function Library({ d, params, progress, now }: { d: LanguageData; params: Record
   const [status, setStatus] = useState<StatusFilter>('all');
   const [topic, setTopic] = useState<string | null>(null);
   const [level, setLevel] = useState<string | null>(null);
-  const [page, setPage] = useState(1);
+  // APP-04: trang đang xem giữ trong route (?trang=), đổi trang thì thay route.
+  const page = Math.max(1, Number(params.trang) || 1);
   const [selected, setSelected] = useState<number | null>(null);
   const listTop = useRef<HTMLDivElement>(null);
 
@@ -217,7 +217,8 @@ function Library({ d, params, progress, now }: { d: LanguageData; params: Record
     }
   }, [params.q]);
 
-  const setUnit = (n: number | null) => navigate('thu-vien', { ...params, q: q || undefined, unit: n ?? undefined }, { replace: true });
+  const go = (patch: Record<string, string | number | undefined>) => navigate('thu-vien', { ...params, q: q || undefined, ...patch }, { replace: true });
+  const setUnit = (n: number | null) => go({ unit: n ?? undefined, trang: undefined });
 
   const filter: LibraryFilter = { q, unit, status, topic, level };
   const results = useMemo(() => filterLibrary(d, progress, now, filter), [d, progress, now, q, unit, status, topic, level]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -230,16 +231,16 @@ function Library({ d, params, progress, now }: { d: LanguageData; params: Record
       firstRender.current = false;
       return;
     }
-    setPage(1);
+    if (params.trang) go({ trang: undefined });
     setSelected(null);
-  }, [q, unit, status, topic, level]);
+  }, [q, unit, status, topic, level]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const cur = Math.min(page, pages);
   const pageItems = results.slice((cur - 1) * PAGE_SIZE, cur * PAGE_SIZE);
   const detailItem = wide ? (pageItems.find((it) => it.id === selected) ?? pageItems[0]) : undefined;
 
   const goPage = (n: number) => {
-    setPage(n);
+    go({ trang: n > 1 ? n : undefined });
     setSelected(null);
     listTop.current?.scrollIntoView?.({ block: 'start' });
   };

@@ -69,9 +69,13 @@ describe('T3 cách xem Unit', () => {
 describe('S10 Chi tiết Unit', () => {
   // @ac S10-AC01
   it('thuộc khu Thư viện; liên kết Thư viện về cách xem Unit; số unit sai thì về Thư viện', async () => {
-    const r = await renderApp('#/unit?so=2', { seed: settingsSeed() });
+    const r = await renderApp('#/thu-vien', { seed: settingsSeed() });
+    window.location.hash = '#/unit?so=2';
+    await settle();
     expect(screen.getAllByRole('link', { name: /Thư viện/ }).some((a) => a.getAttribute('aria-current') === 'page')).toBe(true);
-    expect(screen.getByRole('link', { name: 'Thư viện', current: false })).toHaveAttribute('href', '#/thu-vien?xem=unit');
+    const crumbs = screen.getByRole('navigation', { name: 'Đường dẫn' });
+    expect(within(crumbs).getByRole('link', { name: 'Thư viện' })).toHaveAttribute('href', '#/thu-vien');
+    expect(within(crumbs).getByText('Unit 2')).toHaveAttribute('aria-current', 'page');
     r.unmount();
     await renderApp('#/unit?so=9999', { seed: settingsSeed() });
     await settle();
@@ -191,5 +195,27 @@ describe('T1 nối tới Unit (Đợt 5 việc 1)', () => {
     expect(screen.getByRole('button', { name: 'Mở Luyện tập' })).toBeInTheDocument();
     expect(screen.getByTestId('t1-learned').textContent).toBe('29/29 câu');
     expect(screen.getByTestId('t1-units').textContent).toBe('4 unit đã học');
+  });
+});
+
+describe('APP-13 không dùng liên kết neo', () => {
+  // @ac APP-AC23
+  it('mã nguồn fe/src không có href bắt đầu bằng # mà không phải route #/', async () => {
+    const { readdirSync, readFileSync, statSync } = await import('node:fs');
+    const { join } = await import('node:path');
+    const files: string[] = [];
+    const walk = (dir: string) => {
+      for (const f of readdirSync(dir)) {
+        const p = join(dir, f);
+        if (statSync(p).isDirectory()) walk(p);
+        else if (/\.(tsx?|html)$/.test(f)) files.push(p);
+      }
+    };
+    walk('fe/src');
+    const bad = files.flatMap((f) =>
+      [...readFileSync(f, 'utf8').matchAll(/href=\{?["'`]#(?!\/)[^"'`]*["'`]/g)].map((m) => `${f}: ${m[0]}`),
+    );
+    expect(files.length).toBeGreaterThan(20);
+    expect(bad).toEqual([]);
   });
 });

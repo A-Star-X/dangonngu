@@ -1,6 +1,6 @@
 # Báo cáo acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-20 14:58 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-20 15:02 UTC. Không sửa tay.
 
 Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã được đánh dấu [x].
 
@@ -46,7 +46,7 @@ Tổng: 146/209 mục đã đạt.
 - APP-AC14 [human] (APP-10): Trên điện thoại thật: mở app có mạng, tắt mạng, đóng và mở lại app: vẫn học được ngôn ngữ đã tải.
 - APP-AC20 [human] (APP-09, APP-12): Trên trang học chính thật, đăng nhập, mở Đa ngôn ngữ: app mở ở trang mới. Bấm "Quay lại trang học": về đúng trang học chính và vẫn đăng nhập.
 - APP-AC21 [auto] (APP-04): Trên bản build, mở từng route (T1, T2, `#/thu-vien?xem=unit&trinh-do=B2&trang=1`, `#/thu-vien?xem=cau&q=book&trang=1`, `#/unit?so=2`, T4 với `khoang=30`, S8, `#/kiem-tra?unit=2`, S3) rồi tải lại trang: đúng màn và đúng trạng thái trong route; ở T3 sang trang 2 thì route có `trang=2`, tải lại vẫn ở trang 2.
-- APP-AC22 [auto] (APP-04, APP-14): Chuỗi T1 → T3 trang 2 → S10 → S3 → Thoát, Dừng (về S10) → Back về T3 trang 2 → Forward về S10; liên kết "Thư viện" trên đường dẫn của S10 mở lại T3 ở trang 2.
+- APP-AC22 [auto] (APP-04, APP-14): Chuỗi T1 → T3 → sang trang 2 → S10 → Back về T3 vẫn ở trang 2 → Forward về S10 → "Học unit này" → Thoát, Dừng thì về S10 (S3-07) → liên kết "Thư viện" trên đường dẫn mở lại T3 ở trang 2.
 - APP-AC23 [auto] (APP-13): Quét mã nguồn `fe/src`: không có `href` bắt đầu bằng `#` mà không phải `#/`.
 - APP-AC24 [claude] (APP-14, APP-01): Ảnh S10 ở 375 và 1280 px: đường dẫn "Thư viện / Unit n" đầu màn, mục Thư viện trên thanh điều hướng đang chọn.
 
