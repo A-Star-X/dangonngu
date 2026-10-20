@@ -138,6 +138,8 @@ flowchart TD
   %% @spec T2-03
   P -->|"Kiểm tra nhanh"| K["S5 Kiểm tra nhanh"]
   %% @spec T2-04
+  K -->|"Thoát, Tạm dừng"| P
+  %% @spec S5-08, S5-09
   K -->|"xong bước cuối"| KR["S5 Kết quả"]
   %% @spec S5-07
   B -->|"chạm vào câu"| D["Sheet Chi tiết câu"]

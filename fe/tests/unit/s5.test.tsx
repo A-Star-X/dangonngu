@@ -35,6 +35,7 @@ async function doItem(opts: { wrongFirst?: boolean } = {}) {
 }
 
 let enById: Map<number, string> | null = null;
+const enOf = (id: number) => enById!.get(id)!;
 async function currentChunks(): Promise<string[]> {
   if (!enById) {
     const raw = (await new FixtureSource().getLanguageFile('fluency', 'en.json')) as { items: { id: number; en: string }[] };
@@ -253,7 +254,7 @@ describe('S5 Kiểm tra nhanh', () => {
   });
 
   // @ac S5-AC08
-  it('thoát giữa bước 2: sheet đúng chữ; Dừng về màn trước; kết quả đã làm được lưu; mở lại bắt đầu từ màn bắt đầu', async () => {
+  it('thoát giữa bước 2: sheet Tạm dừng đúng chữ; Tạm dừng về T2; kết quả đã làm được lưu; bài dở giữ đúng bước và câu', async () => {
     const r = await renderApp('#/luyen-tap', { seed: settingsSeed() });
     fireEvent.click(screen.getByRole('button', { name: /Kiểm tra nhanh/ }));
     await settle();
@@ -263,34 +264,37 @@ describe('S5 Kiểm tra nhanh', () => {
     for (let i = 0; i < 7; i++) await doItem();
     await doItem();
     expect(stepName()).toBe('Nghe theo cụm');
+    const at = screen.getByText(/^Câu \d+\/\d+$/).textContent;
     fireEvent.click(screen.getByRole('button', { name: 'Thoát' }));
     await settle();
-    const dialog = screen.getByRole('dialog', { name: 'Dừng kiểm tra?' });
-    expect(dialog).toHaveTextContent('Kết quả các câu đã làm vẫn được lưu.');
+    const dialog = screen.getByRole('dialog', { name: 'Tạm dừng kiểm tra?' });
+    expect(dialog).toHaveTextContent('Bài làm dở được lưu, lần sau làm tiếp từ câu này.');
     expect(within(dialog).getByRole('button', { name: 'Làm tiếp' })).toBeInTheDocument();
-    fireEvent.click(within(dialog).getByRole('button', { name: 'Dừng' }));
+    fireEvent.click(within(dialog).getByRole('button', { name: 'Tạm dừng' }));
     await settle();
     expect(hash()).toBe('#/luyen-tap');
     const p = progressOf(r.mem);
     expect(p.attempts.filter((a: { kind: string }) => a.kind === 'nghe-chon')).toHaveLength(8);
     expect(p.items['1']).toMatchObject({ streak: 0 });
-    expect(p.sessions[0].abandonedAt).toBeDefined();
+    expect(p.sessions[0].abandonedAt).toBeUndefined();
     expect(p.sessions[0].completedAt).toBeUndefined();
+    expect(p.sessions[0].params).toMatchObject({ unit: '1', buoc: 'nghe-chon,nghe-cum,sap-xep', buocSo: '1' });
     fireEvent.click(screen.getByRole('button', { name: /Kiểm tra nhanh/ }));
     await settle();
-    expect(screen.getByRole('button', { name: 'Làm cả 3 bước' })).toBeInTheDocument();
+    expect(stepName()).toBe('Nghe theo cụm');
+    expect(screen.getByText(/^Câu \d+\/\d+$/).textContent).toBe(at);
   });
 });
 
 describe('S5 thoát khi mở thẳng đường dẫn', () => {
   // @ac S5-AC08
-  it('mở thẳng #/kiem-tra: Dừng giữa chừng và Thoát ở màn bắt đầu đều về T2 Luyện tập', async () => {
+  it('mở thẳng #/kiem-tra: Tạm dừng giữa chừng và Thoát ở màn bắt đầu đều về T2 Luyện tập', async () => {
     let r = await renderApp('#/kiem-tra?unit=1', { seed: settingsSeed() });
     fireEvent.click(screen.getByRole('button', { name: 'Làm cả 3 bước' }));
     await settle();
     fireEvent.click(screen.getByRole('button', { name: 'Thoát' }));
     await settle();
-    fireEvent.click(within(screen.getByRole('dialog', { name: 'Dừng kiểm tra?' })).getByRole('button', { name: 'Dừng' }));
+    fireEvent.click(within(screen.getByRole('dialog', { name: 'Tạm dừng kiểm tra?' })).getByRole('button', { name: 'Tạm dừng' }));
     await settle();
     expect(hash()).toBe('#/luyen-tap');
     r.unmount();
@@ -310,10 +314,118 @@ describe('S5 nút Back khi đang làm', () => {
     await settle();
     window.location.hash = '#/kiem-tra?unit=1';
     await settle(30);
-    expect(screen.getByRole('dialog', { name: 'Dừng kiểm tra?' })).toBeInTheDocument();
+    expect(screen.getByRole('dialog', { name: 'Tạm dừng kiểm tra?' })).toBeInTheDocument();
     expect(hash()).toBe('#/kiem-tra?unit=2');
     fireEvent.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Làm tiếp' }));
     await settle();
     expect(stepName()).toBe('Nghe và chọn nghĩa');
+  });
+});
+
+// Đợt 5 việc 8: bài kiểm tra dở (S5-09) và khối Câu cần xem lại (S5-07).
+const label = () => screen.getByText(/^Câu \d+\/\d+$/).textContent!;
+const itemId = () => Number(document.querySelector<HTMLElement>('.s5__task')!.dataset.itemId);
+const reload = async (r: { mem: Map<string, string>; unmount: () => void }, hashTo: string) => {
+  const saved = progressOf(r.mem);
+  r.unmount();
+  return renderApp(hashTo, { seed: { ...settingsSeed(), 'vitasr2.progress.fluency.en': saved } });
+};
+
+describe('S5 bài kiểm tra dở', () => {
+  // @ac S5-AC12
+  it('tạm dừng ở bước 3 câu 2, tải lại: T2 có dòng làm dở; chạm mở lại đúng bước và câu; kết quả tính cả phần đã làm', async () => {
+    let r = await renderApp('#/kiem-tra?unit=1', { seed: settingsSeed() });
+    fireEvent.click(screen.getByRole('button', { name: 'Làm cả 3 bước' }));
+    await settle();
+    while (stepName() !== 'Sắp xếp câu') await doItem();
+    const n = Number(label().split('/')[1]);
+    await doItem();
+    expect(label()).toBe(`Câu 2/${n}`);
+    fireEvent.click(screen.getByRole('button', { name: 'Thoát' }));
+    await settle();
+    fireEvent.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Tạm dừng' }));
+    await settle();
+    r = await reload(r, '#/luyen-tap');
+    const row = screen.getByTestId('t2-kiem-tra');
+    expect(row).toHaveTextContent(`Đang làm dở: Unit 1, bước sắp xếp câu, câu 2/${n}`);
+    fireEvent.click(row);
+    await settle();
+    expect(hash()).toBe('#/kiem-tra?unit=1&tiep=1');
+    expect(stepName()).toBe('Sắp xếp câu');
+    expect(label()).toBe(`Câu 2/${n}`);
+    expect(dots()).toEqual(['xong', 'xong', 'dang']);
+    while (stepName() === 'Sắp xếp câu') await doItem();
+    const lines = [...document.querySelectorAll('.s5__result > li')].map((l) => l.textContent);
+    expect(lines[0]).toBe('Nghe và chọn nghĩa: 8/8');
+    expect(lines[1]).toMatch(/^Nghe theo cụm: (\d+)\/\1$/);
+    expect(lines[2]).toBe(`Sắp xếp câu: ${n}/${n}`);
+  });
+
+  // @ac S5-AC13
+  it('màn bắt đầu có Làm tiếp và Làm lại từ đầu; làm lại kết thúc bài dở; bài ở unit khác kết thúc bài dở cũ; phiên học dở của S3 không bị ảnh hưởng', async () => {
+    const s3open = { id: 's3-do', nguon: 'lo-trinh', itemIds: [1, 257, 769, 770, 258, 771, 772, 1793], startedAt: 1, position: 2, step: 'ghi-nho', params: {} };
+    let r = await renderApp('#/kiem-tra?unit=1', { seed: { ...settingsSeed(), 'vitasr2.progress.fluency.en': { schema: 1, sessions: [s3open], attempts: [], items: {} } } });
+    fireEvent.click(screen.getByRole('button', { name: 'Làm cả 3 bước' }));
+    await settle();
+    await doItem();
+    fireEvent.click(screen.getByRole('button', { name: 'Thoát' }));
+    await settle();
+    fireEvent.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'Tạm dừng' }));
+    await settle();
+    r = await reload(r, '#/kiem-tra?unit=1');
+    expect(screen.getByRole('button', { name: 'Làm tiếp' })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Làm cả 3 bước' })).toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: 'Làm lại từ đầu' }));
+    await settle();
+    expect(screen.getByRole('button', { name: 'Làm cả 3 bước' })).toBeInTheDocument();
+    let p = progressOf(r.mem);
+    expect(p.sessions.find((s: { nguon: string }) => s.nguon === 'kiem-tra').abandonedAt).toBeDefined();
+    expect(p.sessions.find((s: { id: string }) => s.id === 's3-do').abandonedAt).toBeUndefined();
+    r = await reload(r, '#/luyen-tap');
+    expect(screen.getByTestId('t2-kiem-tra')).not.toHaveTextContent('Đang làm dở');
+
+    // Bài dở ở unit 1, bắt đầu bài ở unit 2 thì bài dở cũ kết thúc.
+    r = await reload(r, '#/kiem-tra?unit=1');
+    fireEvent.click(screen.getByRole('button', { name: 'Làm cả 3 bước' }));
+    await settle();
+    await doItem();
+    r = await reload(r, '#/kiem-tra?unit=2');
+    fireEvent.click(screen.getByRole('button', { name: 'Làm cả 3 bước' }));
+    await settle();
+    p = progressOf(r.mem);
+    const open = p.sessions.filter((s: { nguon: string; completedAt?: number; abandonedAt?: number }) => s.nguon === 'kiem-tra' && !s.completedAt && !s.abandonedAt);
+    expect(open.map((s: { params: { unit: string } }) => s.params.unit)).toEqual(['2']);
+    expect(p.sessions.find((s: { id: string }) => s.id === 's3-do').abandonedAt).toBeUndefined();
+  });
+});
+
+describe('S5 Câu cần xem lại', () => {
+  // @ac S5-AC14
+  it('liệt kê đúng các câu sai ngay lần đầu theo thứ tự trong unit, có lang và nút Nghe; đúng hết thì không có khối', async () => {
+    fakeSpeech(EN_VOICE);
+    const r = await renderApp('#/kiem-tra?unit=1', { seed: settingsSeed() });
+    fireEvent.click(screen.getByRole('button', { name: 'Làm cả 3 bước' }));
+    await settle();
+    const wrong: number[] = [];
+    while (stepName()) {
+      const pos = Number(label().match(/Câu (\d+)/)![1]);
+      const hit = (stepName() === 'Nghe và chọn nghĩa' && pos === 2) || (stepName() === 'Sắp xếp câu' && pos === 5);
+      if (hit) wrong.push(itemId());
+      await doItem({ wrongFirst: hit });
+    }
+    const order = [1, 257, 769, 770, 258, 771, 772, 1793];
+    const block = screen.getByRole('region', { name: 'Câu cần xem lại' });
+    const shown = [...block.querySelectorAll('.src')];
+    expect(shown.map((e) => e.textContent)).toEqual(order.filter((id) => wrong.includes(id)).map((id) => enOf(id)));
+    for (const e of shown) expect(e).toHaveAttribute('lang', 'en');
+    expect(within(block).getAllByRole('button', { name: /^Nghe/ })).toHaveLength(2);
+    r.unmount();
+
+    await renderApp('#/kiem-tra?unit=1', { seed: settingsSeed() });
+    fireEvent.click(screen.getByRole('button', { name: 'Chỉ nghe và chọn nghĩa' }));
+    await settle();
+    while (stepName()) await doItem();
+    expect(screen.getByText('Xong kiểm tra')).toBeInTheDocument();
+    expect(screen.queryByRole('region', { name: 'Câu cần xem lại' })).toBeNull();
   });
 });

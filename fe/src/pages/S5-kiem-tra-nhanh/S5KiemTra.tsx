@@ -1,4 +1,4 @@
-// @spec S5-01, S5-02, S5-03, S5-04, S5-05, S5-06, S5-07, S5-08, APP-03
+// @spec S5-01, S5-02, S5-03, S5-04, S5-05, S5-06, S5-07, S5-08, S5-09, APP-03
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Check, SpeakerHigh, X } from '@phosphor-icons/react';
 import { SourceText } from '../../components/C1-the-cau/SentenceCard';
@@ -14,12 +14,15 @@ import {
   completeSession,
   levelOf,
   lowerFirst,
+  moveTest,
   nextUnitIndex,
+  openTest,
   recordCheck,
   shuffleOrder,
   startSession,
   type Item,
   type LanguageData,
+  type Session,
   type Unit,
 } from '../../data';
 import { sentenceSize } from '../../foundation/typography';
@@ -52,13 +55,30 @@ export function S5KiemTra({ params }: { params: Record<string, string> }) {
   const ui = resolveUnit(d, progress, params.unit);
   const unit = d.units[ui];
   if (!unit) return null;
-  return <TestView key={`${d.pack}.${d.lang}.${unit.number}`} d={d} unit={unit} unitIndex={ui} />;
+  return <TestView key={`${d.pack}.${d.lang}.${unit.number}`} d={d} unit={unit} unitIndex={ui} resumeNow={params.tiep === '1'} />;
+}
+
+/** Câu tham gia một bước: bước 2 và 3 bỏ câu chỉ có 1 cụm (S5-04, S5-05). */
+function stepEligible(d: LanguageData, items: Item[], step: StepId): Item[] {
+  return step === 'nghe-chon' ? items : items.filter((it) => chunkSentence(it.en, d.lang).length >= 2);
+}
+
+/** S5-09: dòng "Đang làm dở" cho mục Kiểm tra nhanh ở T2. */
+export function pausedTestLine(d: LanguageData, s: Session): string | null {
+  const u = d.units.find((x) => String(x.number) === s.params?.unit);
+  if (!u) return null;
+  const items = u.ids.map((id) => d.byId.get(id)).filter((x): x is Item => !!x);
+  const step = (s.params?.buoc ?? '').split(',')[Number(s.params?.buocSo) || 0] as StepId | undefined;
+  if (!step || !STEP_NAME[step]) return null;
+  const n = stepEligible(d, items, step).length;
+  return `Đang làm dở: Unit ${u.number}, bước ${lowerFirst(STEP_NAME[step])}, câu ${Math.min(s.position, n - 1) + 1}/${n}`;
 }
 
 const isInteractive = (t: EventTarget | null) => t instanceof HTMLElement && !!t.closest('button, a, input, select, textarea, [role="dialog"]');
 
-function TestView({ d, unit, unitIndex }: { d: LanguageData; unit: Unit; unitIndex: number }) {
+function TestView({ d, unit, unitIndex, resumeNow }: { d: LanguageData; unit: Unit; unitIndex: number; resumeNow: boolean }) {
   const { updateProgress, deps, progress } = useApp();
+  const say = useSay();
   const sheet = useSheet();
   const leaving = useRef(false);
   /** Route của bài đang làm; đổi sang route khác (kể cả unit khác qua nút Back) phải hỏi trước (S5-08). */
@@ -80,11 +100,17 @@ function TestView({ d, unit, unitIndex }: { d: LanguageData; unit: Unit; unitInd
 
   const now = () => deps.now();
 
+  // S5-09: bài dở của đúng unit này.
+  const paused = (() => {
+    const s = openTest(progress);
+    return s && s.params?.unit === String(unit.number) ? s : undefined;
+  })();
+
   const begin = (list: StepId[]) => {
     const run = list.filter((s) => eligible(s).length > 0);
     let id = '';
     updateProgress((p) => {
-      const r = startSession(p, 'kiem-tra', items.map((it) => it.id), { unit: String(unit.number) }, now());
+      const r = startSession(p, 'kiem-tra', items.map((it) => it.id), { unit: String(unit.number), buoc: run.join(','), buocSo: '0' }, now());
       id = r.session.id;
       return r.progress;
     });
@@ -100,6 +126,29 @@ function TestView({ d, unit, unitIndex }: { d: LanguageData; unit: Unit; unitInd
     } else setPhase('run');
   };
 
+  /** S5-09: mở lại bài dở ở đúng bước và câu; số câu Nghe theo cụm đã làm tính lại từ vị trí. */
+  const resume = (s: Session) => {
+    const run = (s.params?.buoc ?? '').split(',').filter((x): x is StepId => (ALL_STEPS as string[]).includes(x) && eligible(x as StepId).length > 0);
+    if (run.length === 0) return begin(ALL_STEPS);
+    const i = Math.min(Number(s.params?.buocSo) || 0, run.length - 1);
+    const at = Math.max(0, Math.min(s.position, eligible(run[i]).length - 1));
+    const ci = run.indexOf('nghe-cum');
+    setSessionId(s.id);
+    setSteps(run);
+    setSi(i);
+    setPos(at);
+    setAnswered(false);
+    setCumDone(ci < 0 || ci > i ? 0 : ci < i ? eligible('nghe-cum').length : at);
+    setPhase('run');
+  };
+
+  const resumed = useRef(false);
+  useEffect(() => {
+    if (resumed.current || !resumeNow || !paused) return;
+    resumed.current = true;
+    resume(paused);
+  }); // eslint-disable-line react-hooks/exhaustive-deps
+
   const step = steps[si];
   const stepItems = step ? eligible(step) : [];
   const item = stepItems[pos];
@@ -107,14 +156,21 @@ function TestView({ d, unit, unitIndex }: { d: LanguageData; unit: Unit; unitInd
   const next = () => {
     if (step === 'nghe-cum') setCumDone((n) => n + 1);
     setAnswered(false);
-    if (pos + 1 < stepItems.length) setPos(pos + 1);
-    else if (si + 1 < steps.length) {
-      setSi(si + 1);
-      setPos(0);
-    } else {
+    let ns = si;
+    let np = pos + 1;
+    if (np >= stepItems.length) {
+      ns = si + 1;
+      np = 0;
+    }
+    if (ns >= steps.length) {
       updateProgress((p) => completeSession(p, sessionId!, now()));
       setPhase('done');
+      return;
     }
+    setSi(ns);
+    setPos(np);
+    // S5-09: lưu bước và câu đang làm sau mỗi câu.
+    updateProgress((p) => moveTest(p, sessionId!, ns, np));
   };
 
   // S5-08: Thoát ở màn bắt đầu và Dừng giữa chừng đều về T2 Luyện tập, như nút Xong (S5-07), kể cả khi mở S5 thẳng bằng đường dẫn.
@@ -123,24 +179,23 @@ function TestView({ d, unit, unitIndex }: { d: LanguageData; unit: Unit; unitInd
     navigate('luyen-tap');
   }, []);
 
-  // S5-08: thoát giữa chừng.
+  // S5-08: tạm dừng giữa chừng; bài dở đã được lưu sau mỗi câu (S5-09).
   const confirmExit = useCallback(() => {
     if (sheet.isOpen) return;
     sheet.open({
-      title: 'Dừng kiểm tra?',
+      title: 'Tạm dừng kiểm tra?',
       kind: 'confirm',
-      body: () => <p className="t-body">Kết quả các câu đã làm vẫn được lưu.</p>,
+      body: () => <p className="t-body">Bài làm dở được lưu, lần sau làm tiếp từ câu này.</p>,
       footer: (close) => (
         <>
           <Button
             variant="secondary"
             onClick={() => {
               close();
-              if (sessionId) updateProgress((p) => abandonSession(p, sessionId, deps.now()));
               leave();
             }}
           >
-            Dừng
+            Tạm dừng
           </Button>
           <Button variant="primary" onClick={close}>
             Làm tiếp
@@ -148,7 +203,7 @@ function TestView({ d, unit, unitIndex }: { d: LanguageData; unit: Unit; unitInd
         </>
       ),
     });
-  }, [sheet, sessionId, updateProgress, deps, leave]);
+  }, [sheet, leave]);
 
   const running = phase === 'run';
   useEffect(() => {
@@ -219,9 +274,20 @@ function TestView({ d, unit, unitIndex }: { d: LanguageData; unit: Unit; unitInd
             </li>
           </ol>
           <div className="s5__start-actions">
-            <Button variant="primary" onClick={() => begin(ALL_STEPS)}>
-              Làm cả 3 bước
-            </Button>
+            {paused ? (
+              <>
+                <Button variant="primary" onClick={() => resume(paused)}>
+                  Làm tiếp
+                </Button>
+                <Button variant="text" onClick={() => updateProgress((p) => abandonSession(p, paused.id, now()))}>
+                  Làm lại từ đầu
+                </Button>
+              </>
+            ) : (
+              <Button variant="primary" onClick={() => begin(ALL_STEPS)}>
+                Làm cả 3 bước
+              </Button>
+            )}
             <div className="s5__one">
               {ALL_STEPS.map((s) => (
                 <Button key={s} variant="text" onClick={() => begin([s])}>
@@ -244,6 +310,8 @@ function TestView({ d, unit, unitIndex }: { d: LanguageData; unit: Unit; unitInd
       return { s, text: `${STEP_NAME[s]}: ${x}/${n}` };
     });
     const tested = new Set(steps.flatMap((s) => eligible(s).map((it) => it.id))).size;
+    // S5-07: câu sai ngay lần đầu ở bước 1 hoặc bước 3, theo thứ tự trong unit.
+    const review = items.filter((it) => (['nghe-chon', 'sap-xep'] as const).some((k) => atts.find((a) => a.itemId === it.id && a.kind === k)?.outcome === 'sai'));
     const nextUnit = d.units[unitIndex + 1];
     return (
       <div className="s3 s3--summary s5">
@@ -257,6 +325,31 @@ function TestView({ d, unit, unitIndex }: { d: LanguageData; unit: Unit; unitInd
             ))}
           </ul>
           <p className="t-body num">Đã kiểm tra {tested} câu.</p>
+          {review.length > 0 && (
+            <section className="s5__review block" aria-labelledby="s5-review">
+              <h2 id="s5-review" className="block-title">
+                Câu cần xem lại
+              </h2>
+              <ul className="s5__review-list">
+                {review.map((it) => (
+                  <li key={it.id}>
+                    <span className="s5__review-text">
+                      <span className="src t-body" lang={d.lang}>
+                        {it.en}
+                      </span>
+                      <span className="vi t-sm muted" lang="vi">
+                        {it.vi}
+                      </span>
+                    </span>
+                    <button type="button" className="card__audio-btn" onClick={() => say(it.en, d.lang, d.locale)} aria-label={`Nghe: ${it.en}`}>
+                      <SpeakerHigh size={20} aria-hidden />
+                      Nghe
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
           <div className="s3__summary-actions">
             {nextUnit && (
               <Button variant="primary" onClick={() => navigate('kiem-tra', { unit: nextUnit.number })}>

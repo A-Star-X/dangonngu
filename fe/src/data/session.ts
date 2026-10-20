@@ -1,13 +1,14 @@
-// @spec DATA-06, DATA-07, S3-03, S3-04, S3-05, S3-06, S3-08, S5-07, S5-08
+// @spec DATA-06, DATA-07, S3-03, S3-04, S3-05, S3-06, S3-08, S5-07, S5-08, S5-09
 // Thao tác thuần trên Progress cho một phiên học. Mỗi hàm trả về Progress mới.
 import { applyCheck, applyMemorize } from './review';
 import { newSessionId, type Attempt, type Nguon, type Progress, type Session, type SessionStep } from './progress';
 
 export function startSession(p: Progress, nguon: Nguon, itemIds: number[], params: Record<string, string>, now: number): { progress: Progress; session: Session } {
   const session: Session = { id: newSessionId(now), nguon, itemIds, startedAt: now, position: 0, step: 'ghi-nho', params };
-  // S3-08: chỉ một phiên dở mỗi ngôn ngữ; bắt đầu phiên mới thì phiên dở cũ coi như kết thúc.
+  // S3-08, S5-09: tối đa một phiên học dở và một bài kiểm tra dở mỗi ngôn ngữ; bắt đầu phiên mới cùng loại thì phiên dở cũ coi như kết thúc.
+  const isTest = nguon === 'kiem-tra';
   const sessions = p.sessions.map((s) =>
-    s.completedAt === undefined && s.abandonedAt === undefined && s.nguon !== 'kiem-tra' && nguon !== 'kiem-tra' ? { ...s, abandonedAt: now } : s,
+    s.completedAt === undefined && s.abandonedAt === undefined && (s.nguon === 'kiem-tra') === isTest ? { ...s, abandonedAt: now } : s,
   );
   return { progress: { ...p, sessions: [...sessions, session] }, session };
 }
@@ -53,7 +54,14 @@ export function recordCheck(
   return { ...p, attempts: [...p.attempts, attempt], items };
 }
 
-/** Bỏ dở một phiên: không mở lại được để làm tiếp (S5-08). Kết quả các câu đã làm vẫn giữ. */
+/** S5-09: lưu bước và câu đang làm của bài kiểm tra. */
+export function moveTest(p: Progress, sessionId: string, stepIndex: number, position: number): Progress {
+  const s = p.sessions.find((x) => x.id === sessionId);
+  if (!s) return p;
+  return patchSession(p, sessionId, { position, params: { ...(s.params ?? {}), buocSo: String(stepIndex) } });
+}
+
+/** Bỏ dở một phiên: không mở lại được để làm tiếp. Kết quả các câu đã làm vẫn giữ. */
 export function abandonSession(p: Progress, sessionId: string, now: number): Progress {
   const s = p.sessions.find((x) => x.id === sessionId);
   if (!s || s.completedAt !== undefined || s.abandonedAt !== undefined) return p;

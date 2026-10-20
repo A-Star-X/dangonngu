@@ -77,3 +77,10 @@
 .s5__result { display: flex; flex-direction: column; }
 .s5__result > li { padding: var(--s-3) 0; }
 .s5__result > li + li { border-top: 1px solid var(--line); }
+
+/* @spec S5-07: Câu cần xem lại */
+.s5__review { width: 100%; }
+.s5__review-list > li { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); padding: var(--s-3) 0; }
+.s5__review-list > li + li { border-top: 1px solid var(--line); }
+.s5__review-text { display: flex; flex-direction: column; gap: var(--s-1); min-width: 0; overflow-wrap: anywhere; }
+.s5__review-list .card__audio-btn { flex: none; }

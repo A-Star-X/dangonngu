@@ -1,4 +1,4 @@
-// @spec DATA-11, S3-01, T1-03
+// @spec DATA-11, S3-01, T1-03, S5-09
 // Lộ trình học và cách chọn nhóm câu cho phiên.
 import { dueItemIds, startOfDay } from './review';
 import { searchItems } from './search';
@@ -71,6 +71,15 @@ export function openSession(p: Progress) {
   for (let i = p.sessions.length - 1; i >= 0; i--) {
     const s = p.sessions[i];
     if (s.completedAt === undefined && s.abandonedAt === undefined && s.nguon !== 'kiem-tra') return s;
+  }
+  return undefined;
+}
+
+/** S5-09: bài kiểm tra dở (tối đa một mỗi ngôn ngữ). */
+export function openTest(p: Progress) {
+  for (let i = p.sessions.length - 1; i >= 0; i--) {
+    const s = p.sessions[i];
+    if (s.completedAt === undefined && s.abandonedAt === undefined && s.nguon === 'kiem-tra') return s;
   }
   return undefined;
 }
