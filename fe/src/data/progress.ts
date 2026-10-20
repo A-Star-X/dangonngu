@@ -3,7 +3,7 @@
 import type { SafeStorage } from './storage';
 import type { PackId } from './types';
 
-export type Nguon = 'lo-trinh' | 'on-tap' | 'tu-khoa' | 'cau' | 'kiem-tra';
+export type Nguon = 'lo-trinh' | 'on-tap' | 'tu-khoa' | 'cau' | 'unit' | 'kiem-tra';
 export type AttemptKind = 'ghi-nho' | 'trac-nghiem' | 'nghe-chon' | 'sap-xep';
 export type Outcome = 'nho' | 'can-on' | 'dung' | 'sai';
 export type SessionStep = 'ghi-nho' | 'kiem-tra';
@@ -89,7 +89,7 @@ const isNum = (v: unknown): v is number => typeof v === 'number' && Number.isFin
 const isInt = (v: unknown): v is number => Number.isInteger(v);
 const isStr = (v: unknown): v is string => typeof v === 'string';
 const oneOf = (v: unknown, list: readonly string[]) => isStr(v) && list.includes(v);
-const NGUON = ['lo-trinh', 'on-tap', 'tu-khoa', 'cau', 'kiem-tra'] as const;
+const NGUON = ['lo-trinh', 'on-tap', 'tu-khoa', 'cau', 'unit', 'kiem-tra'] as const;
 const KIND = ['ghi-nho', 'trac-nghiem', 'nghe-chon', 'sap-xep'] as const;
 const OUTCOME = ['nho', 'can-on', 'dung', 'sai'] as const;
 const STEP = ['ghi-nho', 'kiem-tra'] as const;

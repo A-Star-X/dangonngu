@@ -4,7 +4,7 @@ import { SheetProvider, useSheet } from '../components/C6-sheet/SheetHost';
 import { ToastProvider } from '../components/C7-thong-bao/ToastHost';
 import { TabBar } from '../components/C5-thanh-tab/TabBar';
 import { dueItemIds } from '../data';
-import { FULLSCREEN_ROUTES, navigate, useRoute, type Route } from './router';
+import { FULLSCREEN_ROUTES, navigate, tabOf, useRoute, type Route } from './router';
 import { AppProvider, useApp, type AppDeps } from './state';
 import { TopBar } from './TopBar';
 import { LoadError, Skeleton } from './States';
@@ -13,6 +13,7 @@ import { T1Hoc } from '../pages/T1-hoc/T1Hoc';
 import { S3PhienHoc } from '../pages/S3-phien-hoc/S3PhienHoc';
 import { T2LuyenTap } from '../pages/T2-luyen-tap/T2LuyenTap';
 import { T3ThuVien } from '../pages/T3-thu-vien/T3ThuVien';
+import { S10ChiTietUnit } from '../pages/S10-chi-tiet-unit/S10ChiTietUnit';
 import { T4TienBo } from '../pages/T4-tien-bo/T4TienBo';
 import { S5KiemTra } from '../pages/S5-kiem-tra-nhanh/S5KiemTra';
 import { S8CaiDat } from '../pages/S8-cai-dat/S8CaiDat';
@@ -137,7 +138,7 @@ function Shell() {
   const reviewCount = data?.status === 'ready' ? dueItemIds(progress, deps.now(), (id) => data.value.byId.has(id)).length : 0;
   return (
     <div className="shell">
-      <TabBar current={route.name} reviewCount={reviewCount} brand />
+      <TabBar current={tabOf(route.name)} reviewCount={reviewCount} brand />
       <div className="shell__main">
         <TopBar settings={route.name === 'cai-dat'} />
         <Banners />
@@ -157,6 +158,8 @@ function Page({ route }: { route: Route }): ReactNode {
       return <T2LuyenTap />;
     case 'thu-vien':
       return <T3ThuVien params={route.params} />;
+    case 'unit':
+      return <S10ChiTietUnit params={route.params} />;
     case 'tien-bo':
       return <T4TienBo params={route.params} />;
     case 'cai-dat':

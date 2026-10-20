@@ -1,12 +1,14 @@
-// @spec APP-04, S8-01
+// @spec APP-04, S8-01, S10-01
 // Điều hướng bằng hash (QD-02). Bảng route là nguồn chân lý ở APP-04.
 import { useEffect, useState } from 'react';
 
-export type RouteName = 'chon-ngon-ngu' | 'hoc' | 'luyen-tap' | 'thu-vien' | 'tien-bo' | 'cai-dat' | 'phien-hoc' | 'kiem-tra';
+export type RouteName = 'chon-ngon-ngu' | 'hoc' | 'luyen-tap' | 'thu-vien' | 'unit' | 'tien-bo' | 'cai-dat' | 'phien-hoc' | 'kiem-tra';
 
-export const ROUTES: RouteName[] = ['chon-ngon-ngu', 'hoc', 'luyen-tap', 'thu-vien', 'tien-bo', 'cai-dat', 'phien-hoc', 'kiem-tra'];
+export const ROUTES: RouteName[] = ['chon-ngon-ngu', 'hoc', 'luyen-tap', 'thu-vien', 'unit', 'tien-bo', 'cai-dat', 'phien-hoc', 'kiem-tra'];
 export const TAB_ROUTES: RouteName[] = ['hoc', 'luyen-tap', 'thu-vien', 'tien-bo'];
 export const FULLSCREEN_ROUTES: RouteName[] = ['chon-ngon-ngu', 'phien-hoc', 'kiem-tra'];
+/** Khu trên thanh tab mà mỗi route thuộc về (S10-01: Chi tiết Unit thuộc Thư viện). */
+export const tabOf = (name: RouteName | null): RouteName | null => (name === 'unit' ? 'thu-vien' : name);
 
 export interface Route {
   name: RouteName | null;
@@ -106,7 +108,8 @@ export function useRoute(): Route {
     };
   }, []);
   useEffect(() => {
-    if (route.name && TAB_ROUTES.includes(route.name)) lastMain = { name: route.name, params: route.params };
+    // S10-04: thoát phiên mở từ Chi tiết Unit thì về lại đúng unit đó.
+    if (route.name && (TAB_ROUTES.includes(route.name) || route.name === 'unit')) lastMain = { name: route.name, params: route.params };
   }, [route]);
   return route;
 }

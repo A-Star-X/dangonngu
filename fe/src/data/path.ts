@@ -48,6 +48,11 @@ export function sessionGroup(nguon: Nguon, params: Record<string, string>, data:
       const ui = data.unitIndexOf.get(Number(params.id));
       return { itemIds: ui === undefined ? [] : data.units[ui].ids.slice(0, GROUP_SIZE) };
     }
+    // S3-01: nguồn unit, từ nút "Học unit này" ở S10.
+    case 'unit': {
+      const u = data.units.find((x) => x.number === Number(params.so));
+      return { itemIds: u ? u.ids.slice(0, GROUP_SIZE) : [] };
+    }
     default:
       return { itemIds: [] };
   }

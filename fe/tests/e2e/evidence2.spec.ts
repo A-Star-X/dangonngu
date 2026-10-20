@@ -100,19 +100,19 @@ for (const theme of THEMES) {
     for (const w of [320, 375, 1280]) {
       await page.setViewportSize({ width: w, height: w === 1280 ? 800 : 812 });
       // Unit 377 có câu tiếng Anh dài nhất bộ (id 3010) và đủ 3 trạng thái.
-      await go(page, './#/thu-vien?unit=377');
+      await go(page, './#/thu-vien?xem=cau&unit=377');
       await expect(page.locator('.lib-row').first()).toBeVisible();
       await shot(page, 'T3-AC02', `${w}-${theme}-cau-dai`, { full: true });
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
       note('T3-AC02', `${w}-${theme}`, { horizontalOverflow: overflow });
       if (w !== 1280) {
-        await go(page, './#/thu-vien');
+        await go(page, './#/thu-vien?xem=cau');
         await expect(page.locator('.lib-row').first()).toBeVisible();
         await shot(page, 'T3-AC02', `${w}-${theme}-trang-1`);
         await page.locator('.lib-row').nth(2).click();
         await shot(page, 'T3-AC02', `${w}-${theme}-sheet-chi-tiet`);
       } else {
-        await go(page, './#/thu-vien');
+        await go(page, './#/thu-vien?xem=cau');
         await expect(page.locator('.t3__detail-col')).toBeVisible();
         await shot(page, 'T3-AC08', `${w}-${theme}-cau-dau`);
         const m1 = await page.evaluate(() => ({
@@ -267,7 +267,7 @@ test('APP-AC09 bố cục theo khổ', async ({ page }) => {
     await page.setViewportSize({ width: w, height: 900 });
     for (const [name, hash, sel] of [
       ['T1', './#/hoc', '.card'],
-      ['T3', './#/thu-vien', '.lib-row'],
+      ['T3', './#/thu-vien?xem=cau', '.lib-row'],
       ['S3', './#/phien-hoc?nguon=lo-trinh', '.card'],
     ] as const) {
       await go(page, hash);
