@@ -36,7 +36,8 @@ Làm lại giao diện mini app "ĐA NGÔN NGỮ" của VITASR. Repo gồm: tài
 │   │   ├── ui-spec.md
 │   │   ├── acceptance.md
 │   │   ├── navigation.md
-│   │   └── mapping-legacy.md
+│   │   ├── mapping-legacy.md
+│   │   └── san-pham.md           mô tả sản phẩm, sitemap, user flow Đợt 5 (đề xuất)
 │   ├── evidence/                 ảnh chụp, bằng chứng nghiệm thu
 │   ├── thu-that/                 kịch bản thử thật cho các mục [human]
 │   ├── theo-doi/                 checklist chức năng, ánh xạ câu hỏi mở, bản đồ màn hình
