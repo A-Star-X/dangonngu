@@ -1,0 +1,83 @@
+{
+  "320": {
+    "nut": [
+      {
+        "chu": "Nghe",
+        "cao": 44,
+        "trai": 16,
+        "phai": 177,
+        "tren": 421
+      },
+      {
+        "chu": "Dừng",
+        "cao": 44,
+        "trai": 123,
+        "phai": 69,
+        "tren": 421
+      },
+      {
+        "chu": "Nghe lặp",
+        "cao": 44,
+        "trai": 16,
+        "phai": 150,
+        "tren": 477
+      }
+    ],
+    "tranNgang": false,
+    "chuDangTo": "Where"
+  },
+  "375": {
+    "nut": [
+      {
+        "chu": "Nghe",
+        "cao": 44,
+        "trai": 16,
+        "phai": 232,
+        "tren": 421
+      },
+      {
+        "chu": "Dừng",
+        "cao": 44,
+        "trai": 123,
+        "phai": 124,
+        "tren": 421
+      },
+      {
+        "chu": "Nghe lặp",
+        "cao": 44,
+        "trai": 16,
+        "phai": 205,
+        "tren": 477
+      }
+    ],
+    "tranNgang": false,
+    "chuDangTo": "Where"
+  },
+  "1280": {
+    "nut": [
+      {
+        "chu": "Nghe",
+        "cao": 44,
+        "trai": 24,
+        "phai": 441,
+        "tren": 349
+      },
+      {
+        "chu": "Dừng",
+        "cao": 44,
+        "trai": 131,
+        "phai": 333,
+        "tren": 349
+      },
+      {
+        "chu": "Nghe lặp",
+        "cao": 44,
+        "trai": 414,
+        "phai": 24,
+        "tren": 349
+      }
+    ],
+    "tranNgang": false,
+    "chuDangTo": "Where"
+  }
+}

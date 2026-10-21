@@ -118,6 +118,7 @@
     "reveal": "Tap to show the original sentence",
     "usage": "Usage: {note}",
     "listen": "Listen",
+    "listenSlow": "Slow",
     "listenLoop": "Repeat",
     "stop": "Stop",
     "noVoice": "This device has no {lang} voice yet. Open <link>Settings > Voices</link>."

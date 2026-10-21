@@ -1,4 +1,4 @@
-// Ảnh và số đo bằng chứng cho C1-AC12 (tô sáng chữ đang đọc, C1-09).
+// Ảnh và số đo bằng chứng cho C1-AC12 (tô sáng chữ đang đọc, C1-09), C1-AC16 (nghe chậm, C1-10) và C1-AC01.
 // Không phải test nghiệm thu; chỉ chạy khi EVIDENCE=1:  npm run evidence  (cần build trước).
 // Giọng đọc giả: trình duyệt trong test không đọc thật, nên báo vị trí chữ bằng tay qua `onboundary` của câu vừa đọc.
 import { expect, test, type Page } from '@playwright/test';
@@ -99,5 +99,50 @@ for (const theme of ['light', 'dark'] as const) {
       out[w] = { cau: before.text, chuDangTo: word, khungTruoc: { w: before.w, h: before.h }, khungSau: { w: after.w, h: after.h }, soKyTuXeDich: moved, lechMoiKyTu: [...new Set(lech.map((d) => `${d.dx},${d.dy}`))], mark };
     }
     writeFileSync(`${OUT}/do-dac-${theme}.json`, JSON.stringify(out, null, 2) + '\n');
+  });
+}
+
+// C1-AC16 (C1-10) và C1-AC01: hàng ba nút nghe; thẻ có dải 8 ô (T1) và không có dải (S3 bước nhớ câu).
+for (const theme of ['light', 'dark'] as const) {
+  test(`C1-10 nghe chậm ${theme}`, async ({ page }) => {
+    await fakeSpeech(page);
+    await seed(page, { 'vitasr2.theme': theme, 'vitasr2.settings': settings() });
+    const out: Record<string, unknown> = {};
+    for (const w of [320, 375, 1280]) {
+      await page.setViewportSize({ width: w, height: w < 768 ? 812 : 800 });
+      await go(page, '/hoc');
+      const card = page.getByTestId('sentence-card');
+      await expect(card).toBeVisible();
+      await page.evaluate(() => document.fonts.ready.then(() => undefined));
+      await animationsDone(page);
+      await page.mouse.move(0, 0);
+      if (w !== 1280) await card.screenshot({ path: `docs/evidence/C1-AC01/d6-${w}-${theme}-co-dai-8-o.jpg`, type: 'jpeg', quality: 60 });
+      await card.getByRole('button', { name: 'Nghe chậm' }).click();
+      await expect(card.locator('mark')).toHaveCount(1);
+      await page.mouse.move(0, 0);
+      mkdirSync('docs/evidence/C1-AC16', { recursive: true });
+      await card.screenshot({ path: `docs/evidence/C1-AC16/${w}-${theme}-nghe-cham.jpg`, type: 'jpeg', quality: 70 });
+      out[w] = await card.evaluate((c) => {
+        const btns = [...c.querySelectorAll('button')].filter((b) => /Dừng|Nghe/.test(b.textContent ?? ''));
+        const cb = c.getBoundingClientRect();
+        return {
+          nut: btns.map((b) => {
+            const r = b.getBoundingClientRect();
+            return { chu: b.textContent?.trim(), cao: Math.round(r.height), trai: Math.round(r.left - cb.left), phai: Math.round(cb.right - r.right), tren: Math.round(r.top - cb.top) };
+          }),
+          tranNgang: c.scrollWidth > c.clientWidth || document.documentElement.scrollWidth > window.innerWidth,
+          chuDangTo: c.querySelector('mark')?.textContent,
+        };
+      });
+      if (w !== 1280) {
+        await go(page, '/hoc');
+        await page.getByRole('button', { name: /^(Học \d câu|Tiếp tục: \d+ câu còn lại)$/ }).click();
+        await page.getByRole('button', { name: 'Nhấn để hiện câu gốc' }).click();
+        await animationsDone(page);
+        await page.mouse.move(0, 0);
+        await page.getByTestId('sentence-card').screenshot({ path: `docs/evidence/C1-AC01/d6-${w}-${theme}-khong-dai.jpg`, type: 'jpeg', quality: 60 });
+      }
+    }
+    writeFileSync(`docs/evidence/C1-AC16/do-dac-${theme}.json`, JSON.stringify(out, null, 2) + '\n');
   });
 }
