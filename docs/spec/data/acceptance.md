@@ -1,0 +1,50 @@
+# Acceptance: DATA Dữ liệu và tiến độ
+
+- [x] DATA-AC01 [auto] DATA-01, DATA-02, DATA-03: Test đọc toàn bộ fixture qua `FixtureSource` và kiểm hợp đồng: mọi item có `id`, `en` (câu gốc, kể cả ở file tiếng Đức, Nhật…) và `vi`; mọi id trong `units[].ids` khớp một item.
+  - Bằng chứng: test tests/unit/data.test.ts pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC02 [auto] DATA-02, DATA-05: Cho nguồn trả về item thiếu `vi` hoặc `id` dạng chuỗi chữ: bộ kiểm hợp đồng báo lỗi và app hiện trạng thái lỗi APP-08, không ném lỗi chưa bắt.
+  - Bằng chứng: test tests/unit/app.test.tsx, tests/unit/data.test.ts pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC03 [auto] DATA-03: Unit 5 câu trong fixture tạo phiên 5 câu; id "0001" khớp item `id: 1`.
+  - Bằng chứng: test tests/unit/data.test.ts pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC04 [auto] DATA-04: Render thẻ câu với item chỉ có `id`, `hierarchy`, `en`, `vi`: không lỗi, không có khối Cách dùng hay phiên âm trong DOM.
+  - Bằng chứng: test tests/unit/components.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC05 [claude] DATA-05: Tìm trong mã nguồn `src`: chỉ `src/services/content-services/api.ts` gọi `fetch` tới dữ liệu câu; build với `NEXT_PUBLIC_DATA_BASE_URL` trỏ tới nơi khác thì app đọc dữ liệu từ đó.
+  - Bằng chứng: tìm `fetch(` trong src: chỉ `src/services/content-services/api.ts` (StaticFileSource) đọc dữ liệu câu; `src/app/sw.js/route.ts` chỉ chuyển tiếp và lưu đệm request của trang (APP-10), không tự đọc dữ liệu. Chạy thử với `NEXT_PUBLIC_DATA_BASE_URL=https://cdn.vi.du/vitasr-data/`: `contentFileUrl('fluency','en.json')` cho `https://cdn.vi.du/vitasr-data/fluency/en.json`; để trống thì `/data/global/manifest.json`, Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC06 [auto] DATA-06: Hoàn tất một phiên rồi đọc localStorage: chỉ có khóa bắt đầu bằng `vitasr2.`; dữ liệu đúng cấu trúc mô tả; không khóa `vitasr.` nào của bản cũ bị ghi hay xóa.
+  - Bằng chứng: test tests/unit/s3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC07 [auto] DATA-06: Giả lập `localStorage.setItem` ném lỗi: app vẫn học được hết một phiên trong phiên làm việc và hiện cảnh báo bộ nhớ.
+  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC08 [auto] DATA-07: Test đơn vị quy tắc ôn với đồng hồ giả: chuỗi "Tôi nhớ" liên tiếp cho `due` sau 1, 3, 7, 14, 30, 30 ngày; "Cần ôn lại", trả lời sai, dùng gợi ý đều đưa `streak` về 0 và câu thành Cần ôn ngay.
+  - Bằng chứng: test tests/unit/data.test.ts pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC09 [auto] DATA-07: Cùng một bộ tiến độ, số "câu cần ôn hôm nay" hiển thị ở T1, T2 và T4 bằng nhau, và bằng số câu có trạng thái Cần ôn ở T3.
+  - Bằng chứng: test tests/unit/app.test.tsx, tests/unit/t2-t4.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC10 [auto] DATA-08: Với mọi câu trong fixture tiếng Anh: đủ 4 lựa chọn, đúng một lựa chọn là nghĩa đúng, không hai lựa chọn trùng sau chuẩn hóa; gọi hai lần cho cùng câu ra cùng bộ và cùng thứ tự.
+  - Bằng chứng: test tests/unit/data.test.ts pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC11 [claude] DATA-09: Chạy lại `node scripts/make-fixtures.mjs` không làm đổi file nào trong git; đối chiếu nội dung `fixtures/` với mô tả DATA-09.
+  - Bằng chứng: sửa đường dẫn trong `scripts/make-fixtures.mjs` (còn trỏ `fe/`) rồi chạy lại: không file nào trong `fixtures/` đổi. Đối chiếu DATA-09: Fluency tiếng Anh unit 1 đến 3 đủ 8 câu, unit 4 còn 5 câu; tiếng Nhật (có reading, furigana), Thái, Nga mỗi thứ 1 unit; Global English unit 1, 2 (A1) và 377 (B2), 3 chủ đề, câu dài nhất 138 ký tự; tiến độ mẫu 30 ngày kèm file số liệu tính tay, Claude, 2026-10-21, chưa commit (Đợt 6)
+- [ ] DATA-AC12 [human] DATA-09: Xác nhận bằng văn bản từ khách cho phép dùng bộ dữ liệu trong `public/data/` cho phát triển và demo (nhóm đã ghi nhận đồng ý ngày 08/10/2026; người kiểm lưu lại tin nhắn làm bằng chứng).
+- [x] DATA-AC13 [auto] DATA-10: Test giao diện ghi lại mọi request trong luồng T1 → S3 → T3 → T4 → S8 ở chế độ trên máy: chỉ có request tới origin của website.
+  - Bằng chứng: test tests/e2e/app.spec.ts, tests/e2e/dot2.spec.ts pass trên bản Next.js (npm run test:e2e), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC14 [auto] DATA-11: Với tiến độ trống, câu tiếp theo là câu đầu của unit 1; sau khi qua bước ghi nhớ toàn bộ unit 1, câu tiếp theo là câu đầu của unit 2.
+  - Bằng chứng: test tests/unit/data.test.ts pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC15 [auto] DATA-12: Test đơn vị tìm kiếm: "dat phong" khớp "đặt phòng", "BOOK" khớp "book", kết quả theo thứ tự `id` tăng dần; với fixture Global English, "truong hoc" khớp các câu có `topic` "Trường học", và với fixture Fluency không lỗi khi thiếu các trường đó.
+  - Bằng chứng: test tests/unit/data.test.ts pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC16 [auto] DATA-01, DATA-03, DATA-13: Đọc fixture cả hai bộ: manifest Global không có `count` vẫn hợp lệ; `ids` dạng "0001" và dạng 1 đều khớp item `id: 1`; danh sách bộ của `en` là Global English và English Fluency, của `ja` chỉ có English Fluency.
+  - Bằng chứng: test tests/unit/data.test.ts pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC17 [auto] DATA-06, DATA-13: Học một phiên ở Global English rồi đổi sang English Fluency và học một phiên: có hai khóa `vitasr2.progress.global.en` và `vitasr2.progress.fluency.en` độc lập; đổi lại Global English thì tiến độ cũ còn nguyên.
+  - Bằng chứng: test tests/unit/data.test.ts, tests/unit/s3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC18 [auto] DATA-04: Render thẻ câu, T1 và T3 với fixture Global English: có dòng Cách dùng, tình huống, mã trình độ, bộ lọc Chủ đề; với fixture English Fluency: không có các phần đó và không lỗi.
+  - Bằng chứng: test tests/unit/app.test.tsx, tests/unit/t3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC19 [auto] DATA-01, DATA-02, DATA-03: Test đọc toàn bộ `public/data/` qua `StaticFileSource`: 15 ngôn ngữ Fluency, mỗi file 4.096 câu và 512 unit; Global English 4.608 câu và 576 unit; mọi id trong unit khớp một câu; mã băm khớp `_inventory.json`.
+  - Bằng chứng: test tests/unit/data.test.ts pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC20 [auto] DATA-06: Tab khác ghi tiến độ hoặc cài đặt (sự kiện `storage`) thì tab đang mở hiện số liệu mới; tab khác ghi mà sự kiện chưa tới, tab đang mở ghi tiếp vẫn giữ phần của tab kia. Tiến độ đã lưu có câu `null`, `streak` 1,5, phiên `position` âm: app vẫn mở, bỏ các phần hỏng, giữ phần còn lại.
+  - Bằng chứng: test tests/unit/ra-soat.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC21 [auto] DATA-07, DATA-12: Với múi giờ Europe/Berlin, câu nhớ lúc 00:30 ngày 25/10/2026 (ngày dài 25 giờ) đến hạn 00:30 ngày 26/10, không thành Cần ôn ngay; phiên xong 00:30 ngày 24/10 được tính vào 7 ngày gần nhất của ngày 30/10. Tìm kiếm bỏ dấu chữ Latinh ("Đặt phòng", "Müller") nhưng "が" khác "か", "के" khác "का", "й" khác "и".
+  - Bằng chứng: test tests/unit/ra-soat.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC22 [auto] DATA-14: Test đơn vị `mergeProgress`: gộp hai bản có phiên, lượt, trạng thái câu khác nhau không mất phần nào; đổi thứ tự hai bản và gộp hai lần cho cùng kết quả; phiên trùng `id` lấy bản đi xa hơn; câu trùng lấy `lastAt` mới hơn.
+  - Bằng chứng: test tests/unit/merge.test.ts pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC23 [auto] DATA-14: Xóa tiến độ (`baseAt`) rồi gộp với bản cũ trên tài khoản: phần cũ hơn mốc không quay lại, phần học sau mốc ở máy khác vẫn giữ; nhập tệp tiến độ rồi gộp: giữ đúng nội dung tệp.
+  - Bằng chứng: test tests/unit/merge.test.ts pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] DATA-AC24 [auto] DATA-14: Với dịch vụ đồng bộ giả: đăng nhập trên máy mới thì cài đặt và tiến độ của tài khoản hiện ra (vào thẳng T1, không hỏi lại ngôn ngữ); học một câu thì sau 1,5 giây có một lần gửi tiến độ đã gộp; học một câu rồi đăng xuất ngay thì phần đó được gửi trước khi đăng xuất; dịch vụ lỗi thì có đúng một thông báo lỗi và tiến độ vẫn trên máy.
+  - Bằng chứng: test tests/unit/sync.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [ ] DATA-AC25 [human] DATA-14: Với project Supabase thật: học trên máy A, đăng nhập máy B thấy tiến độ; xóa tiến độ ở máy B thì máy A không làm tiến độ cũ quay lại; xem bảng trên Supabase chỉ có dòng của đúng người.

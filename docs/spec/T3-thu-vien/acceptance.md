@@ -1,0 +1,30 @@
+# Acceptance: T3 Thư viện
+
+- [x] T3-AC01 [auto] T3-01: Trang 1 có tối đa 32 dòng; mỗi dòng có id 4 chữ số, câu gốc, nghĩa và biểu tượng trạng thái đúng với tiến độ fixture cho cả 3 trạng thái.
+  - Bằng chứng: test tests/unit/t3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] T3-AC02 [claude] T3-01: Ảnh chụp ở 320, 375, 1280 px, sáng và tối, với câu dài: câu gốc cắt ở 2 dòng, nghĩa cắt ở 1 dòng, không tràn ngang; biểu tượng trạng thái phân biệt được khi chuyển ảnh sang thang xám.
+  - Bằng chứng: ảnh và số đo docs/evidence/T3-AC02/ (320, 375, 1280 px, sáng và tối, unit 377 có câu dài nhất): câu gốc tối đa 2 dòng, nghĩa 1 dòng, có dấu … khi cắt, không cuộn ngang; ảnh thang xám phân biệt được dấu tích, vòng lặp, vòng rỗng; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] T3-AC03 [auto] T3-02: Gõ "BOOK" hiện các câu chứa "book"; route có `?q=BOOK`; tải lại trang giữ từ khóa; nút xóa làm trống ô và hiện lại toàn bộ.
+  - Bằng chứng: test tests/unit/t3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] T3-AC04 [auto] T3-03: Lọc Unit 2 và Trạng thái "Chưa học" chỉ hiện câu thuộc unit 2 chưa học; kết hợp thêm từ khóa thì thu hẹp tiếp; nhãn bộ lọc hiện giá trị đang chọn.
+  - Bằng chứng: test tests/unit/t3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] T3-AC05 [auto] T3-04: Ở trang 2, đổi bộ lọc thì về trang 1; "Trước" khóa ở trang 1, "Sau" khóa ở trang cuối; chỉ một trang thì không có phân trang.
+  - Bằng chứng: test tests/unit/t3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] T3-AC06 [auto] T3-05: Chạm dòng id 257: sheet tiêu đề "Câu 0257" có thẻ câu, unit, trạng thái, lần học gần nhất; "Học câu này" mở `/phien-hoc?nguon=cau&id=257`.
+  - Bằng chứng: test tests/unit/ra-soat.test.tsx, tests/unit/t3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] T3-AC07 [auto] T3-06: Tìm "xyzxyz": hiện đúng câu thông báo; "Xóa tìm kiếm và bộ lọc" đưa về danh sách đầy đủ.
+  - Bằng chứng: test tests/unit/t3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] T3-AC08 [claude] T3-07: Ảnh chụp 1280 px (và 1024 px: một cột, chạm dòng mở sheet): danh sách trái rộng không quá 480 px, chi tiết câu ở cột phải, chạm dòng khác thì cột phải đổi, không mở sheet.
+  - Bằng chứng: ảnh và số đo docs/evidence/T3-AC08/ (1280 và 1024 px, sáng và tối): ở 1280 px danh sách trái 464 px, chi tiết ở cột phải, chạm dòng thứ 5 thì cột phải đổi sang "Câu 0005", không mở hộp thoại; ở 1024 px một cột, chạm dòng mở sheet "Câu 0003"; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] T3-AC09 [auto] T3-03: Với fixture Global English có bộ lọc Chủ đề, chọn "Trường học" chỉ còn các câu có `topic` đó; với fixture English Fluency không có bộ lọc Chủ đề.
+  - Bằng chứng: test tests/unit/t3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] T3-AC10 [auto] T3-03: Với fixture Global English, bộ lọc Trình độ có A1 và B2 (các trình độ có trong dữ liệu); chọn B2 chỉ còn 8 câu của unit B2-89; danh sách Chủ đề có ô tìm và số câu mỗi chủ đề.
+  - Bằng chứng: test tests/unit/t3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] T3-AC11 [auto] T3-08: Mở `/thu-vien` thấy cách xem Unit; chọn "Câu" thì route có `?xem=cau` và danh sách câu như T3-01; tải lại trang giữ cách xem.
+  - Bằng chứng: test tests/unit/dot5-unit.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] T3-AC12 [auto] T3-09: Với tiến độ fixture, trang 1 cách xem Unit có tối đa 24 thẻ; thẻ của unit đã học có dải 8 ô đúng trạng thái và số "x/N" đúng; unit chưa học không có số; chạm thẻ mở `/thu-vien/unit?so=n` đúng unit.
+  - Bằng chứng: test tests/unit/dot5-unit.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] T3-AC13 [auto] T3-10: Dòng tổng quan đúng số unit, số unit đã học và đang học dở theo tiến độ fixture; với fixture Global English có hàng nút trình độ, mặc định là trình độ đang học, chọn B2 chỉ còn unit B2 và route có `?trinh-do=B2`.
+  - Bằng chứng: test tests/unit/dot5-unit.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] T3-AC14 [claude] T3-09: Ảnh cách xem Unit ở 375, 1280, 1440 px, sáng và tối: mỗi unit là một thẻ viền mảnh; 375 px một cột, từ 1280 px ba cột tự xuống hàng; không cuộn ngang.
+  - Bằng chứng: ảnh và số đo docs/evidence/T3-AC14/ (375, 1280, 1440 px, sáng và tối): 24 thẻ unit viền 1 px nền card có dải 8 ô; 375 px một cột, 1280 và 1440 px ba cột tự xuống hàng; không cuộn ngang; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, chưa commit (Đợt 6)

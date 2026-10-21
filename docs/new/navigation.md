@@ -1,12 +1,14 @@
 # Sơ đồ điều hướng: bản mới
 
-Các sơ đồ trong file này là hình minh họa. Nguồn chân lý cho điều hướng là bảng route APP-04 trong `fe/src/app/spec.md` và các yêu cầu điều hướng trong spec của từng trang. Khi hai nơi khác nhau, spec thắng; sửa sơ đồ cho khớp.
+Các sơ đồ trong file này là hình minh họa. Nguồn chân lý cho điều hướng là bảng route APP-04 trong `docs/spec/app/spec.md` và các yêu cầu điều hướng trong spec của từng trang. Khi hai nơi khác nhau, spec thắng; sửa sơ đồ cho khớp.
 
 Mỗi mũi tên trong sơ đồ có một dòng chú thích `%% @spec <ID>` ngay bên dưới, trỏ tới yêu cầu quy định mũi tên đó (hoặc `%% @none <lý do>` nếu nằm ngoài phạm vi). Dòng chú thích không hiện khi render. `npm run spec:check` báo lỗi khi một mũi tên chưa được gắn yêu cầu hoặc trỏ tới yêu cầu không tồn tại; bảng ánh xạ đầy đủ sinh ra ở `docs/generated/navigation-trace.md`.
 
+Từ Đợt 6 (21/10/2026) website có phần công khai (Landing, Đăng nhập, Đăng ký) và khu học cần đăng nhập; route là đường dẫn thật, không có dấu `#` (QD-02); chuyển khu bằng thanh bên (C5) thay thanh bên. Mô tả sản phẩm và user flow: `docs/new/san-pham.md`.
+
 File gồm bốn mức, từ khái quát tới chi tiết:
 
-1. Sơ đồ tổng quát: các khối lớn của app.
+1. Sơ đồ tổng quát: các khối lớn của website, kể cả phần công khai và đăng nhập.
 2. Luồng khởi động: kiểm tra lần đầu, chọn ngôn ngữ, rồi mới vào T1.
 3. Điều hướng giữa các màn: mọi đường đi giữa màn, màn toàn trang và sheet.
 4. Sơ đồ cửa sổ: từng cửa sổ với các nút bên trong và cửa sổ mà mỗi nút mở ra.
@@ -15,32 +17,50 @@ File gồm bốn mức, từ khái quát tới chi tiết:
 
 ```mermaid
 flowchart LR
-  HOST["Trang học chính<br/>(ngoài phạm vi)"] -->|"chọn Đa ngôn ngữ, mở trang mới"| BOOT["Khởi động<br/>kiểm tra lần đầu"]
+  HOST["Trang học chính<br/>(ngoài phạm vi)"] -->|"chọn Đa ngôn ngữ, mở trang mới"| GATE
   %% @none trang chính ngoài phạm vi, xem docs/legacy/README.md
-  BOOT -->|"lần đầu"| S1["S1 Chọn ngôn ngữ<br/>và bộ nội dung"]
+  VISIT(["Khách mở website"]) --> LAND["Landing /"]
+  %% @spec LP-01
+  LAND -->|"Bắt đầu học, Tạo tài khoản"| REG["Đăng ký /dang-ky"]
+  %% @spec LP-01, LP-06
+  LAND -->|"Đăng nhập"| LOGIN["Đăng nhập /dang-nhap"]
+  %% @spec LP-01
+  LAND -->|"Khám phá các bộ câu"| GATE
+  %% @spec LP-01, AU-05
+  REG <-->|"Đã có tài khoản / Chưa có tài khoản"| LOGIN
+  %% @spec AU-01, AU-02
+  GATE{"Đã đăng nhập?"} -->|"Chưa"| LOGIN
+  %% @spec AU-05
+  LOGIN -->|"đăng nhập xong"| BOOT["Khởi động khu học"]
+  %% @spec AU-01, AU-05
+  REG -->|"đăng ký xong"| BOOT
+  %% @spec AU-02
+  GATE -->|"Rồi"| BOOT
+  %% @spec AU-05
+  BOOT -->|"chưa chọn ngôn ngữ"| S1["S1 Chọn ngôn ngữ<br/>và bộ nội dung"]
   %% @spec APP-05, S1-07
   BOOT -->|"đã chọn ngôn ngữ"| MAIN
   %% @spec APP-05
   S1 --> MAIN
   %% @spec S1-04
 
-  subgraph MAIN["4 khu chính, chuyển bằng thanh tab"]
+  subgraph MAIN["4 khu chính, chuyển bằng thanh bên"]
     T1["T1 Học"]
     T2["T2 Luyện tập"]
     T3["T3 Thư viện"]
     T4["T4 Tiến độ"]
   end
 
-  MAIN <--> FULL["Màn toàn trang<br/>S3 Phiên học, S5 Kiểm tra nhanh"]
+  MAIN <--> FOCUS["Màn học tập trung<br/>S3 Phiên học, S5 Kiểm tra nhanh"]
   %% @spec APP-03, T1-02, T2-04
   MAIN <--> S8["S8 Cài đặt"]
   %% @spec APP-02, APP-04
   MAIN <--> SHEET["Sheet<br/>đổi ngôn ngữ, từ khóa, chi tiết câu,<br/>chi tiết ngày, giọng đọc, xác nhận"]
   %% @spec APP-11, C6-01
-  MAIN -->|"Quay lại trang học"| HOST
-  %% @spec APP-12
-  S1 -->|"Quay lại trang học"| HOST
-  %% @spec APP-12
+  MAIN -->|"Trang học chính, chân thanh bên"| HOST
+  %% @spec APP-12, C5-07
+  MAIN -->|"Đăng xuất"| LOGIN
+  %% @spec AU-05
 ```
 
 ## 2. Luồng khởi động
@@ -49,7 +69,7 @@ Người học chỉ vào được T1 sau khi app tải xong danh sách ngôn ng
 
 ```mermaid
 flowchart TD
-  A(["Mở mini app"]) --> B["Khởi động<br/>hiện khung xương, tải danh sách ngôn ngữ"]
+  A(["Mở một route khu học, đã đăng nhập (AU-05)"]) --> B["Khởi động<br/>hiện khung xương, tải danh sách ngôn ngữ"]
   %% @spec APP-05
   B --> C{"Tải được?"}
   %% @spec APP-05
@@ -106,7 +126,7 @@ flowchart TD
   BOOT -->|"đã chọn ngôn ngữ"| TABS
   %% @spec APP-05
 
-  subgraph TABS["4 khu chính, chuyển bằng thanh tab"]
+  subgraph TABS["4 khu chính, chuyển bằng thanh bên"]
     %% @spec APP-01, C5-01
     direction LR
     H["T1 Học"]
@@ -115,9 +135,9 @@ flowchart TD
     G["T4 Tiến độ"]
   end
 
-  TABS -->|"tên ngôn ngữ"| LS["Sheet Đổi ngôn ngữ<br/>hoặc bộ nội dung"]
+  TABS -->|"nút ngôn ngữ trên thanh bên"| LS["Sheet Đổi ngôn ngữ<br/>hoặc bộ nội dung"]
   %% @spec APP-02, APP-06
-  TABS -->|"Cài đặt"| ST["S8 Cài đặt"]
+  TABS -->|"mục Cài đặt trên thanh bên"| ST["S8 Cài đặt"]
   %% @spec APP-02
 
   H -->|"Học 8 câu / Tiếp tục<br/>N câu cần ôn hôm nay"| S["S3 Phiên học"]
@@ -182,7 +202,7 @@ flowchart TD
 | Sheet Đổi ngôn ngữ | Chọn ngôn ngữ hoặc bộ nội dung khác | T1 Học của ngôn ngữ hoặc bộ đó | APP-06 |
 | S1 bước 2 Chọn bộ nội dung | Quay lại | S1 danh sách ngôn ngữ | S1-07 |
 | S8 Cài đặt | Quay lại | Khu chính vừa mở S8 | APP-04 |
-| T1 đến T4, S1 bước 1 | Quay lại trang học | Trang học chính (rời app) | APP-12 |
+| Mọi màn khu học (chân thanh bên), trang công khai (chân trang) | Trang học chính | Trang học chính (rời website) | APP-12 |
 | S8 Cài đặt | Ngôn ngữ đang học | Sheet Đổi ngôn ngữ | S8-01 |
 | S8 Cài đặt | Xóa tiến độ, xác nhận | T1 Học | S8-05 |
 | Mọi sheet | Đóng | Cửa sổ đã mở sheet | C6-02 |
@@ -199,7 +219,7 @@ Ký hiệu, theo kiểu sơ đồ cửa sổ UML:
 | «button», «hyperlink», «tab», «list item», «chart bar» | Phần tử trong cửa sổ |
 | Mũi tên Click | Bấm phần tử đó thì mở cửa sổ ở đầu mũi tên |
 
-Chỉ vẽ các phần tử dẫn sang cửa sổ khác và chỉ vẽ chiều đi tới, giống sơ đồ cửa sổ UML thông thường. Đường quay lại (nút Đóng của sheet, Hủy, Học tiếp sau khi xác nhận) ghi bằng chữ dưới mỗi sơ đồ. Mọi sheet có nút Đóng, đóng thì về đúng cửa sổ đã mở nó. Phần tử chỉ đổi trạng thái tại chỗ (Nghe, Xem gợi ý, bộ lọc, phân trang) không vẽ. Thanh tab có ở T1 đến T4 và S8, chỉ vẽ một lần ở mục 4.2.
+Chỉ vẽ các phần tử dẫn sang cửa sổ khác và chỉ vẽ chiều đi tới, giống sơ đồ cửa sổ UML thông thường. Đường quay lại (nút Đóng của sheet, Hủy, Học tiếp sau khi xác nhận) ghi bằng chữ dưới mỗi sơ đồ. Mọi sheet có nút Đóng, đóng thì về đúng cửa sổ đã mở nó. Phần tử chỉ đổi trạng thái tại chỗ (Nghe, Xem gợi ý, bộ lọc, phân trang) không vẽ. Thanh bên có ở T1 đến T4 và S8, chỉ vẽ một lần ở mục 4.2.
 
 ### 4.1 Chọn ngôn ngữ, bộ nội dung và hướng dẫn lần đầu
 
@@ -248,7 +268,7 @@ flowchart TB
 
 Nút Quay lại ở bước chọn bộ về danh sách ngôn ngữ (S1-07). Nút Tiếp chuyển giữa bước 1/3, 2/3, 3/3 trong cùng lớp phủ; ở bước 3/3 nút chính là Bắt đầu học (S9-03). Hướng dẫn không hiện khi T1 đang ở trạng thái học hết lộ trình (S9-01) và không tự hiện lại sau khi xong hoặc bỏ qua (S9-04).
 
-### 4.2 T1 Học và thanh tab
+### 4.2 T1 Học và thanh bên
 
 ```mermaid
 flowchart TB
@@ -256,13 +276,13 @@ flowchart TB
   classDef win fill:#fff,stroke:#333,color:#000
 
   subgraph W_T1["«window» T1 Học"]
-    t1_lang["«button»<br/>Tên ngôn ngữ ▾"]
-    t1_set["«button»<br/>Cài đặt"]
+    t1_lang["«button»<br/>Ngôn ngữ đang học ▾ (thanh bên)"]
+    t1_set["«nav item»<br/>Cài đặt (thanh bên)"]
     t1_start["«button»<br/>Học 8 câu / Tiếp tục"]
     t1_due["«hyperlink»<br/>N câu cần ôn hôm nay"]
-    t1_tab2["«tab»<br/>Luyện tập"]
-    t1_tab3["«tab»<br/>Thư viện"]
-    t1_tab4["«tab»<br/>Tiến độ"]
+    t1_tab2["«nav item»<br/>Luyện tập"]
+    t1_tab3["«nav item»<br/>Thư viện"]
+    t1_tab4["«nav item»<br/>Tiến độ"]
     t1_done["«button»<br/>Mở Luyện tập, khi học hết"]
     t1_voice["«hyperlink»<br/>Cài đặt > Giọng đọc, khi thiếu giọng"]
   end
@@ -323,7 +343,7 @@ flowchart TB
   style W_T1n_x fill:none,stroke:none
 ```
 
-Thanh tab giống nhau ở T1 đến T4 và S8 (APP-01, S8). Nút Tên ngôn ngữ và Cài đặt có ở mọi khu chính (APP-02). Liên kết tới sheet Giọng đọc khi thiết bị thiếu giọng nằm trong thẻ câu (C1-05), nên cũng có ở S3 và sheet Chi tiết câu của T3.
+Thanh bên giống nhau ở mọi màn khu học (APP-01, C5-01); dưới `md` mở bằng nút menu trên header (C5-02). Nút ngôn ngữ đang học và mục Cài đặt có trên thanh bên ở mọi màn (APP-02). Liên kết tới sheet Giọng đọc khi thiết bị thiếu giọng nằm trong thẻ câu (C1-05), nên cũng có ở S3 và sheet Chi tiết câu của T3.
 
 ### 4.3 S3 Phiên học
 
@@ -602,3 +622,5 @@ flowchart TB
 | Lối vào luyện tập | Rải rác: Học 8 câu, TEST NOW, Học theo chủ đề nằm ở 3 chỗ | Gom vào tab Luyện tập; T1 chỉ giữ lối vào học tiếp |
 
 Sơ đồ bản cũ: `docs/legacy/navigation.md`.
+
+Lịch sử: 21/10/2026 (Đợt 6) thêm phần công khai, cổng đăng nhập, đăng xuất ở mục 1; thanh tab thành thanh bên; route là đường dẫn.

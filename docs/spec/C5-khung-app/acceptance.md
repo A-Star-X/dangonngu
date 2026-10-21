@@ -1,0 +1,14 @@
+# Acceptance: C5 Khung khu học
+
+- [x] C5-AC01 [claude] C5-01, C5-05, C5-06: Ảnh chụp 1280 px: thanh bên 240 px cố định bên trái, hàng logo 56 px, hai nhóm mục có nhãn chữ hoa 12 px, mục cao tối thiểu 40 px; header 56 px bắt đầu sau thanh bên; nội dung rộng tối đa 1024 px.
+  - Bằng chứng: ảnh và số đo docs/evidence/C5-AC01/ (1280 px, sáng và tối): thanh bên x 0 rộng 240 px, hàng logo 56 px với logo 32 px, nhãn nhóm chữ hoa 12 px, mục cao 40 px, header 56 px bắt đầu ở x 240, nội dung rộng 1024 px; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] C5-AC02 [auto] C5-02: Dưới `md`: thanh bên ẩn; nút menu mở thanh bên và lớp phủ; bấm lớp phủ, chọn một mục, nhấn Escape đều đóng; thanh bên đóng có thuộc tính `inert`.
+  - Bằng chứng: test tests/e2e/dot6-web.spec.ts, tests/unit/shell.test.tsx pass trên bản Next.js (npm run test:e2e, npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] C5-AC03 [auto] C5-03: Ở mỗi route T1 đến T4 và S10, đúng một mục có `aria-current="page"` và đó là mục tương ứng (S10 là Thư viện).
+  - Bằng chứng: test tests/e2e/app.spec.ts, tests/unit/shell.test.tsx pass trên bản Next.js (npm run test:e2e, npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] C5-AC04 [auto] C5-04: Với 12 câu cần ôn, mục Luyện tập hiện "12" và có nhãn trợ năng "Luyện tập, 12 câu cần ôn"; với 0 câu thì không có nhãn số.
+  - Bằng chứng: test tests/unit/shell.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] C5-AC05 [claude] C5-02, C5-05: Ảnh chụp 375 px: header có nút menu, logo, chọn ngôn ngữ giao diện, nút sáng tối 36 px; menu mở trượt từ trái, có lớp phủ; không cuộn ngang.
+  - Bằng chứng: ảnh và số đo docs/evidence/C5-AC05/ (375 px, menu đóng và mở, sáng và tối): header có nút menu 44 px, logo, ô chọn ngôn ngữ giao diện 36 px cao, nút sáng tối 36 px; menu mở là thanh bên 240 px từ mép trái kèm lớp phủ; không cuộn ngang; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] C5-AC06 [auto] C5-07: Chân thanh bên có liên kết về trang học chính, email người đang đăng nhập; ở chế độ trên máy có dòng báo chế độ thử.
+  - Bằng chứng: test tests/unit/shell.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)

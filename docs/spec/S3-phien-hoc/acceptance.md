@@ -1,0 +1,27 @@
+# Acceptance: S3 Phiên học
+
+- [x] S3-AC01 [auto] S3-01: Với fixture, mỗi giá trị `nguon` tạo đúng nhóm câu như bảng; `on-tap` khi không có câu Cần ôn thì quay về màn trước và hiện thông báo "Không có câu nào để học trong nhóm này."
+  - Bằng chứng: test tests/unit/s3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S3-AC02 [auto] S3-02: Đi hết phiên 8 câu: thứ tự màn là S3a, S3b cho từng câu rồi S3c; "Câu n/N" và dải ô cập nhật đúng sau mỗi câu.
+  - Bằng chứng: test tests/unit/s3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S3-AC03 [auto] S3-03: Ở S3a cặp nút bị khóa trước khi hiện câu gốc và mở sau khi hiện; chọn "Cần ôn lại" ghi `outcome: can-on` và câu thành Cần ôn.
+  - Bằng chứng: test tests/unit/s3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S3-AC04 [auto] S3-04: Ở S3b chọn đúng thì nút "Câu tiếp" hiện (câu cuối: "Xem tổng kết"); chọn sai trước rồi mới đúng thì câu được ghi sai (DATA-07).
+  - Bằng chứng: test tests/unit/s3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S3-AC05 [auto] S3-05: Bấm "Xem gợi ý" với nghĩa "Tôi muốn đặt một bàn cho hai người." hiện "Nghĩa bắt đầu bằng "T…", gồm 8 từ."; nút gợi ý biến mất; câu ghi `hinted: true`.
+  - Bằng chứng: test tests/unit/s3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S3-AC06 [auto] S3-06: Phiên 8 câu có 2 câu dùng gợi ý và 1 câu chọn sai: tổng kết hiện "5/8" và danh sách Cần ôn có đúng 3 câu (cộng các câu chọn "Cần ôn lại" nếu có). Khi đã học hết lộ trình, không có nút "Học tiếp". Phiên `tu-khoa` nhóm 1 với 20 kết quả có nút chính "Nhóm tiếp" mở `nhom=2`; nhóm 3 (cuối) không có nút này.
+  - Bằng chứng: test tests/unit/s3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S3-AC07 [claude] S3-02, S3-03, S3-04, S3-06: Ảnh chụp S3a (trước và sau khi hiện), S3b (trước chọn, sau chọn sai, sau chọn đúng), S3c ở 320, 375, 1280 px, sáng và tối.
+  - Bằng chứng: ảnh và số đo docs/evidence/S3-AC07/ (6 trạng thái ở 320, 375, 1280 px, sáng và tối, 36 ảnh): S3a che câu gốc, cặp nút mờ 0,4 rồi rõ sau khi hiện; S3b 4 lựa chọn, chọn sai viền đỏ "Chưa đúng", chọn đúng viền xanh "Đúng" và nút "Câu tiếp"; S3c "Xong phiên học", "7/8", danh sách Cần ôn lại, nút "Học tiếp 8 câu"; ở 1280 px khối 672 px có số phím tắt; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S3-AC08 [auto] S3-07: Bấm Thoát ở câu 4: sheet xác nhận hiện đúng chữ; "Học tiếp" giữ nguyên câu 4; "Dừng" về màn trước; nút Back của trình duyệt cũng mở sheet xác nhận; sau khi Dừng, Back không mở lại phiên và không mở sheet.
+  - Bằng chứng: test tests/e2e/app.spec.ts, tests/unit/routes-guard.test.ts, tests/unit/s3.test.tsx pass trên bản Next.js (npm run test:e2e, npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S3-AC09 [auto] S3-08: Dừng ở bước S3b của câu 4, tải lại trang, bấm nút tiếp tục ở T1: vào đúng S3b của câu 4. Bắt đầu phiên lộ trình mới thì phiên dở cũ không còn.
+  - Bằng chứng: test tests/unit/s3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S3-AC10 [auto] S3-09: Đi hết một phiên chỉ bằng bàn phím với các phím đã quy định; vuốt trên thẻ không đổi câu.
+  - Bằng chứng: test tests/unit/s3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [ ] S3-AC11 [human] S3-03, S3-04: Ba người học làm một phiên trên điện thoại thật; không ai thấy bước kiểm tra lặp lại vô nghĩa hay gây khó chịu (hỏi sau phiên). Ghi lại thời gian mỗi phiên.
+- [x] S3-AC12 [auto] S3-05: Mở gợi ý ở S3b rồi tải lại trang: gợi ý vẫn hiện, nút "Xem gợi ý" không còn, trả lời đúng ghi lượt có `hinted` là true.
+  - Bằng chứng: test tests/unit/ra-soat.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S3-AC13 [auto] S3-09: Ở S3a nhấn 2 rồi giữ phím (sự kiện lặp 2 và 1): chỉ ghi lượt ghi nhớ, không có lựa chọn nào ở S3b bị chọn.
+  - Bằng chứng: test tests/unit/ra-soat.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)

@@ -1,0 +1,29 @@
+# Acceptance: S8 Cài đặt
+
+- [x] S8-AC01 [auto] S8-01: Bộ tăng giảm không xuống dưới 1, không vượt 21; đổi thành 7 thì T1 hiện "Tuần này: x/7 phiên"; chạm "Ngôn ngữ đang học" mở sheet Đổi ngôn ngữ.
+  - Bằng chứng: test tests/unit/s8.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S8-AC02 [auto] S8-02: Với `getVoices` giả có 3 giọng `en-*` và 1 giọng `vi-VN`: ô chọn giọng có "Tự động" (dòng phụ tên giọng sẽ dùng) và 3 giọng tiếng Anh; đổi "Chọn giọng cho" sang Tiếng Việt thì có giọng `vi-VN`; chọn giọng và tốc độ 1,25x thì C1 đọc bằng đúng giọng và tốc độ đó; "Nghe thử" đọc câu mẫu bằng giọng đang chọn.
+  - Bằng chứng: test tests/unit/s8.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [ ] S8-AC03 [human] S8-02: Trên iPhone, Android và Windows: ô chọn giọng hiện đúng các giọng của máy; "Nghe thử" phát đúng giọng đang chọn.
+- [x] S8-AC04 [auto] S8-03: Với fixture tiếng Anh, không có mục "Âm thanh ngoại tuyến" trong DOM.
+  - Bằng chứng: test tests/unit/s8.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S8-AC05 [auto] S8-04: Chọn "Tối" ở ô chọn "Sáng, tối" thì bảng màu tối áp dụng ngay và giữ sau khi tải lại.
+  - Bằng chứng: test tests/unit/s8.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S8-AC06 [auto] S8-05: Xuất rồi xóa rồi nhập lại file vừa xuất: tiến độ trở lại giống hệt trước khi xóa. Nhập file của ngôn ngữ khác hoặc file JSON bất kỳ: hiện đúng thông báo lỗi và tiến độ không đổi. Nút "Xóa" chỉ mở khi gõ đúng tên ngôn ngữ.
+  - Bằng chứng: test tests/unit/dot2-data.test.ts, tests/unit/s8.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [ ] S8-AC07 [human] S8-05: Trên iPhone (Safari) và Android (Chrome): "Xuất tiến độ" tải được file về máy và "Nhập tiến độ" chọn được chính file đó.
+- [x] S8-AC08 [auto] S8-06: "Xem lại hướng dẫn" về T1 và hiện bước 1 của S9; dòng phiên bản khớp `version` trong package.json.
+  - Bằng chứng: test tests/unit/s8.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S8-AC09 [claude] S8-01, S8-02, S8-04, S8-05, S8-06, S8-08: Ảnh chụp S8 và sheet Giọng đọc ở 375 px và 1280 px, sáng và tối: nhóm là panel có tiêu đề section, nhãn đúng, không có mục ngoài spec.
+  - Bằng chứng: ảnh và số đo docs/evidence/S8-AC09/ (375 và 1280 px, sáng và tối): sáu nhóm là panel có tiêu đề section, nhãn đúng spec ("Xóa tiến độ tiếng Anh" màu danger), không mục ngoài spec; sheet Giọng đọc có "Chọn giọng cho", "Giọng tiếng Anh", "Nghe thử", "Tốc độ đọc", nút "Xong"; sheet xóa có nút "Xóa" nền danger; không cuộn ngang; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S8-AC10 [auto] S8-01: Đang học Global English: mục "Ngôn ngữ đang học" hiện "Tiếng Anh" và "Global English"; chạm mở sheet Đổi ngôn ngữ có hai dòng Tiếng Anh.
+  - Bằng chứng: test tests/unit/s8.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S8-AC11 [auto] S8-02: Với danh sách giọng giống Chrome trên Windows (giọng Microsoft trên máy đứng trước, giọng Google cần mạng), Edge và Safari: "Tự động" chọn "Google US English" cho `en-US`, "Google UK English Female" cho `en-GB` (Cài đặt hiện đúng giọng theo bộ đang học), giọng tiếng Việt của máy cho `vi-VN` (Chrome máy tính không có giọng Google tiếng Việt), giọng "Online (Natural)" trên Edge, giọng mặc định trên Safari; ngoại tuyến thì chọn giọng trên máy; giọng Google báo lỗi mạng trước khi đọc thì câu được đọc lại một lần bằng giọng trên máy, lỗi do dừng đọc thì không đọc lại.
+  - Bằng chứng: test tests/unit/ra-soat.test.tsx, tests/unit/speech.test.ts pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [ ] S8-AC12 [human] S8-02: Trên Chrome máy tính (Windows hoặc Mac) có mạng, xóa dữ liệu trang rồi mở app lần đầu, không chọn giọng: câu tiếng Anh được đọc bằng giọng Google; ít nhất 3 người thử thấy giọng này dễ nghe hơn giọng mặc định của máy (so bằng "Nghe thử" trong Cài đặt > Giọng đọc).
+- [x] S8-AC13 [auto] S8-05: Tệp nhập có phiên `position` âm hoặc lớn hơn số câu, thiếu `step`, câu có `streak` không nguyên, hoặc tệp lớn hơn 8 MB: bị từ chối như tệp sai; tệp xuất từ app vẫn nhập được.
+  - Bằng chứng: test tests/unit/ra-soat.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S8-AC14 [claude] S8-07: Ảnh 1280 và 1440 px, sáng và tối: các nhóm xếp hai cột, đúng thứ tự đọc; dưới 1024 px một cột.
+  - Bằng chứng: ảnh và số đo docs/evidence/S8-AC14/ (768, 1024, 1280, 1440 px, sáng và tối): từ 1024 px sáu nhóm xếp hai cột theo hàng (Học tập | Âm thanh, Giao diện | Tiến độ, Tài khoản | Trợ giúp), dưới 1024 px một cột cùng thứ tự; không cuộn ngang; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] S8-AC15 [auto] S8-08, APP-15: Nhóm Tài khoản hiện email đang đăng nhập; "Đăng xuất" gọi đăng xuất; ô chọn "Ngôn ngữ giao diện" có Tiếng Việt và English, chọn English thì đổi ngôn ngữ giao diện, giữ route `/cai-dat`.
+  - Bằng chứng: test tests/unit/s8.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)

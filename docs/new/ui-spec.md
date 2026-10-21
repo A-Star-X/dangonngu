@@ -2,12 +2,12 @@
 id: G
 title: Tổng quan giao diện bản mới
 status: nháp
-version: 0.1
+version: 1.0
 ---
 
 # Spec giao diện bản mới: tổng quan
 
-File này là điểm vào của spec bản mới. Nó chứa mục tiêu sản phẩm (yêu cầu `G-xx`), bối cảnh, phạm vi và chỉ mục tới spec chi tiết của từng khu vực. Yêu cầu chi tiết của mỗi trang, thành phần, khung app, nền tảng thiết kế và dữ liệu nằm trong `spec.md` của thư mục tương ứng dưới `fe/src/`, và chỉ nằm ở đó.
+File này là điểm vào của spec bản mới. Nó chứa mục tiêu sản phẩm (yêu cầu `G-xx`), bối cảnh, phạm vi và chỉ mục tới spec chi tiết của từng khu vực. Yêu cầu chi tiết của mỗi trang, thành phần, khung app, nền tảng thiết kế và dữ liệu nằm trong `spec.md` của thư mục tương ứng dưới `docs/spec/`, và chỉ nằm ở đó. Code ở `src/` gắn thẻ `@spec`, test ở `tests/` gắn thẻ `@ac` trỏ về các yêu cầu đó.
 
 ## 1. Bối cảnh
 
@@ -15,7 +15,7 @@ Người học người Việt mở app trên điện thoại, học một nhóm
 
 - Người học: người Việt học ngoại ngữ, từ mất gốc đến nâng cao, học lẻ tẻ trong ngày. Giao diện bằng tiếng Việt, nội dung học là một trong 15 ngôn ngữ của bộ English Fluency, riêng tiếng Anh có thêm bộ Global English (A1 đến C2).
 - Thiết bị: dùng được cả trên web và trên điện thoại (responsive). Giai đoạn đầu ưu tiên web trên máy tính.
-- Môi trường chạy: trang học chính mở app bằng một trang mới (tab mới hoặc chuyển thẳng trang) từ một URL tĩnh, không nhúng iframe, không có backend (xem `fe/src/app/spec.md` và `fe/src/data/spec.md`). App có nút về trang học chính (APP-12).
+- Môi trường chạy: website Next.js (QD-01) triển khai trên Vercel (QD-10), có trang giới thiệu (Landing) cho khách và phần học cho người đã đăng nhập (QD-07). Đăng nhập và tiến độ lưu trên Supabase (QD-06); dữ liệu câu vẫn là file tĩnh. Giao diện có tiếng Việt (mặc định) và tiếng Anh (QD-09). Trước Đợt 5, app là mini app do trang học chính mở bằng trang mới, không có backend; quan hệ giữa website mới và trang học chính đang chờ công ty trả lời (mục 5).
 
 ## 2. Mục tiêu
 
@@ -33,7 +33,7 @@ Trong phiên học, người học không bấm nhầm giữa "Tôi nhớ" và "
 
 ### G-04 Gọn hơn bản cũ
 
-Toàn bộ chức năng nằm trong 4 khu chính, màn Cài đặt và 3 màn toàn trang; không có hộp thoại mở chồng lên hộp thoại khác (APP-11).
+Khu học gồm 4 khu chính, màn Cài đặt, 3 màn học tập trung (Chọn ngôn ngữ, Phiên học, Kiểm tra nhanh; APP-03) và màn Chi tiết Unit (cấp hai của Thư viện); phần công khai gồm Landing, Đăng nhập, Đăng ký. Không có hộp thoại mở chồng lên hộp thoại khác (APP-11). Giới hạn này áp dụng từ Đợt 6 (21/10/2026), chờ nhóm duyệt (mục 5).
 
 ### G-05 Không mang dấu hiệu giao diện do AI dựng mặc định
 
@@ -45,7 +45,11 @@ Giữ trong bản đầu: chọn ngôn ngữ và bộ nội dung (tiếng Anh c�
 
 Bỏ khỏi bản đầu: Chia sẻ thư viện và lời mời (cần backend `/api/sharing/*`), Góp ý, Khảo sát và Trò chuyện, Thông tin bản chạy thử.
 
-Ngoài phạm vi: trang học chính, đăng ký, đăng nhập, thanh toán; lấy dữ liệu thật từ khách. Bản này cũng không có: Chia sẻ, chọn trình độ bắt đầu cho Global English, chế độ đảo chiều "Tiếng Việt (từ tiếng Anh)", nghe nghĩa tiếng Việt, mục pháp lý của bản cũ 1.9.45 (chốt 10/10/2026; khách cần thì làm thành đợt riêng).
+Thêm từ Đợt 5 (20/10/2026): trang giới thiệu (Landing), đăng ký, đăng nhập, lưu tiến độ theo tài khoản (QD-06, QD-07).
+
+Đợt 6 (21/10/2026): chuyển sang Next.js theo bộ quy tắc leader gửi ngày 20/10/2026 (`ui.md`, `technologies.md`, `rules.md`; đối chiếu ở `docs/theo-doi/bao-cao-dot6.md`), URL không còn `#`, giao diện song ngữ Việt và Anh, đồng bộ tiến độ với Supabase, triển khai trên Vercel.
+
+Ngoài phạm vi: trang học chính, thanh toán; lấy dữ liệu thật từ khách; AI nhận xét bài luyện tập (QD-08, để sau). Bản này cũng không có: Chia sẻ, chọn trình độ bắt đầu cho Global English, chế độ đảo chiều "Tiếng Việt (từ tiếng Anh)", nghe nghĩa tiếng Việt, mục pháp lý của bản cũ 1.9.45 (chốt 10/10/2026; khách cần thì làm thành đợt riêng).
 
 Đối chiếu từng chức năng với bản cũ: `mapping-legacy.md`. Sơ đồ điều hướng: `navigation.md`.
 
@@ -53,30 +57,47 @@ Ngoài phạm vi: trang học chính, đăng ký, đăng nhập, thanh toán; l�
 
 | ID | Khu vực | Spec | Phụ thuộc |
 |---|---|---|---|
-| APP | Khung app: điều hướng, route, bố cục, trạng thái toàn cục | `fe/src/app/spec.md` | FND, DATA, C5, C6, C7 |
-| FND | Nền tảng thiết kế: màu, chữ, khoảng cách, icon, chuyển động, giọng văn, trợ năng | `fe/src/foundation/spec.md` | |
-| DATA | Hợp đồng dữ liệu, nguồn dữ liệu, lưu tiến độ, fixture | `fe/src/data/spec.md` | |
-| C1 | Thẻ câu | `fe/src/components/C1-the-cau/spec.md` | C2, C3 |
-| C2 | Dải 8 ô | `fe/src/components/C2-dai-8-o/spec.md` | |
-| C3 | Nút | `fe/src/components/C3-nut/spec.md` | |
-| C4 | Lựa chọn trắc nghiệm | `fe/src/components/C4-lua-chon/spec.md` | |
-| C5 | Thanh tab | `fe/src/components/C5-thanh-tab/spec.md` | |
-| C6 | Sheet | `fe/src/components/C6-sheet/spec.md` | |
-| C7 | Thông báo ngắn | `fe/src/components/C7-thong-bao/spec.md` | |
-| S1 | Chọn ngôn ngữ | `fe/src/pages/S1-chon-ngon-ngu/spec.md` | C3 |
-| T1 | Học | `fe/src/pages/T1-hoc/spec.md` | C1, C2, C3 |
-| S3 | Phiên học | `fe/src/pages/S3-phien-hoc/spec.md` | C1, C2, C3, C4 |
-| T2 | Luyện tập | `fe/src/pages/T2-luyen-tap/spec.md` | C3, C6 |
-| S5 | Kiểm tra nhanh | `fe/src/pages/S5-kiem-tra-nhanh/spec.md` | C3, C4 |
-| T3 | Thư viện | `fe/src/pages/T3-thu-vien/spec.md` | C1, C6 |
-| T4 | Tiến độ | `fe/src/pages/T4-tien-bo/spec.md` | C2 |
-| S8 | Cài đặt | `fe/src/pages/S8-cai-dat/spec.md` | C3, C6, C7 |
-| S9 | Hướng dẫn lần đầu | `fe/src/pages/S9-huong-dan/spec.md` | C3 |
-| S10 | Chi tiết Unit | `fe/src/pages/S10-chi-tiet-unit/spec.md` | C1, C2, C3, C6 |
+| APP | Khung app: điều hướng, route, bố cục, trạng thái toàn cục | `docs/spec/app/spec.md` | FND, DATA, C5, C6, C7 |
+| FND | Nền tảng thiết kế: màu, chữ, khoảng cách, icon, chuyển động, giọng văn, trợ năng, ngôn ngữ giao diện | `docs/spec/foundation/spec.md` |  |
+| DATA | Hợp đồng dữ liệu, nguồn dữ liệu, lưu và đồng bộ tiến độ, fixture | `docs/spec/data/spec.md` |  |
+| C1 | Thẻ câu | `docs/spec/C1-the-cau/spec.md` | C2, C3 |
+| C2 | Dải 8 ô | `docs/spec/C2-dai-8-o/spec.md` |  |
+| C3 | Nút | `docs/spec/C3-nut/spec.md` |  |
+| C4 | Lựa chọn trắc nghiệm | `docs/spec/C4-lua-chon/spec.md` |  |
+| C5 | Khung khu học (thanh trên, thanh bên, menu trượt) | `docs/spec/C5-khung-app/spec.md` | C3 |
+| C6 | Sheet | `docs/spec/C6-sheet/spec.md` |  |
+| C7 | Thông báo ngắn | `docs/spec/C7-thong-bao/spec.md` |  |
+| C8 | Ô chọn một giá trị | `docs/spec/C8-chon-gia-tri/spec.md` |  |
+| LP | Landing | `docs/spec/LP-landing/spec.md` | C3, FND |
+| AU | Tài khoản (đăng ký, đăng nhập) | `docs/spec/AU-tai-khoan/spec.md` | C3, C7, DATA |
+| S1 | Chọn ngôn ngữ | `docs/spec/S1-chon-ngon-ngu/spec.md` | C3 |
+| T1 | Học | `docs/spec/T1-hoc/spec.md` | C1, C2, C3 |
+| S3 | Phiên học | `docs/spec/S3-phien-hoc/spec.md` | C1, C2, C3, C4 |
+| T2 | Luyện tập | `docs/spec/T2-luyen-tap/spec.md` | C3, C6 |
+| S5 | Kiểm tra nhanh | `docs/spec/S5-kiem-tra-nhanh/spec.md` | C3, C4 |
+| T3 | Thư viện | `docs/spec/T3-thu-vien/spec.md` | C1, C6, C8 |
+| S10 | Chi tiết Unit | `docs/spec/S10-chi-tiet-unit/spec.md` | C1, C3 |
+| T4 | Tiến độ | `docs/spec/T4-tien-do/spec.md` | C2 |
+| S8 | Cài đặt | `docs/spec/S8-cai-dat/spec.md` | C3, C6, C7, C8 |
+| S9 | Hướng dẫn lần đầu | `docs/spec/S9-huong-dan/spec.md` | C3 |
 
 ## 5. Câu hỏi mở
 
-Không còn câu hỏi mở cho khách. Các câu dưới đây (bảng 10/10/2026) do Claude quyết định theo ủy quyền của nhóm để làm xong bản web; khách muốn khác thì sửa ở đợt sau.
+Chờ công ty trả lời (Đợt 5, 20/10/2026, cập nhật Đợt 6):
+
+1. Website mới thay thế hay chạy song song với trang học chính `language.pomaskhoahocnaobo.com`? Nếu song song, người học có hai tài khoản (QD-06). Câu trả lời quyết định giữ hay bỏ nút "Quay lại trang học" (APP-12). Đợt 6 vẫn giữ nút, địa chỉ đặt qua biến môi trường `NEXT_PUBLIC_HOST_URL`.
+2. Project Supabase do ai tạo và giữ; có bắt xác nhận email khi đăng ký không (QD-06). Code đã xử lý cả hai trường hợp (AU-04); chưa có khóa Supabase thì app chạy chế độ thử trên máy (AU-07).
+3. G-04: Đợt 6 tạm dùng giới hạn mới ở G-04 (thêm Chi tiết Unit và ba trang công khai). Nhóm duyệt hoặc sửa.
+
+### Đã trả lời (20/10/2026)
+
+| Câu hỏi | Trả lời | Đã áp dụng vào |
+|---|---|---|
+| Có đối tác nào được nêu tên ở Landing không | Chưa có; Landing chỉ dùng thông tin thật, không có phần Đối tác | LP-01 |
+| AI nhận xét bài luyện tập (việc 9) | Để sau, chưa làm ở Đợt 6 | QD-08, mục 3 |
+| Công nghệ theo bộ quy tắc của nhóm | Chuyển sang Next.js, Supabase cho tài khoản, thêm giao diện tiếng Anh | QD-01, QD-06, QD-09, QD-10 |
+
+Các câu ở bảng 10/10/2026 do Claude quyết định theo ủy quyền của nhóm để làm xong bản web; khách muốn khác thì sửa ở đợt sau.
 
 ### Đã trả lời (08/10/2026)
 
@@ -85,14 +106,14 @@ Không còn câu hỏi mở cho khách. Các câu dưới đây (bảng 10/10/20
 | Kích thước khung iframe ở desktop, vị trí nút đóng của trang chính | Thiết kế phù hợp cả app và web, responsive; trước mắt làm theo web | APP-02, APP-07, `docs/QUY-TRINH.md` mục 7 |
 | Có đọc lại tiến độ học cũ không | Không cần | DATA-06 |
 | Bản đầu chỉ tiếng Anh hay cả ngôn ngữ khác | Có đủ các ngôn ngữ trong dữ liệu | Bối cảnh, DATA-01, FND-04 |
-| Được dùng mẫu dữ liệu nào | Dùng được bộ dữ liệu khách gửi | DATA-05, DATA-09, `fe/public/data/`, `fe/fixtures/` |
+| Được dùng mẫu dữ liệu nào | Dùng được bộ dữ liệu khách gửi | DATA-05, DATA-09, `public/data/`, `fixtures/` |
 
 ### Đã trả lời (10/10/2026)
 
 | Câu hỏi | Trả lời | Đã áp dụng vào |
 |---|---|---|
 | Có giữ Chia sẻ không; nếu có, backend do bên nào cung cấp | Không có ở bản này. Nếu khách cần, khách cung cấp backend và làm thành đợt riêng | Mục 3 |
-| Ai duyệt thiết kế, ở những mốc nào | Nhóm duyệt nội bộ qua ảnh bằng chứng (`docs/evidence/`) và bản chạy thử trên GitHub Pages; khách duyệt một lần khi bàn giao, yêu cầu sửa sau đó làm thành đợt riêng | Bàn giao |
+| Ai duyệt thiết kế, ở những mốc nào | Nhóm duyệt nội bộ qua ảnh bằng chứng (`docs/evidence/`) và bản chạy thử (GitHub Pages đến Đợt 5, Vercel từ Đợt 6); khách duyệt một lần khi bàn giao, yêu cầu sửa sau đó làm thành đợt riêng | Bàn giao |
 | Global English có cho chọn trình độ bắt đầu không | Không ở bản này; trình độ khác học qua bộ lọc Trình độ ở Thư viện | DATA-11, mục 3 |
 | Có chế độ đảo chiều "Tiếng Việt (từ tiếng Anh)" như bản cũ không | Không ở bản này | Mục 3 |
 | Có đưa mục pháp lý xuất hiện ở bản cũ 1.9.45 vào không | Không, vì chưa có nội dung từ khách | Mục 3 |
@@ -106,4 +127,5 @@ Không còn câu hỏi mở cho khách. Các câu dưới đây (bảng 10/10/20
 - 0.4 (08/10/2026): cập nhật theo bộ dữ liệu khách gửi và câu trả lời của nhóm (ưu tiên web, responsive; đủ 15 ngôn ngữ; không đọc tiến độ bản cũ).
 - 0.5 (10/10/2026): nhóm trả lời câu hỏi về cách trang chính mở mini app: mở trang mới, không nhúng iframe, có nút về trang học chính (APP-09, APP-12). Câu hỏi 4 cũ thành câu 3.
 - 0.6 (10/10/2026): chốt các câu hỏi còn lại cho khách (Claude quyết định theo ủy quyền của nhóm): không có Chia sẻ, chọn trình độ bắt đầu, chế độ đảo chiều, nghe nghĩa, mục pháp lý ở bản này; quy trình duyệt thiết kế.
-- 0.8 (20/10/2026): thêm S10 Chi tiết Unit vào chỉ mục (Đợt 5 việc 3).
+- 0.7 (20/10/2026): Đợt 5: website có Landing, đăng ký, đăng nhập, tiến độ theo tài khoản (QD-06, QD-07); AI nhận xét để sau (QD-08); thêm câu hỏi mở cho công ty.
+- 1.0 (21/10/2026): Đợt 6: chỉ mục trỏ về `docs/spec/`, thêm C8, LP, AU, S10; C5 thành khung khu học; T4 đổi thư mục `T4-tien-do`; G-04 tạm theo giới hạn mới; cập nhật câu hỏi mở.

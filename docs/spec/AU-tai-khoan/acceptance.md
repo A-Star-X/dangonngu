@@ -1,0 +1,19 @@
+# Acceptance: AU Tài khoản
+
+- [x] AU-AC01 [auto] AU-01, AU-05: Đăng nhập đúng thì vào `/hoc`; mở `/thu-vien?xem=cau` khi chưa đăng nhập thì sang `/dang-nhap?tiep=%2Fthu-vien%3Fxem%3Dcau`, đăng nhập xong về đúng `/thu-vien?xem=cau`; `tiep=//vi.du` bị bỏ qua (về `/hoc`).
+  - Bằng chứng: test tests/e2e/dot6-web.spec.ts, tests/unit/auth.test.tsx pass trên bản Next.js (npm run test:e2e, npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] AU-AC02 [auto] AU-03: Bấm "Đăng nhập" với ô trống hiện "Nhập email." và "Nhập mật khẩu." dưới ô, ô có `aria-invalid="true"`; email "abc" hiện câu sai dạng; không gọi dịch vụ khi còn lỗi.
+  - Bằng chứng: test tests/e2e/dot6-web.spec.ts, tests/unit/auth.test.tsx pass trên bản Next.js (npm run test:e2e, npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] AU-AC03 [auto] AU-02, AU-03: Đăng ký với mật khẩu 7 ký tự hiện "Mật khẩu cần ít nhất 8 ký tự."; hai mật khẩu khác nhau hiện "Hai mật khẩu chưa giống nhau."; đăng ký đúng thì đã đăng nhập; máy chủ yêu cầu xác nhận email thì hiện câu đã gửi thư xác nhận.
+  - Bằng chứng: test tests/unit/auth.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] AU-AC04 [auto] AU-04: Dịch vụ trả lỗi sai mật khẩu thì hiện thông báo `role="alert"` "Email hoặc mật khẩu chưa đúng. Kiểm tra lại rồi đăng nhập.", vẫn ở `/dang-nhap`, email đã nhập còn nguyên; lỗi email đã có tài khoản ở `/dang-ky` hiện câu tương ứng.
+  - Bằng chứng: test tests/unit/auth.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] AU-AC05 [auto] AU-05: Đã đăng nhập mà mở `/dang-nhap` hoặc `/dang-ky` thì chuyển vào `/hoc`; "Đăng xuất" ở thanh bên gọi đăng xuất và về `/dang-nhap`.
+  - Bằng chứng: test tests/e2e/dot6-web.spec.ts, tests/unit/auth.test.tsx pass trên bản Next.js (npm run test:e2e, npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] AU-AC06 [auto] AU-06: Không cấu hình Supabase: đăng ký rồi đăng nhập lại bằng tài khoản thử hoạt động; mật khẩu sai báo lỗi; trên máy không lưu mật khẩu dạng chữ thường; có dòng báo chế độ thử.
+  - Bằng chứng: test tests/e2e/dot6-web.spec.ts, tests/unit/auth.test.tsx, tests/unit/owner-auth.test.ts pass trên bản Next.js (npm run test:e2e, npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] AU-AC07 [auto] AU-07: Máy có tiến độ trước khi có đăng nhập: người đầu tiên đăng nhập thấy tiến độ đó. Người thứ hai đăng nhập: không thấy tiến độ của người đầu; người đầu đăng nhập lại thì thấy lại tiến độ của mình.
+  - Bằng chứng: test tests/unit/auth.test.tsx, tests/unit/owner-auth.test.ts pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+- [x] AU-AC08 [claude] AU-01, AU-02: Ảnh chụp `/dang-nhap` và `/dang-ky` ở 375 px và 1280 px, sáng và tối, kể cả trạng thái có lỗi dưới ô: một cột trên mobile, hai cột từ `md`, không khối nhỏ giữa vùng trắng.
+  - Bằng chứng: ảnh cả trang và số đo docs/evidence/AU-AC08/ (/dang-nhap và /dang-ky, có và không có lỗi, 375 và 1280 px, sáng và tối): một cột ở 375 px (form trên, khối ba ý dưới), hai cột ở 1280 px; lỗi hiện dưới ô không vỡ bố cục; không cuộn ngang; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, chưa commit (Đợt 6)
+- [ ] AU-AC09 [human] AU-01, AU-02, AU-04: Với project Supabase thật: đăng ký, xác nhận email (nếu bật), đăng nhập, đăng xuất; câu lỗi khi sai mật khẩu và khi email đã có tài khoản hiện đúng.
