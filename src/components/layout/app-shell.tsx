@@ -1,5 +1,5 @@
 'use client';
-// @spec APP-01, APP-02, APP-06, APP-12, C5-01, C5-02, C5-03, C5-04, AU-05, AU-06
+// @spec APP-01, APP-02, APP-06, APP-12, C5-01, C5-02, C5-03, C5-04, AU-05, AU-06, AU-08
 // Khung khu học (rule giao diện "Layout workspace"): header cố định 56 px, thanh bên cố định 240 px từ md,
 // dưới md thanh bên là menu trượt có lớp phủ. Nội dung rộng tối đa 1024 px, px 16, py 24, các khối cách 16 px.
 import { useEffect, useRef, useState, type ReactNode } from 'react';
@@ -137,17 +137,20 @@ function Sidebar({ open, onClose, desktop }: { open: boolean; onClose: () => voi
               <span className="flex-1">{t('nav.caiDat')}</span>
             </AppLink>
           </li>
-          <li>
-            <button type="button" className={itemClass(false)} onClick={() => void signOut()} data-testid="sign-out">
-              <LogOut className="size-4 flex-none" aria-hidden />
-              <span className="flex-1 text-left">{t('signOut')}</span>
-            </button>
-          </li>
+          {/* AU-08: bản dùng thử không có tài khoản nên không có Đăng xuất. */}
+          {mode !== 'demo' && (
+            <li>
+              <button type="button" className={itemClass(false)} onClick={() => void signOut()} data-testid="sign-out">
+                <LogOut className="size-4 flex-none" aria-hidden />
+                <span className="flex-1 text-left">{t('signOut')}</span>
+              </button>
+            </li>
+          )}
         </NavGroup>
       </nav>
       <div className="flex flex-none flex-col gap-1 border-t border-sidebar-border px-3 py-3">
         <HomeLink onClick={onClose} />
-        {user && (
+        {user && mode !== 'demo' && (
           <p className="truncate px-3 text-xs text-muted-foreground" title={user.email} data-testid="user-email">
             {user.email}
           </p>
@@ -155,6 +158,11 @@ function Sidebar({ open, onClose, desktop }: { open: boolean; onClose: () => voi
         {mode === 'local' && (
           <p className="px-3 text-xs text-muted-foreground" data-testid="local-mode">
             {t('localMode')}
+          </p>
+        )}
+        {mode === 'demo' && (
+          <p className="px-3 text-xs text-muted-foreground" data-testid="demo-mode">
+            {t('demoMode')}
           </p>
         )}
       </div>

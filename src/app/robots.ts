@@ -1,9 +1,12 @@
-// @spec APP-16
+// @spec APP-16, APP-17
 import type { MetadataRoute } from 'next';
 import { PUBLIC_PATH, ROUTE_PATH } from '@/lib/routes';
 import { siteUrl } from '@/lib/seo';
+import { indexable } from '@/lib/app-env';
 
 export default function robots(): MetadataRoute.Robots {
+  // APP-17: staging và demo không cho máy tìm kiếm index.
+  if (!indexable()) return { rules: [{ userAgent: '*', disallow: '/' }] };
   const base = siteUrl();
   return {
     rules: [

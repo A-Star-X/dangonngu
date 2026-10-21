@@ -100,6 +100,7 @@ Chép `.env.example` thành `.env.local` (không đưa lên git). Mọi biến �
 
 | Biến | Dùng cho | Để trống thì |
 |---|---|---|
+| `NEXT_PUBLIC_APP_ENV` | Môi trường: `production`, `staging`, `demo` (APP-17). `demo` là bản dùng thử không cần đăng nhập, không dùng Supabase (AU-08); `staging` và `demo` chặn máy tìm kiếm | `production` |
 | `NEXT_PUBLIC_SITE_URL` | Địa chỉ công khai của website: canonical, sitemap, ảnh chia sẻ (APP-16) | Dùng địa chỉ Vercel, nếu không có thì `http://localhost:3000` |
 | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Đăng nhập và đồng bộ tiến độ (QD-06, DATA-14) | Chế độ thử trên máy: tài khoản và tiến độ chỉ nằm trong trình duyệt này (AU-06), trang Cài đặt ghi rõ điều này |
 | `NEXT_PUBLIC_DATA_BASE_URL` | Nơi đặt bộ dữ liệu câu (DATA-05) | `/data` (thư mục `public/data`) |
@@ -113,6 +114,16 @@ Chép `.env.example` thành `.env.local` (không đưa lên git). Mọi biến �
 ## Triển khai (Vercel)
 
 Nối repo với Vercel (Add New > Project > chọn repo, framework Next.js tự nhận). Ở Settings > Environment Variables, thêm các biến ở bảng trên cho Production và Preview. Mỗi lần push lên main, Vercel build và đưa bản mới lên; mỗi pull request có một bản xem trước. Mã bản build lấy từ commit (`VERCEL_GIT_COMMIT_SHA`), service worker dựa vào đó để báo có bản mới (APP-10). Nối Vercel là đưa app và bộ dữ liệu của khách lên một địa chỉ web công khai, nên làm sau khi nhóm quyết repo công khai hay riêng tư. Bản này dùng để thử trên điện thoại và máy tính thật theo `docs/thu-that/README.md`.
+
+Ba môi trường (QD-11), mỗi môi trường một địa chỉ:
+
+| Môi trường | Project Vercel | Nhánh | Biến môi trường |
+|---|---|---|---|
+| production | project chính | `main` (Production Branch) | Production: `NEXT_PUBLIC_APP_ENV=production`, `NEXT_PUBLIC_SITE_URL`, hai biến Supabase |
+| staging | project chính | `staging` (Settings > Domains: thêm địa chỉ, gắn với nhánh `staging`) | Preview, chọn riêng nhánh `staging`: `NEXT_PUBLIC_APP_ENV=staging`, hai biến Supabase |
+| demo | project thứ hai cùng repo | `main` | Production: `NEXT_PUBLIC_APP_ENV=demo`; không đặt biến Supabase |
+
+Việc mới mở PR vào `staging`, kiểm trên địa chỉ staging, rồi mở PR từ `staging` vào `main`. Merge vào `main` thì production và demo cùng lên bản mới.
 
 ## Trạng thái hiện tại (21/10/2026)
 

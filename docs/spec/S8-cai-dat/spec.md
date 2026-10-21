@@ -2,7 +2,7 @@
 id: S8
 title: Cài đặt
 status: nháp
-version: 1.0
+version: 1.1
 route: "/cai-dat"
 depends: APP, FND, DATA, C3, C6, C7
 legacy: L-D4, L-D8, nút giao diện ở header L-S2
@@ -55,7 +55,7 @@ Từ `lg` (1024 px), các nhóm cài đặt xếp vào lưới hai cột, thứ 
 
 ### S8-08 Tài khoản
 
-Nhóm "Tài khoản" gồm dòng "Email" hiện email đang đăng nhập (không chạm được) và "Đăng xuất" (AU-05). Mục "Xóa tiến độ" trong nhóm Tiến độ dùng màu `danger` vì không lấy lại được.
+Nhóm "Tài khoản" gồm dòng "Email" hiện email đang đăng nhập (không chạm được) và "Đăng xuất" (AU-05). Bản dùng thử không có nhóm này (AU-08). Mục "Xóa tiến độ" trong nhóm Tiến độ dùng màu `danger` vì không lấy lại được.
 
 ## Câu hỏi mở
 
@@ -82,3 +82,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.4 (18/10/2026): S8-02 thay "Mặc định của thiết bị" bằng "Tự động", ưu tiên giọng Google rồi giọng chất lượng cao, đọc lại bằng giọng trên máy khi giọng cần mạng lỗi; "Giọng cho" thành "Chọn giọng cho"; S8-05 viết tên ngôn ngữ theo FND-12 (theo phản hồi người dùng do nhóm chuyển); S8-05 kiểm cả giá trị trong tệp nhập và giới hạn 8 MB (sửa lỗi tìm thấy khi rà soát code); giọng Tự động lấy vùng theo bộ đang học; câu báo tệp sai viết lại.
 - 0.5 (20/10/2026): thêm S8-07 bố cục từ 1200 px (Đợt 5 việc 6).
 - 1.0 (21/10/2026): Đợt 6 (Next.js, rule giao diện của nhóm): S8 mở từ thanh bên; giọng đọc, tốc độ, sáng tối dùng ô chọn C8 thay radio, một nút "Nghe thử" cho giọng đang chọn; thêm ngôn ngữ giao diện (APP-15) và S8-08 Tài khoản; S8-07 hai cột từ `lg`.
+- 1.1 (21/10/2026): theo leader: S8-08 bản dùng thử không có nhóm Tài khoản (AU-08).
