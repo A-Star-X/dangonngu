@@ -2,7 +2,7 @@
 id: C1
 title: Thẻ câu
 status: nháp
-version: 1.2
+version: 1.3
 depends: FND, C2, C3
 legacy: thẻ "Câu đang học" trong L-S2, L-D2
 ---
@@ -21,7 +21,7 @@ Thành phần trung tâm của app: hiển thị một câu với nghĩa, câu g
 │                                         │
 │ I'd like to book a table for two.       │  câu gốc (Lexend, FND-06)
 │                                         │
-│  (◉ Nghe)                (↻ Nghe lặp)   │
+│  (◉ Nghe) (🐌 Nghe chậm)  (↻ Nghe lặp)  │
 └─────────────────────────────────────────┘
 ```
 
@@ -31,7 +31,7 @@ Nền `card`, bo góc 8 px (FND-08), đệm 24 px (16 px dưới `sm`). Thứ t�
 
 ### C1-01 Cấu trúc
 
-Thẻ gồm, từ trên xuống: dải 8 ô và nhãn "Câu n/N" (chỉ khi được truyền vào), nghĩa, câu gốc, hàng nút gồm "Nghe" bên trái và "Nghe lặp" bên phải. Nghĩa dùng Literata `text-lg`; câu gốc dùng font theo FND-04 và cỡ theo FND-06.
+Thẻ gồm, từ trên xuống: dải 8 ô và nhãn "Câu n/N" (chỉ khi được truyền vào), nghĩa, câu gốc, hàng nút gồm "Nghe" và "Nghe chậm" bên trái, "Nghe lặp" bên phải; màn hẹp không đủ chỗ thì "Nghe lặp" xuống dòng, không tràn ngang. Nghĩa dùng Literata `text-lg`; câu gốc dùng font theo FND-04 và cỡ theo FND-06.
 
 ### C1-02 Trạng thái che câu gốc
 
@@ -43,7 +43,7 @@ Câu gốc hiện đầy đủ, nút Nghe và Nghe lặp dùng được. Không 
 
 ### C1-04 Phát âm
 
-"Nghe" đọc câu gốc một lần bằng giọng đã chọn cho ngôn ngữ đó, hoặc giọng tự động khi chưa chọn (S8-02), và tốc độ đã chọn. Khi đang đọc, nút đổi thành "Dừng". "Nghe lặp" đọc lặp lại câu cách nhau 1,5 giây cho tới khi bấm "Dừng" hoặc rời khỏi thẻ. Rời thẻ (đổi câu, đổi màn) thì dừng đọc ngay và nút trở về "Nghe", "Nghe lặp". Bấm nút kia khi đang đọc thì chỉ còn lượt mới: không có hai vòng lặp chồng nhau, nút không tự đổi chữ vì lượt cũ.
+"Nghe" đọc câu gốc một lần bằng giọng đã chọn cho ngôn ngữ đó, hoặc giọng tự động khi chưa chọn (S8-02), và tốc độ đã chọn. Khi đang đọc, nút đổi thành "Dừng". "Nghe lặp" đọc lặp lại câu cách nhau 1,5 giây cho tới khi bấm "Dừng" hoặc rời khỏi thẻ. Rời thẻ (đổi câu, đổi màn) thì dừng đọc ngay và nút trở về "Nghe", "Nghe lặp". Bấm một nút nghe khác khi đang đọc thì chỉ còn lượt mới: không có hai lượt đọc chồng nhau, nút không tự đổi chữ vì lượt cũ.
 
 ### C1-05 Không có giọng đọc
 
@@ -69,6 +69,10 @@ Khi "Nghe" hoặc "Nghe lặp" đang đọc và trình duyệt báo vị trí ch
 - Đang ước lượng mà trình duyệt báo vị trí thật thì bỏ ước lượng, dùng vị trí thật cho phần còn lại của lượt đọc.
 - Câu gốc hiển thị bằng `ruby` (C1-07) thì không tô.
 
+### C1-10 Nghe chậm từng chữ
+
+"Nghe" đọc cả câu liền mạch (đọc nhanh); "Nghe chậm" đọc lần lượt từng chữ của câu gốc (word by word). Chữ tách như C1-09; mỗi chữ là một lượt đọc riêng bằng giọng và tốc độ đã chọn (C1-04), đọc xong chữ này nghỉ 0,4 giây rồi đọc chữ sau. Chữ đang đọc được tô như C1-09 và luôn đúng chữ với mọi giọng, kể cả giọng Google, vì app tự đọc từng chữ (không cần ước lượng). Khi đang đọc, nút đổi thành "Dừng". Đọc xong chữ cuối thì bỏ tô, nút trở về "Nghe chậm". Dừng, đổi câu, rời thẻ, bấm "Nghe" hoặc "Nghe lặp" khi đang đọc chậm: như C1-04. Câu có `furigana` vẫn đọc từng chữ nhưng không tô (C1-09).
+
 ## Câu hỏi mở
 
 Không còn câu hỏi mở.
@@ -89,3 +93,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 1.0 (21/10/2026): Đợt 6 (Next.js, rule giao diện của nhóm): bo góc 8 px, token và route theo FND, APP mới.
 - 1.1 (21/10/2026): theo leader: thêm C1-09 tô sáng chữ đang đọc khi Nghe, Nghe lặp (như bản cũ có "vừa đọc vừa nhảy đến chữ đang đọc").
 - 1.2 (21/10/2026): theo người dùng: C1-09 giọng không báo vị trí (giọng Google) thì tô theo ước lượng thời gian thay vì không tô.
+- 1.3 (21/10/2026): theo leader ("đọc nhanh câu và đọc chậm word by word"): thêm C1-10 nút "Nghe chậm" đọc từng chữ; C1-01 hàng nút có ba nút.

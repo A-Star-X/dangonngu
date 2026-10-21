@@ -1,7 +1,7 @@
 'use client';
-// @spec C1-01, C1-02, C1-03, C1-04, C1-05, C1-06, C1-07, C1-08, C1-09
+// @spec C1-01, C1-02, C1-03, C1-04, C1-05, C1-06, C1-07, C1-08, C1-09, C1-10
 import { useEffect, useRef, type KeyboardEvent, type ReactNode } from 'react';
-import { Repeat, Square, Volume2 } from 'lucide-react';
+import { Repeat, Snail, Square, Volume2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import type { Item } from '@/domain';
 import { cn } from '@/lib/utils';
@@ -145,8 +145,11 @@ export function SentenceCard({ item, lang, locale, langName, covered = false, on
           )}
         </div>
       )}
-      <div className="flex justify-between gap-3">
-        <AudioButton locked={audioLocked} active={speaker.playing === 'once'} kind="once" onClick={() => speaker.toggle('once')} />
+      <div className="flex flex-wrap justify-between gap-3">
+        <div className="flex flex-wrap gap-3">
+          <AudioButton locked={audioLocked} active={speaker.playing === 'once'} kind="once" onClick={() => speaker.toggle('once')} />
+          <AudioButton locked={audioLocked} active={speaker.playing === 'slow'} kind="slow" onClick={() => speaker.toggle('slow')} />
+        </div>
         <AudioButton locked={audioLocked} active={speaker.playing === 'loop'} kind="loop" onClick={() => speaker.toggle('loop')} />
       </div>
       {(speaker.noVoice || !speaker.ready) && <NoVoice langName={langName} onOpenVoices={onOpenVoices} pending={!speaker.ready} />}
@@ -154,9 +157,9 @@ export function SentenceCard({ item, lang, locale, langName, covered = false, on
   );
 }
 
-export function AudioButton({ locked, active, kind, onClick, label }: { locked: boolean; active: boolean; kind: 'once' | 'loop'; onClick: () => void; label?: string }) {
+export function AudioButton({ locked, active, kind, onClick, label }: { locked: boolean; active: boolean; kind: 'once' | 'loop' | 'slow'; onClick: () => void; label?: string }) {
   const t = useTranslations('card');
-  const Icon = active ? Square : kind === 'once' ? Volume2 : Repeat;
+  const Icon = active ? Square : kind === 'once' ? Volume2 : kind === 'slow' ? Snail : Repeat;
   return (
     <button
       type="button"
@@ -169,7 +172,7 @@ export function AudioButton({ locked, active, kind, onClick, label }: { locked: 
       }}
     >
       <Icon className="size-5" aria-hidden />
-      <span>{active ? t('stop') : kind === 'once' ? t('listen') : t('listenLoop')}</span>
+      <span>{active ? t('stop') : kind === 'once' ? t('listen') : kind === 'slow' ? t('listenSlow') : t('listenLoop')}</span>
     </button>
   );
 }

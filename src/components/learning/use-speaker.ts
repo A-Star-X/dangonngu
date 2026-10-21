@@ -1,10 +1,13 @@
 'use client';
-// @spec C1-04, C1-05, C1-09
+// @spec C1-04, C1-05, C1-09, C1-10
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { speak, stopSpeaking, voicesFor } from '@/lib/speech';
+import { speak, stopSpeaking, voicesFor, wordSlots } from '@/lib/speech';
 import { useLearning } from '@/providers/learning-provider';
 
-export type Playing = 'idle' | 'once' | 'loop';
+export type Playing = 'idle' | 'once' | 'loop' | 'slow';
+
+/** C1-10: nghỉ giữa hai chữ khi Nghe chậm. */
+export const SLOW_GAP_MS = 400;
 
 /** Đọc câu gốc bằng giọng và tốc độ đã chọn. Đổi câu hoặc rời màn thì dừng ngay. */
 export function useSpeaker(text: string, lang: string, locale?: string) {
@@ -62,7 +65,29 @@ export function useSpeaker(text: string, lang: string, locale?: string) {
           }
         },
       });
-    if (!once()) stop();
+    // C1-10: Nghe chậm đọc từng chữ một lượt riêng; chữ đang đọc là chữ vừa gửi đi nên luôn tô đúng.
+    const slow = (i: number): boolean => {
+      const w = slots[i];
+      setWord([w.start, w.end]);
+      return speak({
+        text: text.slice(w.start, w.end),
+        lang,
+        locale,
+        voiceURI: settings.voiceByLang[lang],
+        rate: settings.rate,
+        onEnd: () => {
+          if (g !== gen.current) return;
+          if (i + 1 < slots.length) timer.current = window.setTimeout(() => slow(i + 1), SLOW_GAP_MS);
+          else {
+            mode.current = 'idle';
+            setPlaying('idle');
+            setWord(null);
+          }
+        },
+      });
+    };
+    const slots = m === 'slow' ? wordSlots(text, lang) : [];
+    if (m === 'slow' ? slots.length === 0 || !slow(0) : !once()) stop();
   };
 
   return {

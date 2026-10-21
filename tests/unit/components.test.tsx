@@ -123,6 +123,61 @@ describe('C1 Thẻ câu', () => {
     expect(card(r.container).querySelector('mark')).toBeNull();
   });
 
+  // @ac C1-AC15
+  it('Nghe chậm: đọc lần lượt từng chữ, nghỉ 0,4 giây giữa hai chữ, tô đúng chữ đang đọc; Dừng và Nghe thay lượt đọc chậm', async () => {
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
+    const synth = fakeSpeech([{ lang: 'en-US', voiceURI: 'us', name: 'US' }]);
+    type U = { text: string; onend: (() => void) | null };
+    const said = () => synth.speak.mock.calls.map((c) => (c[0] as U).text);
+    const last = () => synth.speak.mock.calls.at(-1)![0] as U;
+    const sentence = { id: 2, en: "I'd like to book a table for two.", vi: 'Tôi muốn đặt một bàn cho hai người.' };
+    const words = ["I'd", 'like', 'to', 'book', 'a', 'table', 'for', 'two'];
+    const { container } = withProviders(<SentenceCard item={sentence} lang="en" langName="tiếng Anh" />);
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(0);
+    });
+    const mark = () => card(container).querySelector('[data-testid="source-text"] mark');
+
+    fireEvent.click(screen.getByRole('button', { name: 'Nghe chậm' }));
+    expect(said()).toEqual(["I'd"]);
+    expect(mark()).toHaveTextContent(/^I'd$/);
+    expect(screen.getAllByText('Dừng')).toHaveLength(1);
+    for (let i = 1; i < words.length; i++) {
+      act(() => last().onend?.());
+      // Chưa hết khoảng nghỉ thì chưa đọc chữ sau.
+      act(() => vi.advanceTimersByTime(399));
+      expect(said()).toHaveLength(i);
+      act(() => vi.advanceTimersByTime(1));
+      expect(said().at(-1)).toBe(words[i]);
+      expect(mark()).toHaveTextContent(new RegExp(`^${words[i]}$`));
+    }
+    act(() => last().onend?.());
+    expect(mark()).toBeNull();
+    expect(screen.queryByText('Dừng')).toBeNull();
+    expect(screen.getByRole('button', { name: 'Nghe chậm' })).toBeInTheDocument();
+
+    // Dừng giữa chừng: không đọc chữ tiếp.
+    synth.speak.mockClear();
+    fireEvent.click(screen.getByRole('button', { name: 'Nghe chậm' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Dừng' }));
+    act(() => last().onend?.());
+    act(() => vi.advanceTimersByTime(2000));
+    expect(said()).toEqual(["I'd"]);
+    expect(mark()).toBeNull();
+
+    // Bấm Nghe khi đang đọc chậm: chỉ còn lượt đọc cả câu.
+    synth.speak.mockClear();
+    fireEvent.click(screen.getByRole('button', { name: 'Nghe chậm' }));
+    const slowFirst = last();
+    fireEvent.click(screen.getByRole('button', { name: /^Nghe$/ }));
+    expect(said()).toEqual(["I'd", sentence.en]);
+    act(() => slowFirst.onend?.());
+    act(() => vi.advanceTimersByTime(2000));
+    expect(said()).toHaveLength(2);
+    expect(screen.getAllByText('Dừng')).toHaveLength(1);
+    expect(screen.getByRole('button', { name: 'Nghe chậm' })).toBeInTheDocument();
+  });
+
   // @ac C1-AC06
   it('không có giọng ngôn ngữ đích: nút khóa, có câu thông báo và liên kết mở Giọng đọc', async () => {
     fakeSpeech([{ lang: 'vi-VN', voiceURI: 'vi', name: 'VI' }]);
@@ -143,7 +198,7 @@ describe('C1 Thẻ câu', () => {
     const a = withProviders(<SentenceCard item={plain} lang="en" langName="tiếng Anh" />);
     await act(async () => {});
     const text = 'Thiết bị chưa có giọng tiếng Anh. Mở Cài đặt > Giọng đọc.';
-    const audioRow = () => screen.getByRole('button', { name: /^Nghe$/ }).parentElement;
+    const audioRow = () => screen.getByRole('button', { name: /Nghe lặp/ }).parentElement;
     const pending = noVoiceLine(a.container)!;
     expect(pending).toHaveAttribute('aria-hidden', 'true');
     expect(pending).toHaveClass('invisible');
