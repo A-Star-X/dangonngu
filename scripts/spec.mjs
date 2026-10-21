@@ -18,11 +18,11 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SPEC_ROOTS = ['docs/new', 'fe/src'];
-const CODE_ROOT = 'fe';
+const SPEC_ROOTS = ['docs/new', 'docs/spec'];
+const CODE_ROOTS = ['src', 'tests', 'scripts', 'supabase'];
 const OUT_DIR = 'docs/generated';
 const SKIP_DIRS = new Set(['node_modules', 'dist', 'build', '.git', 'coverage', 'fixtures']);
-const CODE_EXT = new Set(['.ts', '.tsx', '.js', '.jsx', '.mjs', '.vue', '.svelte', '.css', '.scss', '.html']);
+const CODE_EXT = new Set(['.ts', '.tsx', '.js', '.jsx', '.mjs', '.vue', '.svelte', '.css', '.scss', '.html', '.sql']);
 
 const REQ_RE = /^###\s+([A-Z]+\d*-\d{2,3})\b\s*(.*)$/;
 const AC_LINE_RE = /^\s*- \[( |x|X)\]\s+([A-Z]+\d*-AC\d{2,3})\s+\[(auto|claude|human)\]\s+([^:]+):\s*(.*)$/;
@@ -120,7 +120,7 @@ for (const req of reqIndex.values()) {
 }
 
 // ---------- đọc ghi chú trong code và test ----------
-const codeFiles = walk(path.join(ROOT, CODE_ROOT)).filter((f) => CODE_EXT.has(path.extname(f)));
+const codeFiles = CODE_ROOTS.flatMap((r) => walk(path.join(ROOT, r))).filter((f) => CODE_EXT.has(path.extname(f)));
 let tagCount = 0;
 for (const file of codeFiles) {
   const text = fs.readFileSync(file, 'utf8');

@@ -1,0 +1,49 @@
+/* @spec FND-01, FND-05 */
+@import 'tailwindcss';
+@import './theme.css';
+@import './typography.css';
+
+/* Sáng và tối bằng class .dark trên gốc (FND-03). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Sheet trượt lên (C6-01), thông báo hiện ra (C7-01). */
+@keyframes sheet-up {
+  from { transform: translateY(100%); }
+  to { transform: none; }
+}
+@keyframes card-reveal {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* @spec C7-01
+   Thông báo ngắn theo token: nền card, chữ foreground, bo 8 px, đổ bóng, rộng tối đa 480 px, cách đáy 16 px, lỗi có viền trái danger.
+   react-toastify tự chèn CSS gốc sau CSS của app, nên luật ở đây đi qua class riêng của container (vitasr-toasts) để thắng
+   các luật cùng độ ưu tiên của thư viện, kể cả luật cho màn dưới 480 px. */
+.vitasr-toasts {
+  --toastify-color-light: var(--card);
+  --toastify-text-color-light: var(--foreground);
+  --toastify-toast-bd-radius: var(--radius-card);
+  --toastify-toast-shadow: var(--shadow-dialog);
+  --toastify-font-family: var(--font-sans);
+  --toastify-toast-padding: 0.75rem 1rem;
+  --toastify-toast-min-height: 3rem;
+  --toastify-toast-width: 100%;
+  --toastify-container-width: min(30rem, calc(100vw - 2rem));
+}
+.vitasr-toasts.Toastify__toast-container--bottom-center {
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+  left: 50%;
+  width: var(--toastify-container-width);
+  padding: 0;
+  margin: 0;
+  transform: translateX(-50%);
+}
+.vitasr-toasts .Toastify__toast {
+  margin-bottom: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+}
+.vitasr-toasts .Toastify__toast--error {
+  border-left: 4px solid var(--danger);
+}

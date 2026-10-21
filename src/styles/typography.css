@@ -1,0 +1,72 @@
+/* @spec FND-04, FND-05, FND-14, FND-15 */
+/* Class chữ ngữ nghĩa theo rule giao diện và font theo hệ chữ. */
+
+@utility text-data {
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
+}
+@utility text-label {
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  font-weight: 500;
+}
+@utility text-description {
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  color: var(--muted-foreground);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+    -webkit-font-smoothing: antialiased;
+  }
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']) {
+    cursor: pointer;
+  }
+  /* Viền focus chỉ khi dùng bàn phím (FND-14). */
+  :focus {
+    outline: none;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+/* Nghĩa tiếng Việt dùng Literata để mắt tách được với câu gốc (FND-04). */
+.vi {
+  font-family: var(--font-serif);
+}
+.num {
+  font-variant-numeric: tabular-nums;
+}
+/* Câu ngôn ngữ đích theo hệ chữ (FND-04). Font Noto chỉ tải khi học ngôn ngữ cần (src/utils/fonts.ts). */
+.src {
+  font-family: var(--font-sans);
+}
+.src:lang(ja) { font-family: 'Noto Sans JP', var(--font-sans); }
+.src:lang(zh) { font-family: 'Noto Sans SC', var(--font-sans); }
+.src:lang(ko) { font-family: 'Noto Sans KR', var(--font-sans); }
+.src:lang(th) { font-family: 'Noto Sans Thai', var(--font-sans); }
+.src:lang(lo) { font-family: 'Noto Sans Lao', var(--font-sans); }
+.src:lang(hi) { font-family: 'Noto Sans Devanagari', var(--font-sans); }
+.src:lang(ta) { font-family: 'Noto Sans Tamil', var(--font-sans); }
+.src:lang(ru) { font-family: 'Noto Sans', var(--font-sans); }
+
+@media (prefers-reduced-motion: reduce) {
+  *:not(.Toastify__progress-bar),
+  *::before,
+  *::after {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+}
