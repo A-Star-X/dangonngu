@@ -1,0 +1,62 @@
+{
+  "11": {
+    "phanTu": "Thứ Tư, 21/10: 8 câu",
+    "outline": "2px solid rgb(201, 48, 26)",
+    "offset": "2px",
+    "focusVisible": true
+  },
+  "00": {
+    "phanTu": "Chuyển sang giao diện tối",
+    "outline": "2px solid rgb(201, 48, 26)",
+    "offset": "2px",
+    "focusVisible": true
+  },
+  "01": {
+    "phanTu": "Thư viện",
+    "outline": "2px solid rgb(201, 48, 26)",
+    "offset": "2px",
+    "focusVisible": true
+  },
+  "02": {
+    "phanTu": "Trang học chính",
+    "outline": "2px solid rgb(201, 48, 26)",
+    "offset": "2px",
+    "focusVisible": true
+  },
+  "03": {
+    "phanTu": "Học 8 câu",
+    "outline": "2px solid rgb(201, 48, 26)",
+    "offset": "2px",
+    "focusVisible": true
+  },
+  "04": {
+    "phanTu": "Phòng số mười hai ở đâu?Nhấn để hiện câu",
+    "outline": "2px solid rgb(201, 48, 26)",
+    "offset": "2px",
+    "focusVisible": true
+  },
+  "06": {
+    "phanTu": "Câu tiếp",
+    "outline": "2px solid rgb(201, 48, 26)",
+    "offset": "2px",
+    "focusVisible": true
+  },
+  "07": {
+    "phanTu": "Xem tiến độ",
+    "outline": "2px solid rgb(201, 48, 26)",
+    "offset": "2px",
+    "focusVisible": true
+  },
+  "08": {
+    "phanTu": "30 ngày",
+    "outline": "2px solid rgb(201, 48, 26)",
+    "offset": "2px",
+    "focusVisible": true
+  },
+  "09": {
+    "phanTu": "Thứ Tư, 21/10: 8 câu",
+    "outline": "2px solid rgb(201, 48, 26)",
+    "offset": "2px",
+    "focusVisible": true
+  }
+}

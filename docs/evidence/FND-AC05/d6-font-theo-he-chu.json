@@ -1,0 +1,93 @@
+{
+  "en": {
+    "fontDaTai": [
+      "media/lexend-latin-400-normal.1btqgq6a_l66v.woff2",
+      "media/lexend-latin-500-normal.2qt-nfumx8a5y.woff2",
+      "media/lexend-latin-600-normal.2ygncnxsiurn3.woff2",
+      "media/lexend-latin-700-normal.3rs-88t7lerk8.woff2",
+      "media/lexend-latin-ext-400-normal.08g5hk9uhgsmm.woff2",
+      "media/lexend-latin-ext-600-normal.34yqa6wurj33u.woff2",
+      "media/lexend-vietnamese-400-normal.1227gg5uog_pu.woff2",
+      "media/lexend-vietnamese-500-normal.2fazwi0xsa6vr.woff2",
+      "media/lexend-vietnamese-600-normal.1vwlf5z6daqlb.woff2",
+      "media/lexend-vietnamese-600-normal.2l0aywk70gvm7.woff",
+      "media/lexend-vietnamese-700-normal.0-dljibsui3ce.woff2",
+      "media/lexend-vietnamese-700-normal.3btl2i4jzzi7m.woff"
+    ],
+    "fontFamily": "Lexend, system-ui, sans-serif",
+    "fontDaNap": [
+      "Lexend",
+      "Literata"
+    ],
+    "lang": "en"
+  },
+  "ja": {
+    "fontDaTai": [
+      "files/noto-sans-jp-114-600-normal.woff2",
+      "files/noto-sans-jp-115-400-normal.woff2",
+      "files/noto-sans-jp-115-600-normal.woff2",
+      "files/noto-sans-jp-119-400-normal.woff2",
+      "files/noto-sans-jp-119-600-normal.woff2",
+      "media/lexend-latin-400-normal.1btqgq6a_l66v.woff2",
+      "media/lexend-latin-500-normal.2qt-nfumx8a5y.woff2",
+      "media/lexend-latin-600-normal.2ygncnxsiurn3.woff2",
+      "media/lexend-latin-700-normal.3rs-88t7lerk8.woff2",
+      "media/lexend-latin-ext-400-normal.08g5hk9uhgsmm.woff2",
+      "media/lexend-latin-ext-600-normal.34yqa6wurj33u.woff2",
+      "media/lexend-vietnamese-400-normal.1227gg5uog_pu.woff2"
+    ],
+    "fontFamily": "\"Noto Sans JP\", Lexend, system-ui, sans-serif",
+    "fontDaNap": [
+      "Lexend",
+      "Literata",
+      "Noto Sans JP"
+    ],
+    "lang": "ja"
+  },
+  "ru": {
+    "fontDaTai": [
+      "files/noto-sans-cyrillic-400-normal.woff2",
+      "files/noto-sans-cyrillic-600-normal.woff2",
+      "media/lexend-latin-400-normal.1btqgq6a_l66v.woff2",
+      "media/lexend-latin-500-normal.2qt-nfumx8a5y.woff2",
+      "media/lexend-latin-600-normal.2ygncnxsiurn3.woff2",
+      "media/lexend-latin-700-normal.3rs-88t7lerk8.woff2",
+      "media/lexend-latin-ext-400-normal.08g5hk9uhgsmm.woff2",
+      "media/lexend-latin-ext-600-normal.34yqa6wurj33u.woff2",
+      "media/lexend-vietnamese-400-normal.1227gg5uog_pu.woff2",
+      "media/lexend-vietnamese-500-normal.2fazwi0xsa6vr.woff2",
+      "media/lexend-vietnamese-600-normal.1vwlf5z6daqlb.woff2",
+      "media/lexend-vietnamese-700-normal.0-dljibsui3ce.woff2"
+    ],
+    "fontFamily": "\"Noto Sans\", Lexend, system-ui, sans-serif",
+    "fontDaNap": [
+      "Lexend",
+      "Literata",
+      "Noto Sans"
+    ],
+    "lang": "ru"
+  },
+  "ta": {
+    "fontDaTai": [
+      "files/noto-sans-tamil-latin-400-normal.woff2",
+      "files/noto-sans-tamil-latin-600-normal.woff2",
+      "files/noto-sans-tamil-tamil-400-normal.woff2",
+      "files/noto-sans-tamil-tamil-600-normal.woff2",
+      "media/lexend-latin-400-normal.1btqgq6a_l66v.woff2",
+      "media/lexend-latin-500-normal.2qt-nfumx8a5y.woff2",
+      "media/lexend-latin-600-normal.2ygncnxsiurn3.woff2",
+      "media/lexend-latin-700-normal.3rs-88t7lerk8.woff2",
+      "media/lexend-latin-ext-400-normal.08g5hk9uhgsmm.woff2",
+      "media/lexend-latin-ext-600-normal.34yqa6wurj33u.woff2",
+      "media/lexend-vietnamese-400-normal.1227gg5uog_pu.woff2",
+      "media/lexend-vietnamese-500-normal.2fazwi0xsa6vr.woff2"
+    ],
+    "fontFamily": "\"Noto Sans Tamil\", Lexend, system-ui, sans-serif",
+    "fontDaNap": [
+      "Lexend",
+      "Literata",
+      "Noto Sans Tamil"
+    ],
+    "lang": "ta"
+  }
+}

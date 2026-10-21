@@ -1,0 +1,155 @@
+{
+  "320-buoc-1": {
+    "phanTu": "card",
+    "phanTuHop": {
+      "x": 16,
+      "y": 72,
+      "w": 288,
+      "h": 537
+    },
+    "bongBong": {
+      "x": 16,
+      "y": 625,
+      "w": 288,
+      "h": 172
+    },
+    "chongLen": false,
+    "tranKhung": false
+  },
+  "320-buoc-2": {
+    "phanTu": "start",
+    "phanTuHop": {
+      "x": 16,
+      "y": 625,
+      "w": 288,
+      "h": 48
+    },
+    "bongBong": {
+      "x": 16,
+      "y": 437,
+      "w": 288,
+      "h": 172
+    },
+    "chongLen": false,
+    "tranKhung": false
+  },
+  "320-buoc-3": {
+    "phanTu": "nav",
+    "phanTuHop": {
+      "x": 8,
+      "y": 6,
+      "w": 44,
+      "h": 44
+    },
+    "bongBong": {
+      "x": 16,
+      "y": 66,
+      "w": 288,
+      "h": 198
+    },
+    "chongLen": false,
+    "tranKhung": false
+  },
+  "375-buoc-1": {
+    "phanTu": "card",
+    "phanTuHop": {
+      "x": 16,
+      "y": 72,
+      "w": 343,
+      "h": 537
+    },
+    "bongBong": {
+      "x": 16,
+      "y": 625,
+      "w": 343,
+      "h": 172
+    },
+    "chongLen": false,
+    "tranKhung": false
+  },
+  "375-buoc-2": {
+    "phanTu": "start",
+    "phanTuHop": {
+      "x": 16,
+      "y": 625,
+      "w": 343,
+      "h": 48
+    },
+    "bongBong": {
+      "x": 16,
+      "y": 437,
+      "w": 343,
+      "h": 172
+    },
+    "chongLen": false,
+    "tranKhung": false
+  },
+  "375-buoc-3": {
+    "phanTu": "nav",
+    "phanTuHop": {
+      "x": 8,
+      "y": 6,
+      "w": 44,
+      "h": 44
+    },
+    "bongBong": {
+      "x": 16,
+      "y": 66,
+      "w": 343,
+      "h": 172
+    },
+    "chongLen": false,
+    "tranKhung": false
+  },
+  "1280-buoc-1": {
+    "phanTu": "card",
+    "phanTuHop": {
+      "x": 264,
+      "y": 80,
+      "w": 560,
+      "h": 453
+    },
+    "bongBong": {
+      "x": 256,
+      "y": 549,
+      "w": 360,
+      "h": 172
+    },
+    "chongLen": false,
+    "tranKhung": false
+  },
+  "1280-buoc-2": {
+    "phanTu": "start",
+    "phanTuHop": {
+      "x": 264,
+      "y": 549,
+      "w": 240,
+      "h": 48
+    },
+    "bongBong": {
+      "x": 256,
+      "y": 613,
+      "w": 360,
+      "h": 172
+    },
+    "chongLen": false,
+    "tranKhung": false
+  },
+  "1280-buoc-3": {
+    "phanTu": "nav",
+    "phanTuHop": {
+      "x": 0,
+      "y": 56,
+      "w": 239,
+      "h": 623
+    },
+    "bongBong": {
+      "x": 255,
+      "y": 176,
+      "w": 360,
+      "h": 172
+    },
+    "chongLen": false,
+    "tranKhung": false
+  }
+}

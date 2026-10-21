@@ -1,0 +1,86 @@
+[
+  {
+    "lop": "vi text-xs",
+    "font": "Literata, Georgia, serif",
+    "size": "12px",
+    "lineHeight": "16px"
+  },
+  {
+    "lop": "src text-xs",
+    "font": "Lexend, system-ui, sans-serif",
+    "size": "12px",
+    "lineHeight": "16px"
+  },
+  {
+    "lop": "vi text-sm",
+    "font": "Literata, Georgia, serif",
+    "size": "14px",
+    "lineHeight": "20px"
+  },
+  {
+    "lop": "src text-sm",
+    "font": "Lexend, system-ui, sans-serif",
+    "size": "14px",
+    "lineHeight": "20px"
+  },
+  {
+    "lop": "vi text-base",
+    "font": "Literata, Georgia, serif",
+    "size": "16px",
+    "lineHeight": "26px"
+  },
+  {
+    "lop": "src text-base",
+    "font": "Lexend, system-ui, sans-serif",
+    "size": "16px",
+    "lineHeight": "26px"
+  },
+  {
+    "lop": "vi text-lg",
+    "font": "Literata, Georgia, serif",
+    "size": "18px",
+    "lineHeight": "28px"
+  },
+  {
+    "lop": "src text-lg",
+    "font": "Lexend, system-ui, sans-serif",
+    "size": "18px",
+    "lineHeight": "28px"
+  },
+  {
+    "lop": "vi text-xl",
+    "font": "Literata, Georgia, serif",
+    "size": "20px",
+    "lineHeight": "30px"
+  },
+  {
+    "lop": "src text-xl",
+    "font": "Lexend, system-ui, sans-serif",
+    "size": "20px",
+    "lineHeight": "30px"
+  },
+  {
+    "lop": "vi text-2xl",
+    "font": "Literata, Georgia, serif",
+    "size": "24px",
+    "lineHeight": "32px"
+  },
+  {
+    "lop": "src text-2xl",
+    "font": "Lexend, system-ui, sans-serif",
+    "size": "24px",
+    "lineHeight": "32px"
+  },
+  {
+    "lop": "vi text-display-lg",
+    "font": "Literata, Georgia, serif",
+    "size": "32px",
+    "lineHeight": "40px"
+  },
+  {
+    "lop": "src text-display-lg",
+    "font": "Lexend, system-ui, sans-serif",
+    "size": "32px",
+    "lineHeight": "40px"
+  }
+]

@@ -1,31 +1,31 @@
 # Acceptance: S5 Kiểm tra nhanh
 
 - [x] S5-AC01 [auto] S5-01: Mở `/kiem-tra` không tham số thì nhóm câu là unit đang học; với `?unit=2` là unit 2. Bốn nút bắt đầu đúng nhãn; mỗi nút chạy đúng bước tương ứng.
-  - Bằng chứng: test tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] S5-AC02 [auto] S5-02: Khi làm cả 3 bước, chỉ báo có 3 chấm và trạng thái đổi đúng khi sang bước; khi chỉ làm một bước, chỉ báo có 1 chấm.
-  - Bằng chứng: test tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] S5-AC03 [auto] S5-03: Với `speechSynthesis` giả: vào câu gọi `speak` một lần; chữ câu gốc không có trong DOM trước khi chọn đúng. Với không có giọng: chữ câu gốc hiện ngay và có dòng thông báo. Khi trình duyệt chưa trả danh sách giọng: chưa có câu hỏi và 4 lựa chọn; hết 1,5 giây thì hiện.
-  - Bằng chứng: test tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] S5-AC04 [auto] S5-04: Test đơn vị chia cụm: câu 1, 3, 7, 8 và 12 từ cho 1, 2, 3, 4, 4 cụm; ghép các cụm lại bằng đúng câu gốc. Chạm hết cụm thì nút "Câu tiếp" hiện; câu 1 cụm bị bỏ qua.
-  - Bằng chứng: test tests/unit/dot2-data.test.ts, tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/dot2-data.test.ts, tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] S5-AC05 [auto] S5-05: Thứ tự xáo khác thứ tự đúng và giống nhau giữa hai lần mở cùng câu; xếp đúng thì nút thành "Câu tiếp"; xếp sai thì đúng các cụm sai vị trí được đánh dấu và hiện dòng "Chưa đúng. Nhấn các cụm có dấu x để đưa về hàng cụm, rồi xếp lại." màu `danger`.
-  - Bằng chứng: test tests/unit/dot2-data.test.ts, tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/dot2-data.test.ts, tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] S5-AC06 [claude] S5-06: Ảnh chụp bước 2 và bước 3 ở 375 px: chỉ có nghĩa cả câu, không có nghĩa từng cụm.
-  - Bằng chứng: ảnh docs/evidence/S5-AC06/ (375 px, sáng và tối): ở bước 2 và bước 3 chỉ có một dòng nghĩa cả câu phía trên khu làm bài, các cụm không kèm nghĩa riêng; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: ảnh docs/evidence/S5-AC06/ (375 px, sáng và tối): ở bước 2 và bước 3 chỉ có một dòng nghĩa cả câu phía trên khu làm bài, các cụm không kèm nghĩa riêng; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d
 - [x] S5-AC07 [auto] S5-07: Làm cả 3 bước với 1 câu sai ở bước 1: kết quả hiện đúng số liệu từng bước; câu sai thành Cần ôn trong tiến độ; ở unit cuối không có nút "Kiểm tra unit tiếp theo".
-  - Bằng chứng: test tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] S5-AC08 [auto] S5-08: Thoát giữa bước 2: sheet xác nhận đúng chữ; "Tạm dừng" về T2 Luyện tập (`/luyen-tap`), kể cả khi mở thẳng `/kiem-tra`; kết quả các câu đã làm có trong tiến độ; mở lại `/kiem-tra` bắt đầu từ màn bắt đầu (có "Làm tiếp", S5-09); sau khi Tạm dừng, Back không quay lại bài và không mở sheet.
-  - Bằng chứng: test tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] S5-AC09 [claude] S5-01, S5-03, S5-04, S5-05, S5-07: Ảnh chụp màn bắt đầu, mỗi bước và kết quả ở 320, 375, 1280 px, sáng và tối; các cụm xuống dòng hợp lý với câu dài.
-  - Bằng chứng: ảnh và số đo docs/evidence/S5-AC09/ (320, 375, 1280 px, sáng và tối, unit 377 có câu dài nhất): màn bắt đầu, bước 1 (cả sai rồi đúng ở 1280 px), bước 2 câu dài 4 cụm, bước 3 xếp sai có viền danger và dấu x, màn kết quả có "Câu cần xem lại"; tên bước xuống dòng đủ chữ ở 320 px; cụm dài xuống dòng trong nút, không tràn, không cuộn ngang; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: ảnh và số đo docs/evidence/S5-AC09/ (320, 375, 1280 px, sáng và tối, unit 377 có câu dài nhất): màn bắt đầu, bước 1 (cả sai rồi đúng ở 1280 px), bước 2 câu dài 4 cụm, bước 3 xếp sai có viền danger và dấu x, màn kết quả có "Câu cần xem lại"; tên bước xuống dòng đủ chữ ở 320 px; cụm dài xuống dòng trong nút, không tràn, không cuộn ngang; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d
 - [ ] S5-AC10 [human] S5-04, S5-05: Ba người học làm cả 3 bước trên điện thoại thật; ghi lại câu nào họ thấy cách chia cụm vô lý. Nhóm quyết định chấp nhận hay đổi quy tắc chia cụm.
 - [x] S5-AC11 [auto] S5-05: Ở bước Sắp xếp, focus vào cụm đầu của hàng cụm rồi nhấn: focus sang cụm kế bên của hàng đó; nhấn hết các cụm thì focus ở nút "Kiểm tra".
-  - Bằng chứng: test tests/unit/ra-soat.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/ra-soat.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] S5-AC12 [auto] S5-08, S5-09: Làm cả 3 bước, tạm dừng ở bước 3 câu 2 rồi tải lại trang: T2 hiện "Đang làm dở: Unit n, bước sắp xếp câu, câu 2/N"; chạm mục Kiểm tra nhanh mở lại đúng bước 3, câu 2, chỉ báo có hai bước đầu đã xong; làm hết thì màn kết quả tính cả các câu làm trước khi tạm dừng.
-  - Bằng chứng: test tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] S5-AC13 [auto] S5-09: Có bài dở ở unit n: màn bắt đầu của unit n có "Làm tiếp" và "Làm lại từ đầu"; "Làm lại từ đầu" kết thúc bài dở (T2 không còn dòng làm dở) và hiện lại "Làm cả 3 bước"; bắt đầu bài ở unit khác thì bài dở cũ kết thúc; phiên học dở của S3 không bị ảnh hưởng.
-  - Bằng chứng: test tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] S5-AC14 [auto] S5-07: Sai ngay lần đầu ở câu 2 bước 1 và câu 5 bước 3: khối "Câu cần xem lại" có đúng hai câu đó theo thứ tự, câu gốc có `lang`, có nút Nghe; làm đúng hết thì không có khối.
-  - Bằng chứng: test tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/s5.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] S5-AC15 [claude] S5-08, S5-09, S5-07: Ảnh 375 và 1280 px, sáng và tối: sheet Tạm dừng kiểm tra, dòng làm dở ở T2, màn bắt đầu có Làm tiếp, khối Câu cần xem lại.
-  - Bằng chứng: ảnh docs/evidence/S5-AC15/ (375 và 1280 px, sáng và tối): sheet và hộp thoại "Tạm dừng kiểm tra?" đúng chữ và hai nút; T2 có dòng "Đang làm dở: Unit 2, bước nghe và chọn nghĩa, câu 2/8"; màn bắt đầu có nút chính "Làm tiếp" và "Làm lại từ đầu"; màn kết quả có khối "Câu cần xem lại" 2 câu; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: ảnh docs/evidence/S5-AC15/ (375 và 1280 px, sáng và tối): sheet và hộp thoại "Tạm dừng kiểm tra?" đúng chữ và hai nút; T2 có dòng "Đang làm dở: Unit 2, bước nghe và chọn nghĩa, câu 2/8"; màn bắt đầu có nút chính "Làm tiếp" và "Làm lại từ đầu"; màn kết quả có khối "Câu cần xem lại" 2 câu; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d

@@ -1,0 +1,36 @@
+{
+  "sheet-375": {
+    "sheet": {
+      "x": 0,
+      "y": 81,
+      "w": 375,
+      "h": 731
+    },
+    "viewport": {
+      "w": 375,
+      "h": 812
+    },
+    "caoToiDa90": true,
+    "satDay": 0,
+    "tayNam": true,
+    "nenLop": "rgba(0, 0, 0, 0.6)",
+    "bongDo": true
+  },
+  "sheet-1280": {
+    "sheet": {
+      "x": 360,
+      "y": 62,
+      "w": 560,
+      "h": 677
+    },
+    "viewport": {
+      "w": 1280,
+      "h": 800
+    },
+    "caoToiDa90": true,
+    "satDay": 62,
+    "tayNam": false,
+    "nenLop": "rgba(0, 0, 0, 0.6)",
+    "bongDo": true
+  }
+}

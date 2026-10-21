@@ -1,27 +1,27 @@
 # Acceptance: T1 Học
 
 - [x] T1-AC01 [auto] T1-01: Với tiến độ trống, thẻ hiện câu đầu của unit 1 trong fixture ở trạng thái hiện đầy đủ, có "Unit 1", title và translation của unit; dải có ô đầu ở trạng thái Đang học.
-  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] T1-AC02 [claude] T1-01: Ảnh chụp T1 ở 320, 375, 768, 1280 px, sáng và tối, với câu ngắn và câu dài trên 120 ký tự: không tràn, cỡ chữ đúng FND-06.
-  - Bằng chứng: ảnh và số đo docs/evidence/T1-AC02/ (320, 375, 768, 1280 px, sáng và tối, câu 21 và 138 ký tự): câu ngắn 32 px (text-display-lg), câu dài 20 px (text-xl), không tràn thẻ, không cuộn ngang ở mọi khổ; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: ảnh và số đo docs/evidence/T1-AC02/ (320, 375, 768, 1280 px, sáng và tối, câu 21 và 138 ký tự): câu ngắn 32 px (text-display-lg), câu dài 20 px (text-xl), không tràn thẻ, không cuộn ngang ở mọi khổ; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d
 - [x] T1-AC03 [auto] T1-02: Không có phiên dở: nút ghi "Học 8 câu" (unit 5 câu: "Học 5 câu") và mở `/phien-hoc?nguon=lo-trinh`. Có phiên dở 3/8: nút ghi "Tiếp tục: 5 câu còn lại" và mở lại phiên ở câu thứ 4.
-  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] T1-AC04 [auto] T1-03: Với 3 phiên hoàn tất trong 7 ngày và mục tiêu 5: hiện "Tuần này: 3/5 phiên"; với 5 phiên: hiện "Tuần này: đã đạt mục tiêu 5/5 phiên". Phiên hoàn tất 8 ngày trước không được tính.
-  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] T1-AC05 [auto] T1-04: N = 0 thì không có dòng câu cần ôn; N = 12 thì hiện "12 câu cần ôn hôm nay" và chạm mở `/phien-hoc?nguon=on-tap`.
-  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] T1-AC06 [auto] T1-05: Với tiến độ đã học hết fixture: không có thẻ, hiện đoạn thông báo đúng mẫu và nút "Mở Luyện tập" dẫn tới `/luyen-tap`.
-  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] T1-AC07 [claude] T1-06: Ảnh chụp 1280 và 1440 px: cột chính rộng không quá 560 px, cột phụ có mục tiêu tuần, câu cần ôn, Unit tiếp theo, Tiến độ của bạn; ở 1440 px không còn khoảng trống lớn bên phải. Ảnh 375 và 1024 px: một cột đúng thứ tự T1-06.
-  - Bằng chứng: ảnh và số đo docs/evidence/T1-AC07/ (375, 1024, 1280, 1440 px, sáng và tối): ở 1280 và 1440 px cột chính 560 px, cột phụ 400 px có mục tiêu tuần, câu cần ôn, Unit tiếp theo, Tiến độ của bạn; ở 1440 px khối nội dung 1024 px căn giữa, không còn khoảng trống lớn bên phải; ở 375 và 1024 px một cột đúng thứ tự T1-06; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: ảnh và số đo docs/evidence/T1-AC07/ (375, 1024, 1280, 1440 px, sáng và tối): ở 1280 và 1440 px cột chính 560 px, cột phụ 400 px có mục tiêu tuần, câu cần ôn, Unit tiếp theo, Tiến độ của bạn; ở 1440 px khối nội dung 1024 px căn giữa, không còn khoảng trống lớn bên phải; ở 375 và 1024 px một cột đúng thứ tự T1-06; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d
 - [x] T1-AC08 [auto] T1-07: Vuốt trái/phải trên thẻ và nhấn phím mũi tên không đổi câu.
-  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [ ] T1-AC09 [human] T1-02, T1-04: Trên điện thoại thật, người học hiểu được khi nào nên bấm nút chính và khi nào nên chạm dòng câu cần ôn (hỏi lại sau khi họ thao tác).
 - [x] T1-AC10 [auto] T1-01: Với fixture Global English, thẻ có "Unit 1", "A1", title "Find your classroom" và tình huống của unit; với fixture English Fluency, thẻ không có mã trình độ và tình huống.
-  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] T1-AC11 [auto] T1-01: Dòng "Unit n" trên thẻ là liên kết tới `/thu-vien/unit?so=n` của unit đang học.
-  - Bằng chứng: test tests/unit/dot5-unit.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/dot5-unit.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] T1-AC12 [auto] T1-08: Với tiến độ fixture đang học unit 2, khối "Unit tiếp theo" có đúng unit 3 và 4 (fixture có 4 unit), mỗi thẻ mở `/thu-vien/unit?so=n`, liên kết "Xem tất cả unit" mở `/thu-vien`; đang học unit cuối thì không có khối.
-  - Bằng chứng: test tests/unit/dot5-unit.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/dot5-unit.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] T1-AC13 [auto] T1-09: Với tiến độ mẫu 30 ngày, khối "Tiến độ của bạn" hiện đúng số câu đã học trên tổng số câu của bộ, thanh tiến độ đúng tỉ lệ, đúng số unit đã học; "Xem tiến độ" mở `/tien-do`; khối vẫn có khi đã học hết lộ trình.
-  - Bằng chứng: test tests/unit/dot5-unit.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, chưa commit (Đợt 6)
+  - Bằng chứng: test tests/unit/dot5-unit.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d

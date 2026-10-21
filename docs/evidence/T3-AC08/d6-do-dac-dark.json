@@ -1,0 +1,54 @@
+{
+  "1024": {
+    "viewport": 1024,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 784,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 240,
+      "y": 56,
+      "w": 784,
+      "h": 2771
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Thư viện",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [
+      "Học câu này"
+    ],
+    "coSheet": true,
+    "cotPhai": 0
+  },
+  "1280": {
+    "truoc": {
+      "rongDanhSach": 464,
+      "cotPhai": 776,
+      "tieuDeChiTiet": "Câu 0001",
+      "soHopThoai": 0
+    },
+    "sauKhiCham": {
+      "rongDanhSach": 464,
+      "cotPhai": 776,
+      "tieuDeChiTiet": "Câu 0005",
+      "soHopThoai": 0
+    }
+  }
+}

@@ -1,14 +1,14 @@
-# Kịch bản thử thật cho 23 mục nghiệm thu `[human]`
+# Kịch bản thử thật cho 26 mục nghiệm thu `[human]`
 
-Cập nhật 18/10/2026 (thêm S8-AC12 sau Đợt 4). Các mục `[human]` chỉ người trong nhóm được đánh dấu (`docs/QUY-TRINH.md` mục 5): cần thiết bị thật, người học thật, người ngoài nhóm, khách hoặc trang học chính thật. File này gom 22 mục đó thành 4 buổi thử, mỗi mục có cách làm và điều kiện đạt. Tình trạng hiện tại của từng mục: `npm run spec:acceptance` rồi mở `docs/generated/acceptance-report.md`.
+Cập nhật 21/10/2026 (Đợt 6: bản Next.js trên Vercel, thêm buổi 5 cho tài khoản Supabase thật và Landing). Các mục `[human]` chỉ người trong nhóm được đánh dấu (`docs/QUY-TRINH.md` mục 5): cần thiết bị thật, người học thật, người ngoài nhóm, khách, trang học chính thật hoặc project Supabase thật. File này gom 26 mục đó thành 5 buổi thử, mỗi mục có cách làm và điều kiện đạt. Tình trạng hiện tại của từng mục: `npm run spec:acceptance` rồi mở `docs/generated/acceptance-report.md`.
 
 ## Chuẩn bị chung
 
-**Bản để thử.** Dùng bản trên GitHub Pages: `https://nguyendinhdat2207.github.io/dangonngu/` (workflow `.github/workflows/pages.yml` tự đưa lên sau mỗi lần CI trên main đạt). Lần đầu, chủ repo phải vào Settings > Pages > Build and deployment chọn Source là "GitHub Actions", rồi thêm biến repo `PAGES_ENABLED` = `true` (Settings > Secrets and variables > Actions > Variables). Lưu ý: bật Pages nghĩa là app và bộ dữ liệu của khách có thêm một địa chỉ web công khai; dữ liệu này vốn đã công khai trong repo. Không dùng `npm run dev` qua mạng LAN để thử trên điện thoại: service worker (APP-10) chỉ chạy trên HTTPS hoặc localhost.
+**Bản để thử.** Dùng bản trên Vercel (cách nối repo và đặt biến môi trường: `README.md` mục "Triển khai"). Buổi 1 đến 4 dùng được bản chưa có Supabase (chế độ thử trên máy, AU-06): đăng ký một tài khoản thử ngay trên trang Đăng ký, tài khoản chỉ nằm trong trình duyệt đó. Buổi 5 cần bản có biến `NEXT_PUBLIC_SUPABASE_*`. Lưu ý: đưa lên Vercel nghĩa là app và bộ dữ liệu của khách có thêm một địa chỉ web công khai. Không dùng `npm run dev` qua mạng LAN để thử trên điện thoại: service worker (APP-10) chỉ chạy trên HTTPS hoặc localhost.
 
 **Thiết bị tối thiểu** (`docs/QUY-TRINH.md` mục 7): một iPhone (Safari), một điện thoại Android (Chrome), một máy Windows (Chrome hoặc Edge). Ghi lại đời máy và phiên bản hệ điều hành, trình duyệt.
 
-**Dữ liệu sạch.** Trước mỗi người học: mở bằng cửa sổ ẩn danh, hoặc vào Cài đặt > Tiến độ > Xóa tiến độ. Muốn thấy lại hướng dẫn lần đầu: Cài đặt > Xem lại hướng dẫn.
+**Dữ liệu sạch.** Trước mỗi người học: mở bằng cửa sổ ẩn danh rồi đăng ký tài khoản mới, hoặc vào Cài đặt > Tiến độ > Xóa tiến độ. Muốn thấy lại hướng dẫn lần đầu: Cài đặt > Xem lại hướng dẫn.
 
 **Cách đánh dấu.** Đạt thì đổi `- [ ]` thành `- [x]` trong `acceptance.md` của khu vực đó và thêm ngay bên dưới một dòng thụt vào:
 
@@ -69,14 +69,24 @@ Phiếu ghi cho mỗi người (chép vào `docs/evidence/G-AC01/ghi-chep.md`):
 | Mục | Làm gì | Đạt khi |
 |---|---|---|
 | FND-AC13 | Một người không trong nhóm đọc danh sách chuỗi giao diện trong `docs/evidence/FND-AC12/chuoi-giao-dien.md` (hoặc dùng app một lượt) | Không thấy câu nào khó hiểu hoặc sai giọng; câu nào bị chỉ ra thì ghi lại để sửa |
-| G-AC05 | Hai người không trong nhóm thiết kế xem ảnh 5 màn chính: `docs/evidence/T1-AC02/375-light-cau-ngan.jpg`, `docs/evidence/S3-AC07/375-light-1-S3a-truoc.jpg`, `docs/evidence/T3-AC08/1280-light-cau-dau.jpg`, `docs/evidence/T4-AC05/1280-light-toan-man.jpg`, `docs/evidence/S8-AC09/375-light-cai-dat.jpg`, kèm danh sách FND-13 trong `fe/src/foundation/spec.md` | Không ai chỉ ra được dấu hiệu nào trong danh sách FND-13 |
+| G-AC05 | Hai người không trong nhóm thiết kế xem ảnh 5 màn chính: `docs/evidence/T1-AC02/d6-375-light-cau-ngan.jpg`, `docs/evidence/S3-AC07/d6-375-light-1-S3a-truoc.jpg`, `docs/evidence/T3-AC08/d6-1280-light-cau-dau.jpg`, `docs/evidence/T4-AC05/d6-1280-light-toan-man.jpg`, `docs/evidence/S8-AC09/d6-375-light-cai-dat.jpg`, kèm danh sách FND-13 trong `docs/spec/foundation/spec.md` (ảnh chụp bản Next.js, Đợt 6) | Không ai chỉ ra được dấu hiệu nào trong danh sách FND-13 |
 
 ## Buổi 4: khách và trang học chính thật (2 mục)
 
 | Mục | Làm gì | Đạt khi |
 |---|---|---|
-| DATA-AC12 | Gửi khách tin nhắn xin xác nhận bằng văn bản việc dùng bộ dữ liệu (`fe/public/data/`) cho phát triển và demo, nói rõ repo đang công khai và bản thử trên GitHub Pages cũng công khai | Có tin nhắn hoặc email đồng ý; lưu ảnh chụp vào `docs/evidence/DATA-AC12/` |
-| APP-AC20 | Đặt bản build ở nơi khách chọn và gắn đường dẫn vào trang học chính (hoặc nhờ khách gắn đường dẫn GitHub Pages). Đăng nhập trang học chính, mở Đa ngôn ngữ, bấm "Quay lại trang học" | App mở ở trang mới; bấm nút thì về đúng trang học chính và vẫn đăng nhập. Ghi lại trang chính mở app bằng tab mới hay chuyển thẳng trong cùng tab (câu hỏi đã trả lời ở APP-12) |
+| DATA-AC12 | Gửi khách tin nhắn xin xác nhận bằng văn bản việc dùng bộ dữ liệu (`public/data/`) cho phát triển và demo, nói rõ bản thử trên Vercel là địa chỉ công khai | Có tin nhắn hoặc email đồng ý; lưu ảnh chụp vào `docs/evidence/DATA-AC12/` |
+| APP-AC20 | Nhờ khách gắn đường dẫn website (bản Vercel hoặc nơi khách chọn) vào trang học chính. Đăng nhập trang học chính, mở Đa ngôn ngữ, đăng nhập website, bấm "Trang học chính" ở chân thanh bên | Website mở ở trang mới; bấm liên kết thì về đúng trang học chính và vẫn đăng nhập ở đó. Ghi lại trang chính mở website bằng tab mới hay chuyển thẳng trong cùng tab |
+
+## Buổi 5: tài khoản Supabase thật và Landing (3 mục)
+
+Chuẩn bị: project Supabase đã chạy `supabase/migrations/0001_init.sql`, bản Vercel có hai biến `NEXT_PUBLIC_SUPABASE_*` (`README.md` mục "Cài Supabase"). Dùng email thử của nhóm, không dùng email của người học; không ghi mật khẩu vào file nào trong repo.
+
+| Mục | Làm gì | Đạt khi |
+|---|---|---|
+| AU-AC09 | Đăng ký bằng email mới, xác nhận email nếu project bật; đăng xuất; đăng nhập sai mật khẩu; đăng nhập đúng; thử đăng ký lại bằng email đó | Đăng ký, đăng nhập, đăng xuất chạy đúng; sai mật khẩu hiện câu báo sai email hoặc mật khẩu; đăng ký lại hiện câu email đã có tài khoản |
+| DATA-AC25 | Máy A: đăng nhập, học một phiên. Máy B: đăng nhập cùng tài khoản, mở Tiến độ. Máy B: Cài đặt > Tiến độ > Xóa tiến độ. Máy A: tải lại trang, mở Tiến độ. Trên Supabase: Table Editor > `user_progress` | Máy B thấy phiên đã học ở máy A; sau khi xóa ở máy B, máy A không còn tiến độ cũ; bảng chỉ có dòng của tài khoản thử (đăng nhập bằng tài khoản khác thì không đọc được dòng này) |
+| LP-AC04 | Nhóm đọc toàn bộ Landing ở tiếng Việt và tiếng Anh (đổi ngôn ngữ ở header) | Câu chữ đúng với sản phẩm, không hứa điều app không làm; câu nào cần sửa thì ghi vào "Lỗi tìm thấy" |
 
 ## Lỗi tìm thấy
 

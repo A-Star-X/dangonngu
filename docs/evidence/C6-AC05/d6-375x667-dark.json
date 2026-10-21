@@ -1,0 +1,25 @@
+{
+  "truoc": {
+    "scrollHeight": 1167,
+    "clientHeight": 508,
+    "scrollTop": 0,
+    "tieuDeTop": 91,
+    "soDong": 16,
+    "windowScrollY": 0,
+    "viewport": 667,
+    "bodyOverflow": "hidden",
+    "htmlOverflow": "visible"
+  },
+  "sau": {
+    "scrollHeight": 1167,
+    "clientHeight": 508,
+    "scrollTop": 659,
+    "tieuDeTop": 91,
+    "soDong": 16,
+    "windowScrollY": 0,
+    "viewport": 667,
+    "bodyOverflow": "hidden",
+    "htmlOverflow": "visible"
+  },
+  "dongCuoiHien": true
+}

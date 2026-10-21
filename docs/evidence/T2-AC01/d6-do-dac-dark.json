@@ -1,0 +1,110 @@
+{
+  "375": {
+    "viewport": 375,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 375,
+      "h": 516
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Luyện tập",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [],
+    "muc": [
+      {
+        "text": "Ôn tập hôm nayCác câu đến hạn ôn hôm nay, gồm cả câu bạn chư",
+        "vien": "1px solid",
+        "boGoc": "8px",
+        "icon": true
+      },
+      {
+        "text": "Học theo từ khóaTìm câu theo từ bạn cần, ví dụ đặt phòng, ăn",
+        "vien": "1px solid",
+        "boGoc": "8px",
+        "icon": true
+      },
+      {
+        "text": "Kiểm tra nhanhNghe và chọn nghĩa, nghe theo cụm, sắp xếp câu",
+        "vien": "1px solid",
+        "boGoc": "8px",
+        "icon": true
+      }
+    ]
+  },
+  "1280": {
+    "viewport": 1280,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 1040,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 248,
+      "y": 56,
+      "w": 1024,
+      "h": 264
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Luyện tập",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [],
+    "muc": [
+      {
+        "text": "Ôn tập hôm nayCác câu đến hạn ôn hôm nay, gồm cả câu bạn chư",
+        "vien": "1px solid",
+        "boGoc": "8px",
+        "icon": true
+      },
+      {
+        "text": "Học theo từ khóaTìm câu theo từ bạn cần, ví dụ đặt phòng, ăn",
+        "vien": "1px solid",
+        "boGoc": "8px",
+        "icon": true
+      },
+      {
+        "text": "Kiểm tra nhanhNghe và chọn nghĩa, nghe theo cụm, sắp xếp câu",
+        "vien": "1px solid",
+        "boGoc": "8px",
+        "icon": true
+      }
+    ]
+  }
+}

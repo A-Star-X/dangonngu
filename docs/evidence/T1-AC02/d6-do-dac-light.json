@@ -1,0 +1,362 @@
+{
+  "cau-ngan-320": {
+    "viewport": 320,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 320,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 320,
+      "h": 1477
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [
+      "Học 8 câu"
+    ],
+    "cauGoc": {
+      "text": "Where is room twelve?",
+      "soKyTu": 21,
+      "fontSize": "32px",
+      "lopCo": [
+        "text-display-lg"
+      ],
+      "tran": false
+    }
+  },
+  "cau-ngan-375": {
+    "viewport": 375,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 375,
+      "h": 1477
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [
+      "Học 8 câu"
+    ],
+    "cauGoc": {
+      "text": "Where is room twelve?",
+      "soKyTu": 21,
+      "fontSize": "32px",
+      "lopCo": [
+        "text-display-lg"
+      ],
+      "tran": false
+    }
+  },
+  "cau-ngan-768": {
+    "viewport": 768,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 528,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 240,
+      "y": 56,
+      "w": 528,
+      "h": 1393
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [
+      "Học 8 câu"
+    ],
+    "cauGoc": {
+      "text": "Where is room twelve?",
+      "soKyTu": 21,
+      "fontSize": "32px",
+      "lopCo": [
+        "text-display-lg"
+      ],
+      "tran": false
+    }
+  },
+  "cau-ngan-1280": {
+    "viewport": 1280,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 1040,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 248,
+      "y": 56,
+      "w": 1024,
+      "h": 876
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [
+      "Học 8 câu"
+    ],
+    "cauGoc": {
+      "text": "Where is room twelve?",
+      "soKyTu": 21,
+      "fontSize": "32px",
+      "lopCo": [
+        "text-display-lg"
+      ],
+      "tran": false
+    }
+  },
+  "cau-dai-320": {
+    "viewport": 320,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 320,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 320,
+      "h": 1919
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [
+      "Học 8 câu"
+    ],
+    "cauGoc": {
+      "text": "Of course. You need to register by Tuesday evening if you want the guide’s printed booklet; the walk itself does not require registration.",
+      "soKyTu": 138,
+      "fontSize": "20px",
+      "lopCo": [
+        "text-xl"
+      ],
+      "tran": false
+    }
+  },
+  "cau-dai-375": {
+    "viewport": 375,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 375,
+      "h": 1789
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [
+      "Học 8 câu"
+    ],
+    "cauGoc": {
+      "text": "Of course. You need to register by Tuesday evening if you want the guide’s printed booklet; the walk itself does not require registration.",
+      "soKyTu": 138,
+      "fontSize": "20px",
+      "lopCo": [
+        "text-xl"
+      ],
+      "tran": false
+    }
+  },
+  "cau-dai-768": {
+    "viewport": 768,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 528,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 240,
+      "y": 56,
+      "w": 528,
+      "h": 1655
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [
+      "Học 8 câu"
+    ],
+    "cauGoc": {
+      "text": "Of course. You need to register by Tuesday evening if you want the guide’s printed booklet; the walk itself does not require registration.",
+      "soKyTu": 138,
+      "fontSize": "20px",
+      "lopCo": [
+        "text-xl"
+      ],
+      "tran": false
+    }
+  },
+  "cau-dai-1280": {
+    "viewport": 1280,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 1040,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 248,
+      "y": 56,
+      "w": 1024,
+      "h": 960
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [
+      "Học 8 câu"
+    ],
+    "cauGoc": {
+      "text": "Of course. You need to register by Tuesday evening if you want the guide’s printed booklet; the walk itself does not require registration.",
+      "soKyTu": 138,
+      "fontSize": "20px",
+      "lopCo": [
+        "text-xl"
+      ],
+      "tran": false
+    }
+  }
+}

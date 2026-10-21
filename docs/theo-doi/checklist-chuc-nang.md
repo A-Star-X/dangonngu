@@ -1,5 +1,7 @@
 # Checklist chức năng VITASR Đa ngôn ngữ
 
+> Bản này chụp trạng thái đến Đợt 4 (bản Vite, có thanh tab), chưa cập nhật theo Đợt 5 và Đợt 6. Trạng thái mới nhất: `docs/theo-doi/bao-cao-dot6.md` và `docs/generated/acceptance-report.md`; yêu cầu mới nhất: `docs/spec/`.
+
 Cập nhật 18/10/2026, sau Đợt 4 (sửa theo phản hồi người dùng và lỗi tìm thấy khi rà soát code) · repo `nguyendinhdat2207/dangonngu`
 
 File này liệt kê từng chức năng của mini app theo từng màn, kèm mô tả, chi tiết cần lưu ý, câu hỏi (nay đã trả lời hết), phản hồi của dev và trạng thái. Nguồn: `spec.md` và `acceptance.md` của 20 khu vực trong repo, `docs/generated/acceptance-report.md`, lịch sử commit và báo cáo tổng hợp ngày 10/10.

@@ -1,0 +1,46 @@
+{
+  "320": [
+    {
+      "soThuTuHien": false,
+      "soKyTu": 27,
+      "biCat": false
+    },
+    {
+      "soThuTuHien": false,
+      "soKyTu": 32,
+      "biCat": false
+    },
+    {
+      "soThuTuHien": false,
+      "soKyTu": 154,
+      "biCat": false
+    },
+    {
+      "soThuTuHien": false,
+      "soKyTu": 69,
+      "biCat": false
+    }
+  ],
+  "1280": [
+    {
+      "soThuTuHien": true,
+      "soKyTu": 27,
+      "biCat": false
+    },
+    {
+      "soThuTuHien": true,
+      "soKyTu": 32,
+      "biCat": false
+    },
+    {
+      "soThuTuHien": true,
+      "soKyTu": 154,
+      "biCat": false
+    },
+    {
+      "soThuTuHien": true,
+      "soKyTu": 69,
+      "biCat": false
+    }
+  ]
+}

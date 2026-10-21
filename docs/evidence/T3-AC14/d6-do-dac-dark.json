@@ -1,0 +1,116 @@
+{
+  "T3-375": {
+    "viewport": 375,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 375,
+      "h": 4192
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Thư viện",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [],
+    "soCot": 1,
+    "vienThe": "1px solid",
+    "nenThe": "rgb(22, 32, 57)",
+    "soDong": 24
+  },
+  "T3-1280": {
+    "viewport": 1280,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 1040,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 248,
+      "y": 56,
+      "w": 1024,
+      "h": 1522
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Thư viện",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [],
+    "soCot": 3,
+    "vienThe": "1px solid",
+    "nenThe": "rgb(22, 32, 57)",
+    "soDong": 24
+  },
+  "T3-1440": {
+    "viewport": 1440,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 1200,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 328,
+      "y": 56,
+      "w": 1024,
+      "h": 1522
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Thư viện",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [],
+    "soCot": 3,
+    "vienThe": "1px solid",
+    "nenThe": "rgb(22, 32, 57)",
+    "soDong": 24
+  }
+}

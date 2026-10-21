@@ -1,0 +1,69 @@
+[
+  {
+    "state": "nho",
+    "label": "Câu 1, đã nhớ",
+    "nen": "rgb(92, 203, 143)",
+    "vien": "rgb(92, 203, 143)",
+    "vachCheo": null,
+    "w": 10
+  },
+  {
+    "state": "can-on",
+    "label": "Câu 2, cần ôn",
+    "nen": "rgb(240, 181, 74)",
+    "vien": "rgb(240, 181, 74)",
+    "vachCheo": {
+      "mau": "rgb(22, 32, 57)",
+      "xoay": "none"
+    },
+    "w": 10
+  },
+  {
+    "state": "dang",
+    "label": "Câu 3, đang học",
+    "nen": "rgb(255, 106, 77)",
+    "vien": "rgb(255, 106, 77)",
+    "vachCheo": null,
+    "w": 10
+  },
+  {
+    "state": "chua",
+    "label": "Câu 4, chưa học",
+    "nen": "rgba(0, 0, 0, 0)",
+    "vien": "oklab(0.746537 -0.00263301 -0.0321423 / 0.7)",
+    "vachCheo": null,
+    "w": 10
+  },
+  {
+    "state": "chua",
+    "label": "Câu 5, chưa học",
+    "nen": "rgba(0, 0, 0, 0)",
+    "vien": "oklab(0.746537 -0.00263301 -0.0321423 / 0.7)",
+    "vachCheo": null,
+    "w": 10
+  },
+  {
+    "state": "chua",
+    "label": "Câu 6, chưa học",
+    "nen": "rgba(0, 0, 0, 0)",
+    "vien": "oklab(0.746537 -0.00263301 -0.0321423 / 0.7)",
+    "vachCheo": null,
+    "w": 10
+  },
+  {
+    "state": "chua",
+    "label": "Câu 7, chưa học",
+    "nen": "rgba(0, 0, 0, 0)",
+    "vien": "oklab(0.746537 -0.00263301 -0.0321423 / 0.7)",
+    "vachCheo": null,
+    "w": 10
+  },
+  {
+    "state": "chua",
+    "label": "Câu 8, chưa học",
+    "nen": "rgba(0, 0, 0, 0)",
+    "vien": "oklab(0.746537 -0.00263301 -0.0321423 / 0.7)",
+    "vachCheo": null,
+    "w": 10
+  }
+]

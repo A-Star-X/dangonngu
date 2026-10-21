@@ -1,0 +1,56 @@
+{
+  "T1-375": [],
+  "S10-375": [
+    {
+      "text": "Học unit này",
+      "w": 311,
+      "h": 44,
+      "rongKhoiCha": 311,
+      "nen": "rgb(201, 48, 26)",
+      "chu": "rgb(255, 255, 255)",
+      "vien": "0px rgb(255, 255, 255)",
+      "boGoc": "8px",
+      "coChu": "14px",
+      "dam": "600"
+    },
+    {
+      "text": "Kiểm tra nhanh unit này",
+      "w": 311,
+      "h": 44,
+      "rongKhoiCha": 311,
+      "nen": "rgba(0, 0, 0, 0)",
+      "chu": "rgb(15, 30, 61)",
+      "vien": "1px rgb(220, 225, 234)",
+      "boGoc": "8px",
+      "coChu": "14px",
+      "dam": "600"
+    }
+  ],
+  "T1-1280": [],
+  "S10-1280": [
+    {
+      "text": "Học unit này",
+      "w": 121,
+      "h": 44,
+      "rongKhoiCha": 944,
+      "nen": "rgb(201, 48, 26)",
+      "chu": "rgb(255, 255, 255)",
+      "vien": "0px rgb(255, 255, 255)",
+      "boGoc": "8px",
+      "coChu": "14px",
+      "dam": "600"
+    },
+    {
+      "text": "Kiểm tra nhanh unit này",
+      "w": 205,
+      "h": 44,
+      "rongKhoiCha": 944,
+      "nen": "rgba(0, 0, 0, 0)",
+      "chu": "rgb(15, 30, 61)",
+      "vien": "1px rgb(220, 225, 234)",
+      "boGoc": "8px",
+      "coChu": "14px",
+      "dam": "600"
+    }
+  ]
+}
