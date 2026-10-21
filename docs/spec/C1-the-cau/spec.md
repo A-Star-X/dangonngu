@@ -2,7 +2,7 @@
 id: C1
 title: Thẻ câu
 status: nháp
-version: 1.1
+version: 1.2
 depends: FND, C2, C3
 legacy: thẻ "Câu đang học" trong L-S2, L-D2
 ---
@@ -65,7 +65,8 @@ Phần tử câu gốc có `lang` bằng mã ngôn ngữ đích (ví dụ `en`);
 
 Khi "Nghe" hoặc "Nghe lặp" đang đọc và trình duyệt báo vị trí chữ đang đọc (sự kiện `boundary` loại `word` của `speechSynthesis`), chữ đó trong câu gốc được tô nền `sidebar-accent` và gạch chân màu `primary` dày 2 px (phần tử `mark`, bo góc nhỏ), để thấy rõ cả ở giao diện sáng. Áp dụng ở mọi chỗ hiện câu gốc kèm nút nghe: thẻ câu, bước chọn nghĩa của phiên học (S3) và câu gốc hiện sau khi trả lời ở bước nghe và chọn nghĩa của Kiểm tra nhanh (S5-03). Tô sáng chỉ đổi nền và gạch chân: không đổi cỡ chữ, độ đậm hay vị trí các chữ khác. Đọc xong câu, bấm "Dừng", đổi câu, và khoảng nghỉ giữa hai lượt "Nghe lặp" thì bỏ tô.
 
-- Trình duyệt hoặc giọng không báo vị trí (ví dụ giọng Google cần mạng trên Chrome): đọc bình thường, không tô, không báo gì thêm.
+- Giọng không báo vị trí (giọng Google cần mạng trên Chrome, giọng "Tự động" mặc định của S8-02): ước lượng theo thời gian. Khi giọng bắt đầu phát, chia thời gian đọc cho từng chữ (tách chữ bằng `Intl.Segmenter` theo ngôn ngữ đích) theo độ dài chữ, cộng thêm khoảng nghỉ sau dấu phẩy, dấu chấm, dấu hỏi; tính theo tốc độ đọc đã chọn. Mỗi lần đọc hết câu (không bị dừng giữa chừng), đo thời gian thật của giọng đó để chỉnh ước lượng cho các lần đọc sau trong lần mở app. Ước lượng có thể lệch so với giọng thật, nhất là câu dài và lần đọc đầu.
+- Đang ước lượng mà trình duyệt báo vị trí thật thì bỏ ước lượng, dùng vị trí thật cho phần còn lại của lượt đọc.
 - Câu gốc hiển thị bằng `ruby` (C1-07) thì không tô.
 
 ## Câu hỏi mở
@@ -87,3 +88,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.3 (18/10/2026): C1-02 đổi chữ thành "Nhấn để hiện câu gốc"; C1-04 dùng giọng tự động khi chưa chọn giọng; C1-05 ghi cách viết tên ngôn ngữ (theo phản hồi người dùng do nhóm chuyển); C1-02 chuyển focus sang câu gốc vừa hiện; C1-04 đổi Nghe và Nghe lặp khi đang đọc, đổi câu thì nút về trạng thái đầu (sửa lỗi tìm thấy khi rà soát code).
 - 1.0 (21/10/2026): Đợt 6 (Next.js, rule giao diện của nhóm): bo góc 8 px, token và route theo FND, APP mới.
 - 1.1 (21/10/2026): theo leader: thêm C1-09 tô sáng chữ đang đọc khi Nghe, Nghe lặp (như bản cũ có "vừa đọc vừa nhảy đến chữ đang đọc").
+- 1.2 (21/10/2026): theo người dùng: C1-09 giọng không báo vị trí (giọng Google) thì tô theo ước lượng thời gian thay vì không tô.

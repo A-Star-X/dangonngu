@@ -2,7 +2,7 @@
 id: S8
 title: Cài đặt
 status: nháp
-version: 1.2
+version: 1.3
 route: "/cai-dat"
 depends: APP, FND, DATA, C3, C6, C7
 legacy: L-D4, L-D8, nút giao diện ở header L-S2
@@ -24,7 +24,7 @@ Nhóm "Âm thanh", mục "Giọng đọc" hiện tên giọng đang dùng ("Tự
 - Ô chọn (C8) "Chọn giọng cho": ngôn ngữ đang học hoặc Tiếng Việt.
 - Ô chọn giọng (C8) gồm các giọng có trên thiết bị khớp ngôn ngữ đó (theo `lang` của giọng, dòng phụ là mã vùng); lựa chọn đầu là "Tự động", kèm dòng phụ "Đang dùng [tên giọng]" cho biết giọng sẽ được dùng. Có ô lọc khi nhiều hơn 8 giọng. Cạnh ô chọn là nút "Nghe thử" đọc một câu mẫu của ngôn ngữ đó bằng giọng đang chọn.
 
-Giọng "Tự động" (mặc định khi người học chưa chọn giọng nào), chọn trong các giọng khớp ngôn ngữ theo thứ tự (vùng lấy theo bộ nội dung đang học, giống thẻ câu: Global English `en-GB`, English Fluency `en-US`): giọng có tên chứa Natural, Neural, Online, Enhanced hoặc Premium (đúng vùng trước); giọng đúng vùng (giọng mặc định của thiết bị trước); giọng mặc định của thiết bị; giọng khác; cuối cùng là giọng Google (đúng vùng trước, ví dụ "Google US English" cho `en-US`). Giọng Google trên Chrome không báo vị trí chữ đang đọc nên không tô sáng được (C1-09); người học vẫn chọn được giọng Google trong ô chọn giọng. Giọng Google trên Chrome cần mạng: khi đang ngoại tuyến, "Tự động" bỏ qua các giọng cần mạng; khi một giọng cần mạng báo lỗi trước lúc đọc, app đọc lại câu đó một lần bằng giọng có sẵn trên máy theo cùng thứ tự.
+Giọng "Tự động" (mặc định khi người học chưa chọn giọng nào), chọn trong các giọng khớp ngôn ngữ theo thứ tự (vùng lấy theo bộ nội dung đang học, giống thẻ câu: Global English `en-GB`, English Fluency `en-US`): giọng Google đúng vùng (ví dụ "Google US English" cho `en-US`, "Google UK English Female" cho `en-GB`); giọng Google khác cùng ngôn ngữ; giọng có tên chứa Natural, Neural, Online, Enhanced hoặc Premium (đúng vùng trước); giọng đúng vùng; giọng mặc định của thiết bị; giọng đầu tiên. Giọng Google trên Chrome không báo vị trí chữ đang đọc; tô sáng chữ đang đọc khi đó theo C1-09 (ước lượng). Giọng Google trên Chrome cần mạng: khi đang ngoại tuyến, "Tự động" bỏ qua các giọng cần mạng; khi một giọng cần mạng báo lỗi trước lúc đọc, app đọc lại câu đó một lần bằng giọng có sẵn trên máy theo cùng thứ tự.
 - Ô chọn (C8) "Tốc độ đọc": 0,75x, 1x, 1,25x (mặc định 1x).
 - Nút chính "Xong".
 Khi không có giọng nào: "Thiết bị chưa có giọng [tên ngôn ngữ]. Thêm giọng trong cài đặt hệ thống của thiết bị rồi mở lại app." Lựa chọn lưu theo từng ngôn ngữ (DATA-06). Bản này chưa có chỗ nào đọc nghĩa tiếng Việt thành tiếng; giọng Tiếng Việt chọn được để dùng khi có tính năng đó.
@@ -84,3 +84,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 1.0 (21/10/2026): Đợt 6 (Next.js, rule giao diện của nhóm): S8 mở từ thanh bên; giọng đọc, tốc độ, sáng tối dùng ô chọn C8 thay radio, một nút "Nghe thử" cho giọng đang chọn; thêm ngôn ngữ giao diện (APP-15) và S8-08 Tài khoản; S8-07 hai cột từ `lg`.
 - 1.1 (21/10/2026): theo leader: S8-08 bản dùng thử không có nhóm Tài khoản (AU-08).
 - 1.2 (21/10/2026): theo người dùng: S8-02 giọng "Tự động" xếp giọng Google xuống cuối, để tô sáng chữ đang đọc (C1-09) chạy ngay trên Chrome.
+- 1.3 (21/10/2026): theo người dùng: bỏ thay đổi 1.2, giọng "Tự động" ưu tiên giọng Google như trước vì dễ nghe hơn; tô sáng với giọng Google dùng ước lượng theo thời gian (C1-09).
