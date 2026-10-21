@@ -1,0 +1,529 @@
+{
+  "meta": {
+    "description": "Learn everyday sentences in 15 languages with Vietnamese meanings: 8 sentences per session, listen to a voice, review at the right time, quick tests.",
+    "pages": {
+      "home": "Learn everyday sentences in 15 languages",
+      "login": "Sign in",
+      "register": "Sign up",
+      "hoc": "Learn",
+      "chonNgonNgu": "Choose a language",
+      "phienHoc": "Study session",
+      "luyenTap": "Practice",
+      "kiemTra": "Quick test",
+      "thuVien": "Library",
+      "unit": "Unit details",
+      "tienDo": "Progress",
+      "caiDat": "Settings"
+    }
+  },
+  "common": {
+    "search": "Search",
+    "noMatch": "No matching items.",
+    "close": "Close"
+  },
+  "statusDisplay": {
+    "loading": "Loading",
+    "failed": "Could not load the data. Check your connection, then tap Try again.",
+    "dataFailed": "Could not load the sentence list. Check your connection, then tap Try again.",
+    "retry": "Try again",
+    "noData": "No data yet.",
+    "na": "Not available"
+  },
+  "apiError": {
+    "invalid-credentials": "The email or password is not correct. Check them and sign in again.",
+    "email-taken": "This email already has an account. Sign in with it or use another email.",
+    "weak-password": "The password is not strong enough. Use a longer password with letters and numbers.",
+    "email-not-confirmed": "Your email is not confirmed yet. Open the confirmation email, then sign in again.",
+    "rate-limit": "Too many attempts. Wait a moment, then try again.",
+    "network": "Could not reach the server. Check your connection and try again.",
+    "sync-failed": "Your progress has not been synced to your account yet. It is still saved on this device and will be sent later.",
+    "unknown": "Something went wrong. Try again in a few minutes."
+  },
+  "locale": {
+    "label": "Interface language",
+    "name": {
+      "vi": "Tiếng Việt",
+      "en": "English"
+    }
+  },
+  "shell": {
+    "sidebar": "Sidebar",
+    "navLabel": "Main navigation",
+    "home": "VITASR, go to Learn",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "learning": "Learning",
+    "groupLearn": "Study",
+    "groupAccount": "Account",
+    "nav": {
+      "hoc": "Learn",
+      "luyenTap": "Practice",
+      "thuVien": "Library",
+      "tienDo": "Progress",
+      "caiDat": "Settings"
+    },
+    "reviewBadge": "{count, plural, one {# sentence} other {# sentences}} to review",
+    "signOut": "Sign out",
+    "hostLink": "Main learning site",
+    "localMode": "Trial mode: your account and progress are stored on this device only.",
+    "toDark": "Switch to dark theme",
+    "toLight": "Switch to light theme"
+  },
+  "public": {
+    "home": "VITASR, home",
+    "openApp": "Go to app",
+    "login": "Sign in",
+    "register": "Sign up",
+    "hostLink": "Main learning site",
+    "footer": "© {year} VITASR",
+    "footerNav": "Footer links"
+  },
+  "banner": {
+    "offline": "You are offline. Your progress is still saved on this device.",
+    "storageBlocked": "Your browser is blocking storage, so progress will be lost when you close the app. Allow this site to store data in your browser settings, then reopen the app."
+  },
+  "update": {
+    "available": "An update is available",
+    "apply": "Update"
+  },
+  "language": {
+    "loading": "Loading",
+    "current": "Learning now",
+    "count": "{count} sentences",
+    "choose": "Choose a language",
+    "switchTitle": "Change language or sentence set",
+    "loadFailed": "Could not load the sentence list. Check your connection, then tap Try again.",
+    "retry": "Try again"
+  },
+  "strip": {
+    "label": "Group progress: {learned} of {total} sentences learned",
+    "cell": "Sentence {n}, {state}",
+    "state": {
+      "chua": "not learned",
+      "dang": "learning",
+      "nho": "remembered",
+      "can-on": "to review"
+    }
+  },
+  "rate": {
+    "review": "Review again",
+    "known": "I remember"
+  },
+  "choices": {
+    "right": "Correct",
+    "wrong": "Not quite",
+    "tryAgain": "Not quite, try again"
+  },
+  "card": {
+    "reveal": "Tap to show the original sentence",
+    "usage": "Usage: {note}",
+    "listen": "Listen",
+    "listenLoop": "Repeat",
+    "stop": "Stop",
+    "noVoice": "This device has no {lang} voice yet. Open <link>Settings > Voices</link>."
+  },
+  "status": {
+    "chua-hoc": "Not learned",
+    "da-nho": "Remembered",
+    "can-on": "To review"
+  },
+  "unit": {
+    "name": "Unit {n}",
+    "count": "{count, plural, one {# sentence} other {# sentences}}",
+    "remembered": "sentences remembered"
+  },
+  "detail": {
+    "lastStudied": "Last studied: {when}"
+  },
+  "pager": {
+    "label": "Pagination",
+    "prev": "Previous",
+    "next": "Next",
+    "page": "Page {n}/{total}"
+  },
+  "nguon": {
+    "lo-trinh": "Learning path",
+    "on-tap": "Review",
+    "tu-khoa": "By keyword",
+    "cau": "Single sentence",
+    "unit": "By unit",
+    "kiem-tra": "Quick test"
+  },
+  "s1": {
+    "title": "Which language do you want to learn?",
+    "note": "You can change the language later in the sidebar or in Settings.",
+    "back": "Back",
+    "packTitle": "Which set do you want for {lang}?",
+    "packNote": "You can change the set later in the sidebar or in Settings.",
+    "packCount": "{count, plural, one {# set} other {# sets}}",
+    "packDescription": {
+      "global": "Sentences by topic and situation, with usage notes; 6 levels from A1 to C2.",
+      "fluency": "Speaking practice with sentence patterns."
+    },
+    "loadFailed": "Could not load the sentence list. Check your connection, then tap Try again."
+  },
+  "t1": {
+    "title": "Learn",
+    "goal": "This week: {done}/{goal} sessions",
+    "goalReached": "This week: goal reached, {done}/{goal} sessions",
+    "review": "{count, plural, one {# sentence} other {# sentences}} to review today",
+    "allDone": "You have learned all {count} {lang} sentences. Go to Practice to review.",
+    "openPractice": "Open Practice",
+    "position": "Sentence {n}/{total}",
+    "unitLink": "Unit {n}",
+    "continue": "Continue: {count, plural, one {# sentence} other {# sentences}} left",
+    "start": "Learn {count} sentences",
+    "nextUnits": "Next units",
+    "allUnits": "See all units",
+    "yourProgress": "Your progress",
+    "learned": "{learned}/{total} sentences",
+    "learnedLabel": "Sentences learned",
+    "unitsLearned": "{count} units learned",
+    "seeProgress": "See progress"
+  },
+  "s9": {
+    "step": "Step {n}/{total}",
+    "text": {
+      "card": "This is the sentence you will learn. The Listen button reads it aloud for you.",
+      "start": "Each session has 8 sentences and takes about 5 minutes.",
+      "nav": "Reviews and tests are in Practice. Your results are in Progress."
+    },
+    "skip": "Skip",
+    "next": "Next",
+    "done": "Done",
+    "start": "Start learning"
+  },
+  "s3": {
+    "title": "Study session",
+    "exit": "Exit",
+    "position": "Sentence {n}/{total}",
+    "emptyGroup": "There are no sentences to learn in this group.",
+    "replaced": "This session stopped because you started another one.",
+    "exitTitle": "Stop this session?",
+    "exitBody": "You have learned {done}/{total} sentences. Their results are saved.",
+    "exitBodyNone": "You have not finished any sentence yet.",
+    "stop": "Stop",
+    "keepGoing": "Keep learning",
+    "question": "What does this sentence mean?",
+    "hint": "The meaning starts with \"{first}…\" and has {words, plural, one {# word} other {# words}}.",
+    "showHint": "Show hint",
+    "next": "Next sentence",
+    "seeSummary": "See summary",
+    "doneTitle": "Session complete",
+    "score": "sentences remembered without a hint",
+    "reviewTitle": "To review",
+    "nextGroup": "Next group",
+    "learnMore": "Learn {count} more sentences",
+    "seeProgress": "See progress",
+    "finish": "Done"
+  },
+  "t2": {
+    "title": "Practice",
+    "description": "Review sentences that are due, learn by keyword, or test yourself on a unit.",
+    "reviewTitle": "Today's review",
+    "reviewDesc": "Sentences due today, including ones you did not remember or answered incorrectly.",
+    "reviewNone": "There is nothing to review today.",
+    "keywordTitle": "Learn by keyword",
+    "keywordDesc": "Find sentences by the words you need, for example <vi>đặt phòng, ăn uống, sân bay</vi>.",
+    "testTitle": "Quick test",
+    "testDesc": "Listen and choose the meaning, listen by chunks, put the sentence in order.",
+    "paused": "In progress: Unit {unit}, step {step}, sentence {n}/{total}",
+    "keywordPlaceholder": "For example: đặt phòng, sân bay",
+    "keywordLabel": "Keyword",
+    "clear": "Clear keyword",
+    "suggestions": "Suggestions",
+    "chips": [
+      "đặt phòng",
+      "ăn uống",
+      "sân bay",
+      "mua sắm"
+    ],
+    "noResult": "No sentence contains \"{q}\". Try another word in Vietnamese or {lang}.",
+    "found": "{count} sentences found",
+    "learnN": "Learn {count, plural, one {# sentence} other {# sentences}}",
+    "learn8": "Learn the first 8"
+  },
+  "s5": {
+    "title": "Quick test",
+    "exit": "Exit",
+    "unitLine": "Quick test · Unit {n}",
+    "itemCount": "{count, plural, one {# sentence} other {# sentences}}",
+    "step": {
+      "nghe-chon": "Listen and choose",
+      "nghe-cum": "Listen by chunks",
+      "sap-xep": "Put in order"
+    },
+    "stepInline": {
+      "nghe-chon": "listen and choose",
+      "nghe-cum": "listen by chunks",
+      "sap-xep": "put in order"
+    },
+    "stepDesc": {
+      "nghe-chon": "Listen to the sentence, then choose its meaning.",
+      "nghe-cum": "Open each chunk of the sentence to listen.",
+      "sap-xep": "Put the chunks in the right order."
+    },
+    "allSteps": "Do all 3 steps",
+    "onlyStep": "Only {step}",
+    "resume": "Continue",
+    "restart": "Start over",
+    "pauseTitle": "Pause the test?",
+    "pauseBody": "Your answers so far are saved; next time you continue from this sentence.",
+    "pause": "Pause",
+    "position": "Sentence {n}/{total}",
+    "dots": "Step {n}/{total}",
+    "dot": "{step}, {state}",
+    "dotState": {
+      "xong": "done",
+      "dang": "in progress",
+      "chua": "not started"
+    },
+    "replay": "Listen again",
+    "noVoice": "This device has no voice yet, so this test shows text instead of audio.",
+    "question": "What does the sentence you heard mean?",
+    "next": "Next sentence",
+    "tapChunks": "Tap each chunk to listen.",
+    "chunk": "Chunk {n}",
+    "chunkCovered": "Chunk {n}, hidden",
+    "yourSentence": "Your sentence",
+    "arrangeHint": "Tap the chunks below in the right order.",
+    "chunks": "Chunks",
+    "chunkWrong": "{text}, wrong position",
+    "right": "Correct",
+    "wrong": "Not quite. Tap the chunks marked with x to move them back, then try again.",
+    "check": "Check",
+    "doneTitle": "Test complete",
+    "resultLine": "{step}: {n}/{total}",
+    "tested": "{count, plural, one {# sentence} other {# sentences}} tested.",
+    "reviewTitle": "Sentences to look at again",
+    "listen": "Listen",
+    "listenTo": "Listen: {text}",
+    "nextUnit": "Test the next unit",
+    "finish": "Done"
+  },
+  "t3": {
+    "title": "Library",
+    "descUnits": "The units of this sentence set. Choose a unit to see its sentences and start learning.",
+    "descItems": "Search sentences by keyword and filter by unit, status, topic or level.",
+    "viewLabel": "View",
+    "viewUnit": "Units",
+    "viewUnitAria": "View by unit",
+    "viewItem": "Sentences",
+    "viewItemAria": "View by sentence",
+    "unitList": "Unit list",
+    "unitSummary": "{total} units · {learned} learned · {partial} in progress",
+    "level": "Level",
+    "searchPlaceholder": "Search sentences or meanings",
+    "clear": "Clear keyword",
+    "all": "All",
+    "filterUnit": "Unit",
+    "findUnit": "Find a unit",
+    "filterStatus": "Status",
+    "filterTopic": "Topic",
+    "findTopic": "Find a topic",
+    "filterLevel": "Level",
+    "topicCount": "{count} sentences",
+    "count": "{count} sentences",
+    "empty": "No sentence matches the current search and filters.",
+    "clearAll": "Clear search and filters",
+    "itemTitle": "Sentence {id}",
+    "learnThis": "Learn this sentence",
+    "detailLabel": "Sentence details"
+  },
+  "s10": {
+    "breadcrumb": "Breadcrumb",
+    "library": "Library",
+    "learnUnit": "Learn this unit",
+    "reviewUnit": "Review this unit",
+    "testUnit": "Quick test this unit",
+    "items": "Sentences in this unit ({count})",
+    "prevNext": "Previous and next unit"
+  },
+  "t4": {
+    "title": "Progress",
+    "description": "Sessions, sentences learned, your weekly goal and review schedule.",
+    "rangeLabel": "Time range",
+    "range": "{count, plural, one {# day} other {# days}}",
+    "empty": "You have not finished a session yet. Learn your first 8 sentences to start tracking progress.",
+    "emptyAction": "Learn 8 sentences",
+    "statSessions": "sessions",
+    "statItems": "sentences learned",
+    "statDue": "sentences to review today",
+    "goal": "Weekly goal",
+    "goalValue": "{done}/{goal} sessions",
+    "chart": "Sentences learned per day",
+    "bar": "{day}: {count, plural, one {# sentence} other {# sentences}}",
+    "day": "Day",
+    "count": "Sentences",
+    "schedule": "Review schedule",
+    "when": {
+      "today": "Today",
+      "tomorrow": "Tomorrow",
+      "next7": "Next 7 days"
+    },
+    "itemsCount": "{count} sentences",
+    "sessions": "Sessions",
+    "colTime": "Time",
+    "colSource": "Type",
+    "colResult": "Result",
+    "more": "Show more",
+    "dayItems": "Sentences learned ({count})"
+  },
+  "s8": {
+    "title": "Settings",
+    "description": "Goals, voices, appearance, progress and account.",
+    "back": "Back",
+    "groupLearn": "Study",
+    "goal": "Weekly goal",
+    "goalDown": "Decrease goal",
+    "goalUp": "Increase goal",
+    "goalValue": "{count, plural, one {# session} other {# sessions}}",
+    "language": "Language you are learning",
+    "groupSound": "Sound",
+    "voices": "Voices",
+    "auto": "Automatic",
+    "autoWith": "Automatic ({voice})",
+    "autoUsing": "Using {voice}",
+    "voiceFor": "Choose a voice for",
+    "voiceOf": "{lang} voice",
+    "vietnamese": "Vietnamese",
+    "vietnameseMid": "Vietnamese",
+    "noVoices": "This device has no {lang} voice yet. Add one in your device's system settings, then reopen the app.",
+    "tryVoice": "Try it",
+    "rate": "Reading speed",
+    "done": "Done",
+    "groupDisplay": "Appearance",
+    "theme": "Light or dark",
+    "themeSystem": "Same as device",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "uiLanguage": "Interface language",
+    "groupProgress": "Progress",
+    "export": "Export progress",
+    "import": "Import progress",
+    "importInvalid": "This is not a VITASR progress file for {who}. Choose a file you exported with Export progress while learning {who}.",
+    "importConfirm": "Replace your current {who} progress with this file?",
+    "imported": "Progress imported",
+    "cancel": "Cancel",
+    "deleteRow": "Delete {lang} progress",
+    "deleteTitle": "Delete {lang} progress",
+    "deleteBody": "Type \"{name}\" to confirm. Deleted progress cannot be recovered.",
+    "deleteLabel": "Language name",
+    "deleteMismatch": "Type the language name exactly, with its accents, to enable Delete.",
+    "delete": "Delete",
+    "deleted": "Progress deleted",
+    "groupAccount": "Account",
+    "email": "Email",
+    "signOut": "Sign out",
+    "groupHelp": "Help",
+    "replayGuide": "Replay the guide",
+    "version": "Version {version}"
+  },
+  "auth": {
+    "signInTitle": "Sign in",
+    "signInDesc": "Sign in to keep learning and keep your progress.",
+    "signUpTitle": "Create an account",
+    "signUpDesc": "Your account keeps your progress on every device you sign in to.",
+    "signUpDescLocal": "Trial accounts exist on this device only, and so does the progress.",
+    "email": "Email",
+    "password": "Password",
+    "confirm": "Repeat password",
+    "passwordHint": "At least {min} characters.",
+    "signIn": "Sign in",
+    "signUp": "Create account",
+    "noAccount": "No account yet? <link>Sign up</link>",
+    "haveAccount": "Already have an account? <link>Sign in</link>",
+    "checkEmail": "We sent a confirmation email to {email}. Open it, click the confirmation link, then come back to sign in.",
+    "localMode": "Trial mode: the app is not connected to an account server, so accounts and progress are stored on this device only.",
+    "asideTitle": "Learn every day, 8 sentences at a time",
+    "aside": {
+      "a": "15 languages, with a Vietnamese meaning for every sentence.",
+      "b": "Review at the right time: sentences to review are scheduled by day.",
+      "c": "Progress follows your account, so you can continue on another device.",
+      "cLocal": "Progress is stored on this device; export and import it with a file when you switch devices."
+    },
+    "errors": {
+      "emailRequired": "Enter your email.",
+      "emailInvalid": "This email does not look right, for example name@gmail.com.",
+      "passwordRequired": "Enter your password.",
+      "passwordShort": "The password needs at least {min} characters.",
+      "confirmRequired": "Repeat your password.",
+      "confirmMismatch": "The two passwords do not match."
+    }
+  },
+  "landing": {
+    "eyebrow": "VITASR Multilingual",
+    "title": "Learn everyday sentences you can use right away, with Vietnamese meanings",
+    "lead": "{languages} languages. Each session is 8 sentences in about 5 minutes: read the meaning, listen to a voice, rate yourself, then choose the right meaning. The app reminds you to review at the right time so you keep what you learned.",
+    "ctaStart": "Start learning",
+    "ctaExplore": "Explore the sentence sets",
+    "ctaRegister": "Create an account",
+    "haveAccount": "Already have an account? <link>Sign in</link>",
+    "shotAlt": "The VITASR Learn screen: a sentence card, the Listen button, the Learn 8 sentences button and the next units",
+    "audienceTitle": "Who it is for",
+    "audience": {
+      "learner": {
+        "title": "Vietnamese speakers learning a language",
+        "body": "Every sentence has a Vietnamese meaning, usage notes and a situation; no prior knowledge needed."
+      },
+      "busy": {
+        "title": "Busy people learning bit by bit",
+        "body": "Just 8 sentences per session. Stop halfway and your results are kept; next time you continue where you left off."
+      },
+      "traveler": {
+        "title": "People who need sentences for a task",
+        "body": "Search by keyword such as <vi>đặt phòng, sân bay, ăn uống</vi> and learn that group of sentences right away."
+      }
+    },
+    "contentTitle": "What is available",
+    "statLanguages": "languages, with Vietnamese meanings",
+    "statFluency": "English Fluency, {units} units per language",
+    "itemsPerLanguage": "{count} sentences",
+    "statGlobal": "Global English (English, A1 to C2), {units} units",
+    "items": "{count} sentences",
+    "featuresTitle": "How you learn",
+    "features": {
+      "session": {
+        "title": "8-sentence sessions",
+        "body": "See the meaning, recall the original, rate \"I remember\" or \"Review again\", then choose the right meaning."
+      },
+      "listen": {
+        "title": "Listen to a voice",
+        "body": "Listen once or on repeat with your device's voice, at the speed you choose."
+      },
+      "review": {
+        "title": "Review at the right time",
+        "body": "Sentences you remember come back after 1, 3, 7, 14 and then 30 days; ones you missed come back right away."
+      },
+      "test": {
+        "title": "Quick tests",
+        "body": "Three steps per unit: listen and choose, listen by chunks, put in order. Pause and continue any time."
+      },
+      "library": {
+        "title": "A library by unit",
+        "body": "See units and the progress of each, search sentences, filter by topic, level and status."
+      },
+      "progress": {
+        "title": "Track your progress",
+        "body": "Sentences learned per day, a weekly session goal and the review schedule for the days ahead."
+      }
+    },
+    "stepsTitle": "Get started in three steps",
+    "steps": {
+      "choose": {
+        "title": "Create an account and choose a language",
+        "body": "Pick one of the languages; English has two sentence sets to choose from."
+      },
+      "learn": {
+        "title": "Learn your first 8 sentences",
+        "body": "The app guides you the first time; each group takes about 5 minutes."
+      },
+      "review": {
+        "title": "Come back to review and test",
+        "body": "Practice shows how many sentences you have to review today."
+      }
+    },
+    "finalTitle": "Learn your first 8 sentences today",
+    "finalBody": "Create an account, choose a language and learn your first group."
+  }
+}

@@ -10,3 +10,10 @@ coverage/
 test-results/
 playwright-report/
 !.env.fixture
+
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+.vercel
+public/fonts/

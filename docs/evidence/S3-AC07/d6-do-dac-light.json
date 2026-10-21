@@ -1,0 +1,254 @@
+{
+  "danh-gia-320": {
+    "truocKhiHien": {
+      "trai": {
+        "w": 138,
+        "h": 48
+      },
+      "phai": {
+        "w": 138,
+        "h": 48
+      },
+      "khoangCach": 12,
+      "nut": [
+        {
+          "text": "Cần ôn lại1",
+          "opacity": "0.4",
+          "svg": true
+        },
+        {
+          "text": "Tôi nhớ2",
+          "opacity": "0.4",
+          "svg": true
+        }
+      ]
+    },
+    "sauKhiHien": {
+      "trai": {
+        "w": 138,
+        "h": 48
+      },
+      "phai": {
+        "w": 138,
+        "h": 48
+      },
+      "khoangCach": 12,
+      "nut": [
+        {
+          "text": "Cần ôn lại1",
+          "opacity": "1",
+          "svg": true
+        },
+        {
+          "text": "Tôi nhớ2",
+          "opacity": "1",
+          "svg": true
+        }
+      ]
+    }
+  },
+  "tong-ket-320": {
+    "viewport": 320,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 320,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 320,
+      "h": 483
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Xong phiên học",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [
+      "Học tiếp 8 câu"
+    ]
+  },
+  "danh-gia-375": {
+    "truocKhiHien": {
+      "trai": {
+        "w": 166,
+        "h": 48
+      },
+      "phai": {
+        "w": 166,
+        "h": 48
+      },
+      "khoangCach": 12,
+      "nut": [
+        {
+          "text": "Cần ôn lại1",
+          "opacity": "0.4",
+          "svg": true
+        },
+        {
+          "text": "Tôi nhớ2",
+          "opacity": "0.4",
+          "svg": true
+        }
+      ]
+    },
+    "sauKhiHien": {
+      "trai": {
+        "w": 166,
+        "h": 48
+      },
+      "phai": {
+        "w": 166,
+        "h": 48
+      },
+      "khoangCach": 12,
+      "nut": [
+        {
+          "text": "Cần ôn lại1",
+          "opacity": "1",
+          "svg": true
+        },
+        {
+          "text": "Tôi nhớ2",
+          "opacity": "1",
+          "svg": true
+        }
+      ]
+    }
+  },
+  "tong-ket-375": {
+    "viewport": 375,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 375,
+      "h": 483
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Xong phiên học",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [
+      "Học tiếp 8 câu"
+    ]
+  },
+  "danh-gia-1280": {
+    "truocKhiHien": {
+      "trai": {
+        "w": 330,
+        "h": 48
+      },
+      "phai": {
+        "w": 330,
+        "h": 48
+      },
+      "khoangCach": 12,
+      "nut": [
+        {
+          "text": "Cần ôn lại1",
+          "opacity": "0.4",
+          "svg": true
+        },
+        {
+          "text": "Tôi nhớ2",
+          "opacity": "0.4",
+          "svg": true
+        }
+      ]
+    },
+    "sauKhiHien": {
+      "trai": {
+        "w": 330,
+        "h": 48
+      },
+      "phai": {
+        "w": 330,
+        "h": 48
+      },
+      "khoangCach": 12,
+      "nut": [
+        {
+          "text": "Cần ôn lại1",
+          "opacity": "1",
+          "svg": true
+        },
+        {
+          "text": "Tôi nhớ2",
+          "opacity": "1",
+          "svg": true
+        }
+      ]
+    }
+  },
+  "tong-ket-1280": {
+    "viewport": 1280,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 1040,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 248,
+      "y": 56,
+      "w": 1024,
+      "h": 443
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Xong phiên học",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [
+      "Học tiếp 8 câu"
+    ]
+  }
+}

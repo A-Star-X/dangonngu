@@ -1,0 +1,61 @@
+# Acceptance: APP Khung app
+
+Khổ kiểm mặc định và quy tắc đánh dấu: `docs/QUY-TRINH.md` mục 5 và 7.
+
+- [x] APP-AC01 [claude] APP-01: Ảnh chụp ở 375 px có nút menu mở thanh bên với 4 mục đúng thứ tự Học, Luyện tập, Thư viện, Tiến độ; ở 1280 px có thanh bên trái rộng 240 px với cùng 4 mục.
+  - Bằng chứng: ảnh docs/evidence/APP-AC01/ (375 px menu đóng và mở, 1280 px, sáng và tối) và số đo docs/evidence/C5-AC01/: ở 375 px nút menu mở thanh bên với Học, Luyện tập, Thư viện, Tiến độ đúng thứ tự; ở 1280 px thanh bên trái rộng 240 px cùng 4 mục; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC02 [auto] APP-01, APP-04: Test điều hướng: bấm lần lượt 4 mục trên thanh bên thì địa chỉ đổi thành `/hoc`, `/luyen-tap`, `/thu-vien`, `/tien-do` và đúng màn hiện ra.
+  - Bằng chứng: test tests/e2e/app.spec.ts, tests/unit/shell.test.tsx pass trên bản Next.js (npm run test:e2e, npm test), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC03 [claude] APP-02: Ảnh chụp T1 đến T4 ở 375 px và 1280 px: header 56 px, nút ngôn ngữ đang học ở đầu thanh bên (kèm tên bộ khi có nhiều bộ), mục Cài đặt trong nhóm Tài khoản.
+  - Bằng chứng: ảnh và số đo docs/evidence/APP-AC03/ (T1 đến T4 ở 375 và 1280 px, sáng và tối): header 56 px, nút ngôn ngữ "Tiếng Anh / Global English" ở đầu thanh bên, mục Cài đặt trong nhóm Tài khoản, mục cao 40 px; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC04 [auto] APP-03: Ở `/phien-hoc`, `/kiem-tra`, `/chon-ngon-ngu` có khung khu học (thanh bên, header); S3 và S5 có nút "Thoát".
+  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC05 [auto] APP-04: Mở đường dẫn không có trong bảng route thì chuyển về `/hoc` (đã chọn ngôn ngữ) hoặc `/chon-ngon-ngu` (chưa chọn); liên kết kiểu cũ `/#/thu-vien?xem=cau` mở `/thu-vien?xem=cau`, `#/tien-bo` mở `/tien-do`. Nút Back của trình duyệt sau chuỗi T1 → T3 → T4 quay về T3 rồi T1.
+  - Bằng chứng: test tests/e2e/app.spec.ts, tests/unit/app.test.tsx, tests/unit/routes-guard.test.ts pass trên bản Next.js (npm run test:e2e, npm test), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC06 [auto] APP-05: Đã đăng nhập, localStorage chưa có ngôn ngữ: app mở vào S1; sau khi chọn ngôn ngữ và tải lại trang, app mở thẳng vào T1.
+  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC07 [claude] APP-05, APP-08: Giả lập mạng chậm (Slow 3G): ảnh chụp trong lúc tải là khung xương đúng hình, không phải màn trắng hay vòng xoay.
+  - Bằng chứng: ảnh và số đo docs/evidence/APP-AC07/ (T1, T3 ở 375 và 1280 px, Slow 3G trễ 400 ms, 400 kbit/s): mọi ảnh lúc tải là khung xương đúng hình, không màn trắng, không vòng xoay; d6-375-khoi-dong-T1.jpg chụp trước khi JS chạy đã có thanh trên 56 px và khung xương; HTML dựng sẵn .next/server/app/vi/hoc.html và vi/thu-vien.html có khung khu học và khung xương (T3: lưới 6 thẻ 1, 2, 3 cột); người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC08 [auto] APP-06: Mở sheet Đổi ngôn ngữ từ thanh bên, chọn ngôn ngữ khác: sheet đóng, về `/hoc`, tên ngôn ngữ trên nút thanh bên đổi; quay lại ngôn ngữ cũ thì tiến độ cũ còn nguyên.
+  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC09 [claude] APP-07: Ảnh chụp T1, T3, S3 ở 1440, 1280, 768, 375, 320 px: vùng nội dung không rộng quá 1024 px, S3 không rộng quá 672 px; không có cuộn ngang, lề 16 px.
+  - Bằng chứng: ảnh cả trang và số đo docs/evidence/APP-AC09/ (T1, T3, S3 ở 1440, 1280, 768, 375, 320 px): vùng nội dung 1024 px ở 1440 và 1280 px, S3 672 px, không cuộn ngang ở cả 15 lần đo, lề 16 px; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC10 [auto] APP-08: Cho DataSource trả lỗi: màn hiện đúng câu "Không tải được danh sách câu. Kiểm tra kết nối rồi nhấn Thử lại." và nút "Thử lại"; bấm Thử lại khi nguồn đã ổn thì hiện dữ liệu.
+  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC11 [auto] APP-08: Giả lập `navigator.onLine = false` và sự kiện `offline`: dải ngoại tuyến hiện; sự kiện `online` thì dải ẩn. Giả lập localStorage ném lỗi: dải cảnh báo bộ nhớ hiện.
+  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC12 [claude] APP-09: Tìm trong mã nguồn `src` không có `window.top`, `window.parent`, `postMessage`, `window.opener`; app bỏ qua tham số URL lạ (mở `/hoc?abc=1` vẫn hiện T1).
+  - Bằng chứng: tìm trong src không có window.top, window.parent, postMessage, window.opener; ảnh và số đo docs/evidence/APP-AC12/ mở /hoc?abc=1&token=xyz vẫn hiện T1 với mục Học đang chọn; người kiểm độc lập xem ảnh và chạy lại lệnh tìm, Claude, 2026-10-21, commit d720f7d
+- [ ] APP-AC13 [human] APP-07, APP-09: Mở app trên trình duyệt máy tính (Chrome, Edge, Safari) và trên điện thoại (iPhone, Android), mỗi nơi đi hết luồng chọn ngôn ngữ, học một phiên, xem tiến độ: hiển thị đủ, không có điều khiển bị che hay tràn.
+- [ ] APP-AC14 [human] APP-10: Trên điện thoại thật: mở app có mạng, tắt mạng, đóng và mở lại app: vẫn học được ngôn ngữ đã tải.
+- [x] APP-AC15 [auto] APP-10: Giả lập service worker có bản mới: thông báo "Có bản cập nhật" hiện ở T1 nhưng không hiện khi đang ở S3; trang không tự tải lại.
+  - Bằng chứng: test tests/unit/s8.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC16 [auto] APP-11: Mở sheet Chi tiết câu rồi kích hoạt mở sheet Đổi ngôn ngữ: tại mọi thời điểm chỉ có một phần tử sheet/hộp thoại đang mở.
+  - Bằng chứng: test tests/unit/s8.test.tsx, tests/unit/t3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC17 [auto] APP-02, APP-06: Đang học Global English: nút ngôn ngữ trên thanh bên có "Tiếng Anh" và dòng nhỏ "Global English"; đang học Tiếng Nhật thì không có dòng tên bộ. Sheet Đổi ngôn ngữ có hai dòng cho Tiếng Anh; chọn dòng bộ còn lại thì đổi bộ, tiến độ hai bộ giữ riêng.
+  - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC18 [auto] APP-12: Chân thanh bên có liên kết "Trang học chính" với `href` bằng `NEXT_PUBLIC_HOST_URL` (mặc định `https://language.pomaskhoahocnaobo.com/`); Landing có liên kết này ở chân trang.
+  - Bằng chứng: test tests/unit/shell.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC19 [claude] APP-12, C5-07: Ảnh chụp chân thanh bên ở 375 px (menu mở) và 1280 px, sáng và tối: liên kết "Trang học chính" có icon mũi tên trái, vùng bấm cao từ 40 px.
+  - Bằng chứng: ảnh và số đo docs/evidence/APP-AC19/ (chân thanh bên ở 375 px menu mở và 1280 px, sáng và tối): liên kết "Trang học chính" có icon mũi tên trái, cao 40 px; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d
+- [ ] APP-AC20 [human] APP-09, APP-12: Trên trang học chính thật, mở Đa ngôn ngữ: website mở ở trang mới. Bấm "Trang học chính": về đúng trang học chính.
+- [x] APP-AC21 [auto] APP-04: Trên bản build, mở từng route (T1, T2, `/thu-vien?xem=unit&trinh-do=B2&trang=1`, `/thu-vien?xem=cau&q=book&trang=1`, `/thu-vien/unit?so=2`, T4 với `khoang=30`, S8, `/kiem-tra?unit=2`, S3) rồi tải lại trang: đúng màn và đúng trạng thái.
+  - Bằng chứng: test tests/e2e/dot5-dieu-huong.spec.ts pass trên bản Next.js (npm run test:e2e), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC22 [auto] APP-04, APP-14: Chuỗi T1 → T3 → sang trang 2 → S10 → Back về T3 vẫn ở trang 2 → Forward về S10 → "Học unit này" → Thoát, Dừng thì về S10 (S3-07) → liên kết "Thư viện" trên đường dẫn mở lại T3 trang 2.
+  - Bằng chứng: test tests/e2e/dot5-dieu-huong.spec.ts pass trên bản Next.js (npm run test:e2e), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC23 [auto] APP-13: Quét mã nguồn `src`: không có `href` bắt đầu bằng `#`.
+  - Bằng chứng: test tests/unit/dot5-unit.test.tsx, tests/unit/static-checks.test.ts pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC24 [claude] APP-14, APP-01: Ảnh S10 ở 375 và 1280 px: đường dẫn "Thư viện › Unit n" đầu màn, mục Thư viện trên thanh bên đang chọn.
+  - Bằng chứng: ảnh và số đo docs/evidence/APP-AC24/ (375 và 1280 px, sáng và tối, kèm menu mở ở 375): đầu màn S10 là đường dẫn "Thư viện › Unit 4 · A1"; mục Thư viện có aria-current và nền accent trên thanh bên và trong menu trượt; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC25 [auto] APP-07, FND-14: Trên bản build, ở 320, 375, 768, 1024, 1280, 1440 px, mở T1, T2, T3 (hai cách xem), T4, S8, S10: không có cuộn ngang; mọi nút, liên kết và ô nhập đang hiện có vùng chạm từ 40 x 40 px (trừ các ngoại lệ ở FND-14).
+  - Bằng chứng: test tests/e2e/dot5-responsive.spec.ts pass trên bản Next.js (npm run test:e2e), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC26 [claude] APP-07: Ảnh T1, T2, T3, T4, S8, S10 ở 375, 768, 1280, 1440 px, sáng và tối: không vỡ bố cục, không khối hẹp giữa khoảng trắng lớn ở 1280 và 1440 px.
+  - Bằng chứng: ảnh cả trang và số đo docs/evidence/APP-AC26/ (T1, T2, T3, T4, S8, S10 ở 375, 768, 1280, 1440 px, sáng và tối, 48 ảnh): không cuộn ngang; ở 1280 và 1440 px vùng nội dung 1024 px, T2 và T3 ba cột, T4 và S8 hai cột, T1 hai cột 560 và 400 px; không có khối hẹp giữa khoảng trắng lớn, không chữ tràn; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC27 [auto] APP-15: Đổi ngôn ngữ giao diện sang tiếng Anh ở S8: trang hiện bằng tiếng Anh, route giữ nguyên, cookie `NEXT_LOCALE=en`; `html` có `lang="en"`; tên ngôn ngữ đang học là "Japanese"; tải lại vẫn tiếng Anh. Không có cookie thì giao diện tiếng Việt dù trình duyệt đặt tiếng Anh.
+  - Bằng chứng: test tests/e2e/dot6-web.spec.ts, tests/unit/shell.test.tsx pass trên bản Next.js (npm run test:e2e, npm test), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC28 [auto] APP-15: `vi.json` và `en.json` có cùng khóa và cùng biến `{var}`; mọi khóa code dùng đều có trong file (`npm run messages:check`).
+  - Bằng chứng: test tests/unit/static-checks.test.ts pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC29 [auto] APP-16: Trên bản build: `/robots.txt` cho phép `/`, `/dang-ky`, chặn các route khu học và `/dang-nhap`, trỏ tới sitemap; `/sitemap.xml` chỉ có `/` và `/dang-ky`; `/` có canonical, `og:image` 1200 × 630 và tiêu đề dạng "... | VITASR"; `/dang-nhap` và `/hoc` có `noindex`.
+  - Bằng chứng: test tests/e2e/dot6-web.spec.ts pass trên bản Next.js (npm run test:e2e), Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC30 [claude] APP-15: Ảnh chụp T1, S8 và Landing ở 375 px và 1280 px bằng tiếng Anh: câu chữ không tràn, không lẫn câu tiếng Việt của giao diện.
+  - Bằng chứng: ảnh và số đo docs/evidence/APP-AC30/ (T1, T1 menu mở, S8, Landing ở 375 và 1280 px, sáng và tối, cookie NEXT_LOCALE=en): html lang en, không cuộn ngang, không phần tử tràn, không còn câu giao diện tiếng Việt (chữ Việt chỉ ở nội dung học và từ khóa đánh dấu lang vi), ảnh app trên Landing là bản tiếng Anh; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d

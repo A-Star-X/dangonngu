@@ -1,0 +1,69 @@
+{
+  "375": {
+    "header": {
+      "x": 0,
+      "w": 375,
+      "h": 56
+    },
+    "nutMenu": {
+      "x": 8,
+      "w": 44,
+      "h": 44
+    },
+    "logo": {
+      "x": 60,
+      "w": 106,
+      "h": 39
+    },
+    "chonNgonNgu": {
+      "x": 252,
+      "w": 63,
+      "h": 36
+    },
+    "sangToi": {
+      "x": 323,
+      "w": 36,
+      "h": 36
+    }
+  },
+  "1280": {
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 1040,
+      "h": 56
+    },
+    "muc": [
+      {
+        "text": "Học",
+        "h": 40,
+        "current": "page"
+      },
+      {
+        "text": "Luyện tập, 3 câu cần ôn3",
+        "h": 40,
+        "current": null
+      },
+      {
+        "text": "Thư viện",
+        "h": 40,
+        "current": null
+      },
+      {
+        "text": "Tiến độ",
+        "h": 40,
+        "current": null
+      },
+      {
+        "text": "Cài đặt",
+        "h": 40,
+        "current": null
+      },
+      {
+        "text": "Đăng xuất",
+        "h": 40,
+        "current": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "375": {
+    "viewport": 375,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 375,
+      "h": 1311
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Cài đặt",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [],
+    "nhom": [
+      {
+        "tieuDe": "Học tập",
+        "muc": 12,
+        "vienPanel": "0px solid",
+        "nenPanel": "rgb(255, 255, 255)"
+      },
+      {
+        "tieuDe": "Học tập",
+        "muc": 2,
+        "vienPanel": "0px solid",
+        "nenPanel": "rgb(255, 255, 255)"
+      },
+      {
+        "tieuDe": "Âm thanh",
+        "muc": 1,
+        "vienPanel": "0px solid",
+        "nenPanel": "rgb(255, 255, 255)"
+      },
+      {
+        "tieuDe": "Giao diện",
+        "muc": 2,
+        "vienPanel": "0px solid",
+        "nenPanel": "rgb(255, 255, 255)"
+      },
+      {
+        "tieuDe": "Tiến độ",
+        "muc": 3,
+        "vienPanel": "0px solid",
+        "nenPanel": "rgb(255, 255, 255)"
+      },
+      {
+        "tieuDe": "Tài khoản",
+        "muc": 2,
+        "vienPanel": "0px solid",
+        "nenPanel": "rgb(255, 255, 255)"
+      },
+      {
+        "tieuDe": "Trợ giúp",
+        "muc": 2,
+        "vienPanel": "0px solid",
+        "nenPanel": "rgb(255, 255, 255)"
+      }
+    ]
+  },
+  "1280": {
+    "viewport": 1280,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 1040,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 248,
+      "y": 56,
+      "w": 1024,
+      "h": 738
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Cài đặt",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [],
+    "nhom": [
+      {
+        "tieuDe": "Học tập",
+        "muc": 12,
+        "vienPanel": "0px solid",
+        "nenPanel": "rgb(255, 255, 255)"
+      },
+      {
+        "tieuDe": "Học tập",
+        "muc": 2,
+        "vienPanel": "0px solid",
+        "nenPanel": "rgb(255, 255, 255)"
+      },
+      {
+        "tieuDe": "Âm thanh",
+        "muc": 1,
+        "vienPanel": "0px solid",
+        "nenPanel": "rgb(255, 255, 255)"
+      },
+      {
+        "tieuDe": "Giao diện",
+        "muc": 2,
+        "vienPanel": "0px solid",
+        "nenPanel": "rgb(255, 255, 255)"
+      },
+      {
+        "tieuDe": "Tiến độ",
+        "muc": 3,
+        "vienPanel": "0px solid",
+        "nenPanel": "rgb(255, 255, 255)"
+      },
+      {
+        "tieuDe": "Tài khoản",
+        "muc": 2,
+        "vienPanel": "0px solid",
+        "nenPanel": "rgb(255, 255, 255)"
+      },
+      {
+        "tieuDe": "Trợ giúp",
+        "muc": 2,
+        "vienPanel": "0px solid",
+        "nenPanel": "rgb(255, 255, 255)"
+      }
+    ]
+  }
+}

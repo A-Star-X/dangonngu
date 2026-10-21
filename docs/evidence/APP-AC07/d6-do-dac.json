@@ -1,0 +1,471 @@
+{
+  "mang": "Slow 3G: trễ 400 ms, 400 kbit/s mỗi chiều (Network.emulateNetworkConditions), áp cho mọi request",
+  "T1-375-khoi-dong": {
+    "daChayJs": false,
+    "coVongXoay": false,
+    "soKhungXuong": 1,
+    "khoiKhungXuong": [
+      {
+        "x": 16,
+        "y": 152,
+        "w": 343,
+        "h": 288
+      },
+      {
+        "x": 16,
+        "y": 456,
+        "w": 192,
+        "h": 44
+      },
+      {
+        "x": 16,
+        "y": 80,
+        "w": 343,
+        "h": 56
+      },
+      {
+        "x": 16,
+        "y": 516,
+        "w": 343,
+        "h": 56
+      },
+      {
+        "x": 16,
+        "y": 588,
+        "w": 343,
+        "h": 128
+      }
+    ],
+    "thanhTren": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 56
+    },
+    "thanhBen": null,
+    "noiDung": false,
+    "manTrang": false,
+    "msTuLucMo": 4957
+  },
+  "T1-375-dang-tai": {
+    "daChayJs": true,
+    "coVongXoay": false,
+    "soKhungXuong": 1,
+    "khoiKhungXuong": [
+      {
+        "x": 16,
+        "y": 152,
+        "w": 343,
+        "h": 288
+      },
+      {
+        "x": 16,
+        "y": 456,
+        "w": 192,
+        "h": 44
+      },
+      {
+        "x": 16,
+        "y": 80,
+        "w": 343,
+        "h": 56
+      },
+      {
+        "x": 16,
+        "y": 516,
+        "w": 343,
+        "h": 56
+      },
+      {
+        "x": 16,
+        "y": 588,
+        "w": 343,
+        "h": 128
+      }
+    ],
+    "thanhTren": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 56
+    },
+    "thanhBen": null,
+    "noiDung": false,
+    "manTrang": false,
+    "msTuLucMo": 11831
+  },
+  "T3-375-khoi-dong": {
+    "daChayJs": true,
+    "coVongXoay": false,
+    "soKhungXuong": 1,
+    "khoiKhungXuong": [
+      {
+        "x": 16,
+        "y": 80,
+        "w": 160,
+        "h": 32
+      },
+      {
+        "x": 16,
+        "y": 128,
+        "w": 176,
+        "h": 44
+      },
+      {
+        "x": 16,
+        "y": 188,
+        "w": 343,
+        "h": 144
+      },
+      {
+        "x": 16,
+        "y": 344,
+        "w": 343,
+        "h": 144
+      },
+      {
+        "x": 16,
+        "y": 500,
+        "w": 343,
+        "h": 144
+      },
+      {
+        "x": 16,
+        "y": 656,
+        "w": 343,
+        "h": 144
+      },
+      {
+        "x": 16,
+        "y": 812,
+        "w": 343,
+        "h": 144
+      },
+      {
+        "x": 16,
+        "y": 968,
+        "w": 343,
+        "h": 144
+      }
+    ],
+    "thanhTren": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 56
+    },
+    "thanhBen": null,
+    "noiDung": false,
+    "manTrang": false,
+    "msTuLucMo": 1042
+  },
+  "T3-375-dang-tai": {
+    "daChayJs": true,
+    "coVongXoay": false,
+    "soKhungXuong": 1,
+    "khoiKhungXuong": [
+      {
+        "x": 16,
+        "y": 80,
+        "w": 160,
+        "h": 32
+      },
+      {
+        "x": 16,
+        "y": 128,
+        "w": 176,
+        "h": 44
+      },
+      {
+        "x": 16,
+        "y": 188,
+        "w": 343,
+        "h": 144
+      },
+      {
+        "x": 16,
+        "y": 344,
+        "w": 343,
+        "h": 144
+      },
+      {
+        "x": 16,
+        "y": 500,
+        "w": 343,
+        "h": 144
+      },
+      {
+        "x": 16,
+        "y": 656,
+        "w": 343,
+        "h": 144
+      },
+      {
+        "x": 16,
+        "y": 812,
+        "w": 343,
+        "h": 144
+      },
+      {
+        "x": 16,
+        "y": 968,
+        "w": 343,
+        "h": 144
+      }
+    ],
+    "thanhTren": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 56
+    },
+    "thanhBen": null,
+    "noiDung": false,
+    "manTrang": false,
+    "msTuLucMo": 1420
+  },
+  "T1-1280-khoi-dong": {
+    "daChayJs": true,
+    "coVongXoay": false,
+    "soKhungXuong": 1,
+    "khoiKhungXuong": [
+      {
+        "x": 264,
+        "y": 80,
+        "w": 560,
+        "h": 288
+      },
+      {
+        "x": 264,
+        "y": 384,
+        "w": 192,
+        "h": 44
+      },
+      {
+        "x": 856,
+        "y": 80,
+        "w": 400,
+        "h": 56
+      },
+      {
+        "x": 856,
+        "y": 177,
+        "w": 400,
+        "h": 56
+      },
+      {
+        "x": 856,
+        "y": 275,
+        "w": 400,
+        "h": 128
+      }
+    ],
+    "thanhTren": {
+      "x": 240,
+      "y": 0,
+      "w": 1040,
+      "h": 56
+    },
+    "thanhBen": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "noiDung": false,
+    "manTrang": false,
+    "msTuLucMo": 1064
+  },
+  "T1-1280-dang-tai": {
+    "daChayJs": true,
+    "coVongXoay": false,
+    "soKhungXuong": 1,
+    "khoiKhungXuong": [
+      {
+        "x": 264,
+        "y": 80,
+        "w": 560,
+        "h": 288
+      },
+      {
+        "x": 264,
+        "y": 384,
+        "w": 192,
+        "h": 44
+      },
+      {
+        "x": 856,
+        "y": 80,
+        "w": 400,
+        "h": 56
+      },
+      {
+        "x": 856,
+        "y": 177,
+        "w": 400,
+        "h": 56
+      },
+      {
+        "x": 856,
+        "y": 275,
+        "w": 400,
+        "h": 128
+      }
+    ],
+    "thanhTren": {
+      "x": 240,
+      "y": 0,
+      "w": 1040,
+      "h": 56
+    },
+    "thanhBen": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "noiDung": false,
+    "manTrang": false,
+    "msTuLucMo": 1464
+  },
+  "T3-1280-khoi-dong": {
+    "daChayJs": true,
+    "coVongXoay": false,
+    "soKhungXuong": 1,
+    "khoiKhungXuong": [
+      {
+        "x": 264,
+        "y": 80,
+        "w": 160,
+        "h": 32
+      },
+      {
+        "x": 264,
+        "y": 128,
+        "w": 176,
+        "h": 44
+      },
+      {
+        "x": 264,
+        "y": 188,
+        "w": 323,
+        "h": 144
+      },
+      {
+        "x": 599,
+        "y": 188,
+        "w": 323,
+        "h": 144
+      },
+      {
+        "x": 933,
+        "y": 188,
+        "w": 323,
+        "h": 144
+      },
+      {
+        "x": 264,
+        "y": 344,
+        "w": 323,
+        "h": 144
+      },
+      {
+        "x": 599,
+        "y": 344,
+        "w": 323,
+        "h": 144
+      },
+      {
+        "x": 933,
+        "y": 344,
+        "w": 323,
+        "h": 144
+      }
+    ],
+    "thanhTren": {
+      "x": 240,
+      "y": 0,
+      "w": 1040,
+      "h": 56
+    },
+    "thanhBen": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "noiDung": false,
+    "manTrang": false,
+    "msTuLucMo": 1053
+  },
+  "T3-1280-dang-tai": {
+    "daChayJs": true,
+    "coVongXoay": false,
+    "soKhungXuong": 1,
+    "khoiKhungXuong": [
+      {
+        "x": 264,
+        "y": 80,
+        "w": 160,
+        "h": 32
+      },
+      {
+        "x": 264,
+        "y": 128,
+        "w": 176,
+        "h": 44
+      },
+      {
+        "x": 264,
+        "y": 188,
+        "w": 323,
+        "h": 144
+      },
+      {
+        "x": 599,
+        "y": 188,
+        "w": 323,
+        "h": 144
+      },
+      {
+        "x": 933,
+        "y": 188,
+        "w": 323,
+        "h": 144
+      },
+      {
+        "x": 264,
+        "y": 344,
+        "w": 323,
+        "h": 144
+      },
+      {
+        "x": 599,
+        "y": 344,
+        "w": 323,
+        "h": 144
+      },
+      {
+        "x": 933,
+        "y": 344,
+        "w": 323,
+        "h": 144
+      }
+    ],
+    "thanhTren": {
+      "x": 240,
+      "y": 0,
+      "w": 1040,
+      "h": 56
+    },
+    "thanhBen": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "noiDung": false,
+    "manTrang": false,
+    "msTuLucMo": 1433
+  }
+}

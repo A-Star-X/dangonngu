@@ -1,0 +1,70 @@
+{
+  "375": {
+    "T1": {
+      "rong": 343,
+      "cachDay": 16,
+      "trai": 16,
+      "phai": 16,
+      "nen": "rgb(22, 32, 57)",
+      "vienTrai": "1px rgb(40, 50, 77)",
+      "boGoc": "8px",
+      "role": "status",
+      "chu": "Không có câu nào để học trong nhóm này.",
+      "fontChu": "Lexend, system-ui, sans-serif",
+      "coChu": "14px",
+      "mauChu": "rgb(230, 234, 242)",
+      "fontNut": null,
+      "foreground": "#e6eaf2"
+    },
+    "S3": {
+      "rong": 343,
+      "cachDay": 16,
+      "trai": 16,
+      "phai": 16,
+      "nen": "rgb(22, 32, 57)",
+      "vienTrai": "4px rgb(255, 138, 138)",
+      "boGoc": "8px",
+      "role": "alert",
+      "chu": "Không tải được danh sách câu. Kiểm tra kết nối rồi nhấn Thử lại.Thử lại",
+      "fontChu": "Lexend, system-ui, sans-serif",
+      "coChu": "14px",
+      "mauChu": "rgb(230, 234, 242)",
+      "fontNut": "Lexend, system-ui, sans-serif",
+      "foreground": "#e6eaf2"
+    }
+  },
+  "1280": {
+    "T1": {
+      "rong": 480,
+      "cachDay": 16,
+      "trai": 400,
+      "phai": 400,
+      "nen": "rgb(22, 32, 57)",
+      "vienTrai": "1px rgb(40, 50, 77)",
+      "boGoc": "8px",
+      "role": "status",
+      "chu": "Không có câu nào để học trong nhóm này.",
+      "fontChu": "Lexend, system-ui, sans-serif",
+      "coChu": "14px",
+      "mauChu": "rgb(230, 234, 242)",
+      "fontNut": null,
+      "foreground": "#e6eaf2"
+    },
+    "S3": {
+      "rong": 480,
+      "cachDay": 16,
+      "trai": 400,
+      "phai": 400,
+      "nen": "rgb(22, 32, 57)",
+      "vienTrai": "4px rgb(255, 138, 138)",
+      "boGoc": "8px",
+      "role": "alert",
+      "chu": "Không tải được danh sách câu. Kiểm tra kết nối rồi nhấn Thử lại.Thử lại",
+      "fontChu": "Lexend, system-ui, sans-serif",
+      "coChu": "14px",
+      "mauChu": "rgb(230, 234, 242)",
+      "fontNut": "Lexend, system-ui, sans-serif",
+      "foreground": "#e6eaf2"
+    }
+  }
+}

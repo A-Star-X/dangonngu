@@ -1,0 +1,541 @@
+{
+  "T1-1440": {
+    "viewport": 1440,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 1200,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 328,
+      "y": 56,
+      "w": 1024,
+      "h": 876
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [
+      "Học 8 câu"
+    ],
+    "khoiS3": null
+  },
+  "T3-1440": {
+    "viewport": 1440,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 1200,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 328,
+      "y": 56,
+      "w": 1024,
+      "h": 2847
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Thư viện",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [
+      "Học câu này"
+    ],
+    "khoiS3": null
+  },
+  "S3-1440": {
+    "viewport": 1440,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 1200,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 328,
+      "y": 56,
+      "w": 1024,
+      "h": 442
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Phiên học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [],
+    "khoiS3": 672
+  },
+  "T1-1280": {
+    "viewport": 1280,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 1040,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 248,
+      "y": 56,
+      "w": 1024,
+      "h": 876
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [
+      "Tiếp tục: 8 câu còn lại"
+    ],
+    "khoiS3": null
+  },
+  "T3-1280": {
+    "viewport": 1280,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 1040,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 248,
+      "y": 56,
+      "w": 1024,
+      "h": 2847
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Thư viện",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [
+      "Học câu này"
+    ],
+    "khoiS3": null
+  },
+  "S3-1280": {
+    "viewport": 1280,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 1040,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 248,
+      "y": 56,
+      "w": 1024,
+      "h": 442
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Phiên học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [],
+    "khoiS3": 672
+  },
+  "T1-768": {
+    "viewport": 768,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 528,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 240,
+      "y": 56,
+      "w": 528,
+      "h": 1393
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [
+      "Tiếp tục: 8 câu còn lại"
+    ],
+    "khoiS3": null
+  },
+  "T3-768": {
+    "viewport": 768,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 528,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 240,
+      "y": 56,
+      "w": 528,
+      "h": 2867
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Thư viện",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [],
+    "khoiS3": null
+  },
+  "S3-768": {
+    "viewport": 768,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 528,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 240,
+      "y": 56,
+      "w": 528,
+      "h": 442
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Phiên học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [],
+    "khoiS3": 496
+  },
+  "T1-375": {
+    "viewport": 375,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 375,
+      "h": 1477
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [
+      "Tiếp tục: 8 câu còn lại"
+    ],
+    "khoiS3": null
+  },
+  "T3-375": {
+    "viewport": 375,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 375,
+      "h": 3181
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Thư viện",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [],
+    "khoiS3": null
+  },
+  "S3-375": {
+    "viewport": 375,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 375,
+      "h": 446
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Phiên học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [],
+    "khoiS3": 343
+  },
+  "T1-320": {
+    "viewport": 320,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 320,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 320,
+      "h": 1477
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [
+      "Tiếp tục: 8 câu còn lại"
+    ],
+    "khoiS3": null
+  },
+  "T3-320": {
+    "viewport": 320,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 320,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 320,
+      "h": 3519
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Thư viện",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [],
+    "khoiS3": null
+  },
+  "S3-320": {
+    "viewport": 320,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 320,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 320,
+      "h": 446
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Phiên học",
+      "fontSize": "16px",
+      "srOnly": true
+    },
+    "nutPrimary": [],
+    "khoiS3": 288
+  }
+}

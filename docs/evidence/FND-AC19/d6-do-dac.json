@@ -1,0 +1,521 @@
+{
+  "S1-1440": {
+    "khoiGoc": "section.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "header \"Bạn muốn học ngôn ngữ nào?\"",
+        "den": "div",
+        "px": 16
+      },
+      {
+        "tu": "div",
+        "den": "div",
+        "px": 16
+      },
+      {
+        "tu": "div",
+        "den": "p",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [],
+    "tieuDeManDenNoiDung": 16
+  },
+  "T1-1440": {
+    "khoiGoc": "section.grid.grid-cols-1.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "div",
+        "den": "div",
+        "px": 16
+      },
+      {
+        "tu": "div",
+        "den": "div \"Unit tiếp theo\"",
+        "px": 16
+      },
+      {
+        "tu": "div \"Unit tiếp theo\"",
+        "den": "div \"Tiến độ của bạn\"",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [
+      {
+        "text": "Unit tiếp theo",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Tiến độ của bạn",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      }
+    ],
+    "tieuDeManDenNoiDung": null
+  },
+  "T2-1440": {
+    "khoiGoc": "section.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "header \"Luyện tập\"",
+        "den": "ul",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [],
+    "tieuDeManDenNoiDung": 16
+  },
+  "T3-1440": {
+    "khoiGoc": "section.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "header \"Thư viện\"",
+        "den": "section",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [],
+    "tieuDeManDenNoiDung": 16
+  },
+  "T3-cau-1440": {
+    "khoiGoc": "section.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "header \"Thư viện\"",
+        "den": "div \"Câu 0001\"",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [
+      {
+        "text": "Câu 0001",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      }
+    ],
+    "tieuDeManDenNoiDung": 16
+  },
+  "T4-1440": {
+    "khoiGoc": "section.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "header \"Tiến độ\"",
+        "den": "div",
+        "px": 16
+      },
+      {
+        "tu": "div",
+        "den": "div \"Mục tiêu mỗi tuần\"",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [
+      {
+        "text": "Mục tiêu mỗi tuần",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Lịch ôn tập",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Số câu đã học mỗi ngày",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Các phiên học",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      }
+    ],
+    "tieuDeManDenNoiDung": 16
+  },
+  "S8-1440": {
+    "khoiGoc": "section.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "div",
+        "den": "header \"Cài đặt\"",
+        "px": 16
+      },
+      {
+        "tu": "header \"Cài đặt\"",
+        "den": "div \"Học tập\"",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [
+      {
+        "text": "Học tập",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Âm thanh",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Giao diện",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Tiến độ",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Tài khoản",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Trợ giúp",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      }
+    ],
+    "tieuDeManDenNoiDung": 16
+  },
+  "S10-1440": {
+    "khoiGoc": "section.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "nav",
+        "den": "header \"I'd like to...\"",
+        "px": 16
+      },
+      {
+        "tu": "header \"I'd like to...\"",
+        "den": "div",
+        "px": 16
+      },
+      {
+        "tu": "div",
+        "den": "section \"Các câu trong unit (8)\"",
+        "px": 16
+      },
+      {
+        "tu": "section \"Các câu trong unit (8)\"",
+        "den": "nav",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [
+      {
+        "text": "Các câu trong unit (8)",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      }
+    ],
+    "tieuDeManDenNoiDung": 16
+  },
+  "S3-1440": {
+    "khoiGoc": "div.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "div",
+        "den": "ol",
+        "px": 16
+      },
+      {
+        "tu": "ol",
+        "den": "article",
+        "px": 16
+      },
+      {
+        "tu": "article",
+        "den": "div",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [],
+    "tieuDeManDenNoiDung": null
+  },
+  "S5-1440": {
+    "khoiGoc": "div.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "div",
+        "den": "div \"I'd like to...\"",
+        "px": 16
+      },
+      {
+        "tu": "div \"I'd like to...\"",
+        "den": "ol",
+        "px": 16
+      },
+      {
+        "tu": "ol",
+        "den": "div",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [],
+    "tieuDeManDenNoiDung": null
+  },
+  "S1-375": {
+    "khoiGoc": "section.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "header \"Bạn muốn học ngôn ngữ nào?\"",
+        "den": "div",
+        "px": 16
+      },
+      {
+        "tu": "div",
+        "den": "div",
+        "px": 16
+      },
+      {
+        "tu": "div",
+        "den": "p",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [],
+    "tieuDeManDenNoiDung": 16
+  },
+  "T1-375": {
+    "khoiGoc": "section.grid.grid-cols-1.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "div",
+        "den": "div",
+        "px": 16
+      },
+      {
+        "tu": "div",
+        "den": "div",
+        "px": 16
+      },
+      {
+        "tu": "div",
+        "den": "div \"Unit tiếp theo\"",
+        "px": 16
+      },
+      {
+        "tu": "div \"Unit tiếp theo\"",
+        "den": "div \"Tiến độ của bạn\"",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [
+      {
+        "text": "Unit tiếp theo",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Tiến độ của bạn",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      }
+    ],
+    "tieuDeManDenNoiDung": null
+  },
+  "T2-375": {
+    "khoiGoc": "section.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "header \"Luyện tập\"",
+        "den": "ul",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [],
+    "tieuDeManDenNoiDung": 16
+  },
+  "T3-375": {
+    "khoiGoc": "section.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "header \"Thư viện\"",
+        "den": "section",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [],
+    "tieuDeManDenNoiDung": 16
+  },
+  "T3-cau-375": {
+    "khoiGoc": "section.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "header \"Thư viện\"",
+        "den": "div",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [],
+    "tieuDeManDenNoiDung": 16
+  },
+  "T4-375": {
+    "khoiGoc": "section.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "header \"Tiến độ\"",
+        "den": "div",
+        "px": 16
+      },
+      {
+        "tu": "div",
+        "den": "div \"Mục tiêu mỗi tuần\"",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [
+      {
+        "text": "Mục tiêu mỗi tuần",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Lịch ôn tập",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Số câu đã học mỗi ngày",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Các phiên học",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      }
+    ],
+    "tieuDeManDenNoiDung": 16
+  },
+  "S8-375": {
+    "khoiGoc": "section.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "div",
+        "den": "header \"Cài đặt\"",
+        "px": 16
+      },
+      {
+        "tu": "header \"Cài đặt\"",
+        "den": "div \"Học tập\"",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [
+      {
+        "text": "Học tập",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Âm thanh",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Giao diện",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Tiến độ",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Tài khoản",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      },
+      {
+        "text": "Trợ giúp",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      }
+    ],
+    "tieuDeManDenNoiDung": 16
+  },
+  "S10-375": {
+    "khoiGoc": "section.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "nav",
+        "den": "header \"I'd like to...\"",
+        "px": 16
+      },
+      {
+        "tu": "header \"I'd like to...\"",
+        "den": "div",
+        "px": 16
+      },
+      {
+        "tu": "div",
+        "den": "section \"Các câu trong unit (8)\"",
+        "px": 16
+      },
+      {
+        "tu": "section \"Các câu trong unit (8)\"",
+        "den": "nav",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [
+      {
+        "text": "Các câu trong unit (8)",
+        "fontSize": "14px",
+        "denPhanSau": 12
+      }
+    ],
+    "tieuDeManDenNoiDung": 16
+  },
+  "S3-375": {
+    "khoiGoc": "div.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "div",
+        "den": "ol",
+        "px": 16
+      },
+      {
+        "tu": "ol",
+        "den": "article",
+        "px": 16
+      },
+      {
+        "tu": "article",
+        "den": "div",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [],
+    "tieuDeManDenNoiDung": null
+  },
+  "S5-375": {
+    "khoiGoc": "div.flex.flex-col.gap-4",
+    "khoangGiuaKhoi": [
+      {
+        "tu": "div",
+        "den": "div \"I'd like to...\"",
+        "px": 16
+      },
+      {
+        "tu": "div \"I'd like to...\"",
+        "den": "ol",
+        "px": 16
+      },
+      {
+        "tu": "ol",
+        "den": "div",
+        "px": 16
+      }
+    ],
+    "tieuDeSection": [],
+    "tieuDeManDenNoiDung": null
+  }
+}

@@ -6,9 +6,9 @@ Tài liệu này quy định cách nhóm và Claude cùng làm việc trên repo
 
 | File | Ai sửa | Vai trò |
 |---|---|---|
-| `spec.md` trong mỗi thư mục khu vực | Nhóm (người) | Mô tả giao diện và hành vi phải có. Là nguồn chân lý. |
+| `spec.md` trong mỗi thư mục khu vực (`docs/spec/<khu vực>/`) | Nhóm (người) | Mô tả giao diện và hành vi phải có. Là nguồn chân lý. |
 | `acceptance.md` cạnh mỗi `spec.md` | Nhóm viết mục kiểm; người kiểm đánh dấu | Điều kiện để chấp nhận phần code của khu vực đó. |
-| Code trong `fe/` | Claude (hoặc dev) | Hiện thực spec. Mỗi phần gắn ghi chú `@spec`. |
+| Code trong `src/`, test trong `tests/` | Claude (hoặc dev) | Hiện thực spec. Mỗi phần gắn ghi chú `@spec`, mỗi test gắn `@ac`. |
 
 Tài liệu trong `docs/legacy/` mô tả bản cũ, chỉ để tham khảo, không phải yêu cầu. `docs/generated/` do script sinh ra, không sửa tay.
 
@@ -19,11 +19,14 @@ Mỗi thư mục có `spec.md` là một **khu vực**, có `id` trong frontmatt
 | Nhóm | ID khu vực | Thư mục |
 |---|---|---|
 | Mục tiêu sản phẩm | `G` | `docs/new/` |
-| Khung app (điều hướng, bố cục, trạng thái toàn cục) | `APP` | `fe/src/app/` |
-| Nền tảng thiết kế (token, chữ, giọng văn, trợ năng) | `FND` | `fe/src/foundation/` |
-| Dữ liệu (hợp đồng, nguồn, tiến độ) | `DATA` | `fe/src/data/` |
-| Thành phần | `C1` đến `C7` | `fe/src/components/` |
-| Trang | `S1`, `T1`, `S3`, `T2`, `S5`, `T3`, `T4`, `S8`, `S9` | `fe/src/pages/` |
+| Khung app (điều hướng, bố cục, trạng thái toàn cục) | `APP` | `docs/spec/app/` |
+| Nền tảng thiết kế (token, chữ, giọng văn, trợ năng) | `FND` | `docs/spec/foundation/` |
+| Dữ liệu (hợp đồng, nguồn, tiến độ, đồng bộ) | `DATA` | `docs/spec/data/` |
+| Thành phần | `C1` đến `C8` | `docs/spec/C<n>-<tên>/` |
+| Trang công khai | `LP` Landing, `AU` Tài khoản | `docs/spec/LP-landing/`, `docs/spec/AU-tai-khoan/` |
+| Màn trong khu học | `S1`, `T1`, `S3`, `T2`, `S5`, `T3`, `S10`, `T4`, `S8`, `S9` | `docs/spec/<ID>-<tên>/` |
+
+Từ Đợt 6 (21/10/2026) spec tách khỏi code: spec nằm ở `docs/spec/`, code theo cấu trúc Next.js của bộ quy tắc leader (`src/app` route, `src/views` giao diện từng trang, `src/components`, `src/services`). Ghi chú `@spec` và `@ac` là cầu nối giữa hai nơi.
 
 Quy ước ID:
 
@@ -66,7 +69,7 @@ Script đọc toàn bộ spec, acceptance và ghi chú trong code, rồi sinh `d
   %% @spec T1-02
 ```
 
-Mũi tên nằm ngoài phạm vi ghi `%% @none <lý do>`. Script sinh `docs/generated/navigation-trace.md`: mỗi mũi tên, yêu cầu làm bằng chứng (kèm file và dòng spec) và thư mục `fe/src/...` sẽ chứa code của nó. Cột "Sơ đồ" trong `traceability.md` cho chiều ngược lại.
+Mũi tên nằm ngoài phạm vi ghi `%% @none <lý do>`. Script sinh `docs/generated/navigation-trace.md`: mỗi mũi tên, yêu cầu làm bằng chứng (kèm file và dòng spec) và các file code gắn `@spec` của yêu cầu đó. Cột "Sơ đồ" trong `traceability.md` cho chiều ngược lại.
 
 `npm run spec:check` báo lỗi (thoát mã 1) khi:
 

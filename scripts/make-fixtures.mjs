@@ -1,13 +1,13 @@
 #!/usr/bin/env node
-// Tạo fixture cho test (DATA-09) từ bộ dữ liệu đầy đủ trong fe/public/data.
+// Tạo fixture cho test (DATA-09) từ bộ dữ liệu đầy đủ trong public/data.
 // Chạy lại được bất cứ lúc nào: node scripts/make-fixtures.mjs
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SRC = path.join(ROOT, 'fe/public/data');
-const OUT = path.join(ROOT, 'fe/fixtures/data');
+const SRC = path.join(ROOT, 'public/data');
+const OUT = path.join(ROOT, 'fixtures/data');
 const read = (p) => JSON.parse(fs.readFileSync(path.join(SRC, p), 'utf8'));
 const write = (p, v) => {
   fs.mkdirSync(path.dirname(path.join(OUT, p)), { recursive: true });
@@ -52,9 +52,9 @@ console.log(`Fixture: fluency ${LANGS.join(', ')}; global unit 1, 2 và ${longUn
 // Bộ tiến độ mẫu 30 ngày cho English Fluency tiếng Anh (DATA-09, dùng cho T4).
 // Kế hoạch học viết tường minh dưới đây; script chỉ phát lại kế hoạch theo quy tắc DATA-07
 // (viết lại độc lập, không dùng code của app). Số liệu T4 phải hiển thị được tính tay và ghi
-// riêng ở fe/fixtures/progress/fluency-en-30-ngay.so-lieu.json; script không ghi file đó.
+// riêng ở fixtures/progress/fluency-en-30-ngay.so-lieu.json; script không ghi file đó.
 // Mốc thời gian theo giờ Việt Nam (UTC+7), "bây giờ" là 2026-10-08 10:00.
-const PROGRESS_OUT = path.join(ROOT, 'fe/fixtures/progress');
+const PROGRESS_OUT = path.join(ROOT, 'fixtures/progress');
 const unitsEn = read('fluency/units-en.json').units;
 const U = Object.fromEntries([1, 2, 3, 4].map((n) => [n, unitsEn.find((u) => u.number === n).ids.map(num).slice(0, n === 4 ? 5 : 8)]));
 const MIN = 60 * 1000;

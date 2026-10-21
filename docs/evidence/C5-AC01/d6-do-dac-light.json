@@ -1,0 +1,90 @@
+{
+  "viewport": 1280,
+  "cuonNgang": false,
+  "header": {
+    "x": 240,
+    "y": 0,
+    "w": 1040,
+    "h": 56
+  },
+  "sidebar": {
+    "x": 0,
+    "y": 0,
+    "w": 240,
+    "h": 800
+  },
+  "sidebarHienRa": true,
+  "content": {
+    "x": 248,
+    "y": 56,
+    "w": 1024,
+    "h": 956
+  },
+  "contentPadding": {
+    "left": "16px",
+    "right": "16px",
+    "top": "24px"
+  },
+  "h1": {
+    "text": "Học",
+    "fontSize": "16px",
+    "srOnly": true
+  },
+  "nutPrimary": [
+    "Học 8 câu"
+  ],
+  "hangLogo": 56,
+  "logoCao": 32,
+  "nhanNhom": [
+    {
+      "text": "Đang học",
+      "fontSize": "12px",
+      "transform": "uppercase"
+    },
+    {
+      "text": "Học tập",
+      "fontSize": "12px",
+      "transform": "uppercase"
+    },
+    {
+      "text": "Tài khoản",
+      "fontSize": "12px",
+      "transform": "uppercase"
+    }
+  ],
+  "muc": [
+    {
+      "text": "Học",
+      "h": 40,
+      "current": "page"
+    },
+    {
+      "text": "Luyện tập, 3 câu cần ôn3",
+      "h": 40,
+      "current": null
+    },
+    {
+      "text": "Thư viện",
+      "h": 40,
+      "current": null
+    },
+    {
+      "text": "Tiến độ",
+      "h": 40,
+      "current": null
+    },
+    {
+      "text": "Cài đặt",
+      "h": 40,
+      "current": null
+    },
+    {
+      "text": "Đăng xuất",
+      "h": 40,
+      "current": null
+    }
+  ],
+  "headerTrai": 240,
+  "headerZ": "30",
+  "sidebarZ": "50"
+}

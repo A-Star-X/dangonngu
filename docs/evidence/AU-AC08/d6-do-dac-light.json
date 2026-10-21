@@ -1,0 +1,166 @@
+{
+  "dang-nhap-375": {
+    "cuonNgang": false,
+    "khoi": [
+      {
+        "x": 16,
+        "y": 624,
+        "w": 343,
+        "h": 264
+      },
+      {
+        "x": 16,
+        "y": 81,
+        "w": 343,
+        "h": 519
+      }
+    ],
+    "soCot": 1,
+    "loi": []
+  },
+  "dang-nhap-loi-375": {
+    "cuonNgang": false,
+    "khoi": [
+      {
+        "x": 16,
+        "y": 692,
+        "w": 343,
+        "h": 264
+      },
+      {
+        "x": 16,
+        "y": 81,
+        "w": 343,
+        "h": 587
+      }
+    ],
+    "soCot": 1,
+    "loi": [
+      "Email chưa đúng dạng, ví dụ ten@gmail.com.",
+      "Nhập mật khẩu."
+    ]
+  },
+  "dang-ky-375": {
+    "cuonNgang": false,
+    "khoi": [
+      {
+        "x": 16,
+        "y": 732,
+        "w": 343,
+        "h": 264
+      },
+      {
+        "x": 16,
+        "y": 81,
+        "w": 343,
+        "h": 627
+      }
+    ],
+    "soCot": 1,
+    "loi": []
+  },
+  "dang-ky-loi-375": {
+    "cuonNgang": false,
+    "khoi": [
+      {
+        "x": 16,
+        "y": 756,
+        "w": 343,
+        "h": 264
+      },
+      {
+        "x": 16,
+        "y": 81,
+        "w": 343,
+        "h": 651
+      }
+    ],
+    "soCot": 1,
+    "loi": [
+      "Mật khẩu cần ít nhất 8 ký tự.",
+      "Hai mật khẩu chưa giống nhau."
+    ]
+  },
+  "dang-nhap-1280": {
+    "cuonNgang": false,
+    "khoi": [
+      {
+        "x": 272,
+        "y": 81,
+        "w": 348,
+        "h": 264
+      },
+      {
+        "x": 660,
+        "y": 81,
+        "w": 348,
+        "h": 519
+      }
+    ],
+    "soCot": 2,
+    "loi": []
+  },
+  "dang-nhap-loi-1280": {
+    "cuonNgang": false,
+    "khoi": [
+      {
+        "x": 272,
+        "y": 81,
+        "w": 348,
+        "h": 264
+      },
+      {
+        "x": 660,
+        "y": 81,
+        "w": 348,
+        "h": 587
+      }
+    ],
+    "soCot": 2,
+    "loi": [
+      "Email chưa đúng dạng, ví dụ ten@gmail.com.",
+      "Nhập mật khẩu."
+    ]
+  },
+  "dang-ky-1280": {
+    "cuonNgang": false,
+    "khoi": [
+      {
+        "x": 272,
+        "y": 81,
+        "w": 348,
+        "h": 264
+      },
+      {
+        "x": 660,
+        "y": 81,
+        "w": 348,
+        "h": 627
+      }
+    ],
+    "soCot": 2,
+    "loi": []
+  },
+  "dang-ky-loi-1280": {
+    "cuonNgang": false,
+    "khoi": [
+      {
+        "x": 272,
+        "y": 81,
+        "w": 348,
+        "h": 264
+      },
+      {
+        "x": 660,
+        "y": 81,
+        "w": 348,
+        "h": 651
+      }
+    ],
+    "soCot": 2,
+    "loi": [
+      "Mật khẩu cần ít nhất 8 ký tự.",
+      "Hai mật khẩu chưa giống nhau."
+    ]
+  }
+}

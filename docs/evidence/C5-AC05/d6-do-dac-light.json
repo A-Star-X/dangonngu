@@ -1,0 +1,67 @@
+{
+  "viewport": 375,
+  "cuonNgang": false,
+  "header": {
+    "header": {
+      "x": 0,
+      "w": 375,
+      "h": 56
+    },
+    "nutMenu": {
+      "x": 8,
+      "w": 44,
+      "h": 44
+    },
+    "logo": {
+      "x": 60,
+      "w": 106,
+      "h": 39
+    },
+    "chonNgonNgu": {
+      "x": 252,
+      "w": 63,
+      "h": 36
+    },
+    "sangToi": {
+      "x": 323,
+      "w": 36,
+      "h": 36
+    }
+  },
+  "sidebar": {
+    "x": 0,
+    "y": 0,
+    "w": 240,
+    "h": 812
+  },
+  "sidebarHienRa": true,
+  "content": {
+    "x": 0,
+    "y": 56,
+    "w": 375,
+    "h": 1561
+  },
+  "contentPadding": {
+    "left": "16px",
+    "right": "16px",
+    "top": "24px"
+  },
+  "h1": {
+    "text": "Học",
+    "fontSize": "16px",
+    "srOnly": true
+  },
+  "nutPrimary": [],
+  "lopPhu": {
+    "nen": "rgba(15, 30, 61, 0.4)",
+    "z": "40"
+  },
+  "muc": [
+    "Học",
+    "Luyện tập, 3 câu cần ôn3",
+    "Thư viện",
+    "Tiến độ",
+    "Cài đặt"
+  ],
+  "chan": 40
+}

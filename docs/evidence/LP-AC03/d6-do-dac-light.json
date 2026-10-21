@@ -1,0 +1,104 @@
+{
+  "375": {
+    "cuonNgang": false,
+    "rongNoiDung": 375,
+    "phan": [
+      {
+        "tieuDe": "Học câu giao tiếp dùng được ngay, bằng nghĩa tiếng Việt",
+        "x": 16,
+        "w": 343,
+        "h": 711
+      },
+      {
+        "tieuDe": "Dành cho ai",
+        "x": 16,
+        "w": 343,
+        "h": 398
+      },
+      {
+        "tieuDe": "Nội dung có sẵn",
+        "x": 16,
+        "w": 343,
+        "h": 460
+      },
+      {
+        "tieuDe": "Bạn học như thế nào",
+        "x": 16,
+        "w": 343,
+        "h": 828
+      },
+      {
+        "tieuDe": "Bắt đầu trong ba bước",
+        "x": 16,
+        "w": 343,
+        "h": 504
+      },
+      {
+        "tieuDe": "Học 8 câu đầu tiên ngay hôm nay",
+        "x": 16,
+        "w": 343,
+        "h": 176
+      }
+    ],
+    "coChuDoiTac": false,
+    "anh": [
+      {
+        "src": "http://localhost:4173/_next/image",
+        "daTai": true,
+        "w": 341
+      }
+    ],
+    "soNgonNgu": "15"
+  },
+  "1280": {
+    "cuonNgang": false,
+    "rongNoiDung": 768,
+    "phan": [
+      {
+        "tieuDe": "Học câu giao tiếp dùng được ngay, bằng nghĩa tiếng Việt",
+        "x": 272,
+        "w": 736,
+        "h": 809
+      },
+      {
+        "tieuDe": "Dành cho ai",
+        "x": 272,
+        "w": 736,
+        "h": 208
+      },
+      {
+        "tieuDe": "Nội dung có sẵn",
+        "x": 272,
+        "w": 736,
+        "h": 220
+      },
+      {
+        "tieuDe": "Bạn học như thế nào",
+        "x": 272,
+        "w": 736,
+        "h": 392
+      },
+      {
+        "tieuDe": "Bắt đầu trong ba bước",
+        "x": 272,
+        "w": 736,
+        "h": 230
+      },
+      {
+        "tieuDe": "Học 8 câu đầu tiên ngay hôm nay",
+        "x": 272,
+        "w": 736,
+        "h": 96
+      }
+    ],
+    "coChuDoiTac": false,
+    "anh": [
+      {
+        "src": "http://localhost:4173/_next/image",
+        "daTai": true,
+        "w": 734
+      }
+    ],
+    "soNgonNgu": "15"
+  }
+}

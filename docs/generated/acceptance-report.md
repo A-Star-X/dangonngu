@@ -1,34 +1,37 @@
 # Báo cáo acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-20 15:13 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-21 02:05 UTC. Không sửa tay.
 
 Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã được đánh dấu [x].
 
 | Khu vực | Tên | Đã đạt | auto | claude | human | Trạng thái |
 |---|---|---|---|---|---|---|
 | G | Tổng quan giao diện bản mới | 1/5 | - | 1/1 | 0/4 | Chưa |
-| APP | Khung app | 23/26 | 15/15 | 8/8 | 0/3 | Chưa |
-| FND | Nền tảng thiết kế | 16/19 | 8/8 | 8/8 | 0/3 | Chưa |
-| DATA | Dữ liệu và tiến độ | 20/21 | 18/18 | 2/2 | 0/1 | Chưa |
+| APP | Khung app | 27/30 | 18/18 | 9/9 | 0/3 | Chưa |
+| FND | Nền tảng thiết kế | 17/20 | 9/9 | 8/8 | 0/3 | Chưa |
+| DATA | Dữ liệu và tiến độ | 23/25 | 21/21 | 2/2 | 0/2 | Chưa |
 | C1 | Thẻ câu | 9/10 | 8/8 | 1/1 | 0/1 | Chưa |
 | C2 | Dải 8 ô | 3/3 | 2/2 | 1/1 | - | Đạt |
 | C3 | Nút | 3/4 | 1/1 | 2/2 | 0/1 | Chưa |
 | C4 | Lựa chọn trắc nghiệm | 3/3 | 2/2 | 1/1 | - | Đạt |
-| C5 | Thanh tab | 4/4 | 2/2 | 2/2 | - | Đạt |
+| C5 | Khung khu học | 6/6 | 4/4 | 2/2 | - | Đạt |
 | C6 | Sheet | 5/6 | 3/3 | 2/2 | 0/1 | Chưa |
 | C7 | Thông báo ngắn | 3/3 | 2/2 | 1/1 | - | Đạt |
+| C8 | Ô chọn một giá trị | 3/3 | 2/2 | 1/1 | - | Đạt |
+| AU | Tài khoản (đăng ký, đăng nhập) | 8/9 | 7/7 | 1/1 | 0/1 | Chưa |
+| LP | Landing | 3/4 | 2/2 | 1/1 | 0/1 | Chưa |
 | S1 | Chọn ngôn ngữ | 7/8 | 5/5 | 2/2 | 0/1 | Chưa |
 | S10 | Chi tiết Unit | 8/8 | 7/7 | 1/1 | - | Đạt |
 | S3 | Phiên học | 12/13 | 11/11 | 1/1 | 0/1 | Chưa |
 | S5 | Kiểm tra nhanh | 14/15 | 11/11 | 3/3 | 0/1 | Chưa |
-| S8 | Cài đặt | 11/14 | 9/9 | 2/2 | 0/3 | Chưa |
+| S8 | Cài đặt | 12/15 | 10/10 | 2/2 | 0/3 | Chưa |
 | S9 | Hướng dẫn lần đầu | 5/6 | 4/4 | 1/1 | 0/1 | Chưa |
 | T1 | Học | 12/13 | 10/10 | 2/2 | 0/1 | Chưa |
 | T2 | Luyện tập | 8/8 | 5/5 | 3/3 | - | Đạt |
 | T3 | Thư viện | 14/14 | 11/11 | 3/3 | - | Đạt |
 | T4 | Tiến độ | 10/11 | 8/8 | 2/2 | 0/1 | Chưa |
 
-Tổng: 191/214 mục đã đạt.
+Tổng: 216/242 mục đã đạt.
 
 ## Mục còn mở
 
@@ -43,7 +46,7 @@ Tổng: 191/214 mục đã đạt.
 
 - APP-AC13 [human] (APP-07, APP-09): Mở app trên trình duyệt máy tính (Chrome, Edge, Safari) và trên điện thoại (iPhone, Android), mỗi nơi đi hết luồng chọn ngôn ngữ, học một phiên, xem tiến độ: hiển thị đủ, không có điều khiển bị che hay tràn.
 - APP-AC14 [human] (APP-10): Trên điện thoại thật: mở app có mạng, tắt mạng, đóng và mở lại app: vẫn học được ngôn ngữ đã tải.
-- APP-AC20 [human] (APP-09, APP-12): Trên trang học chính thật, đăng nhập, mở Đa ngôn ngữ: app mở ở trang mới. Bấm "Quay lại trang học": về đúng trang học chính và vẫn đăng nhập.
+- APP-AC20 [human] (APP-09, APP-12): Trên trang học chính thật, mở Đa ngôn ngữ: website mở ở trang mới. Bấm "Trang học chính": về đúng trang học chính.
 
 ### FND Nền tảng thiết kế
 
@@ -53,7 +56,8 @@ Tổng: 191/214 mục đã đạt.
 
 ### DATA Dữ liệu và tiến độ
 
-- DATA-AC12 [human] (DATA-09): Xác nhận bằng văn bản từ khách cho phép dùng bộ dữ liệu trong `fe/public/data/` cho phát triển và demo (nhóm đã ghi nhận đồng ý ngày 08/10/2026; người kiểm lưu lại tin nhắn làm bằng chứng).
+- DATA-AC12 [human] (DATA-09): Xác nhận bằng văn bản từ khách cho phép dùng bộ dữ liệu trong `public/data/` cho phát triển và demo (nhóm đã ghi nhận đồng ý ngày 08/10/2026; người kiểm lưu lại tin nhắn làm bằng chứng).
+- DATA-AC25 [human] (DATA-14): Với project Supabase thật: học trên máy A, đăng nhập máy B thấy tiến độ; xóa tiến độ ở máy B thì máy A không làm tiến độ cũ quay lại; xem bảng trên Supabase chỉ có dòng của đúng người.
 
 ### C1 Thẻ câu
 
@@ -66,6 +70,14 @@ Tổng: 191/214 mục đã đạt.
 ### C6 Sheet
 
 - C6-AC03 [human] (C6-02): Trên điện thoại thật, vuốt xuống trên tay nắm đóng được sheet, và vuốt lên xuống trong nội dung không vô tình đóng sheet.
+
+### AU Tài khoản (đăng ký, đăng nhập)
+
+- AU-AC09 [human] (AU-01, AU-02, AU-04): Với project Supabase thật: đăng ký, xác nhận email (nếu bật), đăng nhập, đăng xuất; câu lỗi khi sai mật khẩu và khi email đã có tài khoản hiện đúng.
+
+### LP Landing
+
+- LP-AC04 [human] (LP-01, LP-02, LP-04): Nhóm đọc lại toàn bộ câu chữ ở Landing (tiếng Việt và tiếng Anh): đúng với sản phẩm, không hứa điều app không làm.
 
 ### S1 Chọn ngôn ngữ
 
@@ -81,7 +93,7 @@ Tổng: 191/214 mục đã đạt.
 
 ### S8 Cài đặt
 
-- S8-AC03 [human] (S8-02): Trên iPhone, Android và Windows: danh sách giọng hiện đúng các giọng của máy; "Nghe thử" phát đúng giọng đã chạm.
+- S8-AC03 [human] (S8-02): Trên iPhone, Android và Windows: ô chọn giọng hiện đúng các giọng của máy; "Nghe thử" phát đúng giọng đang chọn.
 - S8-AC07 [human] (S8-05): Trên iPhone (Safari) và Android (Chrome): "Xuất tiến độ" tải được file về máy và "Nhập tiến độ" chọn được chính file đó.
 - S8-AC12 [human] (S8-02): Trên Chrome máy tính (Windows hoặc Mac) có mạng, xóa dữ liệu trang rồi mở app lần đầu, không chọn giọng: câu tiếng Anh được đọc bằng giọng Google; ít nhất 3 người thử thấy giọng này dễ nghe hơn giọng mặc định của máy (so bằng "Nghe thử" trong Cài đặt > Giọng đọc).
 

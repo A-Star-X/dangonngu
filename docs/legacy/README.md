@@ -20,7 +20,7 @@ Thư mục này mô tả mini app "ĐA NGÔN NGỮ" đang chạy, dựng lại b
 | Mini app: màn hình, hành vi, dữ liệu, API, lưu trữ | Đọc từng file JS, JSON công khai trên trang thật (danh sách lấy từ `sw.js`), ngày 07/10/2026; kiểm lại 08/10/2026 vẫn là bản 1.9.40 | Cao cho những gì có trong code. Chưa bấm qua giao diện; chỗ ghi "cần xác nhận" là cửa sổ có trong code nhưng chưa rõ nút mở |
 | Backend chia sẻ | Gọi thử `GET /api/sharing/session` trên trang thật | Cao |
 | Trang đăng ký | Đọc trang công khai `/register?refId=849`, ngày 08/10/2026 | Cao |
-| Bộ dữ liệu | Khách gửi `data.zip` ngày 08/10/2026 (xuất từ trang thật ngày 07/10/2026; 40 file, 12 MB; mã băm khớp manifest theo `_inventory.json`). Lưu ở `fe/public/data/` | Cao |
+| Bộ dữ liệu | Khách gửi `data.zip` ngày 08/10/2026 (xuất từ trang thật ngày 07/10/2026; 40 file, 12 MB; mã băm khớp manifest theo `_inventory.json`). Lưu ở `public/data/` (đến Đợt 5 là `fe/public/data/`) | Cao |
 | Hướng dẫn chi tiết 12 bước | Đọc `demo/quick-guide.js` trên trang thật, ngày 08/10/2026; khớp với đoạn nhóm chép từ giao diện | Cao |
 | Trang học sau đăng nhập và cách mở mini app | Mô tả của nhóm: sau khi đăng nhập, bấm nút góc trên bên trái, chọn "Đa ngôn ngữ"; mini app mở ở trang mới, không nhúng iframe (nhóm trả lời 10/10/2026) | Cách mở: **đã xác nhận**. Vị trí menu: chờ xác nhận (xem mục dưới) |
 

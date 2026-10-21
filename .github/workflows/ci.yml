@@ -1,4 +1,6 @@
-# Kiểm tự động mỗi lần push hoặc mở pull request: test, build, ánh xạ spec, test trên trình duyệt.
+# Kiểm tự động mỗi lần push hoặc mở pull request: lint, kiểu, câu chữ hai ngôn ngữ, ánh xạ spec, test, build, test trên trình duyệt.
+# Không cấu hình Supabase: app chạy chế độ tài khoản trên máy (AU-06), test không gọi dịch vụ thật.
+# Triển khai do Vercel tự làm khi nối repo (QD-10), workflow này không đưa bản build đi đâu.
 name: CI
 
 on:
@@ -19,11 +21,17 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Lint (ESLint)
+        run: npm run lint
+      - name: Kiểm kiểu TypeScript
+        run: npm run typecheck
+      - name: Kiểm câu chữ tiếng Việt và tiếng Anh (cùng khóa, cùng biến)
+        run: npm run messages:check
       - name: Kiểm ánh xạ spec, acceptance, code
         run: npm run spec:check
       - name: Test đơn vị (Vitest)
         run: npm test
-      - name: Build (kiểm kiểu TypeScript)
+      - name: Build (Next.js)
         run: npm run build
       - name: Cài Chromium cho Playwright
         run: npx playwright install --with-deps chromium

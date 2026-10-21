@@ -1,0 +1,71 @@
+{
+  "cau-dai-320": {
+    "cuonNgang": false,
+    "dong": [
+      {
+        "id": "3009",
+        "soDongCauGoc": 2,
+        "catCauGoc": true,
+        "catNghia": true
+      },
+      {
+        "id": "3010",
+        "soDongCauGoc": 2,
+        "catCauGoc": true,
+        "catNghia": true
+      },
+      {
+        "id": "3011",
+        "soDongCauGoc": 2,
+        "catCauGoc": true,
+        "catNghia": true
+      }
+    ]
+  },
+  "cau-dai-375": {
+    "cuonNgang": false,
+    "dong": [
+      {
+        "id": "3009",
+        "soDongCauGoc": 2,
+        "catCauGoc": true,
+        "catNghia": true
+      },
+      {
+        "id": "3010",
+        "soDongCauGoc": 2,
+        "catCauGoc": true,
+        "catNghia": true
+      },
+      {
+        "id": "3011",
+        "soDongCauGoc": 2,
+        "catCauGoc": true,
+        "catNghia": true
+      }
+    ]
+  },
+  "cau-dai-1280": {
+    "cuonNgang": false,
+    "dong": [
+      {
+        "id": "3009",
+        "soDongCauGoc": 2,
+        "catCauGoc": false,
+        "catNghia": true
+      },
+      {
+        "id": "3010",
+        "soDongCauGoc": 2,
+        "catCauGoc": true,
+        "catNghia": true
+      },
+      {
+        "id": "3011",
+        "soDongCauGoc": 2,
+        "catCauGoc": false,
+        "catNghia": false
+      }
+    ]
+  }
+}

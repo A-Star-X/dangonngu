@@ -1,0 +1,529 @@
+{
+  "meta": {
+    "description": "Học câu giao tiếp 15 ngôn ngữ bằng nghĩa tiếng Việt: mỗi phiên 8 câu, nghe giọng đọc, ôn đúng lúc, kiểm tra nhanh.",
+    "pages": {
+      "home": "Học câu giao tiếp 15 ngôn ngữ",
+      "login": "Đăng nhập",
+      "register": "Đăng ký",
+      "hoc": "Học",
+      "chonNgonNgu": "Chọn ngôn ngữ",
+      "phienHoc": "Phiên học",
+      "luyenTap": "Luyện tập",
+      "kiemTra": "Kiểm tra nhanh",
+      "thuVien": "Thư viện",
+      "unit": "Chi tiết unit",
+      "tienDo": "Tiến độ",
+      "caiDat": "Cài đặt"
+    }
+  },
+  "common": {
+    "search": "Tìm",
+    "noMatch": "Không có mục nào khớp.",
+    "close": "Đóng"
+  },
+  "statusDisplay": {
+    "loading": "Đang tải",
+    "failed": "Không tải được nội dung. Kiểm tra kết nối rồi nhấn Thử lại.",
+    "dataFailed": "Không tải được danh sách câu. Kiểm tra kết nối rồi nhấn Thử lại.",
+    "retry": "Thử lại",
+    "noData": "Chưa có nội dung để hiện.",
+    "na": "Chưa có"
+  },
+  "apiError": {
+    "invalid-credentials": "Email hoặc mật khẩu chưa đúng. Kiểm tra lại rồi đăng nhập.",
+    "email-taken": "Email này đã có tài khoản. Đăng nhập bằng email này hoặc dùng email khác.",
+    "weak-password": "Mật khẩu chưa đủ mạnh. Dùng mật khẩu dài hơn, có cả chữ và số.",
+    "email-not-confirmed": "Email chưa được xác nhận. Mở thư xác nhận trong hộp thư rồi đăng nhập lại.",
+    "rate-limit": "Bạn thử quá nhiều lần. Đợi một lát rồi thử lại.",
+    "network": "Không kết nối được máy chủ. Kiểm tra mạng rồi thử lại.",
+    "sync-failed": "Chưa đồng bộ được tiến độ lên tài khoản. Tiến độ vẫn lưu trên máy này và sẽ gửi lại sau.",
+    "unknown": "Có lỗi xảy ra. Thử lại sau ít phút."
+  },
+  "locale": {
+    "label": "Ngôn ngữ giao diện",
+    "name": {
+      "vi": "Tiếng Việt",
+      "en": "English"
+    }
+  },
+  "shell": {
+    "sidebar": "Thanh bên",
+    "navLabel": "Điều hướng chính",
+    "home": "VITASR, về trang Học",
+    "openMenu": "Mở menu",
+    "closeMenu": "Đóng menu",
+    "learning": "Đang học",
+    "groupLearn": "Học tập",
+    "groupAccount": "Tài khoản",
+    "nav": {
+      "hoc": "Học",
+      "luyenTap": "Luyện tập",
+      "thuVien": "Thư viện",
+      "tienDo": "Tiến độ",
+      "caiDat": "Cài đặt"
+    },
+    "reviewBadge": "{count} câu cần ôn",
+    "signOut": "Đăng xuất",
+    "hostLink": "Trang học chính",
+    "localMode": "Chế độ thử: tài khoản và tiến độ chỉ lưu trên máy này.",
+    "toDark": "Chuyển sang giao diện tối",
+    "toLight": "Chuyển sang giao diện sáng"
+  },
+  "public": {
+    "home": "VITASR, trang chủ",
+    "openApp": "Vào học",
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "hostLink": "Trang học chính",
+    "footer": "© {year} VITASR",
+    "footerNav": "Liên kết cuối trang"
+  },
+  "banner": {
+    "offline": "Bạn đang ngoại tuyến. Tiến độ vẫn được lưu trên máy.",
+    "storageBlocked": "Trình duyệt đang chặn lưu tiến độ, tiến độ sẽ mất khi đóng app. Cho phép trang này lưu trên máy trong cài đặt trình duyệt rồi mở lại app."
+  },
+  "update": {
+    "available": "Có bản cập nhật",
+    "apply": "Cập nhật"
+  },
+  "language": {
+    "loading": "Đang tải",
+    "current": "Đang học",
+    "count": "{count} câu",
+    "choose": "Chọn ngôn ngữ",
+    "switchTitle": "Đổi ngôn ngữ hoặc bộ nội dung",
+    "loadFailed": "Không tải được danh sách câu. Kiểm tra kết nối rồi nhấn Thử lại.",
+    "retry": "Thử lại"
+  },
+  "strip": {
+    "label": "Tiến độ nhóm câu: đã học {learned} trên {total} câu",
+    "cell": "Câu {n}, {state}",
+    "state": {
+      "chua": "chưa học",
+      "dang": "đang học",
+      "nho": "đã nhớ",
+      "can-on": "cần ôn"
+    }
+  },
+  "rate": {
+    "review": "Cần ôn lại",
+    "known": "Tôi nhớ"
+  },
+  "choices": {
+    "right": "Đúng",
+    "wrong": "Chưa đúng",
+    "tryAgain": "Chưa đúng, thử lại"
+  },
+  "card": {
+    "reveal": "Nhấn để hiện câu gốc",
+    "usage": "Cách dùng: {note}",
+    "listen": "Nghe",
+    "listenLoop": "Nghe lặp",
+    "stop": "Dừng",
+    "noVoice": "Thiết bị chưa có giọng {lang}. Mở <link>Cài đặt > Giọng đọc</link>."
+  },
+  "status": {
+    "chua-hoc": "Chưa học",
+    "da-nho": "Đã nhớ",
+    "can-on": "Cần ôn"
+  },
+  "unit": {
+    "name": "Unit {n}",
+    "count": "{count} câu",
+    "remembered": "câu đã nhớ"
+  },
+  "detail": {
+    "lastStudied": "Học lần cuối: {when}"
+  },
+  "pager": {
+    "label": "Phân trang",
+    "prev": "Trước",
+    "next": "Sau",
+    "page": "Trang {n}/{total}"
+  },
+  "nguon": {
+    "lo-trinh": "Học theo lộ trình",
+    "on-tap": "Ôn tập",
+    "tu-khoa": "Học theo từ khóa",
+    "cau": "Học một câu",
+    "unit": "Học theo unit",
+    "kiem-tra": "Kiểm tra nhanh"
+  },
+  "s1": {
+    "title": "Bạn muốn học ngôn ngữ nào?",
+    "note": "Bạn có thể đổi ngôn ngữ sau ở thanh bên hoặc trong Cài đặt.",
+    "back": "Quay lại",
+    "packTitle": "Học {lang} với bộ nào?",
+    "packNote": "Bạn có thể đổi bộ sau ở thanh bên hoặc trong Cài đặt.",
+    "packCount": "{count} bộ",
+    "packDescription": {
+      "global": "Câu theo chủ đề và tình huống, có giải thích cách dùng; 6 trình độ A1 đến C2.",
+      "fluency": "Câu luyện nói theo mẫu câu."
+    },
+    "loadFailed": "Không tải được danh sách câu. Kiểm tra kết nối rồi nhấn Thử lại."
+  },
+  "t1": {
+    "title": "Học",
+    "goal": "Tuần này: {done}/{goal} phiên",
+    "goalReached": "Tuần này: đã đạt mục tiêu {done}/{goal} phiên",
+    "review": "{count} câu cần ôn hôm nay",
+    "allDone": "Bạn đã học hết {count} câu {lang}. Vào Luyện tập để ôn lại.",
+    "openPractice": "Mở Luyện tập",
+    "position": "Câu {n}/{total}",
+    "unitLink": "Unit {n}",
+    "continue": "Tiếp tục: {count} câu còn lại",
+    "start": "Học {count} câu",
+    "nextUnits": "Unit tiếp theo",
+    "allUnits": "Xem tất cả unit",
+    "yourProgress": "Tiến độ của bạn",
+    "learned": "{learned}/{total} câu",
+    "learnedLabel": "Số câu đã học",
+    "unitsLearned": "{count} unit đã học",
+    "seeProgress": "Xem tiến độ"
+  },
+  "s9": {
+    "step": "Bước {n}/{total}",
+    "text": {
+      "card": "Đây là câu bạn sẽ học. Nút Nghe sẽ đọc to câu này cho bạn.",
+      "start": "Mỗi phiên học có 8 câu, mất khoảng 5 phút.",
+      "nav": "Ôn tập và kiểm tra nằm ở mục Luyện tập. Kết quả học nằm ở mục Tiến độ."
+    },
+    "skip": "Bỏ qua",
+    "next": "Tiếp",
+    "done": "Xong",
+    "start": "Bắt đầu học"
+  },
+  "s3": {
+    "title": "Phiên học",
+    "exit": "Thoát",
+    "position": "Câu {n}/{total}",
+    "emptyGroup": "Không có câu nào để học trong nhóm này.",
+    "replaced": "Phiên này đã dừng vì bạn vừa bắt đầu một phiên học khác.",
+    "exitTitle": "Dừng phiên học?",
+    "exitBody": "Bạn đã học {done}/{total} câu. Kết quả các câu này vẫn được lưu.",
+    "exitBodyNone": "Bạn chưa học xong câu nào.",
+    "stop": "Dừng",
+    "keepGoing": "Học tiếp",
+    "question": "Câu này nghĩa là gì?",
+    "hint": "Nghĩa bắt đầu bằng \"{first}…\", gồm {words} từ.",
+    "showHint": "Xem gợi ý",
+    "next": "Câu tiếp",
+    "seeSummary": "Xem tổng kết",
+    "doneTitle": "Xong phiên học",
+    "score": "câu nhớ được không cần gợi ý",
+    "reviewTitle": "Cần ôn lại",
+    "nextGroup": "Nhóm tiếp",
+    "learnMore": "Học tiếp {count} câu",
+    "seeProgress": "Xem tiến độ",
+    "finish": "Xong"
+  },
+  "t2": {
+    "title": "Luyện tập",
+    "description": "Ôn câu đến hạn, học theo từ bạn cần, hoặc tự kiểm tra một unit.",
+    "reviewTitle": "Ôn tập hôm nay",
+    "reviewDesc": "Các câu đến hạn ôn hôm nay, gồm cả câu bạn chưa nhớ hoặc trả lời chưa đúng.",
+    "reviewNone": "Hôm nay không có câu nào cần ôn.",
+    "keywordTitle": "Học theo từ khóa",
+    "keywordDesc": "Tìm câu theo từ bạn cần, ví dụ đặt phòng, ăn uống, sân bay.",
+    "testTitle": "Kiểm tra nhanh",
+    "testDesc": "Nghe và chọn nghĩa, nghe theo cụm, sắp xếp câu.",
+    "paused": "Đang làm dở: Unit {unit}, bước {step}, câu {n}/{total}",
+    "keywordPlaceholder": "Ví dụ: đặt phòng, sân bay",
+    "keywordLabel": "Từ khóa",
+    "clear": "Xóa từ khóa",
+    "suggestions": "Gợi ý",
+    "chips": [
+      "đặt phòng",
+      "ăn uống",
+      "sân bay",
+      "mua sắm"
+    ],
+    "noResult": "Không có câu nào chứa \"{q}\". Thử từ khác bằng tiếng Việt hoặc {lang}.",
+    "found": "Tìm thấy {count} câu",
+    "learnN": "Học {count} câu",
+    "learn8": "Học 8 câu đầu"
+  },
+  "s5": {
+    "title": "Kiểm tra nhanh",
+    "exit": "Thoát",
+    "unitLine": "Kiểm tra nhanh · Unit {n}",
+    "itemCount": "{count} câu",
+    "step": {
+      "nghe-chon": "Nghe và chọn nghĩa",
+      "nghe-cum": "Nghe theo cụm",
+      "sap-xep": "Sắp xếp câu"
+    },
+    "stepInline": {
+      "nghe-chon": "nghe và chọn nghĩa",
+      "nghe-cum": "nghe theo cụm",
+      "sap-xep": "sắp xếp câu"
+    },
+    "stepDesc": {
+      "nghe-chon": "Nghe câu rồi chọn nghĩa đúng.",
+      "nghe-cum": "Mở từng cụm của câu để nghe.",
+      "sap-xep": "Xếp các cụm theo đúng thứ tự."
+    },
+    "allSteps": "Làm cả 3 bước",
+    "onlyStep": "Chỉ {step}",
+    "resume": "Làm tiếp",
+    "restart": "Làm lại từ đầu",
+    "pauseTitle": "Tạm dừng kiểm tra?",
+    "pauseBody": "Bài làm dở được lưu, lần sau làm tiếp từ câu này.",
+    "pause": "Tạm dừng",
+    "position": "Câu {n}/{total}",
+    "dots": "Bước {n}/{total}",
+    "dot": "{step}, {state}",
+    "dotState": {
+      "xong": "đã xong",
+      "dang": "đang làm",
+      "chua": "chưa làm"
+    },
+    "replay": "Nghe lại",
+    "noVoice": "Thiết bị chưa có giọng đọc, bài này dùng chữ thay cho âm thanh.",
+    "question": "Câu bạn nghe nghĩa là gì?",
+    "next": "Câu tiếp",
+    "tapChunks": "Nhấn từng cụm để nghe.",
+    "chunk": "Cụm {n}",
+    "chunkCovered": "Cụm {n}, đang che",
+    "yourSentence": "Câu của bạn",
+    "arrangeHint": "Nhấn các cụm bên dưới theo đúng thứ tự.",
+    "chunks": "Các cụm",
+    "chunkWrong": "{text}, chưa đúng vị trí",
+    "right": "Đúng",
+    "wrong": "Chưa đúng. Nhấn các cụm có dấu x để đưa về hàng cụm, rồi xếp lại.",
+    "check": "Kiểm tra",
+    "doneTitle": "Xong kiểm tra",
+    "resultLine": "{step}: {n}/{total}",
+    "tested": "Đã kiểm tra {count} câu.",
+    "reviewTitle": "Câu cần xem lại",
+    "listen": "Nghe",
+    "listenTo": "Nghe: {text}",
+    "nextUnit": "Kiểm tra unit tiếp theo",
+    "finish": "Xong"
+  },
+  "t3": {
+    "title": "Thư viện",
+    "descUnits": "Các unit của bộ câu. Chọn một unit để xem câu và bắt đầu học.",
+    "descItems": "Tìm câu theo từ khóa, lọc theo unit, trạng thái, chủ đề, trình độ.",
+    "viewLabel": "Cách xem",
+    "viewUnit": "Unit",
+    "viewUnitAria": "Xem theo unit",
+    "viewItem": "Câu",
+    "viewItemAria": "Xem theo câu",
+    "unitList": "Danh sách unit",
+    "unitSummary": "{total} unit · đã học {learned} · đang học dở {partial}",
+    "level": "Trình độ",
+    "searchPlaceholder": "Tìm câu hoặc nghĩa",
+    "clear": "Xóa từ khóa",
+    "all": "Tất cả",
+    "filterUnit": "Unit",
+    "findUnit": "Tìm unit",
+    "filterStatus": "Trạng thái",
+    "filterTopic": "Chủ đề",
+    "findTopic": "Tìm chủ đề",
+    "filterLevel": "Trình độ",
+    "topicCount": "{count} câu",
+    "count": "{count} câu",
+    "empty": "Không có câu nào khớp với tìm kiếm và bộ lọc hiện tại.",
+    "clearAll": "Xóa tìm kiếm và bộ lọc",
+    "itemTitle": "Câu {id}",
+    "learnThis": "Học câu này",
+    "detailLabel": "Chi tiết câu"
+  },
+  "s10": {
+    "breadcrumb": "Đường dẫn",
+    "library": "Thư viện",
+    "learnUnit": "Học unit này",
+    "reviewUnit": "Ôn lại unit này",
+    "testUnit": "Kiểm tra nhanh unit này",
+    "items": "Các câu trong unit ({count})",
+    "prevNext": "Unit trước và sau"
+  },
+  "t4": {
+    "title": "Tiến độ",
+    "description": "Số phiên, số câu đã học, mục tiêu tuần và lịch ôn tập.",
+    "rangeLabel": "Khoảng thời gian",
+    "range": "{count} ngày",
+    "empty": "Bạn chưa hoàn thành phiên học nào. Học 8 câu đầu tiên để bắt đầu theo dõi tiến độ.",
+    "emptyAction": "Học 8 câu",
+    "statSessions": "phiên học",
+    "statItems": "câu đã học",
+    "statDue": "câu cần ôn hôm nay",
+    "goal": "Mục tiêu mỗi tuần",
+    "goalValue": "{done}/{goal} phiên",
+    "chart": "Số câu đã học mỗi ngày",
+    "bar": "{day}: {count} câu",
+    "day": "Ngày",
+    "count": "Số câu",
+    "schedule": "Lịch ôn tập",
+    "when": {
+      "today": "Hôm nay",
+      "tomorrow": "Ngày mai",
+      "next7": "7 ngày tới"
+    },
+    "itemsCount": "{count} câu",
+    "sessions": "Các phiên học",
+    "colTime": "Giờ",
+    "colSource": "Cách học",
+    "colResult": "Kết quả",
+    "more": "Xem thêm",
+    "dayItems": "Câu đã học ({count})"
+  },
+  "s8": {
+    "title": "Cài đặt",
+    "description": "Mục tiêu học, giọng đọc, giao diện, tiến độ và tài khoản.",
+    "back": "Quay lại",
+    "groupLearn": "Học tập",
+    "goal": "Mục tiêu mỗi tuần",
+    "goalDown": "Giảm mục tiêu",
+    "goalUp": "Tăng mục tiêu",
+    "goalValue": "{count} phiên",
+    "language": "Ngôn ngữ đang học",
+    "groupSound": "Âm thanh",
+    "voices": "Giọng đọc",
+    "auto": "Tự động",
+    "autoWith": "Tự động ({voice})",
+    "autoUsing": "Đang dùng {voice}",
+    "voiceFor": "Chọn giọng cho",
+    "voiceOf": "Giọng {lang}",
+    "vietnamese": "Tiếng Việt",
+    "vietnameseMid": "tiếng Việt",
+    "noVoices": "Thiết bị chưa có giọng {lang}. Thêm giọng trong cài đặt hệ thống của thiết bị rồi mở lại app.",
+    "tryVoice": "Nghe thử",
+    "rate": "Tốc độ đọc",
+    "done": "Xong",
+    "groupDisplay": "Giao diện",
+    "theme": "Sáng, tối",
+    "themeSystem": "Theo thiết bị",
+    "themeLight": "Sáng",
+    "themeDark": "Tối",
+    "uiLanguage": "Ngôn ngữ giao diện",
+    "groupProgress": "Tiến độ",
+    "export": "Xuất tiến độ",
+    "import": "Nhập tiến độ",
+    "importInvalid": "Tệp này không phải tệp tiến độ học {who} của VITASR. Chọn tệp đã xuất bằng Xuất tiến độ khi đang học {who}.",
+    "importConfirm": "Thay tiến độ {who} hiện tại bằng tệp này?",
+    "imported": "Đã nhập tiến độ",
+    "cancel": "Hủy",
+    "deleteRow": "Xóa tiến độ {lang}",
+    "deleteTitle": "Xóa tiến độ {lang}",
+    "deleteBody": "Gõ \"{name}\" để xác nhận. Tiến độ đã xóa không lấy lại được.",
+    "deleteLabel": "Tên ngôn ngữ",
+    "deleteMismatch": "Gõ đúng tên ngôn ngữ, đủ dấu, để mở nút Xóa.",
+    "delete": "Xóa",
+    "deleted": "Đã xóa tiến độ",
+    "groupAccount": "Tài khoản",
+    "email": "Email",
+    "signOut": "Đăng xuất",
+    "groupHelp": "Trợ giúp",
+    "replayGuide": "Xem lại hướng dẫn",
+    "version": "Phiên bản {version}"
+  },
+  "auth": {
+    "signInTitle": "Đăng nhập",
+    "signInDesc": "Đăng nhập để tiếp tục học và giữ tiến độ của bạn.",
+    "signUpTitle": "Tạo tài khoản",
+    "signUpDesc": "Tài khoản giữ tiến độ học của bạn trên mọi máy bạn đăng nhập.",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "confirm": "Nhập lại mật khẩu",
+    "passwordHint": "Ít nhất {min} ký tự.",
+    "signIn": "Đăng nhập",
+    "signUp": "Tạo tài khoản",
+    "noAccount": "Chưa có tài khoản? <link>Đăng ký</link>",
+    "haveAccount": "Đã có tài khoản? <link>Đăng nhập</link>",
+    "checkEmail": "Đã gửi thư xác nhận tới {email}. Mở thư và nhấn liên kết xác nhận, rồi quay lại đăng nhập.",
+    "localMode": "Chế độ thử: app chưa nối máy chủ tài khoản, tài khoản và tiến độ chỉ lưu trên máy này.",
+    "asideTitle": "Học mỗi ngày, mỗi lần 8 câu",
+    "aside": {
+      "a": "15 ngôn ngữ, nghĩa tiếng Việt cho từng câu.",
+      "b": "Ôn đúng lúc: câu cần ôn tự xếp lịch theo ngày.",
+      "c": "Tiến độ theo tài khoản, đăng nhập máy khác vẫn học tiếp được.",
+      "cLocal": "Tiến độ lưu trên máy này; xuất, nhập tiến độ bằng tệp khi đổi máy."
+    },
+    "errors": {
+      "emailRequired": "Nhập email.",
+      "emailInvalid": "Email chưa đúng dạng, ví dụ ten@gmail.com.",
+      "passwordRequired": "Nhập mật khẩu.",
+      "passwordShort": "Mật khẩu cần ít nhất {min} ký tự.",
+      "confirmRequired": "Nhập lại mật khẩu.",
+      "confirmMismatch": "Hai mật khẩu chưa giống nhau."
+    },
+    "signUpDescLocal": "Tài khoản thử chỉ có trên máy này, tiến độ cũng lưu trên máy này."
+  },
+  "landing": {
+    "eyebrow": "VITASR Đa ngôn ngữ",
+    "title": "Học câu giao tiếp dùng được ngay, bằng nghĩa tiếng Việt",
+    "lead": "{languages} ngôn ngữ. Mỗi phiên 8 câu trong khoảng 5 phút: đọc nghĩa, nghe giọng đọc, tự đánh giá, rồi chọn nghĩa đúng. App nhắc ôn đúng lúc để câu đã học không bị quên.",
+    "ctaStart": "Bắt đầu học",
+    "ctaExplore": "Khám phá các bộ câu",
+    "ctaRegister": "Tạo tài khoản",
+    "haveAccount": "Đã có tài khoản? <link>Đăng nhập</link>",
+    "shotAlt": "Màn Học của VITASR: thẻ câu, nút Nghe, nút Học 8 câu và các unit tiếp theo",
+    "audienceTitle": "Dành cho ai",
+    "audience": {
+      "learner": {
+        "title": "Người Việt học ngoại ngữ",
+        "body": "Mọi câu có nghĩa tiếng Việt, kèm cách dùng và tình huống, không cần biết trước ngôn ngữ đó."
+      },
+      "busy": {
+        "title": "Người bận, học từng chút",
+        "body": "Mỗi phiên chỉ 8 câu. Dừng giữa chừng vẫn giữ kết quả, lần sau học tiếp đúng chỗ."
+      },
+      "traveler": {
+        "title": "Người cần câu cho việc cụ thể",
+        "body": "Tìm câu theo từ khóa như đặt phòng, sân bay, ăn uống rồi học ngay nhóm câu đó."
+      }
+    },
+    "contentTitle": "Nội dung có sẵn",
+    "statLanguages": "ngôn ngữ, kèm nghĩa tiếng Việt",
+    "statFluency": "English Fluency, mỗi ngôn ngữ {units} unit",
+    "itemsPerLanguage": "{count} câu",
+    "statGlobal": "Global English (tiếng Anh, A1 đến C2), {units} unit",
+    "items": "{count} câu",
+    "featuresTitle": "Bạn học như thế nào",
+    "features": {
+      "session": {
+        "title": "Phiên 8 câu",
+        "body": "Xem nghĩa, nhớ câu gốc, tự chấm \"Tôi nhớ\" hoặc \"Cần ôn lại\", rồi chọn nghĩa đúng để kiểm tra."
+      },
+      "listen": {
+        "title": "Nghe giọng đọc",
+        "body": "Nghe một lần hoặc nghe lặp từng câu bằng giọng đọc của thiết bị, chỉnh được tốc độ."
+      },
+      "review": {
+        "title": "Ôn đúng lúc",
+        "body": "Câu bạn nhớ được ôn lại sau 1, 3, 7, 14 rồi 30 ngày; câu chưa nhớ hoặc trả lời chưa đúng được đưa vào ôn ngay."
+      },
+      "test": {
+        "title": "Kiểm tra nhanh",
+        "body": "Ba bước cho mỗi unit: nghe và chọn nghĩa, nghe theo cụm, sắp xếp câu. Tạm dừng và làm tiếp được."
+      },
+      "library": {
+        "title": "Thư viện theo unit",
+        "body": "Xem các unit và tiến độ từng unit, tìm câu, lọc theo chủ đề, trình độ, trạng thái."
+      },
+      "progress": {
+        "title": "Theo dõi tiến độ",
+        "body": "Số câu đã học mỗi ngày, mục tiêu phiên mỗi tuần và lịch ôn của những ngày tới."
+      }
+    },
+    "stepsTitle": "Bắt đầu trong ba bước",
+    "steps": {
+      "choose": {
+        "title": "Tạo tài khoản và chọn ngôn ngữ",
+        "body": "Chọn một trong các ngôn ngữ; tiếng Anh có hai bộ câu để chọn."
+      },
+      "learn": {
+        "title": "Học nhóm 8 câu đầu tiên",
+        "body": "App dẫn từng bước trong lần đầu; mỗi nhóm khoảng 5 phút."
+      },
+      "review": {
+        "title": "Quay lại ôn và kiểm tra",
+        "body": "Mục Luyện tập cho biết hôm nay có bao nhiêu câu cần ôn."
+      }
+    },
+    "finalTitle": "Học 8 câu đầu tiên ngay hôm nay",
+    "finalBody": "Tạo tài khoản, chọn ngôn ngữ và học nhóm câu đầu tiên."
+  }
+}

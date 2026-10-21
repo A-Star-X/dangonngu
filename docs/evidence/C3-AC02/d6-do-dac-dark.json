@@ -1,0 +1,146 @@
+{
+  "danh-gia-320": {
+    "truocKhiHien": {
+      "trai": {
+        "w": 138,
+        "h": 48
+      },
+      "phai": {
+        "w": 138,
+        "h": 48
+      },
+      "khoangCach": 12,
+      "nut": [
+        {
+          "text": "Cần ôn lại1",
+          "opacity": "0.4",
+          "svg": true
+        },
+        {
+          "text": "Tôi nhớ2",
+          "opacity": "0.4",
+          "svg": true
+        }
+      ]
+    },
+    "sauKhiHien": {
+      "trai": {
+        "w": 138,
+        "h": 48
+      },
+      "phai": {
+        "w": 138,
+        "h": 48
+      },
+      "khoangCach": 12,
+      "nut": [
+        {
+          "text": "Cần ôn lại1",
+          "opacity": "1",
+          "svg": true
+        },
+        {
+          "text": "Tôi nhớ2",
+          "opacity": "1",
+          "svg": true
+        }
+      ]
+    }
+  },
+  "danh-gia-375": {
+    "truocKhiHien": {
+      "trai": {
+        "w": 166,
+        "h": 48
+      },
+      "phai": {
+        "w": 166,
+        "h": 48
+      },
+      "khoangCach": 12,
+      "nut": [
+        {
+          "text": "Cần ôn lại1",
+          "opacity": "0.4",
+          "svg": true
+        },
+        {
+          "text": "Tôi nhớ2",
+          "opacity": "0.4",
+          "svg": true
+        }
+      ]
+    },
+    "sauKhiHien": {
+      "trai": {
+        "w": 166,
+        "h": 48
+      },
+      "phai": {
+        "w": 166,
+        "h": 48
+      },
+      "khoangCach": 12,
+      "nut": [
+        {
+          "text": "Cần ôn lại1",
+          "opacity": "1",
+          "svg": true
+        },
+        {
+          "text": "Tôi nhớ2",
+          "opacity": "1",
+          "svg": true
+        }
+      ]
+    }
+  },
+  "danh-gia-1280": {
+    "truocKhiHien": {
+      "trai": {
+        "w": 330,
+        "h": 48
+      },
+      "phai": {
+        "w": 330,
+        "h": 48
+      },
+      "khoangCach": 12,
+      "nut": [
+        {
+          "text": "Cần ôn lại1",
+          "opacity": "0.4",
+          "svg": true
+        },
+        {
+          "text": "Tôi nhớ2",
+          "opacity": "0.4",
+          "svg": true
+        }
+      ]
+    },
+    "sauKhiHien": {
+      "trai": {
+        "w": 330,
+        "h": 48
+      },
+      "phai": {
+        "w": 330,
+        "h": 48
+      },
+      "khoangCach": 12,
+      "nut": [
+        {
+          "text": "Cần ôn lại1",
+          "opacity": "1",
+          "svg": true
+        },
+        {
+          "text": "Tôi nhớ2",
+          "opacity": "1",
+          "svg": true
+        }
+      ]
+    }
+  }
+}

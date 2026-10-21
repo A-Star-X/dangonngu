@@ -1,0 +1,176 @@
+{
+  "lua-chon-320": [
+    {
+      "soThuTuHien": false,
+      "soKyTu": 27,
+      "biCat": false
+    },
+    {
+      "soThuTuHien": false,
+      "soKyTu": 32,
+      "biCat": false
+    },
+    {
+      "soThuTuHien": false,
+      "soKyTu": 154,
+      "biCat": false
+    },
+    {
+      "soThuTuHien": false,
+      "soKyTu": 69,
+      "biCat": false
+    }
+  ],
+  "ket-qua-320": {
+    "viewport": 320,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 320,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 320,
+      "h": 574
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Xong kiểm tra",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [
+      "Kiểm tra unit tiếp theo"
+    ]
+  },
+  "lua-chon-375": [
+    {
+      "soThuTuHien": false,
+      "soKyTu": 27,
+      "biCat": false
+    },
+    {
+      "soThuTuHien": false,
+      "soKyTu": 32,
+      "biCat": false
+    },
+    {
+      "soThuTuHien": false,
+      "soKyTu": 154,
+      "biCat": false
+    },
+    {
+      "soThuTuHien": false,
+      "soKyTu": 69,
+      "biCat": false
+    }
+  ],
+  "ket-qua-375": {
+    "viewport": 375,
+    "cuonNgang": false,
+    "header": {
+      "x": 0,
+      "y": 0,
+      "w": 375,
+      "h": 56
+    },
+    "sidebar": {
+      "x": -240,
+      "y": 0,
+      "w": 240,
+      "h": 812
+    },
+    "sidebarHienRa": false,
+    "content": {
+      "x": 0,
+      "y": 56,
+      "w": 375,
+      "h": 528
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Xong kiểm tra",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [
+      "Kiểm tra unit tiếp theo"
+    ]
+  },
+  "lua-chon-1280": [
+    {
+      "soThuTuHien": true,
+      "soKyTu": 27,
+      "biCat": false
+    },
+    {
+      "soThuTuHien": true,
+      "soKyTu": 32,
+      "biCat": false
+    },
+    {
+      "soThuTuHien": true,
+      "soKyTu": 154,
+      "biCat": false
+    },
+    {
+      "soThuTuHien": true,
+      "soKyTu": 69,
+      "biCat": false
+    }
+  ],
+  "ket-qua-1280": {
+    "viewport": 1280,
+    "cuonNgang": false,
+    "header": {
+      "x": 240,
+      "y": 0,
+      "w": 1040,
+      "h": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 800
+    },
+    "sidebarHienRa": true,
+    "content": {
+      "x": 248,
+      "y": 56,
+      "w": 1024,
+      "h": 416
+    },
+    "contentPadding": {
+      "left": "16px",
+      "right": "16px",
+      "top": "24px"
+    },
+    "h1": {
+      "text": "Xong kiểm tra",
+      "fontSize": "24px",
+      "srOnly": false
+    },
+    "nutPrimary": [
+      "Kiểm tra unit tiếp theo"
+    ]
+  }
+}
