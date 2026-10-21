@@ -1,9 +1,7 @@
-// @spec LP-06, APP-12
-import { ArrowLeft } from 'lucide-react';
+// @spec LP-06
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { PUBLIC_PATH } from '@/lib/routes';
-import { HOST_URL } from '@/lib/host-url';
 
 export async function PublicFooter() {
   const t = await getTranslations('public');
@@ -23,15 +21,6 @@ export async function PublicFooter() {
                 {t('register')}
               </Link>
             </li>
-            {HOST_URL && (
-              <li>
-                {/* APP-12: liên kết về trang học chính có icon mũi tên trái, như ở chân thanh bên. */}
-                <a className="inline-flex min-h-11 items-center gap-1.5 hover:text-foreground hover:underline" href={HOST_URL}>
-                  <ArrowLeft className="size-4 flex-none" aria-hidden />
-                  {t('hostLink')}
-                </a>
-              </li>
-            )}
           </ul>
         </nav>
       </div>

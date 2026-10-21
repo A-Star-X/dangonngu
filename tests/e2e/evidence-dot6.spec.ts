@@ -1020,7 +1020,7 @@ for (const theme of THEMES) {
     }
     await shot(page, 'APP-AC19', `1280-${theme}-chan-thanh-ben`, { el: '#app-sidebar' });
     out['chan-1280'] = await page.evaluate(() => {
-      const a = document.querySelector('[data-testid="host-link"]')!;
+      const a = document.querySelector('[data-testid="home-link"]')!;
       const sb = document.getElementById('app-sidebar')!;
       return { text: a.textContent, href: a.getAttribute('href'), h: Math.round(a.getBoundingClientRect().height), icon: a.querySelector('svg')?.getAttribute('class'), email: document.querySelector('[data-testid="user-email"]')?.textContent, chanThanhBen: (sb.lastElementChild as HTMLElement).innerText };
     });
@@ -1048,7 +1048,7 @@ for (const theme of THEMES) {
       header: header375,
       lopPhu: await page.getByTestId('menu-overlay').evaluate((e) => ({ nen: getComputedStyle(e).backgroundColor, z: getComputedStyle(e).zIndex })),
       muc: await page.locator('#app-sidebar nav a').evaluateAll((els) => els.map((a) => (a.textContent || '').trim())),
-      chan: await page.evaluate(() => Math.round(document.querySelector('[data-testid="host-link"]')!.getBoundingClientRect().height)),
+      chan: await page.evaluate(() => Math.round(document.querySelector('[data-testid="home-link"]')!.getBoundingClientRect().height)),
     };
     for (const [tab, route] of [
       ['T1', '/hoc'],
@@ -1244,7 +1244,7 @@ test('FND-AC16 chỉ dùng bàn phím: T1 → S3 → tổng kết → T4', async
   await focusTo('Thư viện');
   await shot(page, 'FND-AC16', '01-T1-focus-thanh-ben');
   log['01'] = await ring();
-  await focusTo('Trang học chính');
+  await focusTo('Trang chủ');
   await shot(page, 'FND-AC16', '02-T1-focus-trang-hoc-chinh');
   log['02'] = await ring();
   await focusTo(/^Học \d câu$/);

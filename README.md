@@ -103,7 +103,6 @@ Chép `.env.example` thành `.env.local` (không đưa lên git). Mọi biến �
 | `NEXT_PUBLIC_SITE_URL` | Địa chỉ công khai của website: canonical, sitemap, ảnh chia sẻ (APP-16) | Dùng địa chỉ Vercel, nếu không có thì `http://localhost:3000` |
 | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Đăng nhập và đồng bộ tiến độ (QD-06, DATA-14) | Chế độ thử trên máy: tài khoản và tiến độ chỉ nằm trong trình duyệt này (AU-06), trang Cài đặt ghi rõ điều này |
 | `NEXT_PUBLIC_DATA_BASE_URL` | Nơi đặt bộ dữ liệu câu (DATA-05) | `/data` (thư mục `public/data`) |
-| `NEXT_PUBLIC_HOST_URL` | Liên kết "Trang học chính" (APP-12) | Ẩn liên kết; xóa hẳn dòng này thì dùng `https://language.pomaskhoahocnaobo.com/` |
 
 ## Cài Supabase (một lần)
 

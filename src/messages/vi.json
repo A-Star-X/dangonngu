@@ -64,7 +64,7 @@
     },
     "reviewBadge": "{count} câu cần ôn",
     "signOut": "Đăng xuất",
-    "hostLink": "Trang học chính",
+    "homeLink": "Trang chủ",
     "localMode": "Chế độ thử: tài khoản và tiến độ chỉ lưu trên máy này.",
     "toDark": "Chuyển sang giao diện tối",
     "toLight": "Chuyển sang giao diện sáng"
@@ -74,7 +74,6 @@
     "openApp": "Vào học",
     "login": "Đăng nhập",
     "register": "Đăng ký",
-    "hostLink": "Trang học chính",
     "footer": "© {year} VITASR",
     "footerNav": "Liên kết cuối trang"
   },

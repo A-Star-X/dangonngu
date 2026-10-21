@@ -1,7 +1,6 @@
 // Khung khu học C5 (thanh bên, header, menu trượt) và các phần của khung app đi kèm (APP-02, APP-12, APP-15).
 import { afterEach, describe, expect, it } from 'vitest';
 import { fireEvent, screen, within } from '@testing-library/react';
-import { HOST_URL } from '@/lib/host-url';
 import { NOW, TEST_USER, fakeAuth, here, renderApp, settingsSeed, settle } from './helpers';
 import { routerCalls } from './router-mock';
 
@@ -135,19 +134,37 @@ describe('C5 Khung khu học', () => {
   });
 
   // @ac C5-AC06, APP-AC18
-  it('chân thanh bên: liên kết Trang học chính, email người đang đăng nhập, dòng chế độ thử', async () => {
+  it('chân thanh bên: liên kết Trang chủ về Landing, email người đang đăng nhập, dòng chế độ thử', async () => {
     const a = await renderApp('/hoc', { seed: settingsSeed() });
-    const host = within(sidebar()).getByRole('link', { name: 'Trang học chính' });
-    expect(host).toHaveAttribute('href', HOST_URL);
-    expect(HOST_URL).toBe('https://language.pomaskhoahocnaobo.com/');
-    // Liên kết thường (không qua router của app): bấm thì rời app.
-    expect(host).toHaveAttribute('data-testid', 'host-link');
+    const home = within(sidebar()).getByRole('link', { name: 'Trang chủ' });
+    expect(home).toHaveAttribute('href', '/');
+    expect(home).toHaveAttribute('data-testid', 'home-link');
+    expect(document.querySelector('a[href*="pomaskhoahocnaobo"]')).toBeNull();
     expect(within(sidebar()).getByTestId('user-email')).toHaveTextContent(TEST_USER.email);
     expect(within(sidebar()).getByTestId('local-mode')).toHaveTextContent('Chế độ thử: tài khoản và tiến độ chỉ lưu trên máy này.');
     a.unmount();
     await renderApp('/hoc', { seed: settingsSeed(), auth: { ...fakeAuth(), mode: 'supabase' } });
     expect(within(sidebar()).queryByTestId('local-mode')).toBeNull();
     expect(within(sidebar()).getByTestId('user-email')).toHaveTextContent(TEST_USER.email);
+  });
+
+  // @ac APP-AC18
+  it('bấm Trang chủ giữa phiên học thì hỏi trước; ngoài phiên thì về Landing', async () => {
+    await renderApp('/hoc', { seed: settingsSeed() });
+    fireEvent.click(screen.getByRole('button', { name: 'Học 8 câu' }));
+    await settle(30);
+    const at = here();
+    expect(at).toMatch(/^\/phien-hoc/);
+    fireEvent.click(within(sidebar()).getByRole('link', { name: 'Trang chủ' }));
+    await settle(30);
+    expect(here()).toBe(at);
+    // Dừng về màn đã mở phiên (S3-07); bấm Trang chủ lần nữa thì về Landing.
+    fireEvent.click(within(screen.getByRole('dialog', { name: 'Dừng phiên học?' })).getByRole('button', { name: 'Dừng' }));
+    await settle(30);
+    expect(here()).toBe('/hoc');
+    fireEvent.click(within(sidebar()).getByRole('link', { name: 'Trang chủ' }));
+    await settle(30);
+    expect(here()).toBe('/');
   });
 });
 
