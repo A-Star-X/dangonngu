@@ -24,6 +24,10 @@ Repo làm lại giao diện app học câu VITASR Đa ngôn ngữ thành website
 - Trường câu gốc luôn tên `en` ở mọi file ngôn ngữ, kể cả tiếng Đức, Nhật…; ngôn ngữ thật lấy từ `languageId`.
 - Giai đoạn đầu ưu tiên web trên máy tính (1440, 1280 px), responsive xuống điện thoại.
 
+## Nhánh và pull request
+
+Tạo nhánh từ `staging`, mở pull request vào `staging`, không vào `main`. `main` chỉ nhận PR phát hành từ `staging` (QD-11). Các bước kiểm và phát hành: `docs/QUY-TRINH.md` mục 8.
+
 ## Lệnh kiểm trước khi báo xong
 
 `npm run lint`, `npm run typecheck`, `npm run messages:check`, `npm test`, `npm run build`, `npm run test:e2e`, `npm run spec:check`. Ảnh bằng chứng cho mục `[claude]`: `npm run evidence` (ghi vào `docs/evidence/<mã mục>/`), xem lại ảnh rồi mới đánh dấu.

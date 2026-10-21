@@ -118,3 +118,48 @@ Xem tình trạng hiện tại: `npm run spec:acceptance`, rồi mở `docs/gene
 ## 7. Khổ màn hình dùng để kiểm
 
 Trừ khi mục acceptance ghi khác, kiểm theo thứ tự ưu tiên: máy tính 1440 x 900 và 1280 x 800, máy tính bảng 768 x 1024, điện thoại 375 x 812; cả giao diện sáng và tối. Thiết bị thật tối thiểu cho mục `[human]`: một iPhone (Safari), một điện thoại Android (Chrome), một máy Windows (Chrome hoặc Edge).
+
+## 8. Nhánh, pull request và phát hành (QD-11)
+
+Website có ba môi trường, mỗi môi trường một địa chỉ (APP-17):
+
+| Môi trường | Nhánh | Địa chỉ | Ai dùng |
+|---|---|---|---|
+| production | `main` | `dangonngu-theta.vercel.app` | Người học thật |
+| demo | `main` | `dangonngu-demo.vercel.app` | Khách dùng thử, không cần đăng nhập (AU-08) |
+| staging | `staging` | bản Vercel của nhánh `staging` (cần đăng nhập Vercel) | Nhóm kiểm trước khi phát hành |
+
+Merge vào `main` là production và demo đổi ngay, nên **không mở PR thẳng vào `main`**. Mọi việc đi theo thứ tự: nhánh việc → `staging` → `main`.
+
+### 8.1 Làm một việc mới
+
+1. Lấy bản mới nhất của `staging` và tạo nhánh từ đó: `git switch staging && git pull`, rồi `git switch -c <loại>/<tên-việc>`. Loại: `feature/` (chức năng), `fix/` (sửa lỗi), `docs/` (tài liệu).
+2. Làm theo mục 4: commit `spec:` trước, rồi code, rồi `docs:` nghiệm thu. Chạy đủ lệnh kiểm trong `CLAUDE.md` trước khi đẩy lên.
+3. Mở pull request với **base là `staging`** (không phải `main`). Mô tả PR ghi: yêu cầu nào, đã đổi gì, đã kiểm gì, mục `[human]` nào cần người thử.
+
+### 8.2 Kiểm trước khi merge vào `staging`
+
+1. Chờ CI (`kiem-tra`, `webkit`) và Vercel trên PR đều báo đạt.
+2. Mở bản xem trước của chính PR đó: trong PR, bình luận của bot **vercel** có nút **Preview** ở dòng `dangonngu`. Bản này bị Vercel Authentication khóa: phải đăng nhập Vercel của project mới mở được.
+3. Thử đúng phần vừa đổi, theo mô tả PR và các mục acceptance liên quan. Thấy lỗi thì sửa trên cùng nhánh rồi đẩy lên; PR tự cập nhật.
+4. Đạt thì bấm **Merge** vào `staging`. Xóa nhánh việc sau khi merge (nút "Delete branch" trong PR).
+
+### 8.3 Phát hành lên production và demo
+
+Làm theo đợt, khi `staging` đã gom đủ việc muốn phát hành (không cần mỗi PR một lần):
+
+1. Mở bản staging trên Vercel (Active Branches > `staging` > Preview), thử lại các việc vừa gom. Mở `/robots.txt`: phải thấy `Disallow: /` (đúng là bản staging, APP-17).
+2. Mở pull request **base `main`, compare `staging`**. Tiêu đề ghi các việc được phát hành, ví dụ "Phát hành: tô sáng chữ đang đọc (C1-09)".
+3. Chờ CI đạt rồi merge. Vercel tự deploy production và demo.
+4. Kiểm sau phát hành:
+   - Production: vẫn có nút Đăng nhập; `/robots.txt` có `Allow: /`.
+   - Demo: mở `/hoc` vào thẳng khu học, không hỏi đăng nhập; `/robots.txt` có `Disallow: /`.
+   - Phần vừa phát hành chạy đúng trên cả hai.
+5. Phát hành có lỗi: vào Vercel > Deployments của project đó, chọn bản trước, **⋯ > Promote to Production** để lui lại ngay; sau đó sửa theo 8.1.
+
+### 8.4 Cấu hình Vercel (đã làm, chỉ cần khi dựng lại)
+
+- Project `dangonngu` nối repo `A-Star-X/dangonngu`, Production Branch `main`. Biến `NEXT_PUBLIC_APP_ENV`: `production` cho Production, `staging` cho Preview của nhánh `staging`. Hai biến Supabase nếu dùng tài khoản thật (QD-06).
+- Project `dangonngu-demo` nối cùng repo, nhánh `main`, biến `NEXT_PUBLIC_APP_ENV=demo`, không đặt biến Supabase.
+- Biến `NEXT_PUBLIC_...` được gắn vào lúc build: đổi biến xong phải deploy lại (Deployments > ⋯ > Redeploy) mới có tác dụng.
+- Mỗi PR được build ở cả hai project; chỉ cần mở bản của `dangonngu` để kiểm.
