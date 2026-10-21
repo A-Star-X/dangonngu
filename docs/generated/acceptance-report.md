@@ -1,13 +1,13 @@
 # Báo cáo acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-21 06:20 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-21 10:38 UTC. Không sửa tay.
 
 Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã được đánh dấu [x].
 
 | Khu vực | Tên | Đã đạt | auto | claude | human | Trạng thái |
 |---|---|---|---|---|---|---|
 | G | Tổng quan giao diện bản mới | 1/5 | - | 1/1 | 0/4 | Chưa |
-| APP | Khung app | 27/30 | 18/18 | 9/9 | 0/3 | Chưa |
+| APP | Khung app | 28/32 | 19/19 | 9/9 | 0/4 | Chưa |
 | FND | Nền tảng thiết kế | 17/20 | 9/9 | 8/8 | 0/3 | Chưa |
 | DATA | Dữ liệu và tiến độ | 23/25 | 21/21 | 2/2 | 0/2 | Chưa |
 | C1 | Thẻ câu | 9/10 | 8/8 | 1/1 | 0/1 | Chưa |
@@ -18,7 +18,7 @@ Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã đ
 | C6 | Sheet | 5/6 | 3/3 | 2/2 | 0/1 | Chưa |
 | C7 | Thông báo ngắn | 3/3 | 2/2 | 1/1 | - | Đạt |
 | C8 | Ô chọn một giá trị | 3/3 | 2/2 | 1/1 | - | Đạt |
-| AU | Tài khoản (đăng ký, đăng nhập) | 8/9 | 7/7 | 1/1 | 0/1 | Chưa |
+| AU | Tài khoản (đăng ký, đăng nhập) | 10/11 | 9/9 | 1/1 | 0/1 | Chưa |
 | LP | Landing | 3/4 | 2/2 | 1/1 | 0/1 | Chưa |
 | S1 | Chọn ngôn ngữ | 7/8 | 5/5 | 2/2 | 0/1 | Chưa |
 | S10 | Chi tiết Unit | 8/8 | 7/7 | 1/1 | - | Đạt |
@@ -31,7 +31,7 @@ Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã đ
 | T3 | Thư viện | 14/14 | 11/11 | 3/3 | - | Đạt |
 | T4 | Tiến độ | 10/11 | 8/8 | 2/2 | 0/1 | Chưa |
 
-Tổng: 216/242 mục đã đạt.
+Tổng: 219/246 mục đã đạt.
 
 ## Mục còn mở
 
@@ -47,6 +47,7 @@ Tổng: 216/242 mục đã đạt.
 - APP-AC13 [human] (APP-07, APP-09): Mở app trên trình duyệt máy tính (Chrome, Edge, Safari) và trên điện thoại (iPhone, Android), mỗi nơi đi hết luồng chọn ngôn ngữ, học một phiên, xem tiến độ: hiển thị đủ, không có điều khiển bị che hay tràn.
 - APP-AC14 [human] (APP-10): Trên điện thoại thật: mở app có mạng, tắt mạng, đóng và mở lại app: vẫn học được ngôn ngữ đã tải.
 - APP-AC20 [human] (APP-09): Trên trang học chính thật, mở Đa ngôn ngữ: website mở ở trang mới.
+- APP-AC32 [human] (APP-17, AU-08): Trên Vercel: ba địa chỉ production, staging, demo đều mở được; demo vào học không cần tài khoản; merge vào `staging` chỉ đổi bản staging, merge vào `main` đổi production và demo.
 
 ### FND Nền tảng thiết kế
 
