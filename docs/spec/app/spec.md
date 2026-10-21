@@ -9,7 +9,7 @@ legacy: L-S0, L-S2 (header), pwa-update
 
 # APP Khung app
 
-Khung bao quanh mọi trang: điều hướng, route, header, bố cục theo khổ màn hình, trạng thái toàn cục, ngôn ngữ giao diện, SEO, cách trang học chính mở app và đường quay về trang học chính. Từ Đợt 6 app là website Next.js (QD-01): trang công khai (LP, AU) và khu học cần đăng nhập (AU-05) bọc trong khung C5.
+Khung bao quanh mọi trang: điều hướng, route, header, bố cục theo khổ màn hình, trạng thái toàn cục, ngôn ngữ giao diện, SEO, cách trang học chính mở app và liên kết về trang chủ website. Từ Đợt 6 app là website Next.js (QD-01): trang công khai (LP, AU) và khu học cần đăng nhập (AU-05) bọc trong khung C5.
 
 ## Yêu cầu
 
@@ -79,7 +79,7 @@ Thành phần hiển thị trạng thái dùng chung `Failed`, `Loading`, `NoDat
 
 ### APP-09 Cách trang chính mở app
 
-Trang học chính mở app bằng một trang mới (tab mới hoặc chuyển thẳng trang), không nhúng iframe (nhóm chốt ngày 10/10/2026). App không đọc hay ghi `window.top` / `window.parent`, không dựa vào postMessage và bỏ qua mọi tham số URL mà trang chính gửi kèm. Từ Đợt 6 khu học cần đăng nhập tài khoản của website (AU-05); quan hệ với tài khoản của trang học chính chờ công ty trả lời (QD-06). Tôn trọng vùng an toàn của màn hình. Đường quay về trang học chính: APP-12.
+Trang học chính mở app bằng một trang mới (tab mới hoặc chuyển thẳng trang), không nhúng iframe (nhóm chốt ngày 10/10/2026). App không đọc hay ghi `window.top` / `window.parent`, không dựa vào postMessage và bỏ qua mọi tham số URL mà trang chính gửi kèm. Từ Đợt 6 khu học cần đăng nhập tài khoản của website (AU-05); quan hệ với tài khoản của trang học chính chờ công ty trả lời (QD-06). Tôn trọng vùng an toàn của màn hình. Liên kết về trang chủ website: APP-12.
 
 ### APP-10 Ngoại tuyến và cập nhật
 
@@ -89,12 +89,12 @@ Sau lần mở đầu tiên có mạng, app mở lại được khi ngoại tuy�
 
 Tại mỗi thời điểm có tối đa một sheet hoặc hộp thoại mở. Mở sheet mới thì sheet đang mở phải đóng trước.
 
-### APP-12 Liên kết về trang học chính
+### APP-12 Liên kết về trang chủ website
 
-Vì app mở bằng trang mới (APP-09), có liên kết để người học quay về trang học chính: ở chân thanh bên (C5-07) và chân trang công khai (LP-06), chữ "Trang học chính" kèm icon mũi tên trái.
+Chân thanh bên (C5-07) có liên kết để người học về trang chủ của chính website (Landing, LP-01): chữ "Trang chủ" kèm icon mũi tên trái. Website không còn liên kết tới trang học chính `language.pomaskhoahocnaobo.com` (người dùng chốt ngày 21/10/2026).
 
-- Hành động: là một liên kết thường, mở địa chỉ trang học chính ngay trong trang đang xem. Địa chỉ cấu hình lúc build (`NEXT_PUBLIC_HOST_URL`), mặc định `https://language.pomaskhoahocnaobo.com/`; đặt rỗng thì không hiện liên kết (khi website thay thế trang học chính, QD-06). Không dùng `history.back()`.
-- Bấm khi đang có phiên dở thì không hỏi; tiến độ đã lưu (DATA-06) và phiên dở mở lại được lần sau (S3-08).
+- Hành động: mở `/` của website trong trang đang xem, giữ ngôn ngữ giao diện đang chọn (APP-15). Không dùng `history.back()`.
+- Đi qua cơ chế chặn rời màn như mọi liên kết trong khu học: bấm khi đang có phiên dở thì hỏi trước (S3-07, S5-08).
 - Không đóng tab bằng mã và không đọc `window.opener` (APP-09).
 
 ### APP-13 Không dùng liên kết neo
@@ -141,3 +141,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.9 (20/10/2026): Đợt 5 việc 6: APP-07 bỏ hai cột cố định từ 900 px, thêm mốc 1200 px với lưới tự xuống hàng, nội dung ở 1440 px trải từ 80% vùng nội dung.
 - 1.0 (21/10/2026): Đợt 6: chuyển sang Next.js (QD-01), route là đường dẫn không có `#` (QD-02), khu học cần đăng nhập (AU-05) và bọc khung C5 (thanh bên, header) thay thanh tab; S1, S3, S5 nằm trong khung (APP-03); APP-07 theo mốc `md` và 1024 px; APP-12 thành liên kết ở chân thanh bên; thêm APP-15 ngôn ngữ giao diện, APP-16 SEO.
 - 1.1 (21/10/2026): theo rà soát code độc lập Đợt 6: APP-10 bộ nhớ đệm theo bản build, giữ bản ngay trước, dữ liệu câu lưu riêng.
+- 1.2 (21/10/2026): theo người dùng: APP-12 đổi từ liên kết về trang học chính `language.pomaskhoahocnaobo.com` thành liên kết "Trang chủ" về Landing của website, đi qua chặn rời màn; bỏ biến `NEXT_PUBLIC_HOST_URL`; chân trang công khai không còn liên kết này (LP-06).

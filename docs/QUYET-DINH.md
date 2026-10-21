@@ -75,7 +75,7 @@ Bối cảnh: việc 4 và 6 của Đợt 5 định hướng "App phục vụ h�
 - Chưa đăng nhập mà mở route cần đăng nhập: chuyển tới `/dang-nhap?tiep=...`, đăng nhập xong quay về đúng route đã định mở. Đã đăng nhập mà mở `/dang-nhap` hoặc `/dang-ky`: chuyển vào `/hoc` (hoặc S1 nếu chưa chọn ngôn ngữ, APP-05). Đã đăng nhập vẫn xem được Landing (header hiện "Vào học").
 - Landing và hai trang đăng nhập, đăng ký nằm ngoài khung khu học (C5), có header công khai riêng, dùng chung token màu, chữ, nút của FND và C3.
 - Landing chỉ dùng thông tin có thật: số ngôn ngữ và số câu lấy từ dữ liệu, ảnh chụp màn hình thật của app. Chưa có thông tin đối tác thì không hiện phần Đối tác, không dựng logo hay lời nhận xét mẫu.
-- Liên kết về trang học chính (APP-12) giữ ở chân thanh bên và chân trang; đặt `NEXT_PUBLIC_HOST_URL` rỗng để bỏ khi công ty trả lời website mới thay thế trang học chính (câu hỏi rủi ro của QD-06).
+- Liên kết về trang học chính (APP-12) giữ ở chân thanh bên và chân trang; đặt `NEXT_PUBLIC_HOST_URL` rỗng để bỏ khi công ty trả lời website mới thay thế trang học chính (câu hỏi rủi ro của QD-06). Cập nhật 21/10/2026 theo người dùng: bỏ liên kết tới trang học chính và biến `NEXT_PUBLIC_HOST_URL`; chân thanh bên có liên kết "Trang chủ" về Landing (APP-12 bản 1.2).
 
 ## QD-08 AI nhận xét bài luyện tập
 
@@ -93,4 +93,4 @@ Giao diện tiếng Việt (mặc định) và tiếng Anh bằng next-intl 4 (A
 
 Trạng thái: Đã chốt (20/10/2026, Đợt 6), theo QD-01, QD-02.
 
-Next.js cần máy chủ (cookie ngôn ngữ, proxy chuyển route, ảnh tối ưu), nên website triển khai trên Vercel thay cho GitHub Pages; workflow `pages.yml` bỏ. Biến môi trường trên Vercel: `NEXT_PUBLIC_SITE_URL` (địa chỉ website, cho SEO), `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, tùy chọn `NEXT_PUBLIC_HOST_URL`, `NEXT_PUBLIC_DATA_BASE_URL`. Cách làm chi tiết: README mục Triển khai. Chạy được trên máy chủ Node bất kỳ bằng `npm run build && npm start` nếu công ty không dùng Vercel.
+Next.js cần máy chủ (cookie ngôn ngữ, proxy chuyển route, ảnh tối ưu), nên website triển khai trên Vercel thay cho GitHub Pages; workflow `pages.yml` bỏ. Biến môi trường trên Vercel: `NEXT_PUBLIC_SITE_URL` (địa chỉ website, cho SEO), `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, tùy chọn `NEXT_PUBLIC_DATA_BASE_URL`. Cách làm chi tiết: README mục Triển khai. Chạy được trên máy chủ Node bất kỳ bằng `npm run build && npm start` nếu công ty không dùng Vercel.

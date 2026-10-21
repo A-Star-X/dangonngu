@@ -57,7 +57,7 @@ flowchart LR
   %% @spec APP-02, APP-04
   MAIN <--> SHEET["Sheet<br/>đổi ngôn ngữ, từ khóa, chi tiết câu,<br/>chi tiết ngày, giọng đọc, xác nhận"]
   %% @spec APP-11, C6-01
-  MAIN -->|"Trang học chính, chân thanh bên"| HOST
+  MAIN -->|"Trang chủ, chân thanh bên"| LAND
   %% @spec APP-12, C5-07
   MAIN -->|"Đăng xuất"| LOGIN
   %% @spec AU-05
@@ -202,7 +202,7 @@ flowchart TD
 | Sheet Đổi ngôn ngữ | Chọn ngôn ngữ hoặc bộ nội dung khác | T1 Học của ngôn ngữ hoặc bộ đó | APP-06 |
 | S1 bước 2 Chọn bộ nội dung | Quay lại | S1 danh sách ngôn ngữ | S1-07 |
 | S8 Cài đặt | Quay lại | Khu chính vừa mở S8 | APP-04 |
-| Mọi màn khu học (chân thanh bên), trang công khai (chân trang) | Trang học chính | Trang học chính (rời website) | APP-12 |
+| Mọi màn khu học (chân thanh bên) | Trang chủ | Landing `/` (giữa phiên học thì hỏi trước) | APP-12 |
 | S8 Cài đặt | Ngôn ngữ đang học | Sheet Đổi ngôn ngữ | S8-01 |
 | S8 Cài đặt | Xóa tiến độ, xác nhận | T1 Học | S8-05 |
 | Mọi sheet | Đóng | Cửa sổ đã mở sheet | C6-02 |

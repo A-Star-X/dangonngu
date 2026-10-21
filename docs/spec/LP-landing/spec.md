@@ -34,7 +34,7 @@ Phần "Bắt đầu trong ba bước": tạo tài khoản và chọn ngôn ng�
 
 ### LP-06 Lời mời cuối trang và chân trang
 
-Cuối trang có khối lời mời với nút "Tạo tài khoản". Chân trang có bản quyền, liên kết Đăng nhập, Đăng ký và trang học chính (APP-12).
+Cuối trang có khối lời mời với nút "Tạo tài khoản". Chân trang có bản quyền, liên kết Đăng nhập và Đăng ký.
 
 ### LP-07 Bố cục theo khổ màn hình
 
@@ -44,3 +44,4 @@ Một cột trên mobile; các nhóm thẻ (dành cho ai, số liệu, tính nă
 
 - 0.1 (21/10/2026): bản đầu (Đợt 6, việc 4; QD-07).
 - 0.2 (21/10/2026): theo rà soát ảnh bằng chứng Đợt 6: LP-01 nút Đăng nhập hiện cả trên màn hẹp, không có nút tới chính trang đang mở; một nút chính.
+- 0.3 (21/10/2026): theo người dùng: LP-06 chân trang bỏ liên kết tới trang học chính (APP-12).
