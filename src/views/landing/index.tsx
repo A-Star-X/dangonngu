@@ -1,4 +1,4 @@
-// @spec LP-01, LP-02, LP-03, LP-04, LP-05, LP-06
+// @spec LP-01, LP-02, LP-03, LP-04, LP-05, LP-06, AU-08
 // Landing cho khách: giới thiệu sản phẩm, người dùng hướng tới, giá trị và tính năng thật, lời mời bắt đầu.
 // Trang máy chủ (không chạy JS phía trình duyệt ngoài header), số liệu đọc từ dữ liệu thật lúc build.
 import Image from 'next/image';
@@ -7,6 +7,7 @@ import { BookOpen, CalendarCheck, ChartLine, Headphones, Library, ListChecks, ty
 import { buttonClass } from '@/components/ui/button-class';
 import { Link } from '@/i18n/navigation';
 import { PUBLIC_PATH, ROUTE_PATH } from '@/lib/routes';
+import { isDemo } from '@/lib/app-env';
 import { languageName } from '@/lib/language-name';
 import { formatCount } from '@/utils/format-number';
 import { contentStats } from './utils/content-stats';
@@ -25,6 +26,9 @@ export async function LandingView() {
   const t = await getTranslations('landing');
   const locale = await getLocale();
   const stats = contentStats();
+  // AU-08: bản dùng thử không có tài khoản, lời mời dẫn thẳng vào khu học.
+  const demo = isDemo();
+  const startHref = demo ? ROUTE_PATH.hoc : PUBLIC_PATH.register;
   const fluency = stats.packs.find((p) => p.id === 'fluency');
   const global = stats.packs.find((p) => p.id === 'global');
   const n = (v: number) => formatCount(v, locale);
@@ -43,16 +47,18 @@ export async function LandingView() {
           </h1>
           <p className="text-lg text-muted-foreground">{t('lead', { languages: stats.languages })}</p>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link href={PUBLIC_PATH.register} className={buttonClass({ tone: 'primary', size: 'lg', className: 'whitespace-nowrap' })} data-testid="lp-start">
+            <Link href={startHref} className={buttonClass({ tone: 'primary', size: 'lg', className: 'whitespace-nowrap' })} data-testid="lp-start">
               {t('ctaStart')}
             </Link>
             <Link href={ROUTE_PATH['thu-vien']} className={buttonClass({ tone: 'outline', size: 'lg', className: 'whitespace-nowrap' })} data-testid="lp-explore">
               {t('ctaExplore')}
             </Link>
           </div>
-          <p className="text-description">
-            {t.rich('haveAccount', { link: (c) => <Link href={PUBLIC_PATH.login} className="font-semibold text-foreground underline underline-offset-4">{c}</Link> })}
-          </p>
+          {!demo && (
+            <p className="text-description">
+              {t.rich('haveAccount', { link: (c) => <Link href={PUBLIC_PATH.login} className="font-semibold text-foreground underline underline-offset-4">{c}</Link> })}
+            </p>
+          )}
         </div>
         <div className="overflow-hidden rounded-card border border-border bg-card shadow-dialog">
           <Image src={`/landing/hoc-${shotLocale}light.png`} alt={t('shotAlt')} width={1280} height={800} priority className="h-auto w-full dark:hidden" sizes="(min-width: 800px) 736px, 100vw" />
@@ -134,7 +140,7 @@ export async function LandingView() {
           {(['choose', 'learn', 'review'] as const).map((k, i) => (
             <li key={k} className="flex flex-col gap-2 rounded-card border border-border p-4">
               <span className="num inline-flex size-8 items-center justify-center rounded-full bg-sidebar-accent text-sm font-bold text-sidebar-accent-foreground">{i + 1}</span>
-              <h3 className="text-base font-semibold">{t(`steps.${k}.title`)}</h3>
+              <h3 className="text-base font-semibold">{demo && k === 'choose' ? t('demoChoose') : t(`steps.${k}.title`)}</h3>
               <p className="text-description">{t(`steps.${k}.body`)}</p>
             </li>
           ))}
@@ -147,11 +153,11 @@ export async function LandingView() {
           <h2 id="lp-final" className="text-description font-medium">
             {t('finalTitle')}
           </h2>
-          <p className="text-description">{t('finalBody')}</p>
+          <p className="text-description">{demo ? t('demoFinalBody') : t('finalBody')}</p>
         </div>
         {/* FND-02: mỗi màn một nút chính (đã có ở phần mở đầu); lời mời cuối trang dùng nút viền trên nền card. */}
-        <Link href={PUBLIC_PATH.register} className={buttonClass({ tone: 'outline', size: 'lg', className: 'bg-card whitespace-nowrap' })}>
-          {t('ctaRegister')}
+        <Link href={startHref} className={buttonClass({ tone: 'outline', size: 'lg', className: 'bg-card whitespace-nowrap' })} data-testid="lp-final">
+          {demo ? t('ctaStart') : t('ctaRegister')}
         </Link>
       </section>
     </div>

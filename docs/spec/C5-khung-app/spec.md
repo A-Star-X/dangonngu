@@ -2,7 +2,7 @@
 id: C5
 title: Khung khu học
 status: nháp
-version: 0.4
+version: 0.6
 depends: FND, APP
 ---
 
@@ -38,7 +38,7 @@ Nội dung có `pt-14` để không nằm dưới header, từ `md` thêm `pl-60
 
 ### C5-07 Chân thanh bên
 
-Cuối thanh bên: liên kết "Trang chủ" về Landing của website (APP-12), email của tài khoản đang đăng nhập, và ở chế độ trên máy (AU-06) dòng "Chế độ thử: tài khoản và tiến độ chỉ lưu trên máy này."
+Cuối thanh bên: liên kết "Trang chủ" về Landing của website (APP-12), email của tài khoản đang đăng nhập, và ở chế độ trên máy (AU-06) dòng "Chế độ thử: tài khoản và tiến độ chỉ lưu trên máy này." Bản dùng thử: AU-08.
 
 ## Lịch sử thay đổi
 
@@ -47,3 +47,4 @@ Cuối thanh bên: liên kết "Trang chủ" về Landing của website (APP-12)
 - 0.3 (21/10/2026): Đợt 6: theo rule giao diện của nhóm, thanh tab dưới đáy và thanh dọc 220 px thay bằng khung header 56 px, thanh bên 240 px, menu trượt dưới `md`; thêm C5-05 đến C5-07. Đổi tên khu vực từ "Thanh tab" thành "Khung khu học".
 - 0.4 (21/10/2026): theo rà soát code độc lập Đợt 6: C5-02 header và nội dung `inert` khi menu trượt mở.
 - 0.5 (21/10/2026): theo người dùng: C5-07 liên kết cuối thanh bên là "Trang chủ" về Landing, không còn về trang học chính (APP-12).
+- 0.6 (21/10/2026): theo leader: chân thanh bên của bản dùng thử theo AU-08.

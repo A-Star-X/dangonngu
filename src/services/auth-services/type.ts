@@ -1,4 +1,4 @@
-// @spec AU-01, AU-02, AU-05, AU-06
+// @spec AU-01, AU-02, AU-05, AU-06, AU-08
 export interface AuthUser {
   id: string;
   email: string;
@@ -10,8 +10,11 @@ export interface AuthSession {
   user: AuthUser;
 }
 
-/** supabase: tài khoản trên máy chủ, đồng bộ tiến độ giữa các máy. local: chế độ thử, tài khoản chỉ có trên máy này. */
-export type AuthMode = 'supabase' | 'local';
+/**
+ * supabase: tài khoản trên máy chủ, đồng bộ tiến độ giữa các máy. local: chế độ thử, tài khoản chỉ có trên máy này.
+ * demo: bản dùng thử, không có tài khoản (AU-08).
+ */
+export type AuthMode = 'supabase' | 'local' | 'demo';
 
 export interface SignUpResult {
   session: AuthSession | null;

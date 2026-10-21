@@ -1,5 +1,5 @@
 'use client';
-// @spec S8-01, S8-02, S8-04, S8-05, S8-06, S8-07, S8-08, APP-15, AU-05
+// @spec S8-01, S8-02, S8-04, S8-05, S8-06, S8-07, S8-08, APP-15, AU-05, AU-08
 import { useEffect, useRef, type ReactNode } from 'react';
 import { ArrowLeft, ChevronRight, LogOut, Minus, Plus } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
@@ -46,7 +46,7 @@ export function CaiDatView() {
   const { params } = useRoute();
   const app = useLearningData();
   const { theme, setTheme } = useTheme();
-  const { user, signOut } = useAuth();
+  const { user, mode, signOut } = useAuth();
   const sheet = useSheet();
   const nav = useNav();
   const openLanguageSheet = useLanguageSheet();
@@ -253,20 +253,23 @@ export function CaiDatView() {
           </li>
         </Group>
 
-        <Group id="s8-tai-khoan" title={t('groupAccount')}>
-          <li className={rowClass}>
-            <span className="flex-1">{t('email')}</span>
-            <span className="min-w-0 truncate text-data text-muted-foreground" data-testid="s8-email">
-              {user?.email}
-            </span>
-          </li>
-          <li>
-            <button type="button" className={rowBtn} onClick={() => void signOut()}>
-              <LogOut className="size-4 flex-none" aria-hidden />
-              <span className="flex-1 group-hover:underline">{t('signOut')}</span>
-            </button>
-          </li>
-        </Group>
+        {/* AU-08: bản dùng thử không có nhóm Tài khoản. */}
+        {mode !== 'demo' && (
+          <Group id="s8-tai-khoan" title={t('groupAccount')}>
+            <li className={rowClass}>
+              <span className="flex-1">{t('email')}</span>
+              <span className="min-w-0 truncate text-data text-muted-foreground" data-testid="s8-email">
+                {user?.email}
+              </span>
+            </li>
+            <li>
+              <button type="button" className={rowBtn} onClick={() => void signOut()}>
+                <LogOut className="size-4 flex-none" aria-hidden />
+                <span className="flex-1 group-hover:underline">{t('signOut')}</span>
+              </button>
+            </li>
+          </Group>
+        )}
 
         <Group id="s8-tro-giup" title={t('groupHelp')}>
           <li>

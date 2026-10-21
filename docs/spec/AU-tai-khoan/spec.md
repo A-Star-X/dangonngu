@@ -2,7 +2,7 @@
 id: AU
 title: Tài khoản (đăng ký, đăng nhập)
 status: nháp
-version: 0.2
+version: 0.3
 depends: FND, APP, DATA
 ---
 
@@ -40,7 +40,17 @@ Khi bản build chưa cấu hình Supabase (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PU
 
 Dữ liệu học trên máy (cài đặt, tiến độ) thuộc về một tài khoản. Lần đầu đăng nhập trên máy đã có dữ liệu học từ trước khi có đăng nhập: dữ liệu đó thuộc về tài khoản này (người dùng cũ không mất tiến độ). Người khác đăng nhập trên cùng máy: dữ liệu của người trước được cất riêng, người mới thấy dữ liệu của mình (lấy lại phần đã cất nếu có, và từ tài khoản theo DATA-14). Giao diện sáng tối và ngôn ngữ giao diện không thuộc tài khoản.
 
+### AU-08 Bản dùng thử
+
+Bản build cho môi trường demo (`NEXT_PUBLIC_APP_ENV=demo`, APP-17) là bản dùng thử, không cần tài khoản:
+
+- Không có đăng nhập, đăng ký, đăng xuất. Mở khu học là vào ngay, không chuyển sang `/dang-nhap` (thay AU-05); mở `/dang-nhap` hoặc `/dang-ky` thì chuyển (thay route) vào `/hoc`.
+- Không dùng Supabase kể cả khi bản build có cấu hình: không gọi dịch vụ tài khoản, không đồng bộ (DATA-14). Cài đặt và tiến độ lưu trên trình duyệt như AU-06.
+- Landing giữ đủ các phần (LP), trừ: "Bắt đầu học" và nút ở lời mời cuối trang (chữ "Bắt đầu học", nút viền) trỏ tới `/hoc`; không có dòng "Đã có tài khoản? Đăng nhập"; bước đầu tiên (LP-05) là "Chọn ngôn ngữ"; câu ở lời mời cuối trang là "Chọn ngôn ngữ và học nhóm câu đầu tiên, không cần tài khoản.". Header công khai có nút "Vào học" như khi đã đăng nhập (LP-01). Chân trang không có liên kết Đăng nhập, Đăng ký (LP-06).
+- Thanh bên (C5-07) không có email, không có "Đăng xuất"; dòng báo cuối thanh bên là "Bản dùng thử: không cần tài khoản, tiến độ chỉ lưu trên máy này.". Cài đặt không có nhóm "Tài khoản" (S8-08).
+
 ## Lịch sử thay đổi
 
 - 0.1 (21/10/2026): bản đầu (Đợt 6, việc 5; QD-06, QD-07).
 - 0.2 (21/10/2026): theo rà soát code độc lập Đợt 6: AU-05 `tiep` chỉ nhận route của khu học, đăng xuất về `/dang-nhap` không kèm `tiep`; AU-06 băm mật khẩu PBKDF2 có muối.
+- 0.3 (21/10/2026): theo leader: thêm AU-08 bản dùng thử không cần đăng nhập cho môi trường demo (APP-17, QD-11).

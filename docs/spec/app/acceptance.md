@@ -59,3 +59,6 @@ Khổ kiểm mặc định và quy tắc đánh dấu: `docs/QUY-TRINH.md` mục
   - Bằng chứng: test tests/e2e/dot6-web.spec.ts pass trên bản Next.js (npm run test:e2e), Claude, 2026-10-21, commit d720f7d
 - [x] APP-AC30 [claude] APP-15: Ảnh chụp T1, S8 và Landing ở 375 px và 1280 px bằng tiếng Anh: câu chữ không tràn, không lẫn câu tiếng Việt của giao diện.
   - Bằng chứng: ảnh và số đo docs/evidence/APP-AC30/ (T1, T1 menu mở, S8, Landing ở 375 và 1280 px, sáng và tối, cookie NEXT_LOCALE=en): html lang en, không cuộn ngang, không phần tử tràn, không còn câu giao diện tiếng Việt (chữ Việt chỉ ở nội dung học và từ khóa đánh dấu lang vi), ảnh app trên Landing là bản tiếng Anh; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d
+- [x] APP-AC31 [auto] APP-17: Bản build staging và demo: `/robots.txt` có `Disallow: /`, `/` có `noindex`. Bản build không đặt `NEXT_PUBLIC_APP_ENV` vẫn như APP-AC29.
+  - Bằng chứng: test tests/unit/demo.test.tsx pass (npm test), Claude, 2026-10-21, commit 30307ac
+- [ ] APP-AC32 [human] APP-17, AU-08: Trên Vercel: ba địa chỉ production, staging, demo đều mở được; demo vào học không cần tài khoản; merge vào `staging` chỉ đổi bản staging, merge vào `main` đổi production và demo.

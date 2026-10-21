@@ -94,3 +94,22 @@ Giao diện tiếng Việt (mặc định) và tiếng Anh bằng next-intl 4 (A
 Trạng thái: Đã chốt (20/10/2026, Đợt 6), theo QD-01, QD-02.
 
 Next.js cần máy chủ (cookie ngôn ngữ, proxy chuyển route, ảnh tối ưu), nên website triển khai trên Vercel thay cho GitHub Pages; workflow `pages.yml` bỏ. Biến môi trường trên Vercel: `NEXT_PUBLIC_SITE_URL` (địa chỉ website, cho SEO), `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, tùy chọn `NEXT_PUBLIC_DATA_BASE_URL`. Cách làm chi tiết: README mục Triển khai. Chạy được trên máy chủ Node bất kỳ bằng `npm run build && npm start` nếu công ty không dùng Vercel.
+
+## QD-11 Ba môi trường: production, staging, demo
+
+Trạng thái: Đã chốt (21/10/2026), theo yêu cầu của leader; người giữ repo chọn cách làm.
+
+Bối cảnh: leader yêu cầu tách production, staging và demo thành các địa chỉ riêng; demo không có đăng nhập để người dùng vào dùng thử ngay.
+
+Quyết định:
+
+- Một repo, một bộ code. Môi trường chọn lúc build bằng `NEXT_PUBLIC_APP_ENV` (`production`, `staging`, `demo`; APP-17).
+- Production: project Vercel hiện có, nhánh `main`, `NEXT_PUBLIC_APP_ENV=production`, có Supabase.
+- Staging: cùng project Vercel, nhánh `staging` gắn địa chỉ riêng, biến môi trường Preview cho riêng nhánh `staging` với `NEXT_PUBLIC_APP_ENV=staging`. Việc mới vào `staging` trước; kiểm xong mới mở PR từ `staging` vào `main`.
+- Demo: project Vercel thứ hai cùng repo, nhánh `main`, `NEXT_PUBLIC_APP_ENV=demo`, không đặt biến Supabase (AU-08). Demo luôn cùng bản với production.
+- Staging và demo không cho máy tìm kiếm index (APP-17).
+
+Còn cần quyết: staging dùng chung project Supabase với production hay project riêng (khuyên dùng riêng khi có project của công ty, QD-06); tên miền thật của công ty cho ba môi trường (tạm dùng địa chỉ `*.vercel.app`).
+
+Phương án khác: mỗi môi trường một nhánh (`demo` riêng): linh hoạt hơn nhưng phải merge tay sang `demo`, dễ lệch với production; demo đi theo `staging`: có tính năng mới sớm hơn nhưng có thể chưa ổn định khi đưa khách xem.
+

@@ -1,6 +1,7 @@
-// @spec APP-16
+// @spec APP-16, APP-17
 // Metadata dùng chung: metadataBase, tiêu đề "%s | VITASR", Open Graph, Twitter, canonical, cho phép hay chặn index.
 import type { Metadata } from 'next';
+import { indexable } from './app-env';
 
 export const SITE_NAME = 'VITASR';
 
@@ -37,7 +38,8 @@ export function pageMetadata({ title, description, path, index, locale = 'vi' }:
     title,
     description,
     alternates: { canonical: path },
-    robots: index ? { index: true, follow: true } : { index: false, follow: false },
+    // APP-17: chỉ production cho index.
+    robots: index && indexable() ? { index: true, follow: true } : { index: false, follow: false },
     openGraph: { type: 'website', siteName: SITE_NAME, locale: locale === 'en' ? 'en_US' : 'vi_VN', title, description, url: path, images: [OG_IMAGE] },
     twitter: { card: 'summary_large_image', title, description, images: ['/twitter-image'] },
   };

@@ -1,11 +1,12 @@
 'use client';
-// @spec LP-01, AU-01
+// @spec LP-01, AU-01, AU-08
 // Header của trang công khai: logo trái, hành động phải, viền dưới (rule giao diện: trang không có sidebar).
 import { useTranslations } from 'next-intl';
 import { buttonClass } from '@/components/ui/button-class';
 import { Link, usePathname } from '@/i18n/navigation';
 import { useAuth } from '@/providers/auth-provider';
 import { PUBLIC_PATH, ROUTE_PATH } from '@/lib/routes';
+import { isDemo } from '@/lib/app-env';
 import { Brand } from './brand';
 import { LocaleSwitcher } from './locale-switcher';
 import { ThemeToggle } from './theme-toggle';
@@ -25,7 +26,8 @@ export function PublicHeader() {
         <div className="flex items-center gap-2">
           <LocaleSwitcher />
           <ThemeToggle />
-          {status === 'signed-in' ? (
+          {/* AU-08: bản dùng thử luôn là "Vào học", kể cả trong HTML dựng sẵn trước khi đọc phiên. */}
+          {status === 'signed-in' || isDemo() ? (
             <Link href={ROUTE_PATH.hoc} className={buttonClass({ tone: 'outline', className: 'whitespace-nowrap' })}>
               {t('openApp')}
             </Link>
