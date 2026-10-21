@@ -1,6 +1,6 @@
 # Ánh xạ sơ đồ điều hướng sang spec
 
-File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-21 02:05 UTC từ các dòng `%% @spec` trong docs/new/navigation.md. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-21 06:20 UTC từ các dòng `%% @spec` trong docs/new/navigation.md. Không sửa tay.
 
 Tổng: 117 mũi tên; 116 gắn yêu cầu, 1 ngoài phạm vi.
 
@@ -24,7 +24,7 @@ Tổng: 117 mũi tên; 116 gắn yêu cầu, 1 ngoài phạm vi.
 | 4 khu chính, chuyển bằng thanh bên → Màn học tập trung S3 Phiên học, S5 Kiểm tra nhanh | - | APP-03 Màn học tập trung ([docs/spec/app/spec.md:24](../../docs/spec/app/spec.md))<br>T1-02 Nút chính đổi chữ theo ngữ cảnh ([docs/spec/T1-hoc/spec.md:72](../../docs/spec/T1-hoc/spec.md))<br>T2-04 Kiểm tra nhanh ([docs/spec/T2-luyen-tap/spec.md:53](../../docs/spec/T2-luyen-tap/spec.md)) | `docs/spec/app/`<br>`docs/spec/T1-hoc/`<br>`docs/spec/T2-luyen-tap/` | docs/new/navigation.md:54 |
 | 4 khu chính, chuyển bằng thanh bên → S8 Cài đặt | - | APP-02 Header ([docs/spec/app/spec.md:20](../../docs/spec/app/spec.md))<br>APP-04 Bảng route ([docs/spec/app/spec.md:28](../../docs/spec/app/spec.md)) | `docs/spec/app/` | docs/new/navigation.md:56 |
 | 4 khu chính, chuyển bằng thanh bên → Sheet đổi ngôn ngữ, từ khóa, chi tiết câu, chi tiết ngày, giọng đọc, xác nhận | - | APP-11 Một lớp phủ tại một thời điểm ([docs/spec/app/spec.md:88](../../docs/spec/app/spec.md))<br>C6-01 Dạng hiển thị ([docs/spec/C6-sheet/spec.md:15](../../docs/spec/C6-sheet/spec.md)) | `docs/spec/app/`<br>`docs/spec/C6-sheet/` | docs/new/navigation.md:58 |
-| 4 khu chính, chuyển bằng thanh bên → Trang học chính (ngoài phạm vi) | Trang học chính, chân thanh bên | APP-12 Liên kết về trang học chính ([docs/spec/app/spec.md:92](../../docs/spec/app/spec.md))<br>C5-07 Chân thanh bên ([docs/spec/C5-khung-app/spec.md:39](../../docs/spec/C5-khung-app/spec.md)) | `docs/spec/app/`<br>`docs/spec/C5-khung-app/` | docs/new/navigation.md:60 |
+| 4 khu chính, chuyển bằng thanh bên → Landing / | Trang chủ, chân thanh bên | APP-12 Liên kết về trang chủ website ([docs/spec/app/spec.md:92](../../docs/spec/app/spec.md))<br>C5-07 Chân thanh bên ([docs/spec/C5-khung-app/spec.md:39](../../docs/spec/C5-khung-app/spec.md)) | `docs/spec/app/`<br>`docs/spec/C5-khung-app/` | docs/new/navigation.md:60 |
 | 4 khu chính, chuyển bằng thanh bên → Đăng nhập /dang-nhap | Đăng xuất | AU-05 Trang cần đăng nhập ([docs/spec/AU-tai-khoan/spec.md:31](../../docs/spec/AU-tai-khoan/spec.md)) | `docs/spec/AU-tai-khoan/` | docs/new/navigation.md:62 |
 
 ## 2. Luồng khởi động

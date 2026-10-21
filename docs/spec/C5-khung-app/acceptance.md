@@ -10,5 +10,5 @@
   - Bằng chứng: test tests/unit/shell.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] C5-AC05 [claude] C5-02, C5-05: Ảnh chụp 375 px: header có nút menu, logo, chọn ngôn ngữ giao diện, nút sáng tối 36 px; menu mở trượt từ trái, có lớp phủ; không cuộn ngang.
   - Bằng chứng: ảnh và số đo docs/evidence/C5-AC05/ (375 px, menu đóng và mở, sáng và tối): header có nút menu 44 px, logo, ô chọn ngôn ngữ giao diện 36 px cao, nút sáng tối 36 px; menu mở là thanh bên 240 px từ mép trái kèm lớp phủ; không cuộn ngang; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d
-- [ ] C5-AC06 [auto] C5-07: Chân thanh bên có liên kết "Trang chủ" về Landing, email người đang đăng nhập; ở chế độ trên máy có dòng báo chế độ thử.
-  - Bằng chứng: test tests/unit/shell.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
+- [x] C5-AC06 [auto] C5-07: Chân thanh bên có liên kết "Trang chủ" về Landing, email người đang đăng nhập; ở chế độ trên máy có dòng báo chế độ thử.
+  - Bằng chứng: test tests/unit/shell.test.tsx pass (npm test, 234/234), Claude, 2026-10-21, commit 36c32ed
