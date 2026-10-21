@@ -29,10 +29,14 @@ const safari = asVoices([v('Daniel', 'en-GB'), v('Samantha', 'en-US', { default:
 
 describe('S8-02 giọng Tự động', () => {
   // @ac S8-AC11
-  it('ưu tiên giọng Google đúng vùng, rồi giọng Google khác, rồi giọng chất lượng cao, rồi giọng mặc định', () => {
-    expect(autoVoice('en', 'en-US', chromeWin, true)?.name).toBe('Google US English');
-    expect(autoVoice('en', 'en-GB', chromeWin, true)?.name).toBe('Google UK English Female');
-    expect(autoVoice('en', 'en-AU', chromeWin, true)?.name).toBe('Google US English');
+  it('ưu tiên giọng chất lượng cao, giọng đúng vùng, giọng mặc định; giọng Google xếp cuối', () => {
+    expect(autoVoice('en', 'en-US', chromeWin, true)?.name).toBe('Microsoft David - English (United States)');
+    expect(autoVoice('en', 'en-GB', chromeWin, true)?.name).toBe('Microsoft Hazel - English (United Kingdom)');
+    expect(autoVoice('en', 'en-AU', chromeWin, true)?.name).toBe('Microsoft David - English (United States)');
+    // Chỉ còn giọng Google: chọn giọng Google đúng vùng.
+    const googleOnly = asVoices(chromeWin.filter((x) => x.name.startsWith('Google')) as unknown as V[]);
+    expect(autoVoice('en', 'en-US', googleOnly, true)?.name).toBe('Google US English');
+    expect(autoVoice('en', 'en-GB', googleOnly, true)?.name).toBe('Google UK English Female');
     expect(autoVoice('vi', 'vi-VN', chromeWin, true)?.name).toBe('Microsoft An - Vietnamese (Vietnam)');
     expect(autoVoice('en', 'en-US', edge, true)?.name).toBe('Microsoft Aria Online (Natural) - English (United States)');
     expect(autoVoice('en', 'en-US', safari, true)?.name).toBe('Samantha');
@@ -46,7 +50,7 @@ describe('S8-02 giọng Tự động', () => {
     expect(autoVoice('en', 'en-GB', chromeWin, false)?.name).toBe('Microsoft Hazel - English (United Kingdom)');
     expect(pickVoice('en', 'en-US', chromeWin, 'Microsoft Zira - English (United States)')?.name).toBe('Microsoft Zira - English (United States)');
     // Giọng đã chọn không còn trên máy: về Tự động.
-    expect(pickVoice('en', 'en-US', chromeWin, 'khong-con')?.name).toBe('Google US English');
+    expect(pickVoice('en', 'en-US', chromeWin, 'khong-con')?.name).toBe('Microsoft David - English (United States)');
   });
 });
 
@@ -76,10 +80,10 @@ describe('S8-02 đọc lại khi giọng cần mạng lỗi', () => {
   }
 
   // @ac S8-AC11
-  it('giọng Google lỗi mạng trước khi đọc: đọc lại một lần bằng giọng trên máy; lỗi do dừng thì không đọc lại', () => {
+  it('giọng Google đã chọn lỗi mạng trước khi đọc: đọc lại một lần bằng giọng trên máy; lỗi do dừng thì không đọc lại', () => {
     const spoken = install(chromeWin);
     const onEnd = vi.fn();
-    speak({ text: 'Hello', lang: 'en', locale: 'en-US', rate: 1, onEnd });
+    speak({ text: 'Hello', lang: 'en', locale: 'en-US', voiceURI: 'Google US English', rate: 1, onEnd });
     expect(spoken).toHaveLength(1);
     expect(spoken[0].voice?.name).toBe('Google US English');
     spoken[0].onerror!({ error: 'network' });
@@ -89,7 +93,7 @@ describe('S8-02 đọc lại khi giọng cần mạng lỗi', () => {
     spoken[1].onend!();
     expect(onEnd).toHaveBeenCalledTimes(1);
 
-    speak({ text: 'Hello', lang: 'en', locale: 'en-US', rate: 1, onEnd });
+    speak({ text: 'Hello', lang: 'en', locale: 'en-US', voiceURI: 'Google US English', rate: 1, onEnd });
     spoken[2].onerror!({ error: 'interrupted' });
     expect(spoken).toHaveLength(3);
     expect(onEnd).toHaveBeenCalledTimes(2);

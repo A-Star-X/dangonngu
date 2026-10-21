@@ -1,5 +1,5 @@
 'use client';
-// @spec C1-01, C1-02, C1-03, C1-04, C1-05, C1-06, C1-07, C1-08
+// @spec C1-01, C1-02, C1-03, C1-04, C1-05, C1-06, C1-07, C1-08, C1-09
 import { useEffect, useRef, type KeyboardEvent, type ReactNode } from 'react';
 import { Repeat, Square, Volume2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -29,7 +29,7 @@ export interface SentenceCardProps {
   autoFocus?: boolean;
 }
 
-export function SourceText({ item, lang, className }: { item: Item; lang: string; className?: string }) {
+export function SourceText({ item, lang, className, word }: { item: Item; lang: string; className?: string; word?: [number, number] | null }) {
   const cls = cn('src text-left text-foreground [overflow-wrap:anywhere] [&_rt]:text-sm [&_rt]:text-muted-foreground', sentenceSize(item.en), className);
   if (item.furigana) {
     return (
@@ -46,6 +46,19 @@ export function SourceText({ item, lang, className }: { item: Item; lang: string
             <span key={i}>{seg[0]}</span>
           ),
         )}
+      </p>
+    );
+  }
+  // C1-09: tô nền và gạch chân chữ đang đọc; không đổi cỡ, độ đậm nên các chữ khác không xê dịch.
+  if (word) {
+    const [s, e] = word;
+    return (
+      <p className={cls} lang={lang} data-testid="source-text">
+        {item.en.slice(0, s)}
+        <mark className="rounded-sm bg-sidebar-accent text-foreground underline decoration-primary decoration-2 underline-offset-4 [box-decoration-break:clone]" data-testid="speaking-word">
+          {item.en.slice(s, e)}
+        </mark>
+        {item.en.slice(e)}
       </p>
     );
   }
@@ -119,7 +132,7 @@ export function SentenceCard({ item, lang, locale, langName, covered = false, on
         </button>
       ) : (
         <div className="flex flex-col gap-2 motion-safe:animate-[card-reveal_var(--d-reveal)_ease-out] focus:outline-none" data-testid="card-source" ref={revealedRef} tabIndex={-1}>
-          <SourceText item={item} lang={lang} />
+          <SourceText item={item} lang={lang} word={speaker.word} />
           {item.reading && !item.furigana && (
             <p className="text-sm text-muted-foreground" lang={lang}>
               {item.reading}

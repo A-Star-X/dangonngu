@@ -482,7 +482,8 @@ function ListenChoose(props: { d: LanguageData; item: Item; answered: boolean; k
           )}
           {showText && (
             <div className="w-full" data-testid="s5-source">
-              <SourceText item={item} lang={d.lang} />
+              {/* @spec C1-09: tô sáng chữ đang đọc khi nghe lại sau khi đã trả lời. */}
+              <SourceText item={item} lang={d.lang} word={speaker.word} />
             </div>
           )}
           {noVoice && <p className="text-description">{t('noVoice')}</p>}

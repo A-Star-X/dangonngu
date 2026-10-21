@@ -313,7 +313,8 @@ function CheckStep(props: {
         {t('question')}
       </p>
       <CardCustom className="flex flex-col items-start gap-3 p-4 sm:p-6">
-        <SourceText item={item} lang={d.lang} />
+        {/* @spec C1-09: tô sáng chữ đang đọc khi bấm Nghe. */}
+        <SourceText item={item} lang={d.lang} word={speaker.word} />
         <AudioButton locked={speaker.noVoice || !speaker.ready} active={speaker.playing === 'once'} kind="once" onClick={() => speaker.toggle('once')} />
         {(speaker.noVoice || !speaker.ready) && <NoVoice langName={name(language, true)} onOpenVoices={() => nav('cai-dat', { giong: 1 })} pending={!speaker.ready} />}
       </CardCustom>

@@ -1,0 +1,50 @@
+{
+  "375": {
+    "cau": "Where is room twelve?",
+    "chuDangTo": "is",
+    "khungTruoc": {
+      "w": 311,
+      "h": 80
+    },
+    "khungSau": {
+      "w": 311,
+      "h": 80
+    },
+    "soKyTuXeDich": 1,
+    "lechMoiKyTu": [
+      "0,0",
+      "0.1,0"
+    ],
+    "mark": {
+      "nen": "rgb(251, 233, 229)",
+      "chu": "rgb(15, 30, 61)",
+      "coChu": "32px",
+      "doDam": "400",
+      "gachChan": "underline 2px rgb(201, 48, 26)"
+    }
+  },
+  "1280": {
+    "cau": "Where is room twelve?",
+    "chuDangTo": "is",
+    "khungTruoc": {
+      "w": 512,
+      "h": 40
+    },
+    "khungSau": {
+      "w": 512,
+      "h": 40
+    },
+    "soKyTuXeDich": 4,
+    "lechMoiKyTu": [
+      "0,0",
+      "0.1,0"
+    ],
+    "mark": {
+      "nen": "rgb(251, 233, 229)",
+      "chu": "rgb(15, 30, 61)",
+      "coChu": "32px",
+      "doDam": "400",
+      "gachChan": "underline 2px rgb(201, 48, 26)"
+    }
+  }
+}
