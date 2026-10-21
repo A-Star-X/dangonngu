@@ -2,7 +2,7 @@
 id: FND
 title: Nền tảng thiết kế
 status: nháp
-version: 1.1
+version: 1.2
 ---
 
 # FND Nền tảng thiết kế
@@ -40,7 +40,7 @@ Màu Badge trạng thái lấy từ `statusBadgeClass` (`src/utils/status-badge-
 
 ### FND-02 Quy tắc dùng màu
 
-`primary` chỉ dùng cho tối đa một nút chính trên mỗi màn và cho ô đang học của dải 8 ô; không dùng làm nền khối lớn. Ngoại lệ: cột hôm nay của biểu đồ T4-04. Trả lời sai dùng đỏ `danger` (viền, icon dấu x, chữ "Chưa đúng") trên nền nhạt `danger-soft` để người học thấy ngay; `danger` là đỏ thuần, khác `primary` đỏ cam, và chỉ dùng cho trả lời chưa đúng, lỗi nhập ở ô (AU-03, S8-05) và hành động xóa (nút xóa nền `danger`, chữ `danger-foreground`). Trạng thái "Cần ôn" dùng `warning`. Ngoại lệ thêm của Đợt 6: nền accent (`sidebar-accent`) cho mục đang chọn (thanh bên, nút chọn cách xem và khoảng, dòng đang xem ở T3), ô icon tính năng và số thứ tự ba bước (T2, Landing), khối lời mời cuối Landing; icon nhỏ màu `primary` trên nền đó; viền `primary` nhạt quanh dòng Tiếng Anh ở S1 (S1-01); dấu tích màu `primary` của lựa chọn đang chọn (C8, sheet Đổi ngôn ngữ) và của danh sách ý ở trang đăng nhập, đăng ký. Lớp hướng dẫn S9 không có nút nền `primary`: nút chính của màn là nút đang được làm nổi bên dưới. Mọi cặp chữ/nền đạt tương phản tối thiểu 4.5:1, chữ lớn từ 24 px tối thiểu 3:1.
+`primary` chỉ dùng cho tối đa một nút chính trên mỗi màn và cho ô đang học của dải 8 ô; không dùng làm nền khối lớn. Ngoại lệ: cột hôm nay của biểu đồ T4-04. Trả lời sai dùng đỏ `danger` (viền, icon dấu x, chữ "Chưa đúng") trên nền nhạt `danger-soft` để người học thấy ngay; `danger` là đỏ thuần, khác `primary` đỏ cam, và chỉ dùng cho trả lời chưa đúng, lỗi nhập ở ô (AU-03, S8-05) và hành động xóa (nút xóa nền `danger`, chữ `danger-foreground`). Trạng thái "Cần ôn" dùng `warning`. Ngoại lệ thêm của Đợt 6: nền accent (`sidebar-accent`) cho mục đang chọn (thanh bên, nút chọn cách xem và khoảng, dòng đang xem ở T3), ô icon tính năng và số thứ tự ba bước (T2, Landing), khối lời mời cuối Landing, nền chữ đang đọc trong câu gốc (C1-09, kèm gạch chân màu `primary`); icon nhỏ màu `primary` trên nền đó; viền `primary` nhạt quanh dòng Tiếng Anh ở S1 (S1-01); dấu tích màu `primary` của lựa chọn đang chọn (C8, sheet Đổi ngôn ngữ) và của danh sách ý ở trang đăng nhập, đăng ký. Lớp hướng dẫn S9 không có nút nền `primary`: nút chính của màn là nút đang được làm nổi bên dưới. Mọi cặp chữ/nền đạt tương phản tối thiểu 4.5:1, chữ lớn từ 24 px tối thiểu 3:1.
 
 ### FND-03 Sáng và tối
 
@@ -156,3 +156,4 @@ Mọi ô tìm kiếm cập nhật chữ trong ô ngay khi gõ, nhưng chỉ giá
 - 0.6 (20/10/2026): Đợt 5 việc 2: FND-05 nâng `--t-sm` lên 14 px, nới khoảng dòng, giãn chữ âm cho chữ lớn; FND-07 thêm nhịp dọc; thêm FND-15 thứ bậc chữ (theo rà soát `docs/theo-doi/ra-soat-ui-dot5.md`). Sửa câu khoảng dòng cho khớp bảng: 1,4 lần cho `--t-sm` đến `--t-lg`, 1,2 lần từ `--t-xl` (bản đầu ghi 1,5 cho mọi chữ giao diện, mâu thuẫn với `--t-sm` 14/20 và tiêu đề màn 25/34, phát hiện khi đo FND-AC19).
 - 1.0 (21/10/2026): Đợt 6, theo rule giao diện của nhóm: token Tailwind trong `src/styles/theme.css` (FND-01), thang chữ 12 đến 24 px với một cỡ hiển thị 32 px (FND-05, FND-06), bo góc 8/8/6 px (FND-08), icon lucide (FND-10), nhịp khoảng cách theo khung C5 (FND-07), vùng chạm 40 đến 44 px và ô 36 px trên header (FND-14), thứ bậc chữ theo PageHeader (FND-15); thêm FND-16 ô tìm kiếm chờ ngừng gõ. FND-09 ghi thêm các chỗ có bóng (danh sách ô chọn, bong bóng S9, ảnh chụp ở Landing) cho khớp FND-AC08. FND-01 `warning-soft` sáng đổi `#FBF1E1` thành `#FCF4E6` để chữ `warning` trên nền này đạt 4.5:1 (FND-AC02).
 - 1.1 (21/10/2026): theo rà soát ảnh bằng chứng Đợt 6: FND-02 liệt kê đủ chỗ dùng nền accent; FND-05 ghi khoảng dòng của `text-display-lg`. FND-01 thêm `danger-foreground`; FND-02 ghi đủ các chỗ dùng `primary`, `danger` (lỗi nhập ở ô, nút xóa) và lớp hướng dẫn S9.
+- 1.2 (21/10/2026): theo leader: FND-02 thêm nền accent cho chữ đang đọc trong câu gốc (C1-09).

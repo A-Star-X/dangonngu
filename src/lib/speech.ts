@@ -1,4 +1,4 @@
-// @spec C1-04, C1-05, S8-02
+// @spec C1-04, C1-05, C1-09, S8-02
 // Bọc speechSynthesis. Không có giọng đọc thì báo để giao diện khóa nút (C1-05). Chọn giọng tự động theo S8-02.
 import { useEffect, useState } from 'react';
 
@@ -39,9 +39,9 @@ const QUALITY = /\b(natural|neural|online|enhanced|premium)\b/i;
 const isGoogle = (v: SpeechSynthesisVoice) => /^google\b/i.test(v.name);
 
 /**
- * S8-02: giọng dùng khi người học để "Tự động". Thứ tự ưu tiên: giọng Google đúng vùng (ví dụ "Google US English"
- * cho en-US), giọng Google khác cùng ngôn ngữ, giọng chất lượng cao, giọng đúng vùng, giọng mặc định của thiết bị,
- * rồi giọng đầu tiên. Khi đang ngoại tuyến bỏ qua giọng cần mạng (giọng Google trên Chrome).
+ * S8-02: giọng dùng khi người học để "Tự động". Thứ tự ưu tiên: giọng chất lượng cao, giọng đúng vùng, giọng mặc định
+ * của thiết bị, giọng khác, cuối cùng là giọng Google (đúng vùng trước): giọng Google trên Chrome không báo vị trí chữ
+ * đang đọc nên không tô sáng được (C1-09). Khi đang ngoại tuyến bỏ qua giọng cần mạng.
  */
 export function autoVoice(lang: string, locale: string | undefined, all: SpeechSynthesisVoice[], online = navigatorOnline()): SpeechSynthesisVoice | undefined {
   let list = voicesFor(lang, all);
@@ -52,10 +52,10 @@ export function autoVoice(lang: string, locale: string | undefined, all: SpeechS
   const loc = locale ? norm(locale) : undefined;
   const sameLoc = (v: SpeechSynthesisVoice) => loc !== undefined && norm(v.lang) === loc;
   const rank = (v: SpeechSynthesisVoice) => {
-    if (isGoogle(v)) return sameLoc(v) ? 0 : 1;
-    if (QUALITY.test(v.name)) return sameLoc(v) ? 2 : 3;
-    if (sameLoc(v)) return v.default ? 4 : 5;
-    return v.default ? 6 : 7;
+    if (isGoogle(v)) return sameLoc(v) ? 6 : 7;
+    if (QUALITY.test(v.name)) return sameLoc(v) ? 0 : 1;
+    if (sameLoc(v)) return v.default ? 2 : 3;
+    return v.default ? 4 : 5;
   };
   let best: SpeechSynthesisVoice | undefined;
   for (const v of list) if (!best || rank(v) < rank(best)) best = v;
@@ -79,6 +79,15 @@ export interface SpeakOptions {
   voiceURI?: string;
   rate: number;
   onEnd?: () => void;
+  /** C1-09: trình duyệt báo đang đọc tới chữ nằm trong khoảng [start, end) của `text`. */
+  onWord?: (start: number, end: number) => void;
+}
+
+/** Cuối chữ bắt đầu ở `start`, khi trình duyệt không báo độ dài chữ (`charLength`). */
+export function wordEnd(text: string, start: number): number {
+  const rest = text.slice(start);
+  const m = /^[\p{L}\p{M}\p{N}'’-]+/u.exec(rest) ?? /^\S+/.exec(rest);
+  return start + (m ? m[0].length : 0);
 }
 
 export function speak(o: SpeakOptions): boolean {
@@ -95,6 +104,12 @@ export function speak(o: SpeakOptions): boolean {
       started = true;
     };
     u.onend = () => o.onEnd?.();
+    u.onboundary = (e: SpeechSynthesisEvent) => {
+      if (!o.onWord || (e.name && e.name !== 'word')) return;
+      const start = e.charIndex;
+      const end = e.charLength ? start + e.charLength : wordEnd(o.text, start);
+      if (end > start) o.onWord(start, end);
+    };
     u.onerror = (e: Event) => {
       const code = (e as SpeechSynthesisErrorEvent).error;
       // Giọng cần mạng (giọng Google trên Chrome) lỗi khi mất mạng: đọc lại một lần bằng giọng có sẵn trên máy.

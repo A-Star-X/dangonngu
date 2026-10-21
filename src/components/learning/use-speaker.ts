@@ -1,5 +1,5 @@
 'use client';
-// @spec C1-04, C1-05
+// @spec C1-04, C1-05, C1-09
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { speak, stopSpeaking, voicesFor } from '@/lib/speech';
 import { useLearning } from '@/providers/learning-provider';
@@ -10,6 +10,8 @@ export type Playing = 'idle' | 'once' | 'loop';
 export function useSpeaker(text: string, lang: string, locale?: string) {
   const { settings, voices, voicesReady } = useLearning();
   const [playing, setPlaying] = useState<Playing>('idle');
+  /** C1-09: khoảng [start, end) của chữ đang đọc; null khi không đọc hoặc trình duyệt không báo vị trí. */
+  const [word, setWord] = useState<[number, number] | null>(null);
   const mode = useRef<Playing>('idle');
   const timer = useRef<number | undefined>(undefined);
   // Mỗi lượt bấm có một số thứ tự. Trình duyệt báo "đọc xong" cho câu đã bị hủy một lúc sau đó;
@@ -25,6 +27,7 @@ export function useSpeaker(text: string, lang: string, locale?: string) {
     if (mode.current !== 'idle') stopSpeaking();
     mode.current = 'idle';
     setPlaying('idle');
+    setWord(null);
   }, []);
 
   useEffect(() => {
@@ -38,6 +41,7 @@ export function useSpeaker(text: string, lang: string, locale?: string) {
     const g = ++gen.current;
     mode.current = m;
     setPlaying(m);
+    setWord(null);
     const once = (): boolean =>
       speak({
         text,
@@ -45,8 +49,12 @@ export function useSpeaker(text: string, lang: string, locale?: string) {
         locale,
         voiceURI: settings.voiceByLang[lang],
         rate: settings.rate,
+        onWord: (s, e) => {
+          if (g === gen.current) setWord([s, e]);
+        },
         onEnd: () => {
           if (g !== gen.current) return;
+          setWord(null);
           if (mode.current === 'loop') timer.current = window.setTimeout(once, 1500);
           else if (mode.current === 'once') {
             mode.current = 'idle';
@@ -59,6 +67,7 @@ export function useSpeaker(text: string, lang: string, locale?: string) {
 
   return {
     playing,
+    word,
     noVoice,
     ready: voicesReady,
     toggle: (m: Exclude<Playing, 'idle'>) => (mode.current === m ? stop() : start(m)),
