@@ -1,4 +1,4 @@
-// @spec C1-04, C1-05, S8-02
+// @spec C1-04, C1-05, C1-09, S8-02
 // Bọc speechSynthesis. Không có giọng đọc thì báo để giao diện khóa nút (C1-05). Chọn giọng tự động theo S8-02.
 import { useEffect, useState } from 'react';
 
@@ -79,6 +79,15 @@ export interface SpeakOptions {
   voiceURI?: string;
   rate: number;
   onEnd?: () => void;
+  /** C1-09: trình duyệt báo đang đọc tới chữ nằm trong khoảng [start, end) của `text`. */
+  onWord?: (start: number, end: number) => void;
+}
+
+/** Cuối chữ bắt đầu ở `start`, khi trình duyệt không báo độ dài chữ (`charLength`). */
+export function wordEnd(text: string, start: number): number {
+  const rest = text.slice(start);
+  const m = /^[\p{L}\p{M}\p{N}'’-]+/u.exec(rest) ?? /^\S+/.exec(rest);
+  return start + (m ? m[0].length : 0);
 }
 
 export function speak(o: SpeakOptions): boolean {
@@ -95,6 +104,12 @@ export function speak(o: SpeakOptions): boolean {
       started = true;
     };
     u.onend = () => o.onEnd?.();
+    u.onboundary = (e: SpeechSynthesisEvent) => {
+      if (!o.onWord || (e.name && e.name !== 'word')) return;
+      const start = e.charIndex;
+      const end = e.charLength ? start + e.charLength : wordEnd(o.text, start);
+      if (end > start) o.onWord(start, end);
+    };
     u.onerror = (e: Event) => {
       const code = (e as SpeechSynthesisErrorEvent).error;
       // Giọng cần mạng (giọng Google trên Chrome) lỗi khi mất mạng: đọc lại một lần bằng giọng có sẵn trên máy.

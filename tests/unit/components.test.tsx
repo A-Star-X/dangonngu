@@ -66,6 +66,63 @@ describe('C1 Thẻ câu', () => {
     expect(synth.cancel).toHaveBeenCalled();
   });
 
+  // @ac C1-AC11
+  it('tô sáng chữ trình duyệt báo đang đọc; bỏ tô khi đọc xong, Dừng, giữa hai lượt Nghe lặp; không báo vị trí thì không tô', async () => {
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
+    const synth = fakeSpeech([{ lang: 'en-US', voiceURI: 'us', name: 'US' }]);
+    type U = { text: string; onboundary?: (e: unknown) => void; onend: (() => void) | null };
+    const last = () => synth.speak.mock.calls.at(-1)![0] as U;
+    const sentence = { id: 2, en: "I'd like to book a table for two.", vi: 'Tôi muốn đặt một bàn cho hai người.' };
+    const { container, unmount } = withProviders(<SentenceCard item={sentence} lang="en" langName="tiếng Anh" />);
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(0);
+    });
+    const source = () => card(container).querySelector<HTMLElement>('[data-testid="source-text"]')!;
+    const marks = () => source().querySelectorAll('mark');
+    const boundary = (charIndex: number, charLength?: number) => act(() => last().onboundary?.({ name: 'word', charIndex, charLength }));
+
+    fireEvent.click(screen.getByRole('button', { name: /^Nghe$/ }));
+    boundary(sentence.en.indexOf('table'), 5);
+    expect(marks()).toHaveLength(1);
+    expect(marks()[0]).toHaveTextContent(/^table$/);
+    expect(source()).toHaveTextContent(sentence.en);
+    // Không có charLength: tự tìm hết chữ, không lấy dấu chấm.
+    boundary(sentence.en.indexOf('two'));
+    expect(marks()[0]).toHaveTextContent(/^two$/);
+    act(() => last().onend?.());
+    expect(marks()).toHaveLength(0);
+
+    fireEvent.click(screen.getByRole('button', { name: /^Nghe$/ }));
+    boundary(0, 3);
+    fireEvent.click(screen.getByRole('button', { name: 'Dừng' }));
+    expect(marks()).toHaveLength(0);
+
+    fireEvent.click(screen.getByRole('button', { name: /Nghe lặp/ }));
+    boundary(sentence.en.indexOf('book'), 4);
+    expect(marks()[0]).toHaveTextContent(/^book$/);
+    act(() => last().onend?.());
+    expect(marks()).toHaveLength(0);
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(1500);
+    });
+    expect(synth.speak).toHaveBeenCalledTimes(4);
+    // Lượt mới không báo vị trí: không tô.
+    expect(marks()).toHaveLength(0);
+    unmount();
+
+    // Câu có furigana (ruby) thì không tô.
+    const ja = { id: 3, en: '日本語', vi: 'Tiếng Nhật', furigana: [['日本語', 'にほんご']] as [string, string][] };
+    const jaSynth = fakeSpeech([{ lang: 'ja-JP', voiceURI: 'ja', name: 'JA' }]);
+    const r = withProviders(<SentenceCard item={ja} lang="ja" langName="tiếng Nhật" />);
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(0);
+    });
+    fireEvent.click(screen.getByRole('button', { name: /^Nghe$/ }));
+    act(() => (jaSynth.speak.mock.calls.at(-1)![0] as U).onboundary?.({ name: 'word', charIndex: 0, charLength: 3 }));
+    expect(card(r.container).querySelector('ruby')).not.toBeNull();
+    expect(card(r.container).querySelector('mark')).toBeNull();
+  });
+
   // @ac C1-AC06
   it('không có giọng ngôn ngữ đích: nút khóa, có câu thông báo và liên kết mở Giọng đọc', async () => {
     fakeSpeech([{ lang: 'vi-VN', voiceURI: 'vi', name: 'VI' }]);
