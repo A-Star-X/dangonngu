@@ -1,6 +1,6 @@
 # Báo cáo acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-21 11:30 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-21 11:41 UTC. Không sửa tay.
 
 Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã được đánh dấu [x].
 
@@ -97,7 +97,7 @@ Tổng: 221/249 mục đã đạt.
 
 - S8-AC03 [human] (S8-02): Trên iPhone, Android và Windows: ô chọn giọng hiện đúng các giọng của máy; "Nghe thử" phát đúng giọng đang chọn.
 - S8-AC07 [human] (S8-05): Trên iPhone (Safari) và Android (Chrome): "Xuất tiến độ" tải được file về máy và "Nhập tiến độ" chọn được chính file đó.
-- S8-AC12 [human] (S8-02): Trên Chrome máy tính (Windows hoặc Mac) có mạng, xóa dữ liệu trang rồi mở app lần đầu, không chọn giọng: câu tiếng Anh được đọc bằng giọng Google; ít nhất 3 người thử thấy giọng này dễ nghe hơn giọng mặc định của máy (so bằng "Nghe thử" trong Cài đặt > Giọng đọc).
+- S8-AC12 [human] (S8-02, C1-09): Trên Chrome máy tính (Windows hoặc Mac) có mạng, xóa dữ liệu trang rồi mở app lần đầu, không chọn giọng: câu tiếng Anh được đọc bằng giọng có sẵn trên máy và chữ đang đọc được tô sáng; ít nhất 3 người thử thấy giọng này đủ dễ nghe để học (so với giọng Google bằng "Nghe thử" trong Cài đặt > Giọng đọc).
 
 ### S9 Hướng dẫn lần đầu
 
