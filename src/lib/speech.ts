@@ -39,9 +39,9 @@ const QUALITY = /\b(natural|neural|online|enhanced|premium)\b/i;
 const isGoogle = (v: SpeechSynthesisVoice) => /^google\b/i.test(v.name);
 
 /**
- * S8-02: giọng dùng khi người học để "Tự động". Thứ tự ưu tiên: giọng Google đúng vùng (ví dụ "Google US English"
- * cho en-US), giọng Google khác cùng ngôn ngữ, giọng chất lượng cao, giọng đúng vùng, giọng mặc định của thiết bị,
- * rồi giọng đầu tiên. Khi đang ngoại tuyến bỏ qua giọng cần mạng (giọng Google trên Chrome).
+ * S8-02: giọng dùng khi người học để "Tự động". Thứ tự ưu tiên: giọng chất lượng cao, giọng đúng vùng, giọng mặc định
+ * của thiết bị, giọng khác, cuối cùng là giọng Google (đúng vùng trước): giọng Google trên Chrome không báo vị trí chữ
+ * đang đọc nên không tô sáng được (C1-09). Khi đang ngoại tuyến bỏ qua giọng cần mạng.
  */
 export function autoVoice(lang: string, locale: string | undefined, all: SpeechSynthesisVoice[], online = navigatorOnline()): SpeechSynthesisVoice | undefined {
   let list = voicesFor(lang, all);
@@ -52,10 +52,10 @@ export function autoVoice(lang: string, locale: string | undefined, all: SpeechS
   const loc = locale ? norm(locale) : undefined;
   const sameLoc = (v: SpeechSynthesisVoice) => loc !== undefined && norm(v.lang) === loc;
   const rank = (v: SpeechSynthesisVoice) => {
-    if (isGoogle(v)) return sameLoc(v) ? 0 : 1;
-    if (QUALITY.test(v.name)) return sameLoc(v) ? 2 : 3;
-    if (sameLoc(v)) return v.default ? 4 : 5;
-    return v.default ? 6 : 7;
+    if (isGoogle(v)) return sameLoc(v) ? 6 : 7;
+    if (QUALITY.test(v.name)) return sameLoc(v) ? 0 : 1;
+    if (sameLoc(v)) return v.default ? 2 : 3;
+    return v.default ? 4 : 5;
   };
   let best: SpeechSynthesisVoice | undefined;
   for (const v of list) if (!best || rank(v) < rank(best)) best = v;
