@@ -1,8 +1,8 @@
 # Ma trận truy vết spec, code và acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-21 11:41 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-21 12:28 UTC. Không sửa tay.
 
-Tổng: 181 yêu cầu, 249 mục acceptance, 665 ghi chú @spec/@ac trong code.
+Tổng: 181 yêu cầu, 250 mục acceptance, 668 ghi chú @spec/@ac trong code.
 
 Yêu cầu chưa có code gắn @spec: 15/181.
 
@@ -59,7 +59,7 @@ Spec: [docs/spec/foundation/spec.md](../../docs/spec/foundation/spec.md) · Acce
 | FND-09 | Đổ bóng | FND-AC08 | - | src/styles/theme.css:1 | - |
 | FND-10 | Icon | FND-AC09 | - | - | - |
 | FND-11 | Chuyển động | FND-AC10, FND-AC11 | - | src/providers/toast-provider.tsx:2<br>src/styles/theme.css:1 | tests/e2e/app.spec.ts:115 |
-| FND-12 | Giọng văn và từ ngữ | FND-AC12, FND-AC13 | - | src/domain/text.ts:29 | tests/unit/speech.test.ts:104<br>tests/unit/speech.test.ts:111 |
+| FND-12 | Giọng văn và từ ngữ | FND-AC12, FND-AC13 | - | src/domain/text.ts:29 | tests/unit/speech.test.ts:100<br>tests/unit/speech.test.ts:107 |
 | FND-13 | Quy tắc tránh giao diện kiểu AI | FND-AC14 | - | - | - |
 | FND-14 | Trợ năng chung | APP-AC25, FND-AC15, FND-AC16, FND-AC17 | - | src/styles/typography.css:1 | tests/e2e/app.spec.ts:215<br>tests/e2e/dot2.spec.ts:18<br>tests/e2e/dot2.spec.ts:105<br>tests/e2e/dot5-responsive.spec.ts:17 |
 | FND-15 | Thứ bậc chữ | FND-AC18 | - | src/styles/typography.css:1<br>src/views/kiem-tra/index.tsx:356<br>src/views/phien-hoc/index.tsx:235 | tests/e2e/dot5-chu.spec.ts:23<br>tests/e2e/dot5-chu.spec.ts:55 |
@@ -100,7 +100,7 @@ Spec: [docs/spec/C1-the-cau/spec.md](../../docs/spec/C1-the-cau/spec.md) · Acce
 | C1-06 | Dòng Cách dùng | C1-AC07 | - | src/components/learning/sentence-card.tsx:2 | tests/unit/components.test.tsx:170 |
 | C1-07 | Phiên âm | C1-AC07 | - | src/components/learning/sentence-card.tsx:2 | tests/unit/components.test.tsx:170 |
 | C1-08 | Thuộc tính ngôn ngữ | C1-AC08 | - | src/components/learning/sentence-card.tsx:2 | tests/unit/components.test.tsx:194 |
-| C1-09 | Tô sáng chữ đang đọc | C1-AC11, C1-AC12, C1-AC13, S8-AC12 | - | src/components/learning/sentence-card.tsx:2<br>src/components/learning/use-speaker.ts:2<br>src/lib/speech.ts:1<br>src/views/kiem-tra/index.tsx:485<br>src/views/phien-hoc/index.tsx:316 | tests/unit/components.test.tsx:69 |
+| C1-09 | Tô sáng chữ đang đọc | C1-AC11, C1-AC12, C1-AC13, C1-AC14 | - | src/components/learning/sentence-card.tsx:2<br>src/components/learning/use-speaker.ts:2<br>src/lib/speech.ts:1<br>src/views/kiem-tra/index.tsx:485<br>src/views/phien-hoc/index.tsx:316 | tests/unit/components.test.tsx:69<br>tests/unit/speech.test.ts:160<br>tests/unit/speech.test.ts:176<br>tests/unit/speech.test.ts:198 |
 
 ## C2 Dải 8 ô
 
@@ -273,7 +273,7 @@ Spec: [docs/spec/S8-cai-dat/spec.md](../../docs/spec/S8-cai-dat/spec.md) · Acce
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
 | S8-01 | Học tập | S8-AC01, S8-AC09, S8-AC10 | docs/new/navigation.md:591 | src/lib/route-memory.ts:1<br>src/views/cai-dat/index.tsx:2 | tests/unit/s8.test.tsx:37<br>tests/unit/s8.test.tsx:237 |
-| S8-02 | Giọng đọc | S8-AC02, S8-AC03, S8-AC09, S8-AC11, S8-AC12 | docs/new/navigation.md:183<br>docs/new/navigation.md:593 | src/lib/speech.ts:1<br>src/views/cai-dat/index.tsx:2<br>src/views/cai-dat/voices.tsx:2 | tests/unit/ra-soat.test.tsx:210<br>tests/unit/s8.test.tsx:76<br>tests/unit/s8.test.tsx:113<br>tests/unit/speech.test.ts:31<br>tests/unit/speech.test.ts:47<br>tests/unit/speech.test.ts:82 |
+| S8-02 | Giọng đọc | S8-AC02, S8-AC03, S8-AC09, S8-AC11, S8-AC12 | docs/new/navigation.md:183<br>docs/new/navigation.md:593 | src/lib/speech.ts:1<br>src/views/cai-dat/index.tsx:2<br>src/views/cai-dat/voices.tsx:2 | tests/unit/ra-soat.test.tsx:210<br>tests/unit/s8.test.tsx:76<br>tests/unit/s8.test.tsx:113<br>tests/unit/speech.test.ts:31<br>tests/unit/speech.test.ts:43<br>tests/unit/speech.test.ts:78 |
 | S8-03 | Âm thanh ngoại tuyến | S8-AC04 | - | - | tests/unit/s8.test.tsx:124 |
 | S8-04 | Giao diện | S8-AC05, S8-AC09 | - | src/views/cai-dat/index.tsx:2 | tests/unit/s8.test.tsx:131 |
 | S8-05 | Tiến độ | S8-AC06, S8-AC07, S8-AC09, S8-AC13 | docs/new/navigation.md:595<br>docs/new/navigation.md:597<br>docs/new/navigation.md:599 | src/domain/transfer.ts:1<br>src/views/cai-dat/delete-form.tsx:2<br>src/views/cai-dat/index.tsx:2<br>src/views/cai-dat/utils/file-io.ts:1 | tests/unit/dot2-data.test.ts:81<br>tests/unit/ra-soat.test.tsx:98<br>tests/unit/s8.test.tsx:148 |

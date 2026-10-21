@@ -1,6 +1,6 @@
 # Báo cáo acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-21 11:41 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-21 12:28 UTC. Không sửa tay.
 
 Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã được đánh dấu [x].
 
@@ -10,7 +10,7 @@ Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã đ
 | APP | Khung app | 28/32 | 19/19 | 9/9 | 0/4 | Chưa |
 | FND | Nền tảng thiết kế | 17/20 | 9/9 | 8/8 | 0/3 | Chưa |
 | DATA | Dữ liệu và tiến độ | 23/25 | 21/21 | 2/2 | 0/2 | Chưa |
-| C1 | Thẻ câu | 11/13 | 9/9 | 2/2 | 0/2 | Chưa |
+| C1 | Thẻ câu | 12/14 | 10/10 | 2/2 | 0/2 | Chưa |
 | C2 | Dải 8 ô | 3/3 | 2/2 | 1/1 | - | Đạt |
 | C3 | Nút | 3/4 | 1/1 | 2/2 | 0/1 | Chưa |
 | C4 | Lựa chọn trắc nghiệm | 3/3 | 2/2 | 1/1 | - | Đạt |
@@ -31,7 +31,7 @@ Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã đ
 | T3 | Thư viện | 14/14 | 11/11 | 3/3 | - | Đạt |
 | T4 | Tiến độ | 10/11 | 8/8 | 2/2 | 0/1 | Chưa |
 
-Tổng: 221/249 mục đã đạt.
+Tổng: 222/250 mục đã đạt.
 
 ## Mục còn mở
 
@@ -63,7 +63,7 @@ Tổng: 221/249 mục đã đạt.
 ### C1 Thẻ câu
 
 - C1-AC05 [human] (C1-04): Trên iPhone, Android và Windows: Nghe đọc đúng câu bằng giọng tiếng Anh; Nghe lặp lặp lại và dừng được.
-- C1-AC13 [human] (C1-09): Trên Chrome, Edge và Safari thật, giọng tiếng Anh có sẵn trên máy: bấm Nghe thì chữ được tô chạy theo giọng đọc; với giọng không báo vị trí thì vẫn đọc bình thường.
+- C1-AC13 [human] (C1-09): Trên Chrome, Edge và Safari thật, giọng tiếng Anh "Tự động": bấm Nghe thì chữ được tô chạy theo giọng đọc (Safari và giọng trên máy khớp từng chữ; giọng Google trên Chrome gần đúng, lệch không quá khoảng một chữ sau lần đọc đầu).
 
 ### C3 Nút
 
@@ -97,7 +97,7 @@ Tổng: 221/249 mục đã đạt.
 
 - S8-AC03 [human] (S8-02): Trên iPhone, Android và Windows: ô chọn giọng hiện đúng các giọng của máy; "Nghe thử" phát đúng giọng đang chọn.
 - S8-AC07 [human] (S8-05): Trên iPhone (Safari) và Android (Chrome): "Xuất tiến độ" tải được file về máy và "Nhập tiến độ" chọn được chính file đó.
-- S8-AC12 [human] (S8-02, C1-09): Trên Chrome máy tính (Windows hoặc Mac) có mạng, xóa dữ liệu trang rồi mở app lần đầu, không chọn giọng: câu tiếng Anh được đọc bằng giọng có sẵn trên máy và chữ đang đọc được tô sáng; ít nhất 3 người thử thấy giọng này đủ dễ nghe để học (so với giọng Google bằng "Nghe thử" trong Cài đặt > Giọng đọc).
+- S8-AC12 [human] (S8-02): Trên Chrome máy tính (Windows hoặc Mac) có mạng, xóa dữ liệu trang rồi mở app lần đầu, không chọn giọng: câu tiếng Anh được đọc bằng giọng Google; ít nhất 3 người thử thấy giọng này dễ nghe hơn giọng mặc định của máy (so bằng "Nghe thử" trong Cài đặt > Giọng đọc).
 
 ### S9 Hướng dẫn lần đầu
 
