@@ -817,7 +817,7 @@ for (const theme of THEMES) {
 // ---------- S8 Cài đặt, C8 ô chọn ----------
 
 async function fakeVoices(page: Page) {
-  // Danh sách giọng giống Chrome trên Windows, để thấy "Tự động" chọn giọng trên máy, giọng Google xếp cuối (S8-02).
+  // Danh sách giọng giống Chrome trên Windows, để thấy "Tự động" chọn giọng Google (S8-02).
   await page.addInitScript(() => {
     const mk = (name: string, lang: string, localService: boolean, isDefault = false) => ({ name, lang, voiceURI: name, localService, default: isDefault });
     const list = [

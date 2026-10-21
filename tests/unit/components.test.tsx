@@ -106,7 +106,7 @@ describe('C1 Thẻ câu', () => {
       await vi.advanceTimersByTimeAsync(1500);
     });
     expect(synth.speak).toHaveBeenCalledTimes(4);
-    // Lượt mới không báo vị trí: không tô.
+    // Lượt mới chưa bắt đầu phát (chưa có onstart) và chưa báo vị trí: chưa tô.
     expect(marks()).toHaveLength(0);
     unmount();
 
