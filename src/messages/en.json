@@ -64,7 +64,7 @@
     },
     "reviewBadge": "{count, plural, one {# sentence} other {# sentences}} to review",
     "signOut": "Sign out",
-    "hostLink": "Main learning site",
+    "homeLink": "Home",
     "localMode": "Trial mode: your account and progress are stored on this device only.",
     "toDark": "Switch to dark theme",
     "toLight": "Switch to light theme"
@@ -74,7 +74,6 @@
     "openApp": "Go to app",
     "login": "Sign in",
     "register": "Sign up",
-    "hostLink": "Main learning site",
     "footer": "© {year} VITASR",
     "footerNav": "Footer links"
   },

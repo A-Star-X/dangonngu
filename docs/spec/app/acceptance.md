@@ -34,11 +34,11 @@ Khổ kiểm mặc định và quy tắc đánh dấu: `docs/QUY-TRINH.md` mục
   - Bằng chứng: test tests/unit/s8.test.tsx, tests/unit/t3.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] APP-AC17 [auto] APP-02, APP-06: Đang học Global English: nút ngôn ngữ trên thanh bên có "Tiếng Anh" và dòng nhỏ "Global English"; đang học Tiếng Nhật thì không có dòng tên bộ. Sheet Đổi ngôn ngữ có hai dòng cho Tiếng Anh; chọn dòng bộ còn lại thì đổi bộ, tiến độ hai bộ giữ riêng.
   - Bằng chứng: test tests/unit/app.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
-- [x] APP-AC18 [auto] APP-12: Chân thanh bên có liên kết "Trang học chính" với `href` bằng `NEXT_PUBLIC_HOST_URL` (mặc định `https://language.pomaskhoahocnaobo.com/`); Landing có liên kết này ở chân trang.
-  - Bằng chứng: test tests/unit/shell.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
-- [x] APP-AC19 [claude] APP-12, C5-07: Ảnh chụp chân thanh bên ở 375 px (menu mở) và 1280 px, sáng và tối: liên kết "Trang học chính" có icon mũi tên trái, vùng bấm cao từ 40 px.
-  - Bằng chứng: ảnh và số đo docs/evidence/APP-AC19/ (chân thanh bên ở 375 px menu mở và 1280 px, sáng và tối): liên kết "Trang học chính" có icon mũi tên trái, cao 40 px; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d
-- [ ] APP-AC20 [human] APP-09, APP-12: Trên trang học chính thật, mở Đa ngôn ngữ: website mở ở trang mới. Bấm "Trang học chính": về đúng trang học chính.
+- [x] APP-AC18 [auto] APP-12: Chân thanh bên có liên kết "Trang chủ" trỏ tới `/` của website (không trỏ tới `language.pomaskhoahocnaobo.com`); bấm thì mở Landing; bấm giữa phiên học thì hỏi trước khi rời.
+  - Bằng chứng: test tests/unit/shell.test.tsx pass (npm test, 234/234), Claude, 2026-10-21, commit 36c32ed
+- [x] APP-AC19 [claude] APP-12, C5-07: Ảnh chụp chân thanh bên ở 375 px (menu mở) và 1280 px, sáng và tối: liên kết "Trang chủ" có icon mũi tên trái, vùng bấm cao từ 40 px.
+  - Bằng chứng: ảnh và số đo docs/evidence/APP-AC19/ (chân thanh bên ở 375 px menu mở và 1280 px, sáng và tối): liên kết "Trang chủ" có icon mũi tên trái, `href` là `/`, cao 40 px; Claude xem từng ảnh, 2026-10-21, commit 36c32ed
+- [ ] APP-AC20 [human] APP-09: Trên trang học chính thật, mở Đa ngôn ngữ: website mở ở trang mới.
 - [x] APP-AC21 [auto] APP-04: Trên bản build, mở từng route (T1, T2, `/thu-vien?xem=unit&trinh-do=B2&trang=1`, `/thu-vien?xem=cau&q=book&trang=1`, `/thu-vien/unit?so=2`, T4 với `khoang=30`, S8, `/kiem-tra?unit=2`, S3) rồi tải lại trang: đúng màn và đúng trạng thái.
   - Bằng chứng: test tests/e2e/dot5-dieu-huong.spec.ts pass trên bản Next.js (npm run test:e2e), Claude, 2026-10-21, commit d720f7d
 - [x] APP-AC22 [auto] APP-04, APP-14: Chuỗi T1 → T3 → sang trang 2 → S10 → Back về T3 vẫn ở trang 2 → Forward về S10 → "Học unit này" → Thoát, Dừng thì về S10 (S3-07) → liên kết "Thư viện" trên đường dẫn mở lại T3 trang 2.

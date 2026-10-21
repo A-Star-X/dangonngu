@@ -1,6 +1,6 @@
 # Báo cáo acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-21 02:05 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-21 06:20 UTC. Không sửa tay.
 
 Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã được đánh dấu [x].
 
@@ -46,7 +46,7 @@ Tổng: 216/242 mục đã đạt.
 
 - APP-AC13 [human] (APP-07, APP-09): Mở app trên trình duyệt máy tính (Chrome, Edge, Safari) và trên điện thoại (iPhone, Android), mỗi nơi đi hết luồng chọn ngôn ngữ, học một phiên, xem tiến độ: hiển thị đủ, không có điều khiển bị che hay tràn.
 - APP-AC14 [human] (APP-10): Trên điện thoại thật: mở app có mạng, tắt mạng, đóng và mở lại app: vẫn học được ngôn ngữ đã tải.
-- APP-AC20 [human] (APP-09, APP-12): Trên trang học chính thật, mở Đa ngôn ngữ: website mở ở trang mới. Bấm "Trang học chính": về đúng trang học chính.
+- APP-AC20 [human] (APP-09): Trên trang học chính thật, mở Đa ngôn ngữ: website mở ở trang mới.
 
 ### FND Nền tảng thiết kế
 

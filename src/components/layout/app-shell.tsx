@@ -17,7 +17,7 @@ import { statusBadgeClass } from '@/utils/status-badge-colors';
 import { useAuth } from '@/providers/auth-provider';
 import { useLearning } from '@/providers/learning-provider';
 import { Brand } from './brand';
-import { HostLink } from './host-link';
+import { HomeLink } from './home-link';
 import { languageButtonClass, useLanguageSheet } from './language-sheet';
 import { LocaleSwitcher } from './locale-switcher';
 import { ThemeToggle } from './theme-toggle';
@@ -146,7 +146,7 @@ function Sidebar({ open, onClose, desktop }: { open: boolean; onClose: () => voi
         </NavGroup>
       </nav>
       <div className="flex flex-none flex-col gap-1 border-t border-sidebar-border px-3 py-3">
-        <HostLink />
+        <HomeLink onClick={onClose} />
         {user && (
           <p className="truncate px-3 text-xs text-muted-foreground" title={user.email} data-testid="user-email">
             {user.email}

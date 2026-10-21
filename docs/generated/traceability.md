@@ -1,8 +1,8 @@
 # Ma trận truy vết spec, code và acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-21 02:05 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-21 06:20 UTC. Không sửa tay.
 
-Tổng: 178 yêu cầu, 242 mục acceptance, 644 ghi chú @spec/@ac trong code.
+Tổng: 178 yêu cầu, 242 mục acceptance, 643 ghi chú @spec/@ac trong code.
 
 Yêu cầu chưa có code gắn @spec: 15/178.
 
@@ -24,21 +24,21 @@ Spec: [docs/spec/app/spec.md](../../docs/spec/app/spec.md) · Acceptance: [docs/
 
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
-| APP-01 | Bốn khu chính | APP-AC01, APP-AC02, APP-AC24 | docs/new/navigation.md:130<br>docs/new/navigation.md:322<br>docs/new/navigation.md:324<br>docs/new/navigation.md:326 | src/components/layout/app-shell.tsx:2<br>src/components/layout/brand.tsx:1 | tests/e2e/app.spec.ts:138<br>tests/unit/shell.test.tsx:155 |
+| APP-01 | Bốn khu chính | APP-AC01, APP-AC02, APP-AC24 | docs/new/navigation.md:130<br>docs/new/navigation.md:322<br>docs/new/navigation.md:324<br>docs/new/navigation.md:326 | src/components/layout/app-shell.tsx:2<br>src/components/layout/brand.tsx:1 | tests/e2e/app.spec.ts:138<br>tests/unit/shell.test.tsx:172 |
 | APP-02 | Header | APP-AC03, APP-AC17 | docs/new/navigation.md:56<br>docs/new/navigation.md:138<br>docs/new/navigation.md:140<br>docs/new/navigation.md:314<br>docs/new/navigation.md:316 | src/components/layout/app-shell.tsx:2<br>src/components/layout/theme-toggle.tsx:2 | tests/unit/app.test.tsx:236 |
 | APP-03 | Màn học tập trung | APP-AC04 | docs/new/navigation.md:54 | src/components/layout/workspace-frame.tsx:2 | tests/unit/app.test.tsx:158 |
-| APP-04 | Bảng route | APP-AC02, APP-AC05, APP-AC21, APP-AC22 | docs/new/navigation.md:56<br>docs/new/navigation.md:589 | src/app/[locale]/[...rest]/page.tsx:1<br>src/components/layout/client-boot.tsx:2<br>src/components/layout/workspace-frame.tsx:2<br>src/hooks/use-nav.ts:2<br>src/hooks/use-route.ts:2<br>src/i18n/navigation.ts:1<br>src/lib/route-memory.ts:1<br>src/lib/routes.ts:1 | tests/e2e/app.spec.ts:138<br>tests/e2e/app.spec.ts:161<br>tests/e2e/app.spec.ts:183<br>tests/e2e/dot5-dieu-huong.spec.ts:16<br>tests/e2e/dot5-dieu-huong.spec.ts:53<br>tests/unit/app.test.tsx:176<br>tests/unit/app.test.tsx:186<br>tests/unit/app.test.tsx:200<br>tests/unit/routes-guard.test.ts:8<br>tests/unit/routes-guard.test.ts:25<br>tests/unit/shell.test.tsx:155 |
+| APP-04 | Bảng route | APP-AC02, APP-AC05, APP-AC21, APP-AC22 | docs/new/navigation.md:56<br>docs/new/navigation.md:589 | src/app/[locale]/[...rest]/page.tsx:1<br>src/components/layout/client-boot.tsx:2<br>src/components/layout/workspace-frame.tsx:2<br>src/hooks/use-nav.ts:2<br>src/hooks/use-route.ts:2<br>src/i18n/navigation.ts:1<br>src/lib/route-memory.ts:1<br>src/lib/routes.ts:1 | tests/e2e/app.spec.ts:138<br>tests/e2e/app.spec.ts:161<br>tests/e2e/app.spec.ts:183<br>tests/e2e/dot5-dieu-huong.spec.ts:16<br>tests/e2e/dot5-dieu-huong.spec.ts:53<br>tests/unit/app.test.tsx:176<br>tests/unit/app.test.tsx:186<br>tests/unit/app.test.tsx:200<br>tests/unit/routes-guard.test.ts:8<br>tests/unit/routes-guard.test.ts:25<br>tests/unit/shell.test.tsx:172 |
 | APP-05 | Khởi động | APP-AC06, APP-AC07 | docs/new/navigation.md:40<br>docs/new/navigation.md:42<br>docs/new/navigation.md:72<br>docs/new/navigation.md:74<br>docs/new/navigation.md:80<br>docs/new/navigation.md:82<br>docs/new/navigation.md:94<br>docs/new/navigation.md:96<br>docs/new/navigation.md:118<br>docs/new/navigation.md:126 | src/components/layout/workspace-frame.tsx:2<br>src/providers/learning-provider.tsx:2 | tests/unit/app.test.tsx:219 |
 | APP-06 | Sheet Đổi ngôn ngữ | APP-AC08, APP-AC17 | docs/new/navigation.md:138<br>docs/new/navigation.md:314<br>docs/new/navigation.md:328 | src/components/layout/app-shell.tsx:2<br>src/components/layout/language-sheet.tsx:2<br>src/providers/learning-provider.tsx:2 | tests/unit/app.test.tsx:236 |
 | APP-07 | Bố cục theo khổ màn hình | APP-AC09, APP-AC13, APP-AC25, APP-AC26 | - | - | tests/e2e/dot2.spec.ts:153<br>tests/e2e/dot5-responsive.spec.ts:17 |
 | APP-08 | Trạng thái toàn cục | APP-AC07, APP-AC10, APP-AC11 | docs/new/navigation.md:76<br>docs/new/navigation.md:78<br>docs/new/navigation.md:98 | src/components/layout/banners.tsx:2<br>src/components/layout/workspace-frame.tsx:2<br>src/components/status/failed.tsx:2<br>src/components/status/loading.tsx:2<br>src/domain/storage.ts:1<br>src/hooks/use-online.ts:1<br>src/providers/learning-provider.tsx:2 | tests/unit/app.test.tsx:263<br>tests/unit/app.test.tsx:274<br>tests/unit/app.test.tsx:290 |
-| APP-09 | Cách trang chính mở app | APP-AC12, APP-AC13, APP-AC20 | - | src/components/layout/host-link.tsx:2 | tests/unit/static-checks.test.ts:106 |
+| APP-09 | Cách trang chính mở app | APP-AC12, APP-AC13, APP-AC20 | - | - | tests/unit/static-checks.test.ts:106 |
 | APP-10 | Ngoại tuyến và cập nhật | APP-AC14, APP-AC15 | - | src/app/sw.js/route.ts:1<br>src/components/layout/client-boot.tsx:2<br>src/hooks/use-update-notice.ts:2<br>src/lib/updates.ts:1<br>src/services/content-services/api.ts:1 | tests/unit/s8.test.tsx:313<br>tests/unit/s8.test.tsx:340<br>tests/unit/s8.test.tsx:354 |
 | APP-11 | Một lớp phủ tại một thời điểm | APP-AC16 | docs/new/navigation.md:58 | src/components/ui/sheet.tsx:2<br>src/views/huong-dan/index.tsx:2 | tests/unit/s8.test.tsx:374<br>tests/unit/t3.test.tsx:204 |
-| APP-12 | Liên kết về trang học chính | APP-AC18, APP-AC19, APP-AC20 | docs/new/navigation.md:60 | src/components/layout/app-shell.tsx:2<br>src/components/layout/host-link.tsx:2<br>src/components/layout/public-footer.tsx:1<br>src/lib/host-url.ts:1 | tests/unit/shell.test.tsx:137 |
+| APP-12 | Liên kết về trang chủ website | APP-AC18, APP-AC19 | docs/new/navigation.md:60 | src/components/layout/app-shell.tsx:2<br>src/components/layout/home-link.tsx:2 | tests/unit/shell.test.tsx:136<br>tests/unit/shell.test.tsx:151 |
 | APP-13 | Không dùng liên kết neo | APP-AC23 | - | src/components/ui/app-link.tsx:2<br>src/lib/routes.ts:1 | tests/unit/dot5-unit.test.tsx:245<br>tests/unit/static-checks.test.ts:101 |
 | APP-14 | Đường dẫn | APP-AC22, APP-AC24 | - | src/lib/route-memory.ts:1<br>src/views/chi-tiet-unit/index.tsx:2 | tests/e2e/dot5-dieu-huong.spec.ts:53 |
-| APP-15 | Ngôn ngữ giao diện | S8-AC15, APP-AC27, APP-AC28, APP-AC30 | - | src/app/[locale]/layout.tsx:1<br>src/components/layout/locale-switcher.tsx:2<br>src/i18n/navigation.ts:1<br>src/i18n/request.ts:1<br>src/i18n/routing.ts:1<br>src/lib/language-name.ts:1<br>src/proxy.ts:1<br>src/views/cai-dat/index.tsx:2<br>scripts/check-messages.mjs:1 | tests/e2e/dot6-web.spec.ts:30<br>tests/e2e/dot6-web.spec.ts:57<br>tests/unit/s8.test.tsx:250<br>tests/unit/shell.test.tsx:176<br>tests/unit/static-checks.test.ts:113 |
+| APP-15 | Ngôn ngữ giao diện | S8-AC15, APP-AC27, APP-AC28, APP-AC30 | - | src/app/[locale]/layout.tsx:1<br>src/components/layout/locale-switcher.tsx:2<br>src/i18n/navigation.ts:1<br>src/i18n/request.ts:1<br>src/i18n/routing.ts:1<br>src/lib/language-name.ts:1<br>src/proxy.ts:1<br>src/views/cai-dat/index.tsx:2<br>scripts/check-messages.mjs:1 | tests/e2e/dot6-web.spec.ts:30<br>tests/e2e/dot6-web.spec.ts:57<br>tests/unit/s8.test.tsx:250<br>tests/unit/shell.test.tsx:193<br>tests/unit/static-checks.test.ts:113 |
 | APP-16 | SEO | APP-AC29 | - | src/app/[locale]/(workspace)/layout.tsx:1<br>src/app/[locale]/layout.tsx:1<br>src/app/apple-icon.tsx:1<br>src/app/icon.tsx:1<br>src/app/opengraph-image.tsx:1<br>src/app/robots.ts:1<br>src/app/sitemap.ts:1<br>src/lib/page.tsx:1<br>src/lib/seo.ts:1 | tests/e2e/dot6-web.spec.ts:71<br>tests/e2e/dot6-web.spec.ts:83 |
 
 ## FND Nền tảng thiết kế
@@ -138,12 +138,12 @@ Spec: [docs/spec/C5-khung-app/spec.md](../../docs/spec/C5-khung-app/spec.md) · 
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
 | C5-01 | Thanh bên | C5-AC01 | docs/new/navigation.md:130<br>docs/new/navigation.md:322<br>docs/new/navigation.md:324<br>docs/new/navigation.md:326 | src/components/layout/app-shell.tsx:2 | - |
-| C5-02 | Menu trượt trên màn hẹp | C5-AC02, C5-AC05 | - | src/components/layout/app-shell.tsx:2 | tests/e2e/dot6-web.spec.ts:194<br>tests/unit/shell.test.tsx:47<br>tests/unit/shell.test.tsx:91 |
-| C5-03 | Mục đang chọn | C5-AC03 | - | src/components/layout/app-shell.tsx:2 | tests/e2e/app.spec.ts:139<br>tests/unit/shell.test.tsx:102 |
-| C5-04 | Mục có số | C5-AC04 | - | src/components/layout/app-shell.tsx:2 | tests/unit/shell.test.tsx:122 |
+| C5-02 | Menu trượt trên màn hẹp | C5-AC02, C5-AC05 | - | src/components/layout/app-shell.tsx:2 | tests/e2e/dot6-web.spec.ts:194<br>tests/unit/shell.test.tsx:46<br>tests/unit/shell.test.tsx:90 |
+| C5-03 | Mục đang chọn | C5-AC03 | - | src/components/layout/app-shell.tsx:2 | tests/e2e/app.spec.ts:139<br>tests/unit/shell.test.tsx:101 |
+| C5-04 | Mục có số | C5-AC04 | - | src/components/layout/app-shell.tsx:2 | tests/unit/shell.test.tsx:121 |
 | C5-05 | Header | C5-AC01, C5-AC05 | - | - | - |
 | C5-06 | Vùng nội dung | C5-AC01 | - | - | - |
-| C5-07 | Chân thanh bên | C5-AC06, APP-AC19 | docs/new/navigation.md:60 | - | tests/unit/shell.test.tsx:137 |
+| C5-07 | Chân thanh bên | C5-AC06, APP-AC19 | docs/new/navigation.md:60 | src/components/layout/home-link.tsx:2 | tests/unit/shell.test.tsx:136 |
 
 ## C6 Sheet
 
