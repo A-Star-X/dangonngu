@@ -1,6 +1,6 @@
 # Báo cáo acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-21 10:38 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-21 11:30 UTC. Không sửa tay.
 
 Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã được đánh dấu [x].
 
@@ -10,7 +10,7 @@ Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã đ
 | APP | Khung app | 28/32 | 19/19 | 9/9 | 0/4 | Chưa |
 | FND | Nền tảng thiết kế | 17/20 | 9/9 | 8/8 | 0/3 | Chưa |
 | DATA | Dữ liệu và tiến độ | 23/25 | 21/21 | 2/2 | 0/2 | Chưa |
-| C1 | Thẻ câu | 9/10 | 8/8 | 1/1 | 0/1 | Chưa |
+| C1 | Thẻ câu | 11/13 | 9/9 | 2/2 | 0/2 | Chưa |
 | C2 | Dải 8 ô | 3/3 | 2/2 | 1/1 | - | Đạt |
 | C3 | Nút | 3/4 | 1/1 | 2/2 | 0/1 | Chưa |
 | C4 | Lựa chọn trắc nghiệm | 3/3 | 2/2 | 1/1 | - | Đạt |
@@ -31,7 +31,7 @@ Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã đ
 | T3 | Thư viện | 14/14 | 11/11 | 3/3 | - | Đạt |
 | T4 | Tiến độ | 10/11 | 8/8 | 2/2 | 0/1 | Chưa |
 
-Tổng: 219/246 mục đã đạt.
+Tổng: 221/249 mục đã đạt.
 
 ## Mục còn mở
 
@@ -63,6 +63,7 @@ Tổng: 219/246 mục đã đạt.
 ### C1 Thẻ câu
 
 - C1-AC05 [human] (C1-04): Trên iPhone, Android và Windows: Nghe đọc đúng câu bằng giọng tiếng Anh; Nghe lặp lặp lại và dừng được.
+- C1-AC13 [human] (C1-09): Trên Chrome, Edge và Safari thật, giọng tiếng Anh có sẵn trên máy: bấm Nghe thì chữ được tô chạy theo giọng đọc; với giọng không báo vị trí thì vẫn đọc bình thường.
 
 ### C3 Nút
 

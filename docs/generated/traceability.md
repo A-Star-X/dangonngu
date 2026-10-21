@@ -1,10 +1,10 @@
 # Ma trận truy vết spec, code và acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-21 10:38 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-21 11:30 UTC. Không sửa tay.
 
-Tổng: 180 yêu cầu, 246 mục acceptance, 659 ghi chú @spec/@ac trong code.
+Tổng: 181 yêu cầu, 249 mục acceptance, 665 ghi chú @spec/@ac trong code.
 
-Yêu cầu chưa có code gắn @spec: 15/180.
+Yêu cầu chưa có code gắn @spec: 15/181.
 
 ## G Tổng quan giao diện bản mới
 
@@ -74,7 +74,7 @@ Spec: [docs/spec/data/spec.md](../../docs/spec/data/spec.md) · Acceptance: [doc
 | DATA-01 | Manifest | DATA-AC01, DATA-AC16, DATA-AC19 | - | src/domain/catalog.ts:1<br>src/domain/contract.ts:1<br>src/domain/types.ts:1 | tests/unit/data.test.ts:41<br>tests/unit/data.test.ts:86<br>tests/unit/data.test.ts:100 |
 | DATA-02 | File ngôn ngữ | DATA-AC01, DATA-AC02, DATA-AC19 | - | src/domain/contract.ts:1<br>src/domain/types.ts:1 | tests/unit/app.test.tsx:313<br>tests/unit/data.test.ts:41<br>tests/unit/data.test.ts:63<br>tests/unit/data.test.ts:100 |
 | DATA-03 | File unit | DATA-AC01, DATA-AC03, DATA-AC16, DATA-AC19 | - | src/domain/contract.ts:1<br>src/domain/types.ts:1 | tests/unit/data.test.ts:41<br>tests/unit/data.test.ts:74<br>tests/unit/data.test.ts:86<br>tests/unit/data.test.ts:100 |
-| DATA-04 | Trường tùy chọn | DATA-AC04, DATA-AC18 | - | src/domain/contract.ts:1<br>src/domain/library.ts:1<br>src/domain/types.ts:1<br>src/views/thu-vien/index.tsx:2 | tests/unit/app.test.tsx:439<br>tests/unit/components.test.tsx:113<br>tests/unit/t3.test.tsx:221<br>tests/unit/t3.test.tsx:237 |
+| DATA-04 | Trường tùy chọn | DATA-AC04, DATA-AC18 | - | src/domain/contract.ts:1<br>src/domain/library.ts:1<br>src/domain/types.ts:1<br>src/views/thu-vien/index.tsx:2 | tests/unit/app.test.tsx:439<br>tests/unit/components.test.tsx:170<br>tests/unit/t3.test.tsx:221<br>tests/unit/t3.test.tsx:237 |
 | DATA-05 | Nguồn dữ liệu thay được | DATA-AC02, DATA-AC05 | docs/new/navigation.md:88 | src/domain/contract.ts:1<br>src/domain/source.ts:1<br>src/providers/learning-provider.tsx:2<br>src/services/content-services/api-url.ts:1<br>src/services/content-services/api.ts:1<br>src/services/content-services/type.ts:1 | tests/unit/app.test.tsx:313<br>tests/unit/data.test.ts:63 |
 | DATA-06 | Lưu tiến độ | DATA-AC06, DATA-AC07, DATA-AC17, DATA-AC20 | - | src/domain/progress.ts:1<br>src/domain/session.ts:1<br>src/domain/storage.ts:1<br>src/domain/transfer.ts:1<br>src/providers/learning-provider.tsx:2 | tests/unit/app.test.tsx:290<br>tests/unit/data.test.ts:212<br>tests/unit/ra-soat.test.tsx:16<br>tests/unit/ra-soat.test.tsx:38<br>tests/unit/s3.test.tsx:256<br>tests/unit/s3.test.tsx:274 |
 | DATA-07 | Quy tắc câu cần ôn | DATA-AC08, DATA-AC09, DATA-AC21 | - | src/domain/library.ts:1<br>src/domain/review.ts:1<br>src/domain/session.ts:1<br>src/domain/stats.ts:1<br>src/domain/units.ts:1 | tests/unit/app.test.tsx:392<br>tests/unit/data.test.ts:134<br>tests/unit/ra-soat.test.tsx:58<br>tests/unit/ra-soat.test.tsx:71<br>tests/unit/t2-t4.test.tsx:355 |
@@ -96,10 +96,11 @@ Spec: [docs/spec/C1-the-cau/spec.md](../../docs/spec/C1-the-cau/spec.md) · Acce
 | C1-02 | Trạng thái che câu gốc | C1-AC02, C1-AC10 | - | src/components/learning/sentence-card.tsx:2 | tests/unit/components.test.tsx:24<br>tests/unit/ra-soat.test.tsx:190 |
 | C1-03 | Trạng thái hiện đầy đủ | C1-AC03 | - | src/components/learning/sentence-card.tsx:2 | tests/unit/components.test.tsx:38 |
 | C1-04 | Phát âm | C1-AC04, C1-AC05, C1-AC09 | - | src/components/learning/sentence-card.tsx:2<br>src/components/learning/use-speaker.ts:2<br>src/lib/speech.ts:1 | tests/unit/components.test.tsx:47<br>tests/unit/ra-soat.test.tsx:158 |
-| C1-05 | Không có giọng đọc | C1-AC06 | docs/new/navigation.md:185<br>docs/new/navigation.md:332 | src/components/learning/sentence-card.tsx:2<br>src/components/learning/use-speaker.ts:2<br>src/lib/speech.ts:1 | tests/e2e/app.spec.ts:263<br>tests/unit/components.test.tsx:69<br>tests/unit/components.test.tsx:82 |
-| C1-06 | Dòng Cách dùng | C1-AC07 | - | src/components/learning/sentence-card.tsx:2 | tests/unit/components.test.tsx:113 |
-| C1-07 | Phiên âm | C1-AC07 | - | src/components/learning/sentence-card.tsx:2 | tests/unit/components.test.tsx:113 |
-| C1-08 | Thuộc tính ngôn ngữ | C1-AC08 | - | src/components/learning/sentence-card.tsx:2 | tests/unit/components.test.tsx:137 |
+| C1-05 | Không có giọng đọc | C1-AC06 | docs/new/navigation.md:185<br>docs/new/navigation.md:332 | src/components/learning/sentence-card.tsx:2<br>src/components/learning/use-speaker.ts:2<br>src/lib/speech.ts:1 | tests/e2e/app.spec.ts:263<br>tests/unit/components.test.tsx:126<br>tests/unit/components.test.tsx:139 |
+| C1-06 | Dòng Cách dùng | C1-AC07 | - | src/components/learning/sentence-card.tsx:2 | tests/unit/components.test.tsx:170 |
+| C1-07 | Phiên âm | C1-AC07 | - | src/components/learning/sentence-card.tsx:2 | tests/unit/components.test.tsx:170 |
+| C1-08 | Thuộc tính ngôn ngữ | C1-AC08 | - | src/components/learning/sentence-card.tsx:2 | tests/unit/components.test.tsx:194 |
+| C1-09 | Tô sáng chữ đang đọc | C1-AC11, C1-AC12, C1-AC13 | - | src/components/learning/sentence-card.tsx:2<br>src/components/learning/use-speaker.ts:2<br>src/lib/speech.ts:1<br>src/views/kiem-tra/index.tsx:485<br>src/views/phien-hoc/index.tsx:316 | tests/unit/components.test.tsx:69 |
 
 ## C2 Dải 8 ô
 
@@ -109,7 +110,7 @@ Spec: [docs/spec/C2-dai-8-o/spec.md](../../docs/spec/C2-dai-8-o/spec.md) · Acce
 |---|---|---|---|---|---|
 | C2-01 | Kích thước và số ô | C2-AC01 | - | src/components/learning/strip.tsx:2 | tests/e2e/app.spec.ts:40 |
 | C2-02 | Trạng thái ô | C2-AC02 | - | src/components/learning/strip.tsx:2 | - |
-| C2-03 | Trợ năng | C2-AC03 | - | src/components/learning/strip.tsx:2 | tests/unit/components.test.tsx:160 |
+| C2-03 | Trợ năng | C2-AC03 | - | src/components/learning/strip.tsx:2 | tests/unit/components.test.tsx:217 |
 
 ## C3 Nút
 
@@ -120,7 +121,7 @@ Spec: [docs/spec/C3-nut/spec.md](../../docs/spec/C3-nut/spec.md) · Acceptance: 
 | C3-01 | Nút chính | C3-AC01 | - | src/components/ui/button-class.ts:1<br>src/components/ui/button.tsx:2 | - |
 | C3-02 | Nút phụ | C3-AC01 | - | src/components/ui/button-class.ts:1<br>src/components/ui/button.tsx:2 | - |
 | C3-03 | Cặp nút đánh giá | C3-AC02, C3-AC03 | docs/new/navigation.md:381<br>docs/new/navigation.md:383 | src/components/learning/rate-pair.tsx:2 | - |
-| C3-04 | Trạng thái chung | C3-AC04 | - | src/components/ui/button.tsx:2 | tests/e2e/app.spec.ts:54<br>tests/unit/components.test.tsx:172 |
+| C3-04 | Trạng thái chung | C3-AC04 | - | src/components/ui/button.tsx:2 | tests/e2e/app.spec.ts:54<br>tests/unit/components.test.tsx:229 |
 
 ## C4 Lựa chọn trắc nghiệm
 
@@ -129,8 +130,8 @@ Spec: [docs/spec/C4-lua-chon/spec.md](../../docs/spec/C4-lua-chon/spec.md) · Ac
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
 | C4-01 | Bố cục | C4-AC01 | - | src/components/learning/choices.tsx:2 | - |
-| C4-02 | Chọn đáp án | C4-AC02 | - | src/components/learning/choices.tsx:2 | tests/unit/components.test.tsx:194<br>tests/unit/components.test.tsx:220 |
-| C4-03 | Thông báo kết quả | C4-AC03 | - | src/components/learning/choices.tsx:2 | tests/unit/components.test.tsx:209<br>tests/unit/components.test.tsx:221 |
+| C4-02 | Chọn đáp án | C4-AC02 | - | src/components/learning/choices.tsx:2 | tests/unit/components.test.tsx:251<br>tests/unit/components.test.tsx:277 |
+| C4-03 | Thông báo kết quả | C4-AC03 | - | src/components/learning/choices.tsx:2 | tests/unit/components.test.tsx:266<br>tests/unit/components.test.tsx:278 |
 
 ## C5 Khung khu học
 
@@ -153,8 +154,8 @@ Spec: [docs/spec/C6-sheet/spec.md](../../docs/spec/C6-sheet/spec.md) · Acceptan
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
 | C6-01 | Dạng hiển thị | C6-AC01 | docs/new/navigation.md:58 | src/components/ui/sheet.tsx:2 | - |
-| C6-02 | Tiêu đề và đóng | C6-AC02, C6-AC03, C6-AC06 | - | src/components/layout/workspace-frame.tsx:2<br>src/components/ui/sheet.tsx:2 | tests/unit/components.test.tsx:250<br>tests/unit/components.test.tsx:265<br>tests/unit/ra-soat.test.tsx:225<br>tests/unit/ra-soat.test.tsx:238 |
-| C6-03 | Focus | C6-AC04 | - | src/components/ui/sheet.tsx:2 | tests/unit/components.test.tsx:275 |
+| C6-02 | Tiêu đề và đóng | C6-AC02, C6-AC03, C6-AC06 | - | src/components/layout/workspace-frame.tsx:2<br>src/components/ui/sheet.tsx:2 | tests/unit/components.test.tsx:307<br>tests/unit/components.test.tsx:322<br>tests/unit/ra-soat.test.tsx:225<br>tests/unit/ra-soat.test.tsx:238 |
+| C6-03 | Focus | C6-AC04 | - | src/components/ui/sheet.tsx:2 | tests/unit/components.test.tsx:332 |
 | C6-04 | Nội dung dài | C6-AC05 | - | src/components/ui/sheet.tsx:2 | - |
 
 ## C7 Thông báo ngắn
@@ -164,8 +165,8 @@ Spec: [docs/spec/C7-thong-bao/spec.md](../../docs/spec/C7-thong-bao/spec.md) · 
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
 | C7-01 | Vị trí và hiển thị | C7-AC01 | - | src/lib/toast.tsx:2<br>src/providers/toast-provider.tsx:2<br>src/styles/globals.css:19 | - |
-| C7-02 | Thời gian và hành động | C7-AC02 | - | src/hooks/use-update-notice.ts:2<br>src/lib/toast.tsx:2<br>src/providers/toast-provider.tsx:2 | tests/unit/components.test.tsx:314 |
-| C7-03 | Trợ năng | C7-AC03 | - | src/lib/toast.tsx:2 | tests/unit/components.test.tsx:339 |
+| C7-02 | Thời gian và hành động | C7-AC02 | - | src/hooks/use-update-notice.ts:2<br>src/lib/toast.tsx:2<br>src/providers/toast-provider.tsx:2 | tests/unit/components.test.tsx:371 |
+| C7-03 | Trợ năng | C7-AC03 | - | src/lib/toast.tsx:2 | tests/unit/components.test.tsx:396 |
 
 ## C8 Ô chọn một giá trị
 
@@ -173,9 +174,9 @@ Spec: [docs/spec/C8-chon-gia-tri/spec.md](../../docs/spec/C8-chon-gia-tri/spec.m
 
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
-| C8-01 | Nút mở | C8-AC01, C8-AC03 | - | src/components/ui/dropdown-select.tsx:2 | tests/unit/components.test.tsx:363<br>tests/unit/components.test.tsx:391 |
-| C8-02 | Danh sách và bàn phím | C8-AC01 | - | src/components/ui/dropdown-select.tsx:2 | tests/unit/components.test.tsx:363<br>tests/unit/components.test.tsx:391 |
-| C8-03 | Ô lọc trong danh sách dài | C8-AC02 | - | src/components/ui/dropdown-select.tsx:2 | tests/unit/components.test.tsx:407 |
+| C8-01 | Nút mở | C8-AC01, C8-AC03 | - | src/components/ui/dropdown-select.tsx:2 | tests/unit/components.test.tsx:420<br>tests/unit/components.test.tsx:448 |
+| C8-02 | Danh sách và bàn phím | C8-AC01 | - | src/components/ui/dropdown-select.tsx:2 | tests/unit/components.test.tsx:420<br>tests/unit/components.test.tsx:448 |
+| C8-03 | Ô lọc trong danh sách dài | C8-AC02 | - | src/components/ui/dropdown-select.tsx:2 | tests/unit/components.test.tsx:464 |
 
 ## AU Tài khoản (đăng ký, đăng nhập)
 
