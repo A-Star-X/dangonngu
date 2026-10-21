@@ -2,7 +2,7 @@
 id: APP
 title: Khung app
 status: nháp
-version: 1.1
+version: 1.3
 depends: FND, DATA, C5, C6, C7, C8, AU
 legacy: L-S0, L-S2 (header), pwa-update
 ---
@@ -113,6 +113,10 @@ Giao diện có hai ngôn ngữ: tiếng Việt (mặc định) và tiếng Anh 
 
 Metadata dùng chung: `metadataBase` lấy từ `NEXT_PUBLIC_SITE_URL`, tiêu đề dạng "[tên trang] | VITASR", mô tả, Open Graph, Twitter, đường dẫn chuẩn (canonical). Trang công khai Landing và Đăng ký cho index và có trong `sitemap.xml`; trang Đăng nhập và mọi trang khu học có `noindex`. `robots.txt` cho phép phần công khai, chặn phần riêng, trỏ tới sitemap. Có ảnh chia sẻ 1200 × 630, icon và apple icon.
 
+### APP-17 Môi trường triển khai
+
+Ba môi trường, mỗi môi trường một địa chỉ riêng (QD-11): production cho người học thật (build từ nhánh `main`), staging để kiểm trước khi lên production (build từ nhánh `staging`), demo cho người dùng thử không cần tài khoản (AU-08, build từ nhánh `main`). Môi trường chọn lúc build bằng `NEXT_PUBLIC_APP_ENV`: `production`, `staging` hoặc `demo`; để trống hay giá trị khác thì là `production`. APP-16 chỉ áp cho production: ở staging và demo, `robots.txt` chặn toàn bộ (`Disallow: /`) và mọi trang có `noindex`.
+
 ## Câu hỏi mở
 
 Không còn câu hỏi mở.
@@ -142,3 +146,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 1.0 (21/10/2026): Đợt 6: chuyển sang Next.js (QD-01), route là đường dẫn không có `#` (QD-02), khu học cần đăng nhập (AU-05) và bọc khung C5 (thanh bên, header) thay thanh tab; S1, S3, S5 nằm trong khung (APP-03); APP-07 theo mốc `md` và 1024 px; APP-12 thành liên kết ở chân thanh bên; thêm APP-15 ngôn ngữ giao diện, APP-16 SEO.
 - 1.1 (21/10/2026): theo rà soát code độc lập Đợt 6: APP-10 bộ nhớ đệm theo bản build, giữ bản ngay trước, dữ liệu câu lưu riêng.
 - 1.2 (21/10/2026): theo người dùng: APP-12 đổi từ liên kết về trang học chính `language.pomaskhoahocnaobo.com` thành liên kết "Trang chủ" về Landing của website, đi qua chặn rời màn; bỏ biến `NEXT_PUBLIC_HOST_URL`; chân trang công khai không còn liên kết này (LP-06).
+- 1.3 (21/10/2026): theo leader: thêm APP-17 ba môi trường production, staging, demo (QD-11).
