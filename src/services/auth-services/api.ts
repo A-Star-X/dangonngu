@@ -1,8 +1,9 @@
-// @spec AU-01, AU-02, AU-04, AU-05, AU-06
+// @spec AU-01, AU-02, AU-04, AU-05, AU-06, AU-08
 // Đăng nhập, đăng ký, đăng xuất. Có Supabase thì dùng Supabase; chưa cấu hình thì dùng tài khoản thử lưu trên máy.
 import type { Session as SbSession, SupabaseClient } from '@supabase/supabase-js';
 import { ApiError, toApiError } from '@/lib/api-error';
 import { getSupabase } from '@/lib/supabase';
+import { isDemo } from '@/lib/app-env';
 import { normalizeEmail } from '@/utils/email';
 import { hashString } from '@/domain/text';
 import { LOCAL_SESSION_KEY, LOCAL_USERS_KEY } from './api-url';
@@ -198,7 +199,24 @@ function safeLocalStorage(): KV | null {
   }
 }
 
+// ---------- Bản dùng thử ----------
+
+/** AU-08: luôn có một phiên cố định trên máy, không đăng nhập, đăng ký hay đăng xuất. */
+export const DEMO_SESSION: AuthSession = { token: 'demo', user: { id: 'demo', email: '' } };
+
+export function demoAuthApi(): AuthApi {
+  return {
+    mode: 'demo',
+    getSession: async () => DEMO_SESSION,
+    signIn: async () => DEMO_SESSION,
+    signUp: async () => ({ session: DEMO_SESSION, needsConfirm: false }),
+    signOut: async () => undefined,
+    onChange: () => () => undefined,
+  };
+}
+
 export function createAuthApi(): AuthApi {
+  if (isDemo()) return demoAuthApi();
   const sb = getSupabase();
   return sb ? supabaseAuthApi(sb) : localAuthApi();
 }
