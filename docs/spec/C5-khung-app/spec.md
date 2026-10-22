@@ -2,7 +2,7 @@
 id: C5
 title: Khung khu học
 status: nháp
-version: 0.7
+version: 0.8
 depends: FND, APP
 ---
 
@@ -42,7 +42,7 @@ Cuối thanh bên: liên kết "Trang chủ" về Landing của website (APP-12)
 
 ### C5-08 Logo đơn vị đồng hành
 
-Cạnh logo VITASR có logo của hai đơn vị đồng hành, theo thứ tự: "Pháp Luật & Kinh tế – Quốc tế" (Viện Kinh tế và Pháp luật Quốc tế) rồi A-STAR. Hai logo cùng chiều cao, cách nhau 12 px, giữ nguyên tỉ lệ và màu gốc, không cao hơn logo VITASR (logo chính của app): cao 32 px ở header (bằng ô logo VITASR, để chữ trong logo còn đọc được), 24 px trong menu trượt và chân trang (không đủ chỗ ngang). Giao diện tối dùng bản chữ trắng của logo A-STAR (bản chữ đen không đọc được trên nền tối). Logo là ảnh có `alt` là tên đơn vị, không phải liên kết, không nhận focus.
+Cạnh logo VITASR có logo của hai đơn vị đồng hành, theo thứ tự: A-STAR rồi "Pháp Luật & Kinh tế – Quốc tế" (Viện Kinh tế và Pháp luật Quốc tế). Mỗi logo nằm trong một khung cùng chiều cao, viền 1 px màu `border`, bo góc 8 px, hai khung cách nhau 12 px, để hai logo khác kiểu trông đồng đều: khung A-STAR nền `card`, đệm ngang 10 px, logo ở giữa; logo Pháp Luật (có nền đỏ riêng) lấp đầy khung của nó. Khung cao 36 px ở header, 32 px trong menu trượt và chân trang (không đủ chỗ ngang); logo giữ nguyên tỉ lệ và màu gốc. Giao diện tối dùng bản chữ trắng của logo A-STAR (bản chữ đen không đọc được trên nền tối). Logo là ảnh có `alt` là tên đơn vị, không phải liên kết, không nhận focus.
 
 - Từ `md`: đầu bên trái header khu học, ngay bên phải thanh bên, cùng hàng với logo VITASR ở đầu thanh bên; viền thanh bên là vạch ngăn.
 - Dưới `md` header không đủ chỗ: logo nằm trong menu trượt, ngay dưới hàng logo VITASR.
@@ -57,3 +57,4 @@ Cạnh logo VITASR có logo của hai đơn vị đồng hành, theo thứ tự:
 - 0.5 (21/10/2026): theo người dùng: C5-07 liên kết cuối thanh bên là "Trang chủ" về Landing, không còn về trang học chính (APP-12).
 - 0.6 (21/10/2026): theo leader: chân thanh bên của bản dùng thử theo AU-08.
 - 0.7 (22/10/2026): theo người dùng: thêm C5-08 logo hai đơn vị đồng hành cạnh logo VITASR.
+- 0.8 (22/10/2026): theo người dùng (chọn phương án C trên bảng so sánh): C5-08 mỗi logo trong một khung đồng nhất, A-STAR đứng trước Pháp Luật.
