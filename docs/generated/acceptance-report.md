@@ -1,6 +1,6 @@
 # Báo cáo acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-21 12:58 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs acceptance` lúc 2026-10-22 03:43 UTC. Không sửa tay.
 
 Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã được đánh dấu [x].
 
@@ -14,7 +14,7 @@ Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã đ
 | C2 | Dải 8 ô | 3/3 | 2/2 | 1/1 | - | Đạt |
 | C3 | Nút | 3/4 | 1/1 | 2/2 | 0/1 | Chưa |
 | C4 | Lựa chọn trắc nghiệm | 3/3 | 2/2 | 1/1 | - | Đạt |
-| C5 | Khung khu học | 6/6 | 4/4 | 2/2 | - | Đạt |
+| C5 | Khung khu học | 8/9 | 5/5 | 3/3 | 0/1 | Chưa |
 | C6 | Sheet | 5/6 | 3/3 | 2/2 | 0/1 | Chưa |
 | C7 | Thông báo ngắn | 3/3 | 2/2 | 1/1 | - | Đạt |
 | C8 | Ô chọn một giá trị | 3/3 | 2/2 | 1/1 | - | Đạt |
@@ -31,7 +31,7 @@ Một khu vực **Đạt** khi mọi mục trong acceptance.md của nó đã đ
 | T3 | Thư viện | 14/14 | 11/11 | 3/3 | - | Đạt |
 | T4 | Tiến độ | 10/11 | 8/8 | 2/2 | 0/1 | Chưa |
 
-Tổng: 224/253 mục đã đạt.
+Tổng: 226/256 mục đã đạt.
 
 ## Mục còn mở
 
@@ -69,6 +69,10 @@ Tổng: 224/253 mục đã đạt.
 ### C3 Nút
 
 - C3-AC03 [human] (C3-03): Trên điện thoại thật, dùng một tay bấm 20 lần xen kẽ hai nút đánh giá: không lần nào bấm nhầm.
+
+### C5 Khung khu học
+
+- C5-AC09 [human] (C5-08): Hai đơn vị đồng hành xác nhận logo, tên và cách đặt đúng nhận diện thương hiệu của họ.
 
 ### C6 Sheet
 
