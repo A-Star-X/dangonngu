@@ -528,5 +528,9 @@
     "finalBody": "Tạo tài khoản, chọn ngôn ngữ và học nhóm câu đầu tiên.",
     "demoChoose": "Chọn ngôn ngữ",
     "demoFinalBody": "Chọn ngôn ngữ và học nhóm câu đầu tiên, không cần tài khoản."
+  },
+  "partners": {
+    "phapLuat": "Pháp Luật & Kinh tế – Quốc tế",
+    "aStar": "A-STAR"
   }
 }

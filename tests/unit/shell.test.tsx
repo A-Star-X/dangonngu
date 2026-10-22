@@ -207,3 +207,29 @@ describe('APP Khung app: thanh bên', () => {
     expect(navItem('hoc')).toHaveTextContent('Learn');
   });
 });
+
+describe('C5-08 Logo đơn vị đồng hành', () => {
+  const ALTS = ['Pháp Luật & Kinh tế – Quốc tế', 'A-STAR', 'A-STAR'];
+  /** Ảnh logo trong từng nhóm: đúng thứ tự, không nằm trong liên kết; A-STAR có bản thường (ẩn khi tối) và bản chữ trắng (chỉ hiện khi tối). */
+  function check(group: HTMLElement) {
+    const imgs = [...group.querySelectorAll('img')];
+    expect(imgs.map((i) => i.getAttribute('alt'))).toEqual(ALTS);
+    for (const i of imgs) expect(i.closest('a')).toBeNull();
+    expect(decodeURIComponent(imgs[1].getAttribute('src')!)).toContain('/partners/a-star.png');
+    expect(imgs[1]).toHaveClass('dark:hidden');
+    expect(decodeURIComponent(imgs[2].getAttribute('src')!)).toContain('/partners/a-star-trang.png');
+    expect(imgs[2]).toHaveClass('hidden', 'dark:block');
+  }
+
+  // @ac C5-AC07
+  it('khung khu học: logo ở header (từ md) và trong menu trượt (dưới md)', async () => {
+    await renderApp('/hoc', { seed: settingsSeed() });
+    const groups = screen.getAllByTestId('partner-logos');
+    expect(groups).toHaveLength(2);
+    const [inSidebar, inHeader] = [groups.find((g) => sidebar().contains(g))!, groups.find((g) => g.closest('header'))!];
+    check(inHeader);
+    expect(inHeader).toHaveClass('hidden', 'md:flex');
+    check(inSidebar);
+    expect(inSidebar).toHaveClass('md:hidden');
+  });
+});

@@ -1,5 +1,5 @@
 'use client';
-// @spec APP-01, APP-02, APP-06, APP-12, C5-01, C5-02, C5-03, C5-04, AU-05, AU-06, AU-08
+// @spec APP-01, APP-02, APP-06, APP-12, C5-01, C5-02, C5-03, C5-04, AU-05, AU-06, AU-08, C5-08
 // Khung khu học (rule giao diện "Layout workspace"): header cố định 56 px, thanh bên cố định 240 px từ md,
 // dưới md thanh bên là menu trượt có lớp phủ. Nội dung rộng tối đa 1024 px, px 16, py 24, các khối cách 16 px.
 import { useEffect, useRef, useState, type ReactNode } from 'react';
@@ -18,6 +18,7 @@ import { useAuth } from '@/providers/auth-provider';
 import { useLearning } from '@/providers/learning-provider';
 import { Brand } from './brand';
 import { HomeLink } from './home-link';
+import { PartnerLogos } from './partner-logos';
 import { languageButtonClass, useLanguageSheet } from './language-sheet';
 import { LocaleSwitcher } from './locale-switcher';
 import { ThemeToggle } from './theme-toggle';
@@ -78,6 +79,8 @@ function Sidebar({ open, onClose, desktop }: { open: boolean; onClose: () => voi
           <X className="size-5" aria-hidden />
         </button>
       </div>
+      {/* C5-08: dưới md header không đủ chỗ, logo đơn vị đồng hành nằm trong menu trượt, dưới logo VITASR. */}
+      <PartnerLogos size="sm" className="px-4 pb-3 md:hidden" />
       <nav className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto px-3 pb-3" aria-label={t('navLabel')} data-guide="nav">
         <div className="px-1 pt-1">
           <p className="px-2 pb-1 text-xs font-semibold tracking-wider text-muted-foreground uppercase">{t('learning')}</p>
@@ -215,6 +218,8 @@ export function AppShell({ children }: { children: ReactNode }) {
           <AppLink href={href('hoc')} className="rounded-dropdown md:hidden" aria-label={t('home')}>
             <Brand />
           </AppLink>
+          {/* C5-08: từ md, ngay bên phải thanh bên, cùng hàng với logo VITASR ở đầu thanh bên. */}
+          <PartnerLogos className="hidden md:flex" />
         </div>
         <div className="flex items-center gap-2">
           <LocaleSwitcher />

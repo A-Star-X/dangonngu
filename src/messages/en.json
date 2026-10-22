@@ -528,5 +528,9 @@
     "finalBody": "Create an account, choose a language and learn your first group.",
     "demoChoose": "Choose a language",
     "demoFinalBody": "Choose a language and learn your first group, no account needed."
+  },
+  "partners": {
+    "phapLuat": "Pháp Luật & Kinh tế – Quốc tế",
+    "aStar": "A-STAR"
   }
 }
