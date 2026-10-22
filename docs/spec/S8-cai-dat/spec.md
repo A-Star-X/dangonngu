@@ -2,7 +2,7 @@
 id: S8
 title: Cài đặt
 status: nháp
-version: 1.3
+version: 1.4
 route: "/cai-dat"
 depends: APP, FND, DATA, C3, C6, C7
 legacy: L-D4, L-D8, nút giao diện ở header L-S2
@@ -41,7 +41,7 @@ Nhóm "Giao diện" gồm ô chọn (C8) "Sáng, tối" với ba lựa chọn "T
 
 Nhóm "Tiến độ" gồm:
 - "Xuất tiến độ": tải file `vitasr-tien-do-[mã ngôn ngữ]-[yyyy-mm-dd].json` chứa tiến độ của ngôn ngữ đang học và cài đặt.
-- "Nhập tiến độ": chọn tệp JSON; kiểm tra đúng cấu trúc DATA-06 (kể cả giá trị: `streak` là số nguyên không âm, `position` trong khoảng 0 đến số câu, `step` hợp lệ), đúng ngôn ngữ và đúng bộ nội dung đang học (tiếng Anh có hai bộ dùng chung dải id câu); tệp lớn hơn 8 MB coi là tệp sai, không đọc; sheet xác nhận "Thay tiến độ [tên] hiện tại bằng tệp này?" với nút "Hủy" và "Nhập tiến độ"; xong thì thông báo ngắn "Đã nhập tiến độ". Tệp sai: thông báo lỗi "Tệp này không phải tệp tiến độ học [tên] của VITASR. Chọn tệp đã xuất bằng Xuất tiến độ khi đang học [tên]." và không thay đổi gì. [tên] là tên ngôn ngữ viết thường chữ đầu (FND-12), kèm tên bộ trong ngoặc khi ngôn ngữ có nhiều bộ, ví dụ "tiếng Anh (Global English)". Nhãn mục xóa là "Xóa tiến độ [tên ngôn ngữ]" với tên viết thường chữ đầu, ví dụ "Xóa tiến độ tiếng Anh"; trong câu "Gõ "[tên ngôn ngữ]" để xác nhận" giữ đúng tên như danh sách ngôn ngữ.
+- "Nhập tiến độ": chọn tệp JSON; kiểm tra đúng cấu trúc DATA-06 (kể cả giá trị: `streak` là số nguyên không âm, `position` trong khoảng 0 đến số câu, `step` hợp lệ), đúng ngôn ngữ và đúng bộ nội dung đang học (tiếng Anh có hai bộ dùng chung dải id câu); tệp lớn hơn 8 MB coi là tệp sai, không đọc; sheet xác nhận "Thay tiến độ [tên] hiện tại bằng tệp này?" với nút "Hủy" và "Nhập tiến độ"; xong thì thông báo ngắn "Đã nhập tiến độ". Tệp sai: thông báo lỗi "Tệp này không phải tệp tiến độ học [tên] của Đa ngôn ngữ. Chọn tệp đã xuất bằng Xuất tiến độ khi đang học [tên]." và không thay đổi gì. [tên] là tên ngôn ngữ viết thường chữ đầu (FND-12), kèm tên bộ trong ngoặc khi ngôn ngữ có nhiều bộ, ví dụ "tiếng Anh (Global English)". Nhãn mục xóa là "Xóa tiến độ [tên ngôn ngữ]" với tên viết thường chữ đầu, ví dụ "Xóa tiến độ tiếng Anh"; trong câu "Gõ "[tên ngôn ngữ]" để xác nhận" giữ đúng tên như danh sách ngôn ngữ.
 - "Xóa tiến độ [tên ngôn ngữ]": sheet xác nhận có dòng "Gõ "[tên ngôn ngữ]" để xác nhận. Tiến độ đã xóa không lấy lại được.", ô gõ, nút "Hủy" và "Xóa"; "Xóa" chỉ mở khi gõ đúng tên ngôn ngữ (không phân biệt hoa thường nhưng phải đủ dấu); xong thì thông báo ngắn "Đã xóa tiến độ" và về T1.
 
 ### S8-06 Trợ giúp
@@ -85,3 +85,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 1.1 (21/10/2026): theo leader: S8-08 bản dùng thử không có nhóm Tài khoản (AU-08).
 - 1.2 (21/10/2026): theo người dùng: S8-02 giọng "Tự động" xếp giọng Google xuống cuối, để tô sáng chữ đang đọc (C1-09) chạy ngay trên Chrome.
 - 1.3 (21/10/2026): theo người dùng: bỏ thay đổi 1.2, giọng "Tự động" ưu tiên giọng Google như trước vì dễ nghe hơn; tô sáng với giọng Google dùng ước lượng theo thời gian (C1-09).
+- 1.4 (22/10/2026): câu báo nhập tệp sai nhắc tên sản phẩm "Đa ngôn ngữ" thay cho VITASR (APP-18).

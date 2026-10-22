@@ -2,7 +2,7 @@
 id: T3
 title: Thư viện
 status: nháp
-version: 1.0
+version: 1.1
 route: "/thu-vien"
 depends: APP, FND, DATA, C1, C6
 legacy: Danh sách dữ liệu trong L-S2
@@ -58,7 +58,7 @@ Khổ máy tính (1280 px):
 
 ```
 ┌──────────────┬──────────────────────────────┬───────────────────────────────┐
-│ VITASR       │ [ Tìm câu hoặc nghĩa       ] │ Câu 0001                      │
+│ Đa ngôn ngữ  │ [ Tìm câu hoặc nghĩa       ] │ Câu 0001                      │
 │              │ Unit ▾ Trạng thái ▾          │ Unit 1 · A1: Find your        │
 │  Học         │ Chủ đề ▾ Trình độ ▾          │ classroom                     │
 │  Luyện tập   │ 4.608 câu                    │ ┌───────────────────────────┐ │
@@ -138,3 +138,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.6 (20/10/2026): Đợt 5 việc 3: thêm cách xem Unit làm mặc định (T3-08, T3-09, T3-10), T3-01 đến T3-07 áp cho cách xem Câu.
 - 0.7 (20/10/2026): T3-07 hai cột từ 1200 px thay cho 900 px (Đợt 5 việc 6).
 - 1.0 (21/10/2026): Đợt 6 (Next.js, rule giao diện của nhóm): bộ lọc dùng ô chọn C8 (danh sách mở dưới ô, không mở sheet); ô tìm chờ 300 ms (FND-16); danh sách Unit dạng thẻ trong lưới theo mốc `sm`, `lg` thay 900 px.
+- 1.1 (22/10/2026): sơ đồ bố cục ghi tên sản phẩm "Đa ngôn ngữ" thay cho VITASR (APP-18).

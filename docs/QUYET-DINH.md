@@ -113,3 +113,15 @@ Còn cần quyết: staging dùng chung project Supabase với production hay pr
 
 Phương án khác: mỗi môi trường một nhánh (`demo` riêng): linh hoạt hơn nhưng phải merge tay sang `demo`, dễ lệch với production; demo đi theo `staging`: có tính năng mới sớm hơn nhưng có thể chưa ổn định khi đưa khách xem.
 
+## QD-12 Tên sản phẩm "Đa ngôn ngữ"
+
+Trạng thái: Đã chốt (22/10/2026), theo người dùng.
+
+Quyết định: tên hiển thị của sản phẩm đổi từ "VITASR" (logo ô "V" kèm chữ VITASR, tiêu đề "| VITASR") thành "Đa ngôn ngữ" (APP-18).
+
+- Logo chỉ là chữ "Đa ngôn ngữ" đậm, không có ô biểu tượng. Icon trang (favicon, apple icon) cần hình vuông nên dùng chữ "Đ" trên ô màu `primary`.
+- Giao diện tiếng Anh vẫn hiện "Đa ngôn ngữ" (tên riêng, không dịch thành "Multilingual").
+- Không đổi khóa lưu trên trình duyệt `vitasr2.*` và tên gói trong `package.json`: người dùng không thấy, và đổi khóa làm mất cài đặt, tiến độ, tài khoản đã lưu trên máy.
+
+Phương án khác: giữ ô logo đổi chữ thành "Đ"; giữ ô "V" chỉ đổi chữ bên cạnh; giao diện tiếng Anh dùng "Multilingual".
+

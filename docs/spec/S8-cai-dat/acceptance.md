@@ -9,8 +9,7 @@
   - Bằng chứng: test tests/unit/s8.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] S8-AC05 [auto] S8-04: Chọn "Tối" ở ô chọn "Sáng, tối" thì bảng màu tối áp dụng ngay và giữ sau khi tải lại.
   - Bằng chứng: test tests/unit/s8.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
-- [x] S8-AC06 [auto] S8-05: Xuất rồi xóa rồi nhập lại file vừa xuất: tiến độ trở lại giống hệt trước khi xóa. Nhập file của ngôn ngữ khác hoặc file JSON bất kỳ: hiện đúng thông báo lỗi và tiến độ không đổi. Nút "Xóa" chỉ mở khi gõ đúng tên ngôn ngữ.
-  - Bằng chứng: test tests/unit/dot2-data.test.ts, tests/unit/s8.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
+- [ ] S8-AC06 [auto] S8-05: Xuất rồi xóa rồi nhập lại file vừa xuất: tiến độ trở lại giống hệt trước khi xóa. Nhập file của ngôn ngữ khác hoặc file JSON bất kỳ: hiện đúng thông báo lỗi và tiến độ không đổi. Nút "Xóa" chỉ mở khi gõ đúng tên ngôn ngữ.
 - [ ] S8-AC07 [human] S8-05: Trên iPhone (Safari) và Android (Chrome): "Xuất tiến độ" tải được file về máy và "Nhập tiến độ" chọn được chính file đó.
 - [x] S8-AC08 [auto] S8-06: "Xem lại hướng dẫn" về T1 và hiện bước 1 của S9; dòng phiên bản khớp `version` trong package.json.
   - Bằng chứng: test tests/unit/s8.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d

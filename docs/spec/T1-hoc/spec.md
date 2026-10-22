@@ -2,7 +2,7 @@
 id: T1
 title: Học
 status: nháp
-version: 1.1
+version: 1.2
 route: "/hoc"
 depends: APP, FND, DATA, C1, C2, C3
 legacy: L-S2
@@ -16,7 +16,7 @@ Màn chính. Cho người học thấy câu tiếp theo trong lộ trình và b�
 
 ```
 ┌───────────────────────────┐
-│ ☰ VITASR        VI  ◐     │  header (APP-02, C5-05)
+│ ☰ Đa ngôn ngữ   VI  ◐     │  header (APP-02, C5-05)
 │                           │
 │ Tuần này: 3/5 phiên       │
 │                           │
@@ -45,7 +45,7 @@ Khổ máy tính từ 1200 px (Đợt 5):
 
 ```
 ┌──────────────┬───────────────────────────────────────────────────────────────┐
-│ VITASR       │ Tiếng Anh ▾                                              ⚙    │
+│ Đa ngôn ngữ  │ Tiếng Anh ▾                                              ⚙    │
 │              │                                                               │
 │ ▌Học         │ ┌──────────────────────────────────┐  Tuần này: 3/5 phiên     │
 │  Luyện tập   │ │ ■■■□□□□□          Câu 4/8         │  12 câu cần ôn hôm nay › │
@@ -124,3 +124,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.5 (20/10/2026): Đợt 5 việc 1: tên unit trên thẻ mở Chi tiết Unit (T1-01); bố cục mới từ 1200 px (T1-06); thêm Unit tiếp theo (T1-08) và Tiến độ của bạn (T1-09).
 - 1.0 (21/10/2026): Đợt 6 (Next.js, rule giao diện của nhóm): T1 trong khung khu học; Unit tiếp theo dạng thẻ; khối mục tiêu tuần, tiến độ là panel.
 - 1.1 (21/10/2026): theo rà soát ảnh bằng chứng Đợt 6: T1-08 thẻ Unit tiếp theo ba cột từ `lg` (ở 768 px thẻ quá hẹp).
+- 1.2 (22/10/2026): sơ đồ bố cục ghi tên sản phẩm "Đa ngôn ngữ" thay cho VITASR (APP-18).
