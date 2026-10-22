@@ -205,7 +205,7 @@ describe('S8 Cài đặt', () => {
       fireEvent.change(input(), { target: { files: [new File([text], 'x.json', { type: 'application/json' })] } });
       await settle(50);
       expect(screen.getByRole('alert')).toHaveTextContent(
-        'Tệp này không phải tệp tiến độ học tiếng Anh (English Fluency) của VITASR. Chọn tệp đã xuất bằng Xuất tiến độ khi đang học tiếng Anh (English Fluency).',
+        'Tệp này không phải tệp tiến độ học tiếng Anh (English Fluency) của Đa ngôn ngữ. Chọn tệp đã xuất bằng Xuất tiến độ khi đang học tiếng Anh (English Fluency).',
       );
       expect(screen.queryByRole('dialog')).toBeNull();
       expect(r.mem.get(KEY)).toBe(after);
