@@ -6,7 +6,7 @@ Các màn mới đã có spec: Landing (`docs/spec/LP-landing`), Đăng nhập v
 
 ## 1. Mô tả sản phẩm
 
-**Tên:** VITASR Đa ngôn ngữ.
+**Tên:** Đa ngôn ngữ (QD-12; trước ngày 22/10/2026 là "VITASR Đa ngôn ngữ").
 
 **Mục tiêu:** giúp người Việt nói được câu giao tiếp thông dụng của một ngoại ngữ, bằng các phiên học ngắn mỗi ngày: học 8 câu trong 5 đến 10 phút, nghe câu, tự kiểm tra nhớ hay chưa, và ôn lại câu sắp quên đúng lúc.
 

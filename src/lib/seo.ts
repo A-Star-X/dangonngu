@@ -1,9 +1,10 @@
-// @spec APP-16, APP-17
-// Metadata dùng chung: metadataBase, tiêu đề "%s | VITASR", Open Graph, Twitter, canonical, cho phép hay chặn index.
+// @spec APP-16, APP-17, APP-18
+// Metadata dùng chung: metadataBase, tiêu đề "%s | Đa ngôn ngữ", Open Graph, Twitter, canonical, cho phép hay chặn index.
 import type { Metadata } from 'next';
 import { indexable } from './app-env';
 
-export const SITE_NAME = 'VITASR';
+/** APP-18: tên hiển thị của sản phẩm, giống nhau ở mọi ngôn ngữ giao diện. */
+export const SITE_NAME = 'Đa ngôn ngữ';
 
 export function siteUrl(): URL {
   const raw = (process.env.NEXT_PUBLIC_SITE_URL ?? '').trim() || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 'http://localhost:3000');
@@ -26,7 +27,7 @@ export function baseMetadata(description: string, locale: string): Metadata {
 }
 
 /** Ảnh chia sẻ dựng ở src/app/opengraph-image.tsx và twitter-image.tsx. */
-const OG_IMAGE = { url: '/opengraph-image', width: 1200, height: 630, alt: 'VITASR' };
+const OG_IMAGE = { url: '/opengraph-image', width: 1200, height: 630, alt: SITE_NAME };
 
 /**
  * Metadata một trang. `index`: trang công khai cho máy tìm kiếm; trang sau đăng nhập và trang đăng nhập thì không.

@@ -1,5 +1,5 @@
 // @spec C5-08, LP-01
-// Logo hai đơn vị đồng hành cạnh logo VITASR: A-STAR rồi Pháp Luật, mỗi logo trong một khung cùng chiều cao
+// Logo hai đơn vị đồng hành cạnh logo "Đa ngôn ngữ": A-STAR rồi Pháp Luật, mỗi logo trong một khung cùng chiều cao
 // (viền, bo góc 8 px), cách nhau 12 px, giữ tỉ lệ và màu gốc. Giao diện tối dùng logo A-STAR chữ trắng. Là ảnh, không phải liên kết.
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';

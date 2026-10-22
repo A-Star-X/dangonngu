@@ -14,7 +14,7 @@ export const dynamic = 'force-static';
 const SHELL_PAGES = [...Object.values(ROUTE_PATH), PUBLIC_PATH.login];
 
 function source(version: string) {
-  return `/* VITASR service worker ${version} */
+  return `/* Đa ngôn ngữ service worker ${version} */
 const VERSION = ${JSON.stringify(version)};
 const SHELL = 'vitasr2-shell-' + VERSION;
 const RUNTIME = 'vitasr2-runtime-' + VERSION;

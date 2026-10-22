@@ -210,7 +210,8 @@ export function AppShell({ children }: { children: ReactNode }) {
           >
             <Menu className="size-5" aria-hidden />
           </button>
-          <AppLink href={href('hoc')} className="rounded-dropdown md:hidden" aria-label={t('home')}>
+          {/* Logo chữ thẳng hàng giữa trong hàng 56 px; vùng chạm cao 40 px (FND-14). */}
+          <AppLink href={href('hoc')} className="flex min-h-10 items-center rounded-dropdown md:hidden" aria-label={t('home')}>
             <Brand />
           </AppLink>
         </div>

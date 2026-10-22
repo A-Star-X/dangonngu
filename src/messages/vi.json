@@ -49,7 +49,7 @@
   "shell": {
     "sidebar": "Thanh bên",
     "navLabel": "Điều hướng chính",
-    "home": "VITASR, về trang Học",
+    "home": "Đa ngôn ngữ, về trang Học",
     "openMenu": "Mở menu",
     "closeMenu": "Đóng menu",
     "learning": "Đang học",
@@ -70,11 +70,11 @@
     "toLight": "Chuyển sang giao diện sáng"
   },
   "public": {
-    "home": "VITASR, trang chủ",
+    "home": "Đa ngôn ngữ, trang chủ",
     "openApp": "Vào học",
     "login": "Đăng nhập",
     "register": "Đăng ký",
-    "footer": "© {year} VITASR",
+    "footer": "© {year} Đa ngôn ngữ",
     "footerNav": "Liên kết cuối trang"
   },
   "banner": {
@@ -401,7 +401,7 @@
     "groupProgress": "Tiến độ",
     "export": "Xuất tiến độ",
     "import": "Nhập tiến độ",
-    "importInvalid": "Tệp này không phải tệp tiến độ học {who} của VITASR. Chọn tệp đã xuất bằng Xuất tiến độ khi đang học {who}.",
+    "importInvalid": "Tệp này không phải tệp tiến độ học {who} của Đa ngôn ngữ. Chọn tệp đã xuất bằng Xuất tiến độ khi đang học {who}.",
     "importConfirm": "Thay tiến độ {who} hiện tại bằng tệp này?",
     "imported": "Đã nhập tiến độ",
     "cancel": "Hủy",
@@ -452,14 +452,14 @@
     "signUpDescLocal": "Tài khoản thử chỉ có trên máy này, tiến độ cũng lưu trên máy này."
   },
   "landing": {
-    "eyebrow": "VITASR Đa ngôn ngữ",
+    "eyebrow": "Đa ngôn ngữ",
     "title": "Học câu giao tiếp dùng được ngay, bằng nghĩa tiếng Việt",
     "lead": "{languages} ngôn ngữ. Mỗi phiên 8 câu trong khoảng 5 phút: đọc nghĩa, nghe giọng đọc, tự đánh giá, rồi chọn nghĩa đúng. App nhắc ôn đúng lúc để câu đã học không bị quên.",
     "ctaStart": "Bắt đầu học",
     "ctaExplore": "Khám phá các bộ câu",
     "ctaRegister": "Tạo tài khoản",
     "haveAccount": "Đã có tài khoản? <link>Đăng nhập</link>",
-    "shotAlt": "Màn Học của VITASR: thẻ câu, nút Nghe, nút Học 8 câu và các unit tiếp theo",
+    "shotAlt": "Màn Học của Đa ngôn ngữ: thẻ câu, nút Nghe, nút Học 8 câu và các unit tiếp theo",
     "audienceTitle": "Dành cho ai",
     "audience": {
       "learner": {

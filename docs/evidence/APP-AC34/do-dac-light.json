@@ -1,0 +1,42 @@
+{
+  "cong-khai-1280": {
+    "chu": "Đa ngôn ngữ",
+    "font": "700 18px",
+    "cao": 28,
+    "soDong": 1,
+    "giuaLogo": 28,
+    "giuaHang": 28,
+    "cachPhanTuBenPhai": 25,
+    "coO": false
+  },
+  "thanh-ben-1280": {
+    "chu": "Đa ngôn ngữ",
+    "font": "700 18px",
+    "cao": 28,
+    "soDong": 1,
+    "giuaLogo": 28,
+    "giuaHang": 28,
+    "cachPhanTuBenPhai": null,
+    "coO": false
+  },
+  "cong-khai-375": {
+    "chu": "Đa ngôn ngữ",
+    "font": "700 18px",
+    "cao": 28,
+    "soDong": 1,
+    "giuaLogo": 28,
+    "giuaHang": 28,
+    "cachPhanTuBenPhai": 19,
+    "coO": false
+  },
+  "header-khu-hoc-375": {
+    "chu": "Đa ngôn ngữ",
+    "font": "700 18px",
+    "cao": 28,
+    "soDong": 1,
+    "giuaLogo": 28,
+    "giuaHang": 28,
+    "cachPhanTuBenPhai": 74,
+    "coO": false
+  }
+}

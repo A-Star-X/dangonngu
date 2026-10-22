@@ -10,7 +10,7 @@ test.use({ serviceWorkers: 'block' });
 
 const OUT = 'docs/evidence/C5-AC08';
 
-/** Khung của logo VITASR và hai logo đối tác đang hiện, để so chiều cao, khoảng cách, căn giữa theo chiều dọc. */
+/** Khung của logo "Đa ngôn ngữ" và hai logo đối tác đang hiện, để so chiều cao, khoảng cách, căn giữa theo chiều dọc. */
 const measure = (page: Page) =>
   page.evaluate(() => {
     const box = (e: Element | null) => {
@@ -19,11 +19,11 @@ const measure = (page: Page) =>
       return { x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.width), h: Math.round(r.height), giua: Math.round(r.y + r.height / 2) };
     };
     const visible = (e: Element) => (e as HTMLElement).offsetParent !== null && e.getBoundingClientRect().width > 0;
-    const logo = [...document.querySelectorAll('svg')].find((s) => s.closest('a[aria-label]') && visible(s)) ?? null;
+    const logo = [...document.querySelectorAll('a[aria-label] > span[lang="vi"]')].find(visible) ?? null;
     const groups = [...document.querySelectorAll('[data-testid="partner-logos"]')].filter(visible);
     const khung = groups.map((g) => [...g.querySelectorAll('[data-testid="partner-frame"]')].map((f) => box(f)));
     return {
-      vitasr: box(logo),
+      logo: box(logo),
       doiTac: groups.map((g) => [...g.querySelectorAll('img')].filter(visible).map((i) => ({ alt: i.getAttribute('alt'), src: i.getAttribute('src')?.replace(/.*url=([^&]+).*/, (_, u) => decodeURIComponent(u)), ...box(i) }))),
       khung,
       tranNgang: document.documentElement.scrollWidth > window.innerWidth,

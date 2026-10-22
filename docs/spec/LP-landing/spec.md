@@ -2,7 +2,7 @@
 id: LP
 title: Landing
 status: nháp
-version: 0.5
+version: 0.6
 depends: FND, APP
 ---
 
@@ -14,7 +14,7 @@ Việc 4 của danh sách cải thiện: trang giới thiệu cho khách (route 
 
 ### LP-01 Header công khai và phần mở đầu
 
-Header công khai: logo trái; phải là chọn ngôn ngữ giao diện, nút sáng tối, và "Đăng nhập" ở mọi khổ màn (đang ở trang Đăng nhập thì là "Đăng ký"; đã đăng nhập thì "Vào học", nút viền); viền dưới. Nội dung rộng tối đa khoảng 768 px, `px-4 py-6`. Phần mở đầu có tiêu đề chính (`h1`), một đoạn nói rõ sản phẩm là gì và học như thế nào, hai lời mời "Bắt đầu học" (tới `/dang-ky`, nút chính duy nhất của trang, FND-02) và "Khám phá các bộ câu" (tới `/thu-vien`, chưa đăng nhập thì qua đăng nhập theo AU-05), dòng "Đã có tài khoản? Đăng nhập", và ảnh chụp màn Học thật (bản sáng hoặc tối theo giao diện). Logo đơn vị đồng hành (C5-08): từ `sm` nằm sau logo VITASR trong header, ngăn bằng một vạch dọc màu `border` cao 24 px; dưới `sm` header không đủ chỗ nên logo nằm ở chân trang (LP-06), trên dòng bản quyền.
+Header công khai: logo trái; phải là chọn ngôn ngữ giao diện, nút sáng tối, và "Đăng nhập" ở mọi khổ màn (đang ở trang Đăng nhập thì là "Đăng ký"; đã đăng nhập thì "Vào học", nút viền); viền dưới. Nội dung rộng tối đa khoảng 768 px, `px-4 py-6`. Phần mở đầu có tiêu đề chính (`h1`), một đoạn nói rõ sản phẩm là gì và học như thế nào, hai lời mời "Bắt đầu học" (tới `/dang-ky`, nút chính duy nhất của trang, FND-02) và "Khám phá các bộ câu" (tới `/thu-vien`, chưa đăng nhập thì qua đăng nhập theo AU-05), dòng "Đã có tài khoản? Đăng nhập", và ảnh chụp màn Học thật (bản sáng hoặc tối theo giao diện). Logo đơn vị đồng hành (C5-08): từ `sm` nằm sau logo "Đa ngôn ngữ" (APP-18) trong header, ngăn bằng một vạch dọc màu `border` cao 24 px; dưới `sm` header không đủ chỗ nên logo nằm ở chân trang (LP-06), trên dòng bản quyền.
 
 ### LP-02 Người dùng hướng tới
 
@@ -47,3 +47,4 @@ Một cột trên mobile; các nhóm thẻ (dành cho ai, số liệu, tính nă
 - 0.3 (21/10/2026): theo người dùng: LP-06 chân trang bỏ liên kết tới trang học chính (APP-12).
 - 0.4 (21/10/2026): theo leader: Landing của bản dùng thử theo AU-08.
 - 0.5 (22/10/2026): theo người dùng: LP-01 logo đơn vị đồng hành trong header công khai (C5-08).
+- 0.6 (22/10/2026): theo người dùng: LP-01 logo là chữ "Đa ngôn ngữ" (APP-18).

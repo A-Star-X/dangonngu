@@ -81,10 +81,10 @@ test.describe('SEO', () => {
   });
 
   // @ac APP-AC29
-  test('trang chủ có canonical, og:image 1200 × 630 và tiêu đề "... | VITASR"; đăng nhập và Học có noindex', async ({ page, request }) => {
+  test('trang chủ có canonical, og:image 1200 × 630 và tiêu đề "... | Đa ngôn ngữ"; đăng nhập và Học có noindex', async ({ page, request }) => {
     await seed(page, {}, { signedIn: false });
     await page.goto('/');
-    await expect(page).toHaveTitle(/ \| VITASR$/);
+    await expect(page).toHaveTitle(/ \| Đa ngôn ngữ$/);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', /^https?:\/\/[^/]+\/?$/);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /^index/);
     const og = await page.locator('meta[property="og:image"]').first().getAttribute('content');
@@ -101,7 +101,7 @@ test.describe('SEO', () => {
     for (const path of ['/dang-nhap', '/hoc']) {
       const html = await (await request.get(path)).text();
       expect(html, path).toMatch(/<meta name="robots" content="noindex/);
-      expect(html, path).toMatch(/<title>[^<]+ \| VITASR<\/title>/);
+      expect(html, path).toMatch(/<title>[^<]+ \| Đa ngôn ngữ<\/title>/);
     }
   });
 });
