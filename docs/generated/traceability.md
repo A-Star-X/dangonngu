@@ -1,6 +1,6 @@
 # Ma trận truy vết spec, code và acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-22 04:19 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-22 04:29 UTC. Không sửa tay.
 
 Tổng: 183 yêu cầu, 256 mục acceptance, 678 ghi chú @spec/@ac trong code.
 
@@ -40,7 +40,7 @@ Spec: [docs/spec/app/spec.md](../../docs/spec/app/spec.md) · Acceptance: [docs/
 | APP-14 | Đường dẫn | APP-AC22, APP-AC24 | - | src/lib/route-memory.ts:1<br>src/views/chi-tiet-unit/index.tsx:2 | tests/e2e/dot5-dieu-huong.spec.ts:53 |
 | APP-15 | Ngôn ngữ giao diện | S8-AC15, APP-AC27, APP-AC28, APP-AC30 | - | src/app/[locale]/layout.tsx:1<br>src/components/layout/locale-switcher.tsx:2<br>src/i18n/navigation.ts:1<br>src/i18n/request.ts:1<br>src/i18n/routing.ts:1<br>src/lib/language-name.ts:1<br>src/proxy.ts:1<br>src/views/cai-dat/index.tsx:2<br>scripts/check-messages.mjs:1 | tests/e2e/dot6-web.spec.ts:30<br>tests/e2e/dot6-web.spec.ts:57<br>tests/unit/s8.test.tsx:250<br>tests/unit/shell.test.tsx:193<br>tests/unit/static-checks.test.ts:113 |
 | APP-16 | SEO | APP-AC29 | - | src/app/[locale]/(workspace)/layout.tsx:1<br>src/app/[locale]/layout.tsx:1<br>src/app/apple-icon.tsx:1<br>src/app/icon.tsx:1<br>src/app/opengraph-image.tsx:1<br>src/app/robots.ts:1<br>src/app/sitemap.ts:1<br>src/lib/page.tsx:1<br>src/lib/seo.ts:1 | tests/e2e/dot6-web.spec.ts:71<br>tests/e2e/dot6-web.spec.ts:83 |
-| APP-17 | Môi trường triển khai | APP-AC31, APP-AC32 | - | src/app/robots.ts:1<br>src/lib/app-env.ts:1<br>src/lib/seo.ts:1 | tests/unit/demo.test.tsx:89 |
+| APP-17 | Môi trường triển khai | APP-AC31, APP-AC32 | - | src/app/robots.ts:1<br>src/lib/app-env.ts:1<br>src/lib/seo.ts:1 | tests/unit/demo.test.tsx:93 |
 
 ## FND Nền tảng thiết kế
 
@@ -147,7 +147,7 @@ Spec: [docs/spec/C5-khung-app/spec.md](../../docs/spec/C5-khung-app/spec.md) · 
 | C5-05 | Header | C5-AC01, C5-AC05 | - | - | - |
 | C5-06 | Vùng nội dung | C5-AC01 | - | - | - |
 | C5-07 | Chân thanh bên | C5-AC06, APP-AC19 | docs/new/navigation.md:60 | src/components/layout/home-link.tsx:2 | tests/unit/shell.test.tsx:136 |
-| C5-08 | Logo đơn vị đồng hành | C5-AC07, C5-AC08, C5-AC09 | - | src/components/layout/app-shell.tsx:2<br>src/components/layout/partner-logos.tsx:1<br>src/components/layout/public-footer.tsx:1<br>src/components/layout/public-header.tsx:2 | tests/unit/demo.test.tsx:105<br>tests/unit/shell.test.tsx:232 |
+| C5-08 | Logo đơn vị đồng hành | C5-AC07, C5-AC08, C5-AC09 | - | src/components/layout/app-shell.tsx:2<br>src/components/layout/partner-logos.tsx:1<br>src/components/layout/public-footer.tsx:1<br>src/components/layout/public-header.tsx:2 | tests/unit/demo.test.tsx:109<br>tests/unit/shell.test.tsx:232 |
 
 ## C6 Sheet
 
@@ -193,7 +193,7 @@ Spec: [docs/spec/AU-tai-khoan/spec.md](../../docs/spec/AU-tai-khoan/spec.md) · 
 | AU-05 | Trang cần đăng nhập | AU-AC01, AU-AC05 | docs/new/navigation.md:28<br>docs/new/navigation.md:32<br>docs/new/navigation.md:34<br>docs/new/navigation.md:38<br>docs/new/navigation.md:62 | src/app/[locale]/(workspace)/layout.tsx:1<br>src/components/layout/app-shell.tsx:2<br>src/components/layout/workspace-frame.tsx:2<br>src/hooks/use-after-auth.ts:2<br>src/providers/auth-provider.tsx:2<br>src/services/auth-services/api.ts:1<br>src/services/auth-services/type.ts:1<br>src/views/cai-dat/index.tsx:2<br>src/views/dang-ky/index.tsx:2<br>src/views/dang-nhap/index.tsx:2 | tests/e2e/dot6-web.spec.ts:130<br>tests/e2e/dot6-web.spec.ts:159<br>tests/unit/auth.test.tsx:39<br>tests/unit/auth.test.tsx:50<br>tests/unit/auth.test.tsx:150<br>tests/unit/auth.test.tsx:159 |
 | AU-06 | Chế độ trên máy | AU-AC06 | - | src/components/layout/app-shell.tsx:2<br>src/components/layout/auth-card.tsx:2<br>src/lib/supabase.ts:1<br>src/providers/auth-provider.tsx:2<br>src/services/auth-services/api-url.ts:1<br>src/services/auth-services/api.ts:1<br>src/services/auth-services/type.ts:1 | tests/e2e/dot6-web.spec.ts:129<br>tests/unit/auth.test.tsx:171<br>tests/unit/owner-auth.test.ts:66<br>tests/unit/owner-auth.test.ts:87<br>tests/unit/owner-auth.test.ts:98<br>tests/unit/owner-auth.test.ts:113 |
 | AU-07 | Nhiều người trên một máy | AU-AC07 | - | src/components/layout/workspace-frame.tsx:2<br>src/domain/owner.ts:1 | tests/unit/auth.test.tsx:191<br>tests/unit/owner-auth.test.ts:13<br>tests/unit/owner-auth.test.ts:24<br>tests/unit/owner-auth.test.ts:49 |
-| AU-08 | Bản dùng thử | AU-AC10, AU-AC11, APP-AC32 | - | src/components/layout/app-shell.tsx:2<br>src/components/layout/public-footer.tsx:1<br>src/components/layout/public-header.tsx:2<br>src/lib/app-env.ts:1<br>src/lib/supabase.ts:1<br>src/services/auth-services/api.ts:1<br>src/services/auth-services/type.ts:1<br>src/views/cai-dat/index.tsx:2<br>src/views/landing/index.tsx:1 | tests/unit/demo.test.tsx:33<br>tests/unit/demo.test.tsx:55<br>tests/unit/demo.test.tsx:64 |
+| AU-08 | Bản dùng thử | AU-AC10, AU-AC11, APP-AC32 | - | src/components/layout/app-shell.tsx:2<br>src/components/layout/public-footer.tsx:1<br>src/components/layout/public-header.tsx:2<br>src/lib/app-env.ts:1<br>src/lib/supabase.ts:1<br>src/services/auth-services/api.ts:1<br>src/services/auth-services/type.ts:1<br>src/views/cai-dat/index.tsx:2<br>src/views/landing/index.tsx:1 | tests/unit/demo.test.tsx:33<br>tests/unit/demo.test.tsx:59<br>tests/unit/demo.test.tsx:68 |
 
 ## LP Landing
 
@@ -201,7 +201,7 @@ Spec: [docs/spec/LP-landing/spec.md](../../docs/spec/LP-landing/spec.md) · Acce
 
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
-| LP-01 | Header công khai và phần mở đầu | C5-AC07, C5-AC08, LP-AC01, LP-AC03, LP-AC04 | docs/new/navigation.md:22<br>docs/new/navigation.md:24<br>docs/new/navigation.md:26<br>docs/new/navigation.md:28 | src/app/[locale]/(public)/layout.tsx:1<br>src/components/layout/brand.tsx:1<br>src/components/layout/partner-logos.tsx:1<br>src/components/layout/public-header.tsx:2<br>src/views/landing/index.tsx:1 | tests/e2e/dot6-web.spec.ts:110<br>tests/unit/demo.test.tsx:105<br>tests/unit/shell.test.tsx:232 |
+| LP-01 | Header công khai và phần mở đầu | C5-AC07, C5-AC08, LP-AC01, LP-AC03, LP-AC04 | docs/new/navigation.md:22<br>docs/new/navigation.md:24<br>docs/new/navigation.md:26<br>docs/new/navigation.md:28 | src/app/[locale]/(public)/layout.tsx:1<br>src/components/layout/brand.tsx:1<br>src/components/layout/partner-logos.tsx:1<br>src/components/layout/public-header.tsx:2<br>src/views/landing/index.tsx:1 | tests/e2e/dot6-web.spec.ts:110<br>tests/unit/demo.test.tsx:109<br>tests/unit/shell.test.tsx:232 |
 | LP-02 | Người dùng hướng tới | LP-AC03, LP-AC04 | - | src/views/landing/index.tsx:1 | - |
 | LP-03 | Số liệu thật | LP-AC02 | - | src/views/landing/index.tsx:1<br>src/views/landing/utils/content-stats.ts:1 | tests/unit/debounce-and-content.test.tsx:50<br>tests/unit/debounce-and-content.test.tsx:63 |
 | LP-04 | Tính năng và lợi ích | LP-AC03, LP-AC04 | - | src/views/landing/index.tsx:1 | - |
