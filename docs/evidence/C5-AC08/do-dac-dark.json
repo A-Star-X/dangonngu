@@ -1,10 +1,10 @@
 {
   "khu-hoc-1280": {
-    "vitasr": {
+    "logo": {
       "x": 16,
-      "y": 12,
-      "w": 32,
-      "h": 32,
+      "y": 14,
+      "w": 119,
+      "h": 28,
       "giua": 28
     },
     "doiTac": [
@@ -50,12 +50,12 @@
     "tranNgang": false
   },
   "khu-hoc-375-menu-mo": {
-    "vitasr": {
+    "logo": {
       "x": 60,
-      "y": 8,
-      "w": 32,
-      "h": 32,
-      "giua": 24
+      "y": 14,
+      "w": 119,
+      "h": 28,
+      "giua": 28
     },
     "doiTac": [
       [
@@ -100,11 +100,11 @@
     "tranNgang": false
   },
   "landing-1280": {
-    "vitasr": {
+    "logo": {
       "x": 272,
-      "y": 12,
-      "w": 32,
-      "h": 32,
+      "y": 14,
+      "w": 119,
+      "h": 28,
       "giua": 28
     },
     "doiTac": [
@@ -112,7 +112,7 @@
         {
           "alt": "A-STAR",
           "src": "/partners/a-star-trang.png",
-          "x": 414,
+          "x": 427,
           "y": 17,
           "w": 95,
           "h": 22,
@@ -121,7 +121,7 @@
         {
           "alt": "Pháp Luật & Kinh tế – Quốc tế",
           "src": "/partners/phap-luat-kinh-te-quoc-te.png",
-          "x": 532,
+          "x": 545,
           "y": 11,
           "w": 105,
           "h": 34,
@@ -132,14 +132,14 @@
     "khung": [
       [
         {
-          "x": 403,
+          "x": 416,
           "y": 10,
           "w": 117,
           "h": 36,
           "giua": 28
         },
         {
-          "x": 531,
+          "x": 544,
           "y": 10,
           "w": 107,
           "h": 36,
@@ -150,11 +150,11 @@
     "tranNgang": false
   },
   "landing-375": {
-    "vitasr": {
+    "logo": {
       "x": 16,
-      "y": 12,
-      "w": 32,
-      "h": 32,
+      "y": 14,
+      "w": 119,
+      "h": 28,
       "giua": 28
     },
     "doiTac": [

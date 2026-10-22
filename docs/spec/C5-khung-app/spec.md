@@ -2,7 +2,7 @@
 id: C5
 title: Khung khu học
 status: nháp
-version: 0.9
+version: 1.0
 depends: FND, APP
 ---
 
@@ -14,7 +14,7 @@ Khung bọc mọi trang cần đăng nhập (rule giao diện của nhóm, mục
 
 ### C5-01 Thanh bên
 
-Từ `md` (768 px): thanh bên cố định bên trái, rộng 240 px, cao hết màn, nền `sidebar`, viền phải. Hàng đầu cao 56 px có logo cao 32 px. Dưới logo là nút ngôn ngữ đang học (mở sheet Đổi ngôn ngữ, APP-06), rồi các nhóm mục: "Học tập" gồm Học, Luyện tập, Thư viện, Tiến độ (APP-01); "Tài khoản" gồm Cài đặt, Đăng xuất. Nhãn nhóm chữ hoa cỡ 12 px. Mỗi mục: icon 16 px, `px-3 py-2`, chữ 14 px, bo góc dropdown, cao tối thiểu 40 px. Danh sách mục tự cuộn dọc khi dài. Chưa chọn ngôn ngữ (APP-05) thì không hiện nhóm "Học tập".
+Từ `md` (768 px): thanh bên cố định bên trái, rộng 240 px, cao hết màn, nền `sidebar`, viền phải. Hàng đầu cao 56 px có logo chữ "Đa ngôn ngữ" (APP-18). Dưới logo là nút ngôn ngữ đang học (mở sheet Đổi ngôn ngữ, APP-06), rồi các nhóm mục: "Học tập" gồm Học, Luyện tập, Thư viện, Tiến độ (APP-01); "Tài khoản" gồm Cài đặt, Đăng xuất. Nhãn nhóm chữ hoa cỡ 12 px. Mỗi mục: icon 16 px, `px-3 py-2`, chữ 14 px, bo góc dropdown, cao tối thiểu 40 px. Danh sách mục tự cuộn dọc khi dài. Chưa chọn ngôn ngữ (APP-05) thì không hiện nhóm "Học tập".
 
 ### C5-02 Menu trượt trên màn hẹp
 
@@ -42,7 +42,7 @@ Cuối thanh bên, từ trên xuống: liên kết "Trang chủ" về Landing c�
 
 ### C5-08 Logo đơn vị đồng hành
 
-Cạnh logo VITASR có logo của hai đơn vị đồng hành, theo thứ tự: A-STAR rồi "Pháp Luật & Kinh tế – Quốc tế" (Viện Kinh tế và Pháp luật Quốc tế). Mỗi logo nằm trong một khung cùng chiều cao, viền 1 px màu `border`, bo góc 8 px, hai khung cách nhau 12 px, để hai logo khác kiểu trông đồng đều: khung A-STAR nền `card`, đệm ngang 10 px, logo ở giữa; logo Pháp Luật (có nền đỏ riêng) lấp đầy khung của nó. Khung cao 36 px ở header công khai, 32 px ở chân thanh bên và chân trang công khai (không đủ chỗ ngang); logo giữ nguyên tỉ lệ và màu gốc. Giao diện tối dùng bản chữ trắng của logo A-STAR (bản chữ đen không đọc được trên nền tối). Logo là ảnh có `alt` là tên đơn vị, không phải liên kết, không nhận focus.
+Cạnh logo "Đa ngôn ngữ" có logo của hai đơn vị đồng hành, theo thứ tự: A-STAR rồi "Pháp Luật & Kinh tế – Quốc tế" (Viện Kinh tế và Pháp luật Quốc tế). Mỗi logo nằm trong một khung cùng chiều cao, viền 1 px màu `border`, bo góc 8 px, hai khung cách nhau 12 px, để hai logo khác kiểu trông đồng đều: khung A-STAR nền `card`, đệm ngang 10 px, logo ở giữa; logo Pháp Luật (có nền đỏ riêng) lấp đầy khung của nó. Khung cao 36 px ở header công khai, 32 px ở chân thanh bên và chân trang công khai (không đủ chỗ ngang); logo giữ nguyên tỉ lệ và màu gốc. Giao diện tối dùng bản chữ trắng của logo A-STAR (bản chữ đen không đọc được trên nền tối). Logo là ảnh có `alt` là tên đơn vị, không phải liên kết, không nhận focus.
 
 - Khu học: ở chân thanh bên (C5-07), ngay dưới liên kết "Trang chủ", thẳng lề trái với dòng "Trang chủ" (mũi tên) và các dòng bên dưới. Thanh bên từ `md` và menu trượt dưới `md` là cùng một thanh, nên logo ở cùng chỗ trên mọi khổ màn. Header khu học không có logo đồng hành.
 - Trang công khai: xem LP-01.
@@ -58,3 +58,4 @@ Cạnh logo VITASR có logo của hai đơn vị đồng hành, theo thứ tự:
 - 0.7 (22/10/2026): theo người dùng: thêm C5-08 logo hai đơn vị đồng hành cạnh logo VITASR.
 - 0.8 (22/10/2026): theo người dùng (chọn phương án C trên bảng so sánh): C5-08 mỗi logo trong một khung đồng nhất, A-STAR đứng trước Pháp Luật.
 - 0.9 (22/10/2026): theo người dùng: trong khu học, logo đồng hành chuyển từ header xuống chân thanh bên, dưới "Trang chủ" (C5-07, C5-08); bản dùng thử bỏ dòng báo cuối thanh bên (AU-08).
+- 1.0 (22/10/2026): theo người dùng: logo chính là chữ "Đa ngôn ngữ" thay cho logo VITASR (APP-18, QD-12).

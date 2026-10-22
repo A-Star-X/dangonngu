@@ -2,7 +2,7 @@
 id: S1
 title: Chọn ngôn ngữ
 status: nháp
-version: 1.0
+version: 1.1
 route: "/chon-ngon-ngu"
 depends: APP, FND, DATA
 legacy: L-S1
@@ -16,7 +16,7 @@ Màn học tập trung trong khung khu học (APP-03), hiện khi tài khoản c
 
 ```
 ┌───────────────────────────┐
-│ VITASR                    │
+│ Đa ngôn ngữ               │
 │                           │
 │ Bạn muốn học              │
 │ ngôn ngữ nào?             │
@@ -106,3 +106,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 0.4 (10/10/2026): chốt không có chế độ đảo chiều ở bản này (Claude quyết định theo ủy quyền của nhóm).
 - 0.5 (18/10/2026): hai dòng ghi chú cuối danh sách gọi người học là "bạn" (theo phản hồi người dùng do nhóm chuyển); dòng ghi chú danh sách ngôn ngữ nhắc thêm Cài đặt.
 - 1.0 (21/10/2026): Đợt 6 (Next.js, rule giao diện của nhóm): S1 nằm trong khung khu học (APP-03), danh sách trong panel, tiêu đề màn theo `PageHeader`; liên kết về trang học chính chuyển xuống chân thanh bên (APP-12).
+- 1.1 (22/10/2026): sơ đồ bố cục ghi tên sản phẩm "Đa ngôn ngữ" thay cho VITASR (APP-18).

@@ -2,7 +2,7 @@
 id: APP
 title: Khung app
 status: nháp
-version: 1.3
+version: 1.4
 depends: FND, DATA, C5, C6, C7, C8, AU
 legacy: L-S0, L-S2 (header), pwa-update
 ---
@@ -111,7 +111,11 @@ Giao diện có hai ngôn ngữ: tiếng Việt (mặc định) và tiếng Anh 
 
 ### APP-16 SEO
 
-Metadata dùng chung: `metadataBase` lấy từ `NEXT_PUBLIC_SITE_URL`, tiêu đề dạng "[tên trang] | VITASR", mô tả, Open Graph, Twitter, đường dẫn chuẩn (canonical). Trang công khai Landing và Đăng ký cho index và có trong `sitemap.xml`; trang Đăng nhập và mọi trang khu học có `noindex`. `robots.txt` cho phép phần công khai, chặn phần riêng, trỏ tới sitemap. Có ảnh chia sẻ 1200 × 630, icon và apple icon.
+Metadata dùng chung: `metadataBase` lấy từ `NEXT_PUBLIC_SITE_URL`, tiêu đề dạng "[tên trang] | Đa ngôn ngữ", mô tả, Open Graph, Twitter, đường dẫn chuẩn (canonical). Trang công khai Landing và Đăng ký cho index và có trong `sitemap.xml`; trang Đăng nhập và mọi trang khu học có `noindex`. `robots.txt` cho phép phần công khai, chặn phần riêng, trỏ tới sitemap. Có ảnh chia sẻ 1200 × 630, icon và apple icon (APP-18).
+
+### APP-18 Tên sản phẩm
+
+Tên hiển thị của sản phẩm là "Đa ngôn ngữ" (QD-12), giống nhau ở mọi ngôn ngữ giao diện (APP-15). Logo là chữ "Đa ngôn ngữ" đậm, cỡ `text-lg`, màu `foreground`, không có ô biểu tượng; nằm ở đầu thanh bên (C5-01), header khu học dưới `md` (C5-05) và header công khai (LP-01). Tên này dùng trong tiêu đề trang (APP-16), ảnh chia sẻ, chân trang công khai ("© [năm] Đa ngôn ngữ"), nhãn cho trình đọc màn hình của logo và các câu nhắc tên sản phẩm. Icon trang và apple icon là chữ "Đ" trắng trên ô vuông bo góc màu `primary` (icon cần hình vuông). Không còn chữ "VITASR" ở bất kỳ chỗ nào người dùng thấy. Khóa lưu trên trình duyệt (`vitasr2.*`, DATA-06) giữ nguyên để không mất cài đặt, tiến độ và tài khoản đã lưu.
 
 ### APP-17 Môi trường triển khai
 
@@ -147,3 +151,4 @@ Các câu dưới đây do Claude quyết định ngày 10/10/2026 theo ủy quy
 - 1.1 (21/10/2026): theo rà soát code độc lập Đợt 6: APP-10 bộ nhớ đệm theo bản build, giữ bản ngay trước, dữ liệu câu lưu riêng.
 - 1.2 (21/10/2026): theo người dùng: APP-12 đổi từ liên kết về trang học chính `language.pomaskhoahocnaobo.com` thành liên kết "Trang chủ" về Landing của website, đi qua chặn rời màn; bỏ biến `NEXT_PUBLIC_HOST_URL`; chân trang công khai không còn liên kết này (LP-06).
 - 1.3 (21/10/2026): theo leader: thêm APP-17 ba môi trường production, staging, demo (QD-11).
+- 1.4 (22/10/2026): theo người dùng: thêm APP-18, tên sản phẩm đổi từ "VITASR" thành "Đa ngôn ngữ" (QD-12); APP-16 tiêu đề dạng "[tên trang] | Đa ngôn ngữ".

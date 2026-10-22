@@ -22,11 +22,11 @@ export function PublicHeader() {
     <header className="sticky top-0 z-30 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-14 w-full max-w-3xl items-center justify-between gap-3 px-4">
         <div className="flex min-w-0 items-center gap-3">
-          {/* flex để logo VITASR thẳng hàng giữa với logo đơn vị đồng hành (phần tử nội dòng bị lệch theo dòng chữ). */}
-          <Link href={PUBLIC_PATH.home} className="flex rounded-dropdown" aria-label={t('home')}>
+          {/* Logo "Đa ngôn ngữ" thẳng hàng giữa với logo đơn vị đồng hành; vùng chạm cao 40 px (FND-14). */}
+          <Link href={PUBLIC_PATH.home} className="flex min-h-10 items-center rounded-dropdown" aria-label={t('home')}>
             <Brand />
           </Link>
-          {/* C5-08: từ sm, logo đơn vị đồng hành sau logo VITASR, ngăn bằng vạch dọc; dưới sm nằm ở chân trang. */}
+          {/* C5-08: từ sm, logo đơn vị đồng hành sau logo "Đa ngôn ngữ", ngăn bằng vạch dọc; dưới sm nằm ở chân trang. */}
           <span className="hidden h-6 w-px bg-border sm:block" aria-hidden="true" />
           <PartnerLogos className="hidden sm:flex" />
         </div>
