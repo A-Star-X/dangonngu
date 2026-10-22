@@ -1,0 +1,202 @@
+{
+  "khu-hoc-1280": {
+    "vitasr": {
+      "x": 16,
+      "y": 12,
+      "w": 32,
+      "h": 32,
+      "giua": 28
+    },
+    "doiTac": [
+      [
+        {
+          "alt": "A-STAR",
+          "src": "/partners/a-star-trang.png",
+          "x": 33,
+          "y": 703,
+          "w": 77,
+          "h": 18,
+          "giua": 712
+        },
+        {
+          "alt": "Pháp Luật & Kinh tế – Quốc tế",
+          "src": "/partners/phap-luat-kinh-te-quoc-te.png",
+          "x": 132,
+          "y": 697,
+          "w": 93,
+          "h": 30,
+          "giua": 712
+        }
+      ]
+    ],
+    "khung": [
+      [
+        {
+          "x": 24,
+          "y": 696,
+          "w": 95,
+          "h": 32,
+          "giua": 712
+        },
+        {
+          "x": 131,
+          "y": 696,
+          "w": 95,
+          "h": 32,
+          "giua": 712
+        }
+      ]
+    ],
+    "tranNgang": false
+  },
+  "khu-hoc-375-menu-mo": {
+    "vitasr": {
+      "x": 60,
+      "y": 8,
+      "w": 32,
+      "h": 32,
+      "giua": 24
+    },
+    "doiTac": [
+      [
+        {
+          "alt": "A-STAR",
+          "src": "/partners/a-star-trang.png",
+          "x": 33,
+          "y": 715,
+          "w": 77,
+          "h": 18,
+          "giua": 724
+        },
+        {
+          "alt": "Pháp Luật & Kinh tế – Quốc tế",
+          "src": "/partners/phap-luat-kinh-te-quoc-te.png",
+          "x": 132,
+          "y": 709,
+          "w": 93,
+          "h": 30,
+          "giua": 724
+        }
+      ]
+    ],
+    "khung": [
+      [
+        {
+          "x": 24,
+          "y": 708,
+          "w": 95,
+          "h": 32,
+          "giua": 724
+        },
+        {
+          "x": 131,
+          "y": 708,
+          "w": 95,
+          "h": 32,
+          "giua": 724
+        }
+      ]
+    ],
+    "tranNgang": false
+  },
+  "landing-1280": {
+    "vitasr": {
+      "x": 272,
+      "y": 12,
+      "w": 32,
+      "h": 32,
+      "giua": 28
+    },
+    "doiTac": [
+      [
+        {
+          "alt": "A-STAR",
+          "src": "/partners/a-star-trang.png",
+          "x": 414,
+          "y": 17,
+          "w": 95,
+          "h": 22,
+          "giua": 28
+        },
+        {
+          "alt": "Pháp Luật & Kinh tế – Quốc tế",
+          "src": "/partners/phap-luat-kinh-te-quoc-te.png",
+          "x": 532,
+          "y": 11,
+          "w": 105,
+          "h": 34,
+          "giua": 28
+        }
+      ]
+    ],
+    "khung": [
+      [
+        {
+          "x": 403,
+          "y": 10,
+          "w": 117,
+          "h": 36,
+          "giua": 28
+        },
+        {
+          "x": 531,
+          "y": 10,
+          "w": 107,
+          "h": 36,
+          "giua": 28
+        }
+      ]
+    ],
+    "tranNgang": false
+  },
+  "landing-375": {
+    "vitasr": {
+      "x": 16,
+      "y": 12,
+      "w": 32,
+      "h": 32,
+      "giua": 28
+    },
+    "doiTac": [
+      [
+        {
+          "alt": "A-STAR",
+          "src": "/partners/a-star-trang.png",
+          "x": 25,
+          "y": 3598,
+          "w": 77,
+          "h": 18,
+          "giua": 3607
+        },
+        {
+          "alt": "Pháp Luật & Kinh tế – Quốc tế",
+          "src": "/partners/phap-luat-kinh-te-quoc-te.png",
+          "x": 124,
+          "y": 3592,
+          "w": 93,
+          "h": 30,
+          "giua": 3607
+        }
+      ]
+    ],
+    "khung": [
+      [
+        {
+          "x": 16,
+          "y": 3591,
+          "w": 95,
+          "h": 32,
+          "giua": 3607
+        },
+        {
+          "x": 123,
+          "y": 3591,
+          "w": 95,
+          "h": 32,
+          "giua": 3607
+        }
+      ]
+    ],
+    "tranNgang": false
+  }
+}

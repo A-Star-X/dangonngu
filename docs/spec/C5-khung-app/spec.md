@@ -2,7 +2,7 @@
 id: C5
 title: Khung khu học
 status: nháp
-version: 0.6
+version: 0.9
 depends: FND, APP
 ---
 
@@ -38,7 +38,14 @@ Nội dung có `pt-14` để không nằm dưới header, từ `md` thêm `pl-60
 
 ### C5-07 Chân thanh bên
 
-Cuối thanh bên: liên kết "Trang chủ" về Landing của website (APP-12), email của tài khoản đang đăng nhập, và ở chế độ trên máy (AU-06) dòng "Chế độ thử: tài khoản và tiến độ chỉ lưu trên máy này." Bản dùng thử: AU-08.
+Cuối thanh bên, từ trên xuống: liên kết "Trang chủ" về Landing của website (APP-12), logo đơn vị đồng hành (C5-08), email của tài khoản đang đăng nhập, và ở chế độ trên máy (AU-06) dòng "Chế độ thử: tài khoản và tiến độ chỉ lưu trên máy này." Bản dùng thử: AU-08.
+
+### C5-08 Logo đơn vị đồng hành
+
+Cạnh logo VITASR có logo của hai đơn vị đồng hành, theo thứ tự: A-STAR rồi "Pháp Luật & Kinh tế – Quốc tế" (Viện Kinh tế và Pháp luật Quốc tế). Mỗi logo nằm trong một khung cùng chiều cao, viền 1 px màu `border`, bo góc 8 px, hai khung cách nhau 12 px, để hai logo khác kiểu trông đồng đều: khung A-STAR nền `card`, đệm ngang 10 px, logo ở giữa; logo Pháp Luật (có nền đỏ riêng) lấp đầy khung của nó. Khung cao 36 px ở header công khai, 32 px ở chân thanh bên và chân trang công khai (không đủ chỗ ngang); logo giữ nguyên tỉ lệ và màu gốc. Giao diện tối dùng bản chữ trắng của logo A-STAR (bản chữ đen không đọc được trên nền tối). Logo là ảnh có `alt` là tên đơn vị, không phải liên kết, không nhận focus.
+
+- Khu học: ở chân thanh bên (C5-07), ngay dưới liên kết "Trang chủ", thẳng lề trái với dòng "Trang chủ" (mũi tên) và các dòng bên dưới. Thanh bên từ `md` và menu trượt dưới `md` là cùng một thanh, nên logo ở cùng chỗ trên mọi khổ màn. Header khu học không có logo đồng hành.
+- Trang công khai: xem LP-01.
 
 ## Lịch sử thay đổi
 
@@ -48,3 +55,6 @@ Cuối thanh bên: liên kết "Trang chủ" về Landing của website (APP-12)
 - 0.4 (21/10/2026): theo rà soát code độc lập Đợt 6: C5-02 header và nội dung `inert` khi menu trượt mở.
 - 0.5 (21/10/2026): theo người dùng: C5-07 liên kết cuối thanh bên là "Trang chủ" về Landing, không còn về trang học chính (APP-12).
 - 0.6 (21/10/2026): theo leader: chân thanh bên của bản dùng thử theo AU-08.
+- 0.7 (22/10/2026): theo người dùng: thêm C5-08 logo hai đơn vị đồng hành cạnh logo VITASR.
+- 0.8 (22/10/2026): theo người dùng (chọn phương án C trên bảng so sánh): C5-08 mỗi logo trong một khung đồng nhất, A-STAR đứng trước Pháp Luật.
+- 0.9 (22/10/2026): theo người dùng: trong khu học, logo đồng hành chuyển từ header xuống chân thanh bên, dưới "Trang chủ" (C5-07, C5-08); bản dùng thử bỏ dòng báo cuối thanh bên (AU-08).

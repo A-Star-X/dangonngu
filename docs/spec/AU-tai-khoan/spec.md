@@ -2,7 +2,7 @@
 id: AU
 title: Tài khoản (đăng ký, đăng nhập)
 status: nháp
-version: 0.3
+version: 0.4
 depends: FND, APP, DATA
 ---
 
@@ -47,10 +47,11 @@ Bản build cho môi trường demo (`NEXT_PUBLIC_APP_ENV=demo`, APP-17) là b�
 - Không có đăng nhập, đăng ký, đăng xuất. Mở khu học là vào ngay, không chuyển sang `/dang-nhap` (thay AU-05); mở `/dang-nhap` hoặc `/dang-ky` thì chuyển (thay route) vào `/hoc`.
 - Không dùng Supabase kể cả khi bản build có cấu hình: không gọi dịch vụ tài khoản, không đồng bộ (DATA-14). Cài đặt và tiến độ lưu trên trình duyệt như AU-06.
 - Landing giữ đủ các phần (LP), trừ: "Bắt đầu học" và nút ở lời mời cuối trang (chữ "Bắt đầu học", nút viền) trỏ tới `/hoc`; không có dòng "Đã có tài khoản? Đăng nhập"; bước đầu tiên (LP-05) là "Chọn ngôn ngữ"; câu ở lời mời cuối trang là "Chọn ngôn ngữ và học nhóm câu đầu tiên, không cần tài khoản.". Header công khai có nút "Vào học" như khi đã đăng nhập (LP-01). Chân trang không có liên kết Đăng nhập, Đăng ký (LP-06).
-- Thanh bên (C5-07) không có email, không có "Đăng xuất"; dòng báo cuối thanh bên là "Bản dùng thử: không cần tài khoản, tiến độ chỉ lưu trên máy này.". Cài đặt không có nhóm "Tài khoản" (S8-08).
+- Thanh bên (C5-07) không có email, không có "Đăng xuất", không có dòng báo chế độ; chân thanh bên chỉ có "Trang chủ" và logo đơn vị đồng hành (C5-08). Cài đặt không có nhóm "Tài khoản" (S8-08).
 
 ## Lịch sử thay đổi
 
 - 0.1 (21/10/2026): bản đầu (Đợt 6, việc 5; QD-06, QD-07).
 - 0.2 (21/10/2026): theo rà soát code độc lập Đợt 6: AU-05 `tiep` chỉ nhận route của khu học, đăng xuất về `/dang-nhap` không kèm `tiep`; AU-06 băm mật khẩu PBKDF2 có muối.
 - 0.3 (21/10/2026): theo leader: thêm AU-08 bản dùng thử không cần đăng nhập cho môi trường demo (APP-17, QD-11).
+- 0.4 (22/10/2026): theo người dùng: AU-08 bỏ dòng "Bản dùng thử: ..." ở chân thanh bên; chỗ đó là logo đơn vị đồng hành (C5-08).

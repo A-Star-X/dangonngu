@@ -1,5 +1,5 @@
 'use client';
-// @spec LP-01, AU-01, AU-08
+// @spec LP-01, AU-01, AU-08, C5-08
 // Header của trang công khai: logo trái, hành động phải, viền dưới (rule giao diện: trang không có sidebar).
 import { useTranslations } from 'next-intl';
 import { buttonClass } from '@/components/ui/button-class';
@@ -8,6 +8,7 @@ import { useAuth } from '@/providers/auth-provider';
 import { PUBLIC_PATH, ROUTE_PATH } from '@/lib/routes';
 import { isDemo } from '@/lib/app-env';
 import { Brand } from './brand';
+import { PartnerLogos } from './partner-logos';
 import { LocaleSwitcher } from './locale-switcher';
 import { ThemeToggle } from './theme-toggle';
 
@@ -20,9 +21,15 @@ export function PublicHeader() {
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-14 w-full max-w-3xl items-center justify-between gap-3 px-4">
-        <Link href={PUBLIC_PATH.home} className="rounded-dropdown" aria-label={t('home')}>
-          <Brand />
-        </Link>
+        <div className="flex min-w-0 items-center gap-3">
+          {/* flex để logo VITASR thẳng hàng giữa với logo đơn vị đồng hành (phần tử nội dòng bị lệch theo dòng chữ). */}
+          <Link href={PUBLIC_PATH.home} className="flex rounded-dropdown" aria-label={t('home')}>
+            <Brand />
+          </Link>
+          {/* C5-08: từ sm, logo đơn vị đồng hành sau logo VITASR, ngăn bằng vạch dọc; dưới sm nằm ở chân trang. */}
+          <span className="hidden h-6 w-px bg-border sm:block" aria-hidden="true" />
+          <PartnerLogos className="hidden sm:flex" />
+        </div>
         <div className="flex items-center gap-2">
           <LocaleSwitcher />
           <ThemeToggle />

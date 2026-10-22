@@ -1,4 +1,4 @@
-// Bản dùng thử (AU-08) và môi trường build (APP-17): đổi NEXT_PUBLIC_APP_ENV bằng vi.stubEnv.
+// Bản dùng thử (AU-08), môi trường build (APP-17) và logo đơn vị đồng hành ở trang công khai (C5-08): vẽ header, Landing, chân trang công khai.
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { render, screen, waitFor, within } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
@@ -47,7 +47,11 @@ describe('AU-08 Bản dùng thử', () => {
     expect(within(sidebar()).queryByTestId('sign-out')).toBeNull();
     expect(within(sidebar()).queryByTestId('user-email')).toBeNull();
     expect(within(sidebar()).queryByTestId('local-mode')).toBeNull();
-    expect(within(sidebar()).getByTestId('demo-mode')).toHaveTextContent('Bản dùng thử: không cần tài khoản, tiến độ chỉ lưu trên máy này.');
+    expect(within(sidebar()).queryByText(/Bản dùng thử/)).toBeNull();
+    // Chân thanh bên chỉ có Trang chủ và logo đơn vị đồng hành (C5-08).
+    const homeLink = within(sidebar()).getByRole('link', { name: 'Trang chủ' });
+    expect(homeLink.nextElementSibling).toHaveAttribute('data-testid', 'partner-logos');
+    expect(homeLink.parentElement!.children).toHaveLength(2);
     expect(document.getElementById('s8-tai-khoan')).toBeNull();
     expect(screen.queryByRole('button', { name: 'Đăng xuất' })).toBeNull();
   });
@@ -98,5 +102,30 @@ describe('APP-17 Môi trường', () => {
     expect(rules[0].allow).toEqual(['/', '/dang-ky']);
     expect(rules[0].disallow).toContain('/dang-nhap');
     expect(pageMetadata({ title: 'Trang chủ', path: '/', index: true }).robots).toEqual({ index: true, follow: true });
+  });
+});
+
+describe('C5-08 Logo đơn vị đồng hành ở trang công khai', () => {
+  // @ac C5-AC07
+  it('header (từ sm) và chân trang (dưới sm) có logo đúng thứ tự (A-STAR trước), mỗi logo trong một khung, không trong liên kết', async () => {
+    const footer = await PublicFooter();
+    render(
+      <NextIntlClientProvider locale="vi" messages={MESSAGES.vi} timeZone="Asia/Ho_Chi_Minh">
+        <AppProviders queryClient={makeQueryClient()} authApi={demoAuthApi()}>
+          <PublicHeader />
+          {footer}
+        </AppProviders>
+      </NextIntlClientProvider>,
+    );
+    const [inHeader, inFooter] = screen.getAllByTestId('partner-logos');
+    expect(inHeader.closest('header')).not.toBeNull();
+    expect(inHeader).toHaveClass('hidden', 'sm:flex');
+    expect(inFooter.closest('footer')).not.toBeNull();
+    expect(inFooter).toHaveClass('sm:hidden');
+    for (const g of [inHeader, inFooter]) {
+      expect([...g.querySelectorAll('img')].map((i) => i.getAttribute('alt'))).toEqual(['A-STAR', 'A-STAR', 'Pháp Luật & Kinh tế – Quốc tế']);
+      expect(g.querySelectorAll('[data-testid="partner-frame"]')).toHaveLength(2);
+      expect(g.querySelector('a img')).toBeNull();
+    }
   });
 });

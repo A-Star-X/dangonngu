@@ -1,5 +1,5 @@
 'use client';
-// @spec APP-01, APP-02, APP-06, APP-12, C5-01, C5-02, C5-03, C5-04, AU-05, AU-06, AU-08
+// @spec APP-01, APP-02, APP-06, APP-12, C5-01, C5-02, C5-03, C5-04, AU-05, AU-06, AU-08, C5-08
 // Khung khu học (rule giao diện "Layout workspace"): header cố định 56 px, thanh bên cố định 240 px từ md,
 // dưới md thanh bên là menu trượt có lớp phủ. Nội dung rộng tối đa 1024 px, px 16, py 24, các khối cách 16 px.
 import { useEffect, useRef, useState, type ReactNode } from 'react';
@@ -18,6 +18,7 @@ import { useAuth } from '@/providers/auth-provider';
 import { useLearning } from '@/providers/learning-provider';
 import { Brand } from './brand';
 import { HomeLink } from './home-link';
+import { PartnerLogos } from './partner-logos';
 import { languageButtonClass, useLanguageSheet } from './language-sheet';
 import { LocaleSwitcher } from './locale-switcher';
 import { ThemeToggle } from './theme-toggle';
@@ -150,6 +151,8 @@ function Sidebar({ open, onClose, desktop }: { open: boolean; onClose: () => voi
       </nav>
       <div className="flex flex-none flex-col gap-1 border-t border-sidebar-border px-3 py-3">
         <HomeLink onClick={onClose} />
+        {/* C5-08: logo đơn vị đồng hành ngay dưới "Trang chủ", thẳng lề với dòng đó; cùng chỗ ở thanh bên và menu trượt. */}
+        <PartnerLogos size="sm" className="px-3 pb-1" />
         {user && mode !== 'demo' && (
           <p className="truncate px-3 text-xs text-muted-foreground" title={user.email} data-testid="user-email">
             {user.email}
@@ -158,11 +161,6 @@ function Sidebar({ open, onClose, desktop }: { open: boolean; onClose: () => voi
         {mode === 'local' && (
           <p className="px-3 text-xs text-muted-foreground" data-testid="local-mode">
             {t('localMode')}
-          </p>
-        )}
-        {mode === 'demo' && (
-          <p className="px-3 text-xs text-muted-foreground" data-testid="demo-mode">
-            {t('demoMode')}
           </p>
         )}
       </div>
