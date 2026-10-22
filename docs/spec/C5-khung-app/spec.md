@@ -2,7 +2,7 @@
 id: C5
 title: Khung khu học
 status: nháp
-version: 0.6
+version: 0.7
 depends: FND, APP
 ---
 
@@ -40,6 +40,14 @@ Nội dung có `pt-14` để không nằm dưới header, từ `md` thêm `pl-60
 
 Cuối thanh bên: liên kết "Trang chủ" về Landing của website (APP-12), email của tài khoản đang đăng nhập, và ở chế độ trên máy (AU-06) dòng "Chế độ thử: tài khoản và tiến độ chỉ lưu trên máy này." Bản dùng thử: AU-08.
 
+### C5-08 Logo đơn vị đồng hành
+
+Cạnh logo VITASR có logo của hai đơn vị đồng hành, theo thứ tự: "Pháp Luật & Kinh tế – Quốc tế" (Viện Kinh tế và Pháp luật Quốc tế) rồi A-STAR. Hai logo cùng chiều cao, cách nhau 12 px, giữ nguyên tỉ lệ và màu gốc, không cao hơn logo VITASR (logo chính của app): cao 32 px ở header (bằng ô logo VITASR, để chữ trong logo còn đọc được), 24 px trong menu trượt và chân trang (không đủ chỗ ngang). Giao diện tối dùng bản chữ trắng của logo A-STAR (bản chữ đen không đọc được trên nền tối). Logo là ảnh có `alt` là tên đơn vị, không phải liên kết, không nhận focus.
+
+- Từ `md`: đầu bên trái header khu học, ngay bên phải thanh bên, cùng hàng với logo VITASR ở đầu thanh bên; viền thanh bên là vạch ngăn.
+- Dưới `md` header không đủ chỗ: logo nằm trong menu trượt, ngay dưới hàng logo VITASR.
+- Trang công khai: xem LP-01.
+
 ## Lịch sử thay đổi
 
 - 0.1 (07/10/2026): bản đầu.
@@ -48,3 +56,4 @@ Cuối thanh bên: liên kết "Trang chủ" về Landing của website (APP-12)
 - 0.4 (21/10/2026): theo rà soát code độc lập Đợt 6: C5-02 header và nội dung `inert` khi menu trượt mở.
 - 0.5 (21/10/2026): theo người dùng: C5-07 liên kết cuối thanh bên là "Trang chủ" về Landing, không còn về trang học chính (APP-12).
 - 0.6 (21/10/2026): theo leader: chân thanh bên của bản dùng thử theo AU-08.
+- 0.7 (22/10/2026): theo người dùng: thêm C5-08 logo hai đơn vị đồng hành cạnh logo VITASR.
