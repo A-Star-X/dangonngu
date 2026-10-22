@@ -10,21 +10,39 @@
     "doiTac": [
       [
         {
-          "alt": "Pháp Luật & Kinh tế – Quốc tế",
-          "src": "/partners/phap-luat-kinh-te-quoc-te.png",
-          "x": 256,
-          "y": 12,
-          "w": 99,
-          "h": 32,
+          "alt": "A-STAR",
+          "src": "/partners/a-star.png",
+          "x": 267,
+          "y": 17,
+          "w": 95,
+          "h": 22,
           "giua": 28
         },
         {
-          "alt": "A-STAR",
-          "src": "/partners/a-star.png",
-          "x": 367,
-          "y": 12,
-          "w": 138,
-          "h": 32,
+          "alt": "Pháp Luật & Kinh tế – Quốc tế",
+          "src": "/partners/phap-luat-kinh-te-quoc-te.png",
+          "x": 386,
+          "y": 11,
+          "w": 105,
+          "h": 34,
+          "giua": 28
+        }
+      ]
+    ],
+    "khung": [
+      [
+        {
+          "x": 256,
+          "y": 10,
+          "w": 117,
+          "h": 36,
+          "giua": 28
+        },
+        {
+          "x": 385,
+          "y": 10,
+          "w": 107,
+          "h": 36,
           "giua": 28
         }
       ]
@@ -42,22 +60,40 @@
     "doiTac": [
       [
         {
-          "alt": "Pháp Luật & Kinh tế – Quốc tế",
-          "src": "/partners/phap-luat-kinh-te-quoc-te.png",
-          "x": 16,
-          "y": 56,
-          "w": 74,
-          "h": 24,
-          "giua": 68
-        },
-        {
           "alt": "A-STAR",
           "src": "/partners/a-star.png",
-          "x": 102,
+          "x": 25,
+          "y": 63,
+          "w": 77,
+          "h": 18,
+          "giua": 72
+        },
+        {
+          "alt": "Pháp Luật & Kinh tế – Quốc tế",
+          "src": "/partners/phap-luat-kinh-te-quoc-te.png",
+          "x": 124,
+          "y": 57,
+          "w": 93,
+          "h": 30,
+          "giua": 72
+        }
+      ]
+    ],
+    "khung": [
+      [
+        {
+          "x": 16,
           "y": 56,
-          "w": 103,
-          "h": 24,
-          "giua": 68
+          "w": 95,
+          "h": 32,
+          "giua": 72
+        },
+        {
+          "x": 123,
+          "y": 56,
+          "w": 95,
+          "h": 32,
+          "giua": 72
         }
       ]
     ],
@@ -74,21 +110,39 @@
     "doiTac": [
       [
         {
-          "alt": "Pháp Luật & Kinh tế – Quốc tế",
-          "src": "/partners/phap-luat-kinh-te-quoc-te.png",
-          "x": 403,
-          "y": 12,
-          "w": 99,
-          "h": 32,
+          "alt": "A-STAR",
+          "src": "/partners/a-star.png",
+          "x": 414,
+          "y": 17,
+          "w": 95,
+          "h": 22,
           "giua": 28
         },
         {
-          "alt": "A-STAR",
-          "src": "/partners/a-star.png",
-          "x": 514,
-          "y": 12,
-          "w": 138,
-          "h": 32,
+          "alt": "Pháp Luật & Kinh tế – Quốc tế",
+          "src": "/partners/phap-luat-kinh-te-quoc-te.png",
+          "x": 532,
+          "y": 11,
+          "w": 105,
+          "h": 34,
+          "giua": 28
+        }
+      ]
+    ],
+    "khung": [
+      [
+        {
+          "x": 403,
+          "y": 10,
+          "w": 117,
+          "h": 36,
+          "giua": 28
+        },
+        {
+          "x": 531,
+          "y": 10,
+          "w": 107,
+          "h": 36,
           "giua": 28
         }
       ]
@@ -106,22 +160,40 @@
     "doiTac": [
       [
         {
-          "alt": "Pháp Luật & Kinh tế – Quốc tế",
-          "src": "/partners/phap-luat-kinh-te-quoc-te.png",
-          "x": 16,
-          "y": 3591,
-          "w": 74,
-          "h": 24,
-          "giua": 3603
-        },
-        {
           "alt": "A-STAR",
           "src": "/partners/a-star.png",
-          "x": 102,
+          "x": 25,
+          "y": 3598,
+          "w": 77,
+          "h": 18,
+          "giua": 3607
+        },
+        {
+          "alt": "Pháp Luật & Kinh tế – Quốc tế",
+          "src": "/partners/phap-luat-kinh-te-quoc-te.png",
+          "x": 124,
+          "y": 3592,
+          "w": 93,
+          "h": 30,
+          "giua": 3607
+        }
+      ]
+    ],
+    "khung": [
+      [
+        {
+          "x": 16,
           "y": 3591,
-          "w": 103,
-          "h": 24,
-          "giua": 3603
+          "w": 95,
+          "h": 32,
+          "giua": 3607
+        },
+        {
+          "x": 123,
+          "y": 3591,
+          "w": 95,
+          "h": 32,
+          "giua": 3607
         }
       ]
     ],

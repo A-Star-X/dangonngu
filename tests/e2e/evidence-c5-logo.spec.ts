@@ -20,9 +20,11 @@ const measure = (page: Page) =>
     const visible = (e: Element) => (e as HTMLElement).offsetParent !== null && e.getBoundingClientRect().width > 0;
     const logo = [...document.querySelectorAll('svg')].find((s) => s.closest('a[aria-label]') && visible(s)) ?? null;
     const groups = [...document.querySelectorAll('[data-testid="partner-logos"]')].filter(visible);
+    const khung = groups.map((g) => [...g.querySelectorAll('[data-testid="partner-frame"]')].map((f) => box(f)));
     return {
       vitasr: box(logo),
       doiTac: groups.map((g) => [...g.querySelectorAll('img')].filter(visible).map((i) => ({ alt: i.getAttribute('alt'), src: i.getAttribute('src')?.replace(/.*url=([^&]+).*/, (_, u) => decodeURIComponent(u)), ...box(i) }))),
+      khung,
       tranNgang: document.documentElement.scrollWidth > window.innerWidth,
     };
   });

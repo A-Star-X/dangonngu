@@ -209,16 +209,24 @@ describe('APP Khung app: thanh bên', () => {
 });
 
 describe('C5-08 Logo đơn vị đồng hành', () => {
-  const ALTS = ['Pháp Luật & Kinh tế – Quốc tế', 'A-STAR', 'A-STAR'];
-  /** Ảnh logo trong từng nhóm: đúng thứ tự, không nằm trong liên kết; A-STAR có bản thường (ẩn khi tối) và bản chữ trắng (chỉ hiện khi tối). */
+  const ALTS = ['A-STAR', 'A-STAR', 'Pháp Luật & Kinh tế – Quốc tế'];
+  /**
+   * Ảnh logo trong từng nhóm: A-STAR trước, mỗi logo trong một khung, không nằm trong liên kết;
+   * A-STAR có bản thường (ẩn khi tối) và bản chữ trắng (chỉ hiện khi tối).
+   */
   function check(group: HTMLElement) {
     const imgs = [...group.querySelectorAll('img')];
     expect(imgs.map((i) => i.getAttribute('alt'))).toEqual(ALTS);
     for (const i of imgs) expect(i.closest('a')).toBeNull();
-    expect(decodeURIComponent(imgs[1].getAttribute('src')!)).toContain('/partners/a-star.png');
-    expect(imgs[1]).toHaveClass('dark:hidden');
-    expect(decodeURIComponent(imgs[2].getAttribute('src')!)).toContain('/partners/a-star-trang.png');
-    expect(imgs[2]).toHaveClass('hidden', 'dark:block');
+    const frames = [...group.querySelectorAll('[data-testid="partner-frame"]')];
+    expect(frames).toHaveLength(2);
+    expect(frames[0]).toContainElement(imgs[0]);
+    expect(frames[1]).toContainElement(imgs[2]);
+    for (const f of frames) expect(f).toHaveClass('rounded-card', 'border', 'border-border');
+    expect(decodeURIComponent(imgs[0].getAttribute('src')!)).toContain('/partners/a-star.png');
+    expect(imgs[0]).toHaveClass('dark:hidden');
+    expect(decodeURIComponent(imgs[1].getAttribute('src')!)).toContain('/partners/a-star-trang.png');
+    expect(imgs[1]).toHaveClass('hidden', 'dark:block');
   }
 
   // @ac C5-AC07

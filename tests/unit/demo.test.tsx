@@ -103,7 +103,7 @@ describe('APP-17 Môi trường', () => {
 
 describe('C5-08 Logo đơn vị đồng hành ở trang công khai', () => {
   // @ac C5-AC07
-  it('header (từ sm) và chân trang (dưới sm) có logo đúng thứ tự, không trong liên kết', async () => {
+  it('header (từ sm) và chân trang (dưới sm) có logo đúng thứ tự (A-STAR trước), mỗi logo trong một khung, không trong liên kết', async () => {
     const footer = await PublicFooter();
     render(
       <NextIntlClientProvider locale="vi" messages={MESSAGES.vi} timeZone="Asia/Ho_Chi_Minh">
@@ -119,7 +119,8 @@ describe('C5-08 Logo đơn vị đồng hành ở trang công khai', () => {
     expect(inFooter.closest('footer')).not.toBeNull();
     expect(inFooter).toHaveClass('sm:hidden');
     for (const g of [inHeader, inFooter]) {
-      expect([...g.querySelectorAll('img')].map((i) => i.getAttribute('alt'))).toEqual(['Pháp Luật & Kinh tế – Quốc tế', 'A-STAR', 'A-STAR']);
+      expect([...g.querySelectorAll('img')].map((i) => i.getAttribute('alt'))).toEqual(['A-STAR', 'A-STAR', 'Pháp Luật & Kinh tế – Quốc tế']);
+      expect(g.querySelectorAll('[data-testid="partner-frame"]')).toHaveLength(2);
       expect(g.querySelector('a img')).toBeNull();
     }
   });
