@@ -66,7 +66,6 @@
     "signOut": "Đăng xuất",
     "homeLink": "Trang chủ",
     "localMode": "Chế độ thử: tài khoản và tiến độ chỉ lưu trên máy này.",
-    "demoMode": "Bản dùng thử: không cần tài khoản, tiến độ chỉ lưu trên máy này.",
     "toDark": "Chuyển sang giao diện tối",
     "toLight": "Chuyển sang giao diện sáng"
   },
@@ -528,5 +527,9 @@
     "finalBody": "Tạo tài khoản, chọn ngôn ngữ và học nhóm câu đầu tiên.",
     "demoChoose": "Chọn ngôn ngữ",
     "demoFinalBody": "Chọn ngôn ngữ và học nhóm câu đầu tiên, không cần tài khoản."
+  },
+  "partners": {
+    "phapLuat": "Pháp Luật & Kinh tế – Quốc tế",
+    "aStar": "A-STAR"
   }
 }

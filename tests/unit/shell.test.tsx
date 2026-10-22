@@ -207,3 +207,40 @@ describe('APP Khung app: thanh bên', () => {
     expect(navItem('hoc')).toHaveTextContent('Learn');
   });
 });
+
+describe('C5-08 Logo đơn vị đồng hành', () => {
+  const ALTS = ['A-STAR', 'A-STAR', 'Pháp Luật & Kinh tế – Quốc tế'];
+  /**
+   * Ảnh logo trong từng nhóm: A-STAR trước, mỗi logo trong một khung, không nằm trong liên kết;
+   * A-STAR có bản thường (ẩn khi tối) và bản chữ trắng (chỉ hiện khi tối).
+   */
+  function check(group: HTMLElement) {
+    const imgs = [...group.querySelectorAll('img')];
+    expect(imgs.map((i) => i.getAttribute('alt'))).toEqual(ALTS);
+    for (const i of imgs) expect(i.closest('a')).toBeNull();
+    const frames = [...group.querySelectorAll('[data-testid="partner-frame"]')];
+    expect(frames).toHaveLength(2);
+    expect(frames[0]).toContainElement(imgs[0]);
+    expect(frames[1]).toContainElement(imgs[2]);
+    for (const f of frames) expect(f).toHaveClass('rounded-card', 'border', 'border-border');
+    expect(decodeURIComponent(imgs[0].getAttribute('src')!)).toContain('/partners/a-star.png');
+    expect(imgs[0]).toHaveClass('dark:hidden');
+    expect(decodeURIComponent(imgs[1].getAttribute('src')!)).toContain('/partners/a-star-trang.png');
+    expect(imgs[1]).toHaveClass('hidden', 'dark:block');
+  }
+
+  // @ac C5-AC07
+  it('khung khu học: logo ở chân thanh bên, ngay dưới Trang chủ; header không có logo', async () => {
+    await renderApp('/hoc', { seed: settingsSeed() });
+    const groups = screen.getAllByTestId('partner-logos');
+    expect(groups).toHaveLength(1);
+    const [inSidebar] = groups;
+    expect(sidebar()).toContainElement(inSidebar);
+    expect(document.querySelector('header [data-testid="partner-logos"]')).toBeNull();
+    // Hiện ở mọi khổ (không ẩn theo md), ngay sau "Trang chủ", trước email.
+    expect(inSidebar.className).not.toMatch(/hidden/);
+    expect(inSidebar.previousElementSibling).toBe(within(sidebar()).getByRole('link', { name: 'Trang chủ' }));
+    expect(inSidebar.nextElementSibling).toBe(within(sidebar()).getByTestId('user-email'));
+    check(inSidebar);
+  });
+});
