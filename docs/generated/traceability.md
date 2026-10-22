@@ -1,6 +1,6 @@
 # Ma trận truy vết spec, code và acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-22 03:43 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-22 04:19 UTC. Không sửa tay.
 
 Tổng: 183 yêu cầu, 256 mục acceptance, 678 ghi chú @spec/@ac trong code.
 
@@ -147,7 +147,7 @@ Spec: [docs/spec/C5-khung-app/spec.md](../../docs/spec/C5-khung-app/spec.md) · 
 | C5-05 | Header | C5-AC01, C5-AC05 | - | - | - |
 | C5-06 | Vùng nội dung | C5-AC01 | - | - | - |
 | C5-07 | Chân thanh bên | C5-AC06, APP-AC19 | docs/new/navigation.md:60 | src/components/layout/home-link.tsx:2 | tests/unit/shell.test.tsx:136 |
-| C5-08 | Logo đơn vị đồng hành | C5-AC07, C5-AC08, C5-AC09 | - | src/components/layout/app-shell.tsx:2<br>src/components/layout/partner-logos.tsx:1<br>src/components/layout/public-footer.tsx:1<br>src/components/layout/public-header.tsx:2 | tests/unit/demo.test.tsx:105<br>tests/unit/shell.test.tsx:224 |
+| C5-08 | Logo đơn vị đồng hành | C5-AC07, C5-AC08, C5-AC09 | - | src/components/layout/app-shell.tsx:2<br>src/components/layout/partner-logos.tsx:1<br>src/components/layout/public-footer.tsx:1<br>src/components/layout/public-header.tsx:2 | tests/unit/demo.test.tsx:105<br>tests/unit/shell.test.tsx:232 |
 
 ## C6 Sheet
 
@@ -201,7 +201,7 @@ Spec: [docs/spec/LP-landing/spec.md](../../docs/spec/LP-landing/spec.md) · Acce
 
 | Yêu cầu | Tên | Acceptance | Sơ đồ | Code (@spec) | Test (@ac) |
 |---|---|---|---|---|---|
-| LP-01 | Header công khai và phần mở đầu | C5-AC07, C5-AC08, LP-AC01, LP-AC03, LP-AC04 | docs/new/navigation.md:22<br>docs/new/navigation.md:24<br>docs/new/navigation.md:26<br>docs/new/navigation.md:28 | src/app/[locale]/(public)/layout.tsx:1<br>src/components/layout/brand.tsx:1<br>src/components/layout/partner-logos.tsx:1<br>src/components/layout/public-header.tsx:2<br>src/views/landing/index.tsx:1 | tests/e2e/dot6-web.spec.ts:110<br>tests/unit/demo.test.tsx:105<br>tests/unit/shell.test.tsx:224 |
+| LP-01 | Header công khai và phần mở đầu | C5-AC07, C5-AC08, LP-AC01, LP-AC03, LP-AC04 | docs/new/navigation.md:22<br>docs/new/navigation.md:24<br>docs/new/navigation.md:26<br>docs/new/navigation.md:28 | src/app/[locale]/(public)/layout.tsx:1<br>src/components/layout/brand.tsx:1<br>src/components/layout/partner-logos.tsx:1<br>src/components/layout/public-header.tsx:2<br>src/views/landing/index.tsx:1 | tests/e2e/dot6-web.spec.ts:110<br>tests/unit/demo.test.tsx:105<br>tests/unit/shell.test.tsx:232 |
 | LP-02 | Người dùng hướng tới | LP-AC03, LP-AC04 | - | src/views/landing/index.tsx:1 | - |
 | LP-03 | Số liệu thật | LP-AC02 | - | src/views/landing/index.tsx:1<br>src/views/landing/utils/content-stats.ts:1 | tests/unit/debounce-and-content.test.tsx:50<br>tests/unit/debounce-and-content.test.tsx:63 |
 | LP-04 | Tính năng và lợi ích | LP-AC03, LP-AC04 | - | src/views/landing/index.tsx:1 | - |
