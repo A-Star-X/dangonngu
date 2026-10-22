@@ -1,10 +1,10 @@
 # Ma trận truy vết spec, code và acceptance
 
-File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-22 04:29 UTC. Không sửa tay.
+File sinh tự động bởi `node scripts/spec.mjs trace` lúc 2026-10-22 09:47 UTC. Không sửa tay.
 
-Tổng: 183 yêu cầu, 256 mục acceptance, 678 ghi chú @spec/@ac trong code.
+Tổng: 184 yêu cầu, 258 mục acceptance, 687 ghi chú @spec/@ac trong code.
 
-Yêu cầu chưa có code gắn @spec: 15/183.
+Yêu cầu chưa có code gắn @spec: 15/184.
 
 ## G Tổng quan giao diện bản mới
 
@@ -40,6 +40,7 @@ Spec: [docs/spec/app/spec.md](../../docs/spec/app/spec.md) · Acceptance: [docs/
 | APP-14 | Đường dẫn | APP-AC22, APP-AC24 | - | src/lib/route-memory.ts:1<br>src/views/chi-tiet-unit/index.tsx:2 | tests/e2e/dot5-dieu-huong.spec.ts:53 |
 | APP-15 | Ngôn ngữ giao diện | S8-AC15, APP-AC27, APP-AC28, APP-AC30 | - | src/app/[locale]/layout.tsx:1<br>src/components/layout/locale-switcher.tsx:2<br>src/i18n/navigation.ts:1<br>src/i18n/request.ts:1<br>src/i18n/routing.ts:1<br>src/lib/language-name.ts:1<br>src/proxy.ts:1<br>src/views/cai-dat/index.tsx:2<br>scripts/check-messages.mjs:1 | tests/e2e/dot6-web.spec.ts:30<br>tests/e2e/dot6-web.spec.ts:57<br>tests/unit/s8.test.tsx:250<br>tests/unit/shell.test.tsx:193<br>tests/unit/static-checks.test.ts:113 |
 | APP-16 | SEO | APP-AC29 | - | src/app/[locale]/(workspace)/layout.tsx:1<br>src/app/[locale]/layout.tsx:1<br>src/app/apple-icon.tsx:1<br>src/app/icon.tsx:1<br>src/app/opengraph-image.tsx:1<br>src/app/robots.ts:1<br>src/app/sitemap.ts:1<br>src/lib/page.tsx:1<br>src/lib/seo.ts:1 | tests/e2e/dot6-web.spec.ts:71<br>tests/e2e/dot6-web.spec.ts:83 |
+| APP-18 | Tên sản phẩm | APP-AC33, APP-AC34 | - | src/app/apple-icon.tsx:1<br>src/app/icon.tsx:1<br>src/app/not-found.tsx:1<br>src/app/opengraph-image.tsx:1<br>src/components/layout/brand.tsx:1<br>src/lib/seo.ts:1 | tests/unit/brand.test.tsx:18<br>tests/unit/brand.test.tsx:28<br>tests/unit/brand.test.tsx:35 |
 | APP-17 | Môi trường triển khai | APP-AC31, APP-AC32 | - | src/app/robots.ts:1<br>src/lib/app-env.ts:1<br>src/lib/seo.ts:1 | tests/unit/demo.test.tsx:93 |
 
 ## FND Nền tảng thiết kế
