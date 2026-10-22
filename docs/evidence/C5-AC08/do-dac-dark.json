@@ -12,38 +12,38 @@
         {
           "alt": "A-STAR",
           "src": "/partners/a-star-trang.png",
-          "x": 267,
-          "y": 17,
-          "w": 95,
-          "h": 22,
-          "giua": 28
+          "x": 33,
+          "y": 703,
+          "w": 77,
+          "h": 18,
+          "giua": 712
         },
         {
           "alt": "Pháp Luật & Kinh tế – Quốc tế",
           "src": "/partners/phap-luat-kinh-te-quoc-te.png",
-          "x": 386,
-          "y": 11,
-          "w": 105,
-          "h": 34,
-          "giua": 28
+          "x": 132,
+          "y": 697,
+          "w": 93,
+          "h": 30,
+          "giua": 712
         }
       ]
     ],
     "khung": [
       [
         {
-          "x": 256,
-          "y": 10,
-          "w": 117,
-          "h": 36,
-          "giua": 28
+          "x": 24,
+          "y": 696,
+          "w": 95,
+          "h": 32,
+          "giua": 712
         },
         {
-          "x": 385,
-          "y": 10,
-          "w": 107,
-          "h": 36,
-          "giua": 28
+          "x": 131,
+          "y": 696,
+          "w": 95,
+          "h": 32,
+          "giua": 712
         }
       ]
     ],
@@ -62,38 +62,38 @@
         {
           "alt": "A-STAR",
           "src": "/partners/a-star-trang.png",
-          "x": 25,
-          "y": 63,
+          "x": 33,
+          "y": 715,
           "w": 77,
           "h": 18,
-          "giua": 72
+          "giua": 724
         },
         {
           "alt": "Pháp Luật & Kinh tế – Quốc tế",
           "src": "/partners/phap-luat-kinh-te-quoc-te.png",
-          "x": 124,
-          "y": 57,
+          "x": 132,
+          "y": 709,
           "w": 93,
           "h": 30,
-          "giua": 72
+          "giua": 724
         }
       ]
     ],
     "khung": [
       [
         {
-          "x": 16,
-          "y": 56,
+          "x": 24,
+          "y": 708,
           "w": 95,
           "h": 32,
-          "giua": 72
+          "giua": 724
         },
         {
-          "x": 123,
-          "y": 56,
+          "x": 131,
+          "y": 708,
           "w": 95,
           "h": 32,
-          "giua": 72
+          "giua": 724
         }
       ]
     ],

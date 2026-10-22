@@ -1,5 +1,6 @@
 // Ảnh và số đo bằng chứng cho C5-AC08 (logo đơn vị đồng hành, C5-08, LP-01).
 // Không phải test nghiệm thu; chỉ chạy khi EVIDENCE=1:  npm run evidence  (cần build trước).
+// Ảnh bản dùng thử (AU-08) chỉ chụp khi DEMO_SHOT=1, trên bản build có NEXT_PUBLIC_APP_ENV=demo.
 import { expect, test, type Page } from '@playwright/test';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { animationsDone, go, seed, settings } from './helpers';
@@ -40,6 +41,7 @@ async function shot(page: Page, name: string, full = false) {
 
 for (const theme of ['light', 'dark'] as const) {
   test(`C5-08 logo ${theme}`, async ({ page }) => {
+    test.skip(Boolean(process.env.DEMO_SHOT), 'Bản build demo: chỉ chụp ảnh bản dùng thử');
     mkdirSync(OUT, { recursive: true });
     await seed(page, { 'vitasr2.theme': theme, 'vitasr2.settings': settings() });
     const out: Record<string, unknown> = {};
@@ -53,7 +55,6 @@ for (const theme of ['light', 'dark'] as const) {
     await page.setViewportSize({ width: 375, height: 812 });
     await go(page, '/hoc');
     await expect(page.getByTestId('sentence-card')).toBeVisible();
-    await shot(page, `375-${theme}-khu-hoc-menu-dong`);
     await page.getByTestId('menu-button').click();
     await expect(page.locator('#app-sidebar [data-testid="partner-logos"]')).toBeVisible();
     await shot(page, `375-${theme}-khu-hoc-menu-mo`);
@@ -68,5 +69,25 @@ for (const theme of ['light', 'dark'] as const) {
       out[`landing-${w}`] = await measure(page);
     }
     writeFileSync(`${OUT}/do-dac-${theme}.json`, JSON.stringify(out, null, 2) + '\n');
+  });
+}
+
+// Bản dùng thử: chân thanh bên chỉ có "Trang chủ" và logo, không có dòng báo chế độ (AU-08, C5-08).
+for (const theme of ['light', 'dark'] as const) {
+  test(`C5-08 logo bản dùng thử ${theme}`, async ({ page }) => {
+    test.skip(!process.env.DEMO_SHOT, 'Chỉ chạy khi DEMO_SHOT=1 trên bản build demo');
+    mkdirSync(OUT, { recursive: true });
+    await seed(page, { 'vitasr2.theme': theme, 'vitasr2.settings': settings() }, { signedIn: false });
+    const out: Record<string, unknown> = {};
+    for (const w of [1280, 375]) {
+      await page.setViewportSize({ width: w, height: w < 768 ? 812 : 800 });
+      await go(page, '/hoc');
+      await expect(page.getByTestId('sentence-card')).toBeVisible();
+      if (w < 768) await page.getByTestId('menu-button').click();
+      await expect(page.locator('#app-sidebar [data-testid="partner-logos"]')).toBeVisible();
+      await shot(page, `${w}-${theme}-demo-khu-hoc`);
+      out[`demo-${w}`] = { ...(await measure(page)), chanThanhBen: await page.locator('#app-sidebar > div').last().innerText() };
+    }
+    writeFileSync(`${OUT}/do-dac-demo-${theme}.json`, JSON.stringify(out, null, 2) + '\n');
   });
 }

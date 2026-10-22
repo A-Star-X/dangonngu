@@ -47,7 +47,11 @@ describe('AU-08 Bản dùng thử', () => {
     expect(within(sidebar()).queryByTestId('sign-out')).toBeNull();
     expect(within(sidebar()).queryByTestId('user-email')).toBeNull();
     expect(within(sidebar()).queryByTestId('local-mode')).toBeNull();
-    expect(within(sidebar()).getByTestId('demo-mode')).toHaveTextContent('Bản dùng thử: không cần tài khoản, tiến độ chỉ lưu trên máy này.');
+    expect(within(sidebar()).queryByText(/Bản dùng thử/)).toBeNull();
+    // Chân thanh bên chỉ có Trang chủ và logo đơn vị đồng hành (C5-08).
+    const homeLink = within(sidebar()).getByRole('link', { name: 'Trang chủ' });
+    expect(homeLink.nextElementSibling).toHaveAttribute('data-testid', 'partner-logos');
+    expect(homeLink.parentElement!.children).toHaveLength(2);
     expect(document.getElementById('s8-tai-khoan')).toBeNull();
     expect(screen.queryByRole('button', { name: 'Đăng xuất' })).toBeNull();
   });

@@ -230,14 +230,17 @@ describe('C5-08 Logo đơn vị đồng hành', () => {
   }
 
   // @ac C5-AC07
-  it('khung khu học: logo ở header (từ md) và trong menu trượt (dưới md)', async () => {
+  it('khung khu học: logo ở chân thanh bên, ngay dưới Trang chủ; header không có logo', async () => {
     await renderApp('/hoc', { seed: settingsSeed() });
     const groups = screen.getAllByTestId('partner-logos');
-    expect(groups).toHaveLength(2);
-    const [inSidebar, inHeader] = [groups.find((g) => sidebar().contains(g))!, groups.find((g) => g.closest('header'))!];
-    check(inHeader);
-    expect(inHeader).toHaveClass('hidden', 'md:flex');
+    expect(groups).toHaveLength(1);
+    const [inSidebar] = groups;
+    expect(sidebar()).toContainElement(inSidebar);
+    expect(document.querySelector('header [data-testid="partner-logos"]')).toBeNull();
+    // Hiện ở mọi khổ (không ẩn theo md), ngay sau "Trang chủ", trước email.
+    expect(inSidebar.className).not.toMatch(/hidden/);
+    expect(inSidebar.previousElementSibling).toBe(within(sidebar()).getByRole('link', { name: 'Trang chủ' }));
+    expect(inSidebar.nextElementSibling).toBe(within(sidebar()).getByTestId('user-email'));
     check(inSidebar);
-    expect(inSidebar).toHaveClass('md:hidden');
   });
 });

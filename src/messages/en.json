@@ -66,7 +66,6 @@
     "signOut": "Sign out",
     "homeLink": "Home",
     "localMode": "Trial mode: your account and progress are stored on this device only.",
-    "demoMode": "Trial version: no account needed, progress is saved on this device only.",
     "toDark": "Switch to dark theme",
     "toLight": "Switch to light theme"
   },

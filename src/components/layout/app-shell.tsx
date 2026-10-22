@@ -79,8 +79,6 @@ function Sidebar({ open, onClose, desktop }: { open: boolean; onClose: () => voi
           <X className="size-5" aria-hidden />
         </button>
       </div>
-      {/* C5-08: dưới md header không đủ chỗ, logo đơn vị đồng hành nằm trong menu trượt, dưới logo VITASR. */}
-      <PartnerLogos size="sm" className="px-4 pb-3 md:hidden" />
       <nav className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto px-3 pb-3" aria-label={t('navLabel')} data-guide="nav">
         <div className="px-1 pt-1">
           <p className="px-2 pb-1 text-xs font-semibold tracking-wider text-muted-foreground uppercase">{t('learning')}</p>
@@ -153,6 +151,8 @@ function Sidebar({ open, onClose, desktop }: { open: boolean; onClose: () => voi
       </nav>
       <div className="flex flex-none flex-col gap-1 border-t border-sidebar-border px-3 py-3">
         <HomeLink onClick={onClose} />
+        {/* C5-08: logo đơn vị đồng hành ngay dưới "Trang chủ", thẳng lề với dòng đó; cùng chỗ ở thanh bên và menu trượt. */}
+        <PartnerLogos size="sm" className="px-3 pb-1" />
         {user && mode !== 'demo' && (
           <p className="truncate px-3 text-xs text-muted-foreground" title={user.email} data-testid="user-email">
             {user.email}
@@ -161,11 +161,6 @@ function Sidebar({ open, onClose, desktop }: { open: boolean; onClose: () => voi
         {mode === 'local' && (
           <p className="px-3 text-xs text-muted-foreground" data-testid="local-mode">
             {t('localMode')}
-          </p>
-        )}
-        {mode === 'demo' && (
-          <p className="px-3 text-xs text-muted-foreground" data-testid="demo-mode">
-            {t('demoMode')}
           </p>
         )}
       </div>
@@ -218,8 +213,6 @@ export function AppShell({ children }: { children: ReactNode }) {
           <AppLink href={href('hoc')} className="rounded-dropdown md:hidden" aria-label={t('home')}>
             <Brand />
           </AppLink>
-          {/* C5-08: từ md, ngay bên phải thanh bên, cùng hàng với logo VITASR ở đầu thanh bên. */}
-          <PartnerLogos className="hidden md:flex" />
         </div>
         <div className="flex items-center gap-2">
           <LocaleSwitcher />
