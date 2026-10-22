@@ -123,7 +123,7 @@ Ba môi trường (QD-11), mỗi môi trường một địa chỉ:
 | staging | project chính | `staging` (Settings > Domains: thêm địa chỉ, gắn với nhánh `staging`) | Preview, chọn riêng nhánh `staging`: `NEXT_PUBLIC_APP_ENV=staging`, hai biến Supabase |
 | demo | project thứ hai cùng repo | `main` | Production: `NEXT_PUBLIC_APP_ENV=demo`; không đặt biến Supabase |
 
-Việc mới mở PR vào `staging`, kiểm trên địa chỉ staging, rồi mở PR từ `staging` vào `main`. Merge vào `main` thì production và demo cùng lên bản mới.
+Việc mới mở PR vào `staging`, kiểm trên bản xem trước rồi trên staging, rồi mở PR từ `staging` vào `main`. Merge vào `main` thì production và demo cùng lên bản mới. Các bước chi tiết (tạo nhánh, kiểm, merge, phát hành, lui bản): `docs/QUY-TRINH.md` mục 8.
 
 ## Trạng thái hiện tại (21/10/2026)
 

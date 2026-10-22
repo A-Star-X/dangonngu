@@ -1,7 +1,7 @@
 # Acceptance: C1 Thẻ câu
 
 - [x] C1-AC01 [claude] C1-01: Ảnh chụp thẻ có và không có dải 8 ô, ở 320 px và 375 px, sáng và tối: thứ tự khối đúng như bố cục; font nghĩa và câu gốc đúng vai trò.
-  - Bằng chứng: ảnh docs/evidence/C1-AC01/ (thẻ ở 320 và 375 px, sáng và tối, có và không có dải 8 ô): thứ tự dải 8 ô và "Câu 1/8", nghĩa, câu gốc, Cách dùng, hàng Nghe và Nghe lặp; nghĩa Literata, câu gốc Lexend; người kiểm độc lập xem từng ảnh, Claude, 2026-10-21, commit d720f7d
+  - Bằng chứng: ảnh docs/evidence/C1-AC01/ chụp lại sau C1-10 (thẻ T1 có dải 8 ô và thẻ S3 không có dải, 320 và 375 px, sáng và tối): thứ tự dải 8 ô và "Câu 1/8", nghĩa, câu gốc, Cách dùng, hàng "Nghe", "Nghe chậm", "Nghe lặp" ("Nghe lặp" xuống dòng ở màn hẹp); nghĩa Literata, câu gốc Lexend; Claude xem từng ảnh, 2026-10-21, nhánh feature/doc-nhanh-doc-cham (cùng commit với thay đổi)
 - [x] C1-AC02 [auto] C1-02: Ở chế độ che, nút Nghe bị disabled; chạm khối che, rồi lặp lại bằng phím Space và Enter khi thẻ có focus: câu gốc hiện và sự kiện "đã hiện" phát đúng một lần.
   - Bằng chứng: test tests/unit/components.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] C1-AC03 [auto] C1-03: Sau khi hiện, không phần tử nào trong thẻ khiến câu gốc bị che lại.
@@ -19,8 +19,15 @@
   - Bằng chứng: test tests/unit/ra-soat.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
 - [x] C1-AC10 [auto] C1-02: Thẻ che có focus, nhấn Space: câu gốc hiện và focus nằm ở câu gốc vừa hiện, không về `body`.
   - Bằng chứng: test tests/unit/ra-soat.test.tsx pass trên bản Next.js (npm test), Claude, 2026-10-21, commit d720f7d
-- [x] C1-AC11 [auto] C1-09: Với `speechSynthesis` giả báo `boundary` loại `word` ở vị trí chữ "table" của câu "I'd like to book a table for two.": câu gốc có đúng một `mark` chứa "table", nội dung chữ của câu gốc không đổi; báo vị trí chữ tiếp theo thì `mark` chuyển sang chữ đó; đọc xong, bấm "Dừng" hoặc giữa hai lượt Nghe lặp thì không còn `mark`; giả không báo `boundary` thì không có `mark`; câu có `furigana` không có `mark`.
-  - Bằng chứng: test tests/unit/components.test.tsx pass (npm test), Claude, 2026-10-21, commit f8b1cff
+- [x] C1-AC11 [auto] C1-09: Với `speechSynthesis` giả báo `boundary` loại `word` ở vị trí chữ "table" của câu "I'd like to book a table for two.": câu gốc có đúng một `mark` chứa "table", nội dung chữ của câu gốc không đổi; báo vị trí chữ tiếp theo thì `mark` chuyển sang chữ đó; đọc xong, bấm "Dừng" hoặc giữa hai lượt Nghe lặp thì không còn `mark`; câu có `furigana` không có `mark`.
+  - Bằng chứng: test tests/unit/components.test.tsx pass (npm test), Claude, 2026-10-21, commit 35b40d9
 - [x] C1-AC12 [claude] C1-09: Ảnh chụp thẻ đang tô một chữ ở 375 px và 1280 px, sáng và tối: chữ tô đọc rõ, các chữ còn lại không xê dịch so với lúc không tô.
   - Bằng chứng: ảnh và số đo docs/evidence/C1-AC12/ (thẻ T1 đang tô chữ "is" của "Where is room twelve?", 375 và 1280 px, sáng và tối): nền `sidebar-accent`, gạch chân `primary` 2 px, chữ giữ cỡ 32 px và độ đậm 400; khung câu gốc không đổi kích thước, các ký tự lệch tối đa 0,1 px (làm tròn khi tách chuỗi); Claude xem từng ảnh, 2026-10-21, commit f8b1cff
-- [ ] C1-AC13 [human] C1-09: Trên Chrome, Edge và Safari thật, giọng tiếng Anh có sẵn trên máy: bấm Nghe thì chữ được tô chạy theo giọng đọc; với giọng không báo vị trí thì vẫn đọc bình thường.
+- [ ] C1-AC13 [human] C1-09: Trên Chrome, Edge và Safari thật, giọng tiếng Anh "Tự động": bấm Nghe thì chữ được tô chạy theo giọng đọc (Safari và giọng trên máy khớp từng chữ; giọng Google trên Chrome gần đúng, lệch không quá khoảng một chữ sau lần đọc đầu).
+- [x] C1-AC14 [auto] C1-09: Với `speechSynthesis` giả không báo `boundary`: sau khi giọng bắt đầu phát, `mark` đi lần lượt qua các chữ của câu theo đúng thứ tự, chữ dài giữ lâu hơn chữ ngắn, tốc độ 2x thì xong nhanh gấp đôi; đọc xong không còn `mark`; đọc hết một lượt dài hơn ước lượng thì lượt sau ước lượng dài hơn; trong lúc ước lượng mà trình duyệt báo `boundary` thật thì `mark` theo vị trí thật.
+  - Bằng chứng: test tests/unit/speech.test.ts pass (npm test), Claude, 2026-10-21, commit 35b40d9
+- [x] C1-AC15 [auto] C1-10: Với `speechSynthesis` giả: bấm "Nghe chậm" với câu "I'd like to book a table for two.": `speak` được gọi lần lượt với "I'd", "like", …, "two" (mỗi chữ chỉ sau khi chữ trước đọc xong và nghỉ 0,4 giây); `mark` luôn là chữ vừa đọc; nút thành "Dừng"; đọc xong chữ cuối thì không còn `mark` và nút về "Nghe chậm"; bấm "Dừng" giữa chừng thì không đọc chữ tiếp; bấm "Nghe" khi đang đọc chậm thì chỉ còn lượt đọc cả câu.
+  - Bằng chứng: test tests/unit/components.test.tsx pass (npm test), Claude, 2026-10-21, nhánh feature/doc-nhanh-doc-cham (cùng commit với thay đổi)
+- [x] C1-AC16 [claude] C1-01, C1-10: Ảnh chụp thẻ đang "Nghe chậm" ở 320 px, 375 px và 1280 px, sáng và tối: hàng có "Dừng", "Nghe lặp" (và "Nghe" khi không đọc), không tràn ngang, vùng chạm mỗi nút cao từ 44 px, chữ đang đọc được tô.
+  - Bằng chứng: ảnh và số đo docs/evidence/C1-AC16/ (thẻ T1 đang Nghe chậm chữ "Where", 320, 375 và 1280 px, sáng và tối): hàng "Nghe", "Dừng", "Nghe lặp", ở 320 và 375 px "Nghe lặp" xuống dòng, ở 1280 px cùng một hàng; không tràn ngang; mỗi nút cao 44 px; chữ đang đọc được tô nền và gạch chân; Claude xem từng ảnh, 2026-10-21, nhánh feature/doc-nhanh-doc-cham (cùng commit với thay đổi)
+- [ ] C1-AC17 [human] C1-10: Trên Chrome (giọng Google), Safari và điện thoại thật: "Nghe chậm" đọc rõ từng chữ, nghỉ đều, chữ được tô đúng chữ đang đọc; người học thấy dễ theo hơn "Nghe".

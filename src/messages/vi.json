@@ -118,6 +118,7 @@
     "reveal": "Nhấn để hiện câu gốc",
     "usage": "Cách dùng: {note}",
     "listen": "Nghe",
+    "listenSlow": "Nghe chậm",
     "listenLoop": "Nghe lặp",
     "stop": "Dừng",
     "noVoice": "Thiết bị chưa có giọng {lang}. Mở <link>Cài đặt > Giọng đọc</link>."
