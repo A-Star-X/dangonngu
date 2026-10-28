@@ -12,8 +12,9 @@ import { cn } from '@/lib/utils';
 export function AuthCard({ title, description, children, footer }: { title: string; description: string; children: ReactNode; footer: ReactNode }) {
   const t = useTranslations('auth');
   const { mode } = useAuth();
+  // Khung trang công khai rộng khoảng 1152 px (LP-01); khối Đăng nhập, Đăng ký giữ khoảng 768 px giữa trang.
   return (
-    <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-2 md:gap-10">
+    <div className="mx-auto grid w-full max-w-3xl grid-cols-1 items-start gap-6 md:grid-cols-2 md:gap-10">
       <section className="flex flex-col gap-4 rounded-card bg-muted p-6 max-md:order-2">
         <h2 className="text-description font-medium">{t('asideTitle')}</h2>
         <ul className="flex flex-col gap-3">
