@@ -2,7 +2,7 @@
 id: LP
 title: Landing
 status: nháp
-version: 0.6
+version: 0.7
 depends: FND, APP
 ---
 
@@ -14,7 +14,7 @@ Việc 4 của danh sách cải thiện: trang giới thiệu cho khách (route 
 
 ### LP-01 Header công khai và phần mở đầu
 
-Header công khai: logo trái; phải là chọn ngôn ngữ giao diện, nút sáng tối, và "Đăng nhập" ở mọi khổ màn (đang ở trang Đăng nhập thì là "Đăng ký"; đã đăng nhập thì "Vào học", nút viền); viền dưới. Nội dung rộng tối đa khoảng 768 px, `px-4 py-6`. Phần mở đầu có tiêu đề chính (`h1`), một đoạn nói rõ sản phẩm là gì và học như thế nào, hai lời mời "Bắt đầu học" (tới `/dang-ky`, nút chính duy nhất của trang, FND-02) và "Khám phá các bộ câu" (tới `/thu-vien`, chưa đăng nhập thì qua đăng nhập theo AU-05), dòng "Đã có tài khoản? Đăng nhập", và ảnh chụp màn Học thật (bản sáng hoặc tối theo giao diện). Logo đơn vị đồng hành (C5-08): từ `sm` nằm sau logo "Đa ngôn ngữ" (APP-18) trong header, ngăn bằng một vạch dọc màu `border` cao 24 px; dưới `sm` header không đủ chỗ nên logo nằm ở chân trang (LP-06), trên dòng bản quyền.
+Header công khai: logo trái; phải là chọn ngôn ngữ giao diện, nút sáng tối, và "Đăng nhập" ở mọi khổ màn (đang ở trang Đăng nhập thì là "Đăng ký"; đã đăng nhập thì "Vào học", nút viền); viền dưới. Header, nội dung và chân trang cùng rộng tối đa khoảng 1152 px (`max-w-6xl`), `px-4 py-6`, để trên màn máy tính 1920 px trang không chỉ là một cột hẹp giữa hai vùng trống. Phần mở đầu có tiêu đề chính (`h1`), một đoạn nói rõ sản phẩm là gì và học như thế nào, hai lời mời "Bắt đầu học" (tới `/dang-ky`, nút chính duy nhất của trang, FND-02) và "Khám phá các bộ câu" (tới `/thu-vien`, chưa đăng nhập thì qua đăng nhập theo AU-05), dòng "Đã có tài khoản? Đăng nhập", và ảnh chụp màn Học thật (bản sáng hoặc tối theo giao diện). Từ `lg` phần mở đầu chia hai cột: chữ và lời mời bên trái (khoảng 5/12), ảnh chụp bên phải (khoảng 7/12); dưới `lg` ảnh nằm dưới chữ. Đoạn chữ không trải hết chiều rộng để dòng không quá dài. Logo đơn vị đồng hành (C5-08): từ `sm` nằm sau logo "Đa ngôn ngữ" (APP-18) trong header, ngăn bằng một vạch dọc màu `border` cao 24 px; dưới `sm` header không đủ chỗ nên logo nằm ở chân trang (LP-06), trên dòng bản quyền.
 
 ### LP-02 Người dùng hướng tới
 
@@ -38,7 +38,7 @@ Cuối trang có khối lời mời với nút "Tạo tài khoản". Chân trang
 
 ### LP-07 Bố cục theo khổ màn hình
 
-Một cột trên mobile; các nhóm thẻ (dành cho ai, số liệu, tính năng, ba bước) chia cột từ `sm` hoặc `md`. Không cuộn ngang ở 375 px; ở 1280 px không có khối nhỏ đứng một mình giữa vùng trắng.
+Một cột trên mobile; các nhóm thẻ (dành cho ai, số liệu, tính năng, ba bước) chia cột từ `sm` hoặc `md`. Không cuộn ngang ở 375 px; ở 1280 px và 1920 px không có khối nhỏ đứng một mình giữa vùng trắng, nội dung chiếm phần lớn chiều ngang thay vì một cột hẹp.
 
 ## Lịch sử thay đổi
 
@@ -48,3 +48,4 @@ Một cột trên mobile; các nhóm thẻ (dành cho ai, số liệu, tính nă
 - 0.4 (21/10/2026): theo leader: Landing của bản dùng thử theo AU-08.
 - 0.5 (22/10/2026): theo người dùng: LP-01 logo đơn vị đồng hành trong header công khai (C5-08).
 - 0.6 (22/10/2026): theo người dùng: LP-01 logo là chữ "Đa ngôn ngữ" (APP-18).
+- 0.7 (28/10/2026): theo người dùng (góp ý của leader: trang quá hẹp trên máy tính): LP-01 trang công khai rộng tối đa khoảng 1152 px thay cho 768 px, phần mở đầu hai cột từ `lg`; LP-07 thêm mốc 1920 px. Trang Đăng nhập, Đăng ký giữ khối rộng khoảng 768 px giữa trang (AU-01).
