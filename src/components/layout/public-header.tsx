@@ -20,7 +20,7 @@ export function PublicHeader() {
   const authLink = path === PUBLIC_PATH.login ? { href: PUBLIC_PATH.register, label: t('register') } : { href: PUBLIC_PATH.login, label: t('login') };
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-background/90 backdrop-blur">
-      <div className="mx-auto flex h-14 w-full max-w-3xl items-center justify-between gap-3 px-4">
+      <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between gap-3 px-4">
         <div className="flex min-w-0 items-center gap-3">
           {/* Logo "Đa ngôn ngữ" thẳng hàng giữa với logo đơn vị đồng hành; vùng chạm cao 40 px (FND-14). */}
           <Link href={PUBLIC_PATH.home} className="flex min-h-10 items-center rounded-dropdown" aria-label={t('home')}>
