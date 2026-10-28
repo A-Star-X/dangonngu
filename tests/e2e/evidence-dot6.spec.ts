@@ -1366,7 +1366,7 @@ for (const theme of THEMES) {
     test.setTimeout(120000);
     await seed(page, { 'vitasr2.theme': theme }, { signedIn: false });
     const out: Record<string, unknown> = {};
-    for (const w of [375, 1280]) {
+    for (const w of [375, 1280, 1920]) {
       await view(page, w);
       await go(page, '/');
       await expect(page.getByTestId('lp-start')).toBeVisible();
