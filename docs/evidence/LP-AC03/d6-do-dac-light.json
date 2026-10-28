@@ -46,48 +46,58 @@
         "src": "http://localhost:4173/_next/image",
         "daTai": true,
         "w": 341
+      },
+      {
+        "src": "http://localhost:4173/_next/image",
+        "daTai": true,
+        "w": 77
+      },
+      {
+        "src": "http://localhost:4173/_next/image",
+        "daTai": true,
+        "w": 93
       }
     ],
     "soNgonNgu": "15"
   },
   "1280": {
     "cuonNgang": false,
-    "rongNoiDung": 768,
+    "rongNoiDung": 1152,
     "phan": [
       {
         "tieuDe": "Học câu giao tiếp dùng được ngay, bằng nghĩa tiếng Việt",
-        "x": 272,
-        "w": 736,
-        "h": 809
+        "x": 80,
+        "w": 1120,
+        "h": 399
       },
       {
         "tieuDe": "Dành cho ai",
-        "x": 272,
-        "w": 736,
-        "h": 208
+        "x": 80,
+        "w": 1120,
+        "h": 142
       },
       {
         "tieuDe": "Nội dung có sẵn",
-        "x": 272,
-        "w": 736,
-        "h": 220
+        "x": 80,
+        "w": 1120,
+        "h": 180
       },
       {
         "tieuDe": "Bạn học như thế nào",
-        "x": 272,
-        "w": 736,
-        "h": 392
+        "x": 80,
+        "w": 1120,
+        "h": 292
       },
       {
         "tieuDe": "Bắt đầu trong ba bước",
-        "x": 272,
-        "w": 736,
-        "h": 230
+        "x": 80,
+        "w": 1120,
+        "h": 184
       },
       {
         "tieuDe": "Học 8 câu đầu tiên ngay hôm nay",
-        "x": 272,
-        "w": 736,
+        "x": 80,
+        "w": 1120,
         "h": 96
       }
     ],
@@ -96,7 +106,78 @@
       {
         "src": "http://localhost:4173/_next/image",
         "daTai": true,
-        "w": 734
+        "w": 95
+      },
+      {
+        "src": "http://localhost:4173/_next/image",
+        "daTai": true,
+        "w": 105
+      },
+      {
+        "src": "http://localhost:4173/_next/image",
+        "daTai": true,
+        "w": 635
+      }
+    ],
+    "soNgonNgu": "15"
+  },
+  "1920": {
+    "cuonNgang": false,
+    "rongNoiDung": 1152,
+    "phan": [
+      {
+        "tieuDe": "Học câu giao tiếp dùng được ngay, bằng nghĩa tiếng Việt",
+        "x": 400,
+        "w": 1120,
+        "h": 399
+      },
+      {
+        "tieuDe": "Dành cho ai",
+        "x": 400,
+        "w": 1120,
+        "h": 142
+      },
+      {
+        "tieuDe": "Nội dung có sẵn",
+        "x": 400,
+        "w": 1120,
+        "h": 180
+      },
+      {
+        "tieuDe": "Bạn học như thế nào",
+        "x": 400,
+        "w": 1120,
+        "h": 292
+      },
+      {
+        "tieuDe": "Bắt đầu trong ba bước",
+        "x": 400,
+        "w": 1120,
+        "h": 184
+      },
+      {
+        "tieuDe": "Học 8 câu đầu tiên ngay hôm nay",
+        "x": 400,
+        "w": 1120,
+        "h": 96
+      }
+    ],
+    "coChuDoiTac": false,
+    "anh": [
+      {
+        "src": "http://localhost:4173/_next/image",
+        "daTai": true,
+        "w": 95
+      },
+      {
+        "src": "http://localhost:4173/_next/image",
+        "daTai": true,
+        "w": 105
+      },
+      {
+        "src": "http://localhost:4173/_next/image",
+        "daTai": true,
+        "w": 635
       }
     ],
     "soNgonNgu": "15"
