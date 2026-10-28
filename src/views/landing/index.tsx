@@ -39,8 +39,9 @@ export async function LandingView() {
   return (
     <div className="flex flex-col gap-16 pb-16">
       {/* LP-01: phần mở đầu và lời mời chính */}
-      <section className="flex flex-col gap-8" aria-labelledby="lp-title">
-        <div className="flex flex-col gap-5 md:max-w-2xl">
+      {/* LP-01: từ lg chia hai cột, chữ bên trái, ảnh chụp bên phải; đoạn chữ giữ dòng ngắn để dễ đọc. */}
+      <section className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center lg:gap-10" aria-labelledby="lp-title">
+        <div className="flex flex-col gap-5 md:max-w-2xl lg:col-span-5">
           <p className="text-label text-muted-foreground">{t('eyebrow')}</p>
           <h1 id="lp-title" className="text-2xl font-bold text-foreground">
             {t('title')}
@@ -60,9 +61,9 @@ export async function LandingView() {
             </p>
           )}
         </div>
-        <div className="overflow-hidden rounded-card border border-border bg-card shadow-dialog">
-          <Image src={`/landing/hoc-${shotLocale}light.png`} alt={t('shotAlt')} width={1280} height={800} priority className="h-auto w-full dark:hidden" sizes="(min-width: 800px) 736px, 100vw" />
-          <Image src={`/landing/hoc-${shotLocale}dark.png`} alt={t('shotAlt')} width={1280} height={800} className="hidden h-auto w-full dark:block" sizes="(min-width: 800px) 736px, 100vw" />
+        <div className="overflow-hidden rounded-card border border-border bg-card shadow-dialog lg:col-span-7">
+          <Image src={`/landing/hoc-${shotLocale}light.png`} alt={t('shotAlt')} width={1280} height={800} priority className="h-auto w-full dark:hidden" sizes="(min-width: 1024px) 640px, (min-width: 800px) 736px, 100vw" />
+          <Image src={`/landing/hoc-${shotLocale}dark.png`} alt={t('shotAlt')} width={1280} height={800} className="hidden h-auto w-full dark:block" sizes="(min-width: 1024px) 640px, (min-width: 800px) 736px, 100vw" />
         </div>
       </section>
 
